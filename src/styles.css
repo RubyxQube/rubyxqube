@@ -395,85 +395,141 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
   color: rgba(15,23,42,0.45);
 }
 
-/* -----------------------------
-   Mobile polish
-------------------------------*/
+/* =========================
+   Mobile: clean + intentional
+========================= */
 @media (max-width: 720px){
 
-  .container{
-    padding: 16px;
-  }
-  .section{
-    padding: 22px 18px 18px;
-  }
+  /* tighter container/section spacing */
+  .container{ padding: 14px; }
+  .section{ padding: 20px 16px 16px; }
 
+  /* ---------- NAVBAR ---------- */
   .navBar{
-    padding: 12px 16px;
-    flex-direction: column;
-    align-items: stretch;
+    padding: 10px 14px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "brand cta"
+      "links links";
     gap: 10px;
+    align-items: center;
   }
 
-  .brand{
+  /* brand left */
+  .navBar .brand{
+    grid-area: brand;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     justify-content: flex-start;
   }
+
+  /* logo slightly smaller on mobile */
   .logo{
-    height: 56px; /* was 75 */
-    border-radius: 10px;
+    height: 54px;
+    width: auto;
+    border-radius: 12px;
   }
 
+  /* links become a single horizontal row (no wrap) */
   .navLinks{
-    width: 100%;
-    justify-content: flex-start;
-    gap: 10px;
-    flex-wrap: wrap;
+    grid-area: links;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px;
+    padding-bottom: 4px;
   }
+  .navLinks::-webkit-scrollbar{ display: none; }
 
   .navLinks a{
-    padding: 10px 10px;
-  }
-
-  .navLinks .btn.primary{
+    white-space: nowrap;
     padding: 10px 12px;
-    min-width: unset;
+    border-radius: 999px;
+    background: rgba(15,23,42,0.04);
+    border: 1px solid rgba(15,23,42,0.08);
+    color: rgba(15,23,42,0.78);
+  }
+  .navLinks a[aria-current="page"]{
+    background: rgba(59,130,246,0.14);
+    border-color: rgba(59,130,246,0.22);
+    color: rgba(15,23,42,0.92);
   }
 
-  .h1{
-    font-size: clamp(30px, 8vw, 40px);
-    line-height: 1.08;
+  /* CTA: smaller pill on the right, not a giant block */
+  .navLinks .btn.primary{
+    grid-area: cta;
+    padding: 10px 12px;
+    border-radius: 999px;
   }
 
+  /* If your CTA is inside navLinks, pull it out visually */
+  .navLinks .btn.primary{
+    position: sticky;
+    right: 0;
+    background: rgba(59,130,246,0.18);
+    border-color: rgba(59,130,246,0.28);
+  }
+
+  /* ---------- HERO / CTA CARD BUTTONS ---------- */
+  /* Make CTA buttons stack full-width (best mobile UX) */
   .btnRow{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     align-items: stretch;
   }
 
   .btnRow .btn{
     width: 100%;
-    min-width: 0;
-    min-height: 46px;
+    min-height: 48px;
+    border-radius: 14px;
+    font-size: 16px;
   }
 
-  .btnRow .btn:last-child{
-    grid-column: 1 / -1;
+  /* keep primary consistent (optional: make them all uniform by removing primary bg difference) */
+  /* Uncomment if you want ALL buttons identical */
+  /*
+  .btn.primary{
+    background: rgba(255,255,255,0.72);
+    border-color: rgba(15,23,42,0.14);
   }
+  .btn.primary:hover{
+    background: rgba(255,255,255,0.92);
+    border-color: rgba(15,23,42,0.18);
+  }
+  */
 
+  /* ---------- FOOTER ---------- */
   .footerInner{
-    padding: 14px 16px;
+    padding: 14px 14px;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
 
-  .footerLinks{
-    width: 100%;
-    justify-content: flex-start;
+  .footerBrand{
+    display: flex;
+    align-items: center;
     gap: 10px;
   }
 
   .footerLogo{
-    height: 48px;
+    height: 44px;
+    border-radius: 12px;
+  }
+
+  .footerLinks{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+  }
+  .footerLinks a{
+    padding: 10px 12px;
+    border-radius: 999px;
+    background: rgba(15,23,42,0.04);
+    border: 1px solid rgba(15,23,42,0.08);
   }
 }
