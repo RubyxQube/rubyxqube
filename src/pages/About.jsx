@@ -20,23 +20,26 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Story ── */}
+      {/* ── Background ── */}
       <section className="surface">
         <div className="section">
-          <div className="grid cols-2">
+          <div className="grid cols-2" style={{ gap: 48, alignItems: "start" }}>
 
             <div>
-              <span className="badge" style={{ marginBottom: 20 }}>Who I work with</span>
-              <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>Built for local service businesses</h2>
+              <span className="badge">Background</span>
+              <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>More than a web designer</h2>
               <p className="p">
-                Most of my clients are contractors, tradespeople, and local service providers — people who are great at what they do but don't have time to manage a website.
+                Before launching {siteConfig.brand}, I co-founded Bastion MSP — a managed security service provider built from the ground up to bring enterprise-grade cybersecurity to small and mid-sized businesses. I handled the brand identity, full marketing site, and the client-facing security portal.
               </p>
               <p className="p">
-                They need something that looks professional, works on phones, and makes it easy for customers to call or fill out a form. That's exactly what I build.
+                That experience gave me a different perspective on what a business website actually needs to do — not just look good, but generate trust, capture leads, and work without you babysitting it.
               </p>
-              <p className="p" style={{ marginBottom: 0 }}>
-                I keep things simple: one person, direct communication, fast turnaround. No project managers, no inflated timelines, no surprise invoices.
+              <p className="p" style={{ marginBottom: 20 }}>
+                Now I apply that same thinking to local service businesses in the Treasure Valley: contractors, tradespeople, and service providers who need a professional presence and the tools to compete.
               </p>
+              <a className="btn" href="https://www.bastionmsp.com" target="_blank" rel="noreferrer" style={{ display: "inline-flex" }}>
+                View Bastion MSP ↗
+              </a>
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
@@ -54,6 +57,35 @@ export default function About() {
               </div>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* ── Who I work with ── */}
+      <section className="surface">
+        <div className="section">
+          <div className="grid cols-2" style={{ gap: 48, alignItems: "center" }}>
+            <div>
+              <span className="badge">Who I work with</span>
+              <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>Built for local service businesses</h2>
+              <p className="p">
+                Most of my clients are contractors, tradespeople, and local service providers — people who are great at what they do but don't have time to manage a website.
+              </p>
+              <p className="p" style={{ marginBottom: 0 }}>
+                They need something that looks professional, works on phones, and makes it easy for customers to call or fill out a form. I keep things simple: one person, direct communication, fast turnaround. No project managers, no inflated timelines, no surprise invoices.
+              </p>
+            </div>
+            <div className="card">
+              <h3 className="h3" style={{ marginBottom: 16 }}>Industries I work with</h3>
+              <ul className="list" style={{ margin: 0 }}>
+                <li>Contractors & home services</li>
+                <li>HVAC, plumbing, electrical</li>
+                <li>Landscaping & lawn care</li>
+                <li>Cleaning & janitorial</li>
+                <li>Stoneworks, masonry & concrete</li>
+                <li>Any local service business that needs leads</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -103,11 +135,11 @@ export default function About() {
               <h3 className="h3" style={{ marginBottom: 16 }}>Quick facts</h3>
               <ul className="list">
                 <li>Based in Boise, Idaho</li>
+                <li>Co-founder of Bastion MSP (cybersecurity)</li>
                 <li>Serving the {siteConfig.serviceArea} and beyond</li>
                 <li>Websites launch in 2–3 weeks</li>
                 <li>Flat-rate pricing, no hidden costs</li>
                 <li>Direct communication — no middlemen</li>
-                <li>Optional monthly care + marketing plans</li>
               </ul>
             </div>
           </div>
