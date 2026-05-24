@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import { MeshGradient } from "@paper-design/shaders-react";
 import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
 import { siteConfig } from "../siteConfig.js";
@@ -25,6 +26,20 @@ export default function Layout() {
 
   return (
     <div className="appShell">
+      {/* Animated full-site ambient background */}
+      <MeshGradient
+        colors={["#faf7f4", "#f5e4c8", "#ecddc8", "#fdf4e8"]}
+        speed={0.25}
+        backgroundColor="#faf7f4"
+        style={{
+          position: "fixed",
+          inset: 0,
+          zIndex: -1,
+          width: "100%",
+          height: "100vh",
+          pointerEvents: "none",
+        }}
+      />
       <ScrollToTop />
       <Navbar />
       <main className="container mainGrow">

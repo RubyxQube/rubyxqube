@@ -28,30 +28,7 @@ body{
   isolation: isolate;
 }
 
-/* warm, grounded ambient glow */
-body::before{
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(1100px 650px at 15% -10%, rgba(245,158,11,0.14), transparent 60%),
-    radial-gradient(900px 520px at 90% 0%, rgba(101,163,13,0.10), transparent 58%),
-    radial-gradient(900px 650px at 55% 110%, rgba(249,115,22,0.09), transparent 62%);
-}
-
-body::after{
-  content:"";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(1200px 780px at 50% 105%, rgba(217,119,6,0.10), transparent 64%),
-    radial-gradient(1100px 740px at 22% 110%, rgba(251,146,60,0.08), transparent 66%),
-    radial-gradient(1200px 740px at 85% 112%, rgba(74,222,128,0.06), transparent 66%);
-}
+/* Background handled by MeshGradient in Layout.jsx */
 
 a{ color:inherit; text-decoration:none; }
 a:hover{ text-decoration: underline; text-decoration-color: rgba(26,17,6,0.25); }
