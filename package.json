@@ -15,6 +15,7 @@
     "img:optimize-svg": "svgo --folder src/assets"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.98.0",
     "@paper-design/shaders-react": "^0.0.76",
     "@react-three/fiber": "^8.18.0",
     "@tailwindcss/vite": "^4.3.0",

@@ -3,6 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { MeshGradient } from "@paper-design/shaders-react";
 import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
+import ChatWidget from "./ChatWidget.jsx";
 import { siteConfig } from "../siteConfig.js";
 import ScrollToTop from "./ScrollToTop.jsx";
 
@@ -47,6 +48,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <ChatWidget />
     </div>
   );
 }

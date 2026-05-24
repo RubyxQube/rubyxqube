@@ -63,7 +63,10 @@ export default function Services() {
             <span className="accentText">An AI that never stops.</span>
           </h1>
           <p className="p" style={{ maxWidth: 560, fontSize: 17 }}>
-            {siteConfig.brand} builds professional websites for {siteConfig.serviceArea} service businesses — paired with an AI receptionist that captures leads around the clock and alerts you instantly.
+            {siteConfig.brand} builds professional websites for {siteConfig.serviceArea} service businesses — paired with an AI receptionist built on Claude that captures leads around the clock and alerts you instantly.
+          </p>
+          <p className="small" style={{ marginTop: 12, color: "rgba(255,255,255,0.45)" }}>
+            Not sure how the AI works? The chat button in the bottom-right corner is the exact same product — try it.
           </p>
         </div>
       </section>
@@ -95,6 +98,7 @@ export default function Services() {
               <h2 className="h2">24/7 Lead Capture</h2>
               <p className="p">A custom AI trained on your business that handles inquiries while you're on the job — and alerts you the moment a lead comes in.</p>
               <ul className="list">
+                <li>Built on Claude — the same AI behind Claude.ai</li>
                 <li>Trained on your services, pricing, and FAQs</li>
                 <li>Answers questions and qualifies leads automatically</li>
                 <li>Captures name, phone, and what they need</li>
