@@ -34,6 +34,18 @@ export default function Services() {
       a: "I can rebuild it from scratch, or add the AI receptionist to your existing site ($500 setup + $199/mo). Site migration from Wix, Squarespace, or similar is available for $500.",
     },
     {
+      q: "Is the AI chatbot actually AI, or is it scripted?",
+      a: "It's real AI — not a decision tree or a canned-response script. It understands natural language and can handle questions you didn't anticipate, because it's built on the same large language models powering tools like ChatGPT. The difference is it's trained specifically on your business, so it gives accurate answers about your services, pricing, and service area — not generic responses.",
+    },
+    {
+      q: "Is there a limit on how many conversations the AI handles?",
+      a: "No per-conversation limits or fees. Your AI receptionist is available 24/7 and handles as many chats as your site gets. It's included in the monthly plan.",
+    },
+    {
+      q: "What data does the AI collect from my customers?",
+      a: "Only what's necessary to qualify a lead: name, phone or email, and what service they're looking for. That goes straight to you via SMS alert. Chat conversations aren't stored indefinitely — see our privacy policy for full details.",
+    },
+    {
       q: "Is there a contract?",
       a: "No contracts. Monthly plans are month-to-month. Cancel anytime with 30 days notice.",
     },
@@ -87,6 +99,7 @@ export default function Services() {
                 <li>Answers questions and qualifies leads automatically</li>
                 <li>Captures name, phone, and what they need</li>
                 <li>Instant SMS notification to you when a lead arrives</li>
+                <li>Unlimited conversations — no per-chat fees</li>
                 <li>Appointment booking integration available</li>
               </ul>
             </div>

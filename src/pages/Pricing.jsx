@@ -27,6 +27,7 @@ export default function Pricing() {
         "Everything in Launch",
         "Custom AI receptionist trained on your business",
         "24/7 lead capture — answers questions, qualifies prospects",
+        "Unlimited conversations — no per-chat fees",
         "Instant SMS alert when a new lead comes in",
         "Monthly report: visits, chats, leads captured",
         "60 min/month of site updates",
