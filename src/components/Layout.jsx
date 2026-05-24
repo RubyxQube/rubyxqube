@@ -28,9 +28,9 @@ export default function Layout() {
     <div className="appShell">
       {/* Animated full-site ambient background */}
       <MeshGradient
-        colors={["#faf7f4", "#f5e4c8", "#ecddc8", "#fdf4e8"]}
+        colors={["#080808", "#0d0d14", "#111118", "#09090f"]}
         speed={0.25}
-        backgroundColor="#faf7f4"
+        backgroundColor="#080808"
         style={{
           position: "fixed",
           inset: 0,

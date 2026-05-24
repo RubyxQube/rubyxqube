@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { siteConfig } from "../siteConfig.js";
-import logo from "../assets/logo-withwords-bl.png";
+import logo from "../assets/logo-withwords-wh.png";
 
 export default function Footer() {
   const year = new Date().getFullYear();

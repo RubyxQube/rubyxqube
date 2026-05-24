@@ -1,16 +1,13 @@
 :root{
-  --bg: #faf7f4;
-  --card: rgba(255,252,248,0.82);
-  --card2: rgba(255,253,250,0.94);
-  --text: rgba(26,17,6,0.90);
-  --muted: rgba(26,17,6,0.58);
-  --line: rgba(26,17,6,0.10);
-  --shadow: 0 10px 30px rgba(26,17,6,0.10);
+  --bg: #080808;
+  --card: rgba(255,255,255,0.05);
+  --card2: rgba(255,255,255,0.08);
+  --text: rgba(255,255,255,0.90);
+  --muted: rgba(255,255,255,0.48);
+  --line: rgba(255,255,255,0.08);
+  --shadow: 0 10px 40px rgba(0,0,0,0.50);
   --radius: 18px;
   --max: 1120px;
-  --amber: #d97706;
-  --amber-dark: #b45309;
-  --amber-xdark: #92400e;
 }
 
 
@@ -31,7 +28,7 @@ body{
 /* Background handled by MeshGradient in Layout.jsx */
 
 a{ color:inherit; text-decoration:none; }
-a:hover{ text-decoration: underline; text-decoration-color: rgba(26,17,6,0.25); }
+a:hover{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.20); }
 
 .container{
   max-width: var(--max);
@@ -41,10 +38,10 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(26,17,6,0.25); 
 }
 
 .surface{
-  background: linear-gradient(180deg, rgba(255,252,248,0.94), rgba(255,250,244,0.74));
-  border: 1px solid rgba(26,17,6,0.09);
+  background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: var(--radius);
-  box-shadow: 0 18px 55px rgba(26,17,6,0.10);
+  box-shadow: 0 18px 55px rgba(0,0,0,0.40), 0 1px 0 rgba(255,255,255,0.06) inset;
 }
 
 .section{ padding: 36px 32px 32px; }
@@ -70,12 +67,12 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(26,17,6,0.25); 
   gap:8px;
   padding: 7px 13px;
   border-radius: 999px;
-  background: rgba(217,119,6,0.10);
-  border: 1px solid rgba(217,119,6,0.26);
-  box-shadow: 0 2px 8px rgba(26,17,6,0.07);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.30);
   font-size: 12.5px;
   font-weight: 600;
-  color: rgba(26,17,6,0.80);
+  color: rgba(255,255,255,0.70);
   line-height: 1;
   margin-top: 2px;
   letter-spacing: 0.01em;
@@ -87,9 +84,9 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(26,17,6,0.25); 
   justify-content:center;
   padding: 11px 16px;
   border-radius: 12px;
-  border: 1px solid rgba(26,17,6,0.14);
-  background: rgba(255,252,248,0.80);
-  color: rgba(26,17,6,0.90);
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.88);
   font-weight: 600;
   font-size: 14.5px;
   cursor: pointer;
@@ -99,21 +96,21 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(26,17,6,0.25); 
 .btn:hover{
   text-decoration:none;
   transform: translateY(-1px);
-  background: rgba(255,252,248,0.96);
-  border-color: rgba(26,17,6,0.18);
-  box-shadow: 0 4px 12px rgba(26,17,6,0.12);
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.18);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.40);
 }
 .btn.primary{
-  background: var(--amber);
-  border-color: var(--amber-dark);
-  color: #ffffff;
+  background: rgba(255,255,255,0.92);
+  border-color: rgba(255,255,255,0.60);
+  color: #0a0a0a;
   font-weight: 700;
 }
 .btn.primary:hover{
-  background: var(--amber-dark);
-  border-color: var(--amber-xdark);
+  background: #ffffff;
+  border-color: rgba(255,255,255,0.80);
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(180,83,9,0.28);
+  box-shadow: 0 6px 24px rgba(255,255,255,0.14);
 }
 
 .btnRow{
@@ -152,11 +149,9 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(26,17,6,0.25); 
 .kpi{
   padding: 16px;
   border-radius: 14px;
-  background: rgba(255,252,248,0.86);
-  border: 1px solid rgba(26,17,6,0.09);
-  box-shadow:
-    0 2px 10px rgba(26,17,6,0.08),
-    0 1px 0 rgba(255,255,255,0.85) inset;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.30);
 }
 .kpi strong{ display:block; font-size: 17px; font-weight: 700; margin-bottom: 3px; }
 .kpi span{ color: var(--muted); font-size: 13px; }
@@ -164,20 +159,17 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(26,17,6,0.25); 
 .card{
   padding: 18px;
   border-radius: 16px;
-  background: rgba(255,252,248,0.90);
-  border: 1px solid rgba(26,17,6,0.09);
-  box-shadow:
-    0 10px 24px rgba(26,17,6,0.09),
-    0 1px 0 rgba(255,255,255,0.85) inset;
-  transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+  transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease, background .14s ease;
 }
 
 .card:hover{
   transform: translateY(-3px);
-  border-color: rgba(26,17,6,0.13);
-  box-shadow:
-    0 20px 44px rgba(26,17,6,0.13),
-    0 1px 0 rgba(255,255,255,0.90) inset;
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.13);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.50);
 }
 
 .list{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
@@ -187,13 +179,12 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(26,17,6,0.25); 
   width:100%;
   padding: 12px 12px;
   border-radius: 12px;
-  border: 1px solid rgba(26,17,6,0.14);
-  background: rgba(255,252,248,0.90);
-  color: rgba(26,17,6,0.90);
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.90);
   outline: none;
 }
 
-/* Make <select> match inputs on iOS Safari */
 select,
 .input,
 .textarea{
@@ -206,14 +197,14 @@ select{
   min-height: 48px;
   padding: 12px 42px 12px 12px;
   border-radius: 14px;
-  background-color: rgba(255,252,248,0.90);
+  background-color: rgba(255,255,255,0.05);
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
 
   background-image:
-    linear-gradient(45deg, transparent 50%, rgba(26,17,6,0.50) 50%),
-    linear-gradient(135deg, rgba(26,17,6,0.50) 50%, transparent 50%);
+    linear-gradient(45deg, transparent 50%, rgba(255,255,255,0.50) 50%),
+    linear-gradient(135deg, rgba(255,255,255,0.50) 50%, transparent 50%);
   background-position:
     calc(100% - 18px) 50%,
     calc(100% - 12px) 50%;
@@ -221,20 +212,24 @@ select{
   background-repeat: no-repeat;
 }
 
-select:focus{
-  outline: none;
+select option{
+  background: #141414;
+  color: rgba(255,255,255,0.90);
 }
 
+select:focus{ outline: none; }
+
 .textarea{ min-height: 120px; resize: vertical; }
-label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; color: rgba(26,17,6,0.72); }
+label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; color: rgba(255,255,255,0.55); }
 
 .navWrap{
   position: sticky;
   top: 0;
   z-index: 20;
-  backdrop-filter: blur(12px);
-  background: rgba(250,247,244,0.75);
-  border-bottom: 1px solid rgba(26,17,6,0.09);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(8,8,8,0.75);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
 }
 .navBar{
   display:flex;
@@ -252,8 +247,6 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
 }
 
 .brand:hover{
-  border-color: rgba(26,17,6,0.10);
-  box-shadow: 0 1px 5px rgba(26,17,6,0.10);
   border-radius: 12px;
 }
 .brandMark{
@@ -268,11 +261,11 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
 }
 
 .navLinks{
-  display:flex; gap: 12px; flex-wrap: wrap;
+  display:flex; gap: 8px; flex-wrap: wrap;
   align-items:center;
 }
 .navLinks a{
-  color: rgba(26,17,6,0.72);
+  color: rgba(255,255,255,0.60);
   border: 1px solid transparent;
   padding: 8px 12px;
   border-radius: 10px;
@@ -282,15 +275,15 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
 }
 
 .navLinks a:hover{
-  color: rgba(26,17,6,0.92);
-  background: rgba(26,17,6,0.05);
+  color: rgba(255,255,255,0.90);
+  background: rgba(255,255,255,0.06);
   text-decoration: none;
 }
 
 .navLinks a[aria-current="page"]{
-  color: rgba(26,17,6,0.92);
-  border-color: rgba(217,119,6,0.28);
-  background: rgba(217,119,6,0.08);
+  color: rgba(255,255,255,0.90);
+  border-color: rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.07);
   font-weight: 600;
 }
 
@@ -301,9 +294,10 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
 
 .footerWrap{
   margin-top: 28px;
-  border-top: 1px solid rgba(26,17,6,0.09);
-  background: linear-gradient(180deg, rgba(250,247,244,0.94), rgba(250,246,240,0.80));
-  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255,255,255,0.07);
+  background: rgba(5,5,5,0.90);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .footerInner{
@@ -315,8 +309,7 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
   gap: 14px;
   align-items: center;
   justify-content: space-between;
-
-  color: rgba(26,17,6,0.65);
+  color: rgba(255,255,255,0.40);
   font-size: 14px;
 }
 
@@ -328,19 +321,19 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
 }
 
 .footerLinks a{
-  color: rgba(26,17,6,0.70);
+  color: rgba(255,255,255,0.45);
   padding: 6px 10px;
   border-radius: 10px;
   border: 1px solid transparent;
   text-decoration: none;
   font-size: 13.5px;
-  transition: background .1s ease, border-color .1s ease;
+  transition: background .1s ease, border-color .1s ease, color .1s ease;
 }
 
 .footerLinks a:hover{
-  color: rgba(26,17,6,0.90);
-  border-color: rgba(26,17,6,0.10);
-  background: rgba(26,17,6,0.04);
+  color: rgba(255,255,255,0.80);
+  border-color: rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.05);
   text-decoration: none;
 }
 
@@ -355,7 +348,7 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
   width: auto;
   display:block;
   border-radius: 8px;
-  opacity: 0.95;
+  opacity: 0.90;
 }
 
 /* Sticky footer layout */
@@ -393,31 +386,30 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
 }
 
 .selectedCard{
-  background: rgba(217,119,6,0.07);
-  border: 1px solid rgba(217,119,6,0.24);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
   border-radius: 14px;
 }
 
 /* Focus states */
 .input:focus, .textarea:focus, select:focus{
-  border-color: rgba(217,119,6,0.44);
-  box-shadow: 0 0 0 4px rgba(217,119,6,0.12);
-  background: rgba(255,252,248,0.98);
+  border-color: rgba(255,255,255,0.28);
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.07);
 }
 
 ::placeholder{
-  color: rgba(26,17,6,0.38);
+  color: rgba(255,255,255,0.25);
 }
 
 /* =========================
-   Mobile: clean + intentional
+   Mobile
 ========================= */
 @media (max-width: 720px){
 
   .container{ padding: 14px; }
   .section{ padding: 22px 18px 18px; }
 
-  /* ---------- NAVBAR ---------- */
   .navBar{
     padding: 10px 14px;
     display: grid;
@@ -458,15 +450,15 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
     white-space: nowrap;
     padding: 9px 13px;
     border-radius: 999px;
-    background: rgba(26,17,6,0.04);
-    border: 1px solid rgba(26,17,6,0.08);
-    color: rgba(26,17,6,0.72);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.60);
     font-size: 14px;
   }
   .navLinks a[aria-current="page"]{
-    background: rgba(217,119,6,0.12);
-    border-color: rgba(217,119,6,0.28);
-    color: rgba(26,17,6,0.90);
+    background: rgba(255,255,255,0.10);
+    border-color: rgba(255,255,255,0.18);
+    color: rgba(255,255,255,0.92);
   }
 
   .navLinks .btn.primary{
@@ -478,7 +470,6 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
     margin-left: 6px;
   }
 
-  /* ---------- HERO / CTA CARD BUTTONS ---------- */
   .btnRow{
     display: flex;
     flex-direction: column;
@@ -493,7 +484,6 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
     font-size: 15.5px;
   }
 
-  /* ---------- FOOTER ---------- */
   .footerInner{
     padding: 14px 14px;
     flex-direction: column;
@@ -520,8 +510,8 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
   .footerLinks a{
     padding: 9px 12px;
     border-radius: 999px;
-    background: rgba(26,17,6,0.04);
-    border: 1px solid rgba(26,17,6,0.08);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
   }
 
   .navLinks{
