@@ -6,28 +6,36 @@ import { siteConfig } from "../siteConfig.js";
 export default function Services() {
   const faqs = [
     {
-      q: "What am I actually buying?",
-      a: "A professional online presence that brings customers in: a clean mobile site, lead capture, and optional ongoing support.",
+      q: "What does the AI receptionist actually do?",
+      a: "It's a chatbot trained specifically on your business — your services, pricing, service area, and FAQs. It greets visitors, answers their questions, captures their info, and sends you an instant SMS notification when a lead comes in. Available 24/7.",
     },
     {
-      q: "Do you write the content?",
-      a: "You can provide notes and photos, and I'll organize them into clean website copy. Full copywriting is available as an add-on.",
+      q: "How is the AI trained on my business?",
+      a: "During onboarding we go through your services, pricing, common questions, and service area together. I configure and train the AI on that information. If anything changes, you let me know and I update it.",
     },
     {
-      q: "Can you do SEO?",
-      a: "I do strong basics: titles, descriptions, local structure, and on-page cleanup. Full SEO campaigns are outside these packages.",
+      q: "Do you write the content for my site?",
+      a: "You provide notes about your business and I write clean, conversion-focused copy. Full copywriting is available as an add-on ($500).",
     },
     {
-      q: "Can I edit the site myself?",
-      a: "Yes. I build it so updating text and photos is straightforward — or stay on a monthly care plan and I handle it for you.",
+      q: "What's in the monthly performance report?",
+      a: "Every month you get a report showing: website visitors, chatbot conversations, leads captured, form submissions, and any SEO improvements. You see exactly what your site is doing for your business.",
+    },
+    {
+      q: "Can you set up my business email?",
+      a: "Yes. Google Workspace setup ($100) gets you a professional @yourbusiness.com email address instead of Gmail. It makes a big difference in how clients perceive you.",
     },
     {
       q: "How fast can you launch?",
-      a: "Most sites launch in 2–3 weeks from the kickoff call. Timeline depends on how quickly you can review and provide feedback.",
+      a: "Most sites go live in 2–3 weeks from the kickoff call. The AI setup runs in parallel so it's ready at launch, not after.",
     },
     {
       q: "What if I already have a website?",
-      a: "I can migrate your existing content, redesign it, or build fresh from scratch. Site migration is available as an add-on.",
+      a: "I can rebuild it from scratch, or add the AI receptionist to your existing site ($500 setup + $199/mo). Site migration from Wix, Squarespace, or similar is available for $500.",
+    },
+    {
+      q: "Is there a contract?",
+      a: "No contracts. Monthly plans are month-to-month. Cancel anytime with 30 days notice.",
     },
   ];
 
@@ -37,70 +45,100 @@ export default function Services() {
       {/* ── Header ── */}
       <section className="surface heroSurface">
         <div className="section" style={{ paddingTop: 80, paddingBottom: 64 }}>
-          <span className="badge">Simple, high-impact services</span>
-          <h1 className="h1" style={{ marginTop: 16, maxWidth: "18ch" }}>
-            Everything you need. <span className="accentText">Nothing you don't.</span>
+          <span className="badge">What we do</span>
+          <h1 className="h1" style={{ marginTop: 16, maxWidth: "20ch" }}>
+            A website that works.<br />
+            <span className="accentText">An AI that never stops.</span>
           </h1>
-          <p className="p" style={{ maxWidth: 540, fontSize: 17 }}>
-            {siteConfig.brand} focuses on what actually moves the needle for small service businesses: clean design, clear messaging, and easy ways for customers to contact you.
+          <p className="p" style={{ maxWidth: 560, fontSize: 17 }}>
+            {siteConfig.brand} builds professional websites for {siteConfig.serviceArea} service businesses — paired with an AI receptionist that captures leads around the clock and alerts you instantly.
           </p>
         </div>
       </section>
 
-      {/* ── Services grid ── */}
+      {/* ── Core services ── */}
       <section className="surface">
         <div className="section">
+          <span className="badge">Core services</span>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 36 }}>Everything you need. Nothing you don't.</h2>
+
           <div className="grid cols-2">
+
             <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Core service</p>
-              <h2 className="h2">Website Build</h2>
-              <p className="p">A clean 4–6 page site built to bring in leads — mobile-friendly, fast, and professional.</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Web Development</p>
+              <h2 className="h2">Professional Website</h2>
+              <p className="p">A clean, fast, mobile-friendly site built to convert visitors into leads — not just look good.</p>
               <ul className="list">
-                <li>Home, About, Services, Gallery, Quote, Privacy pages</li>
+                <li>5–6 pages built from scratch</li>
                 <li>Mobile responsive on all devices</li>
-                <li>Contact form + click-to-call buttons</li>
+                <li>Contact forms + click-to-call buttons</li>
                 <li>Basic SEO (titles, descriptions, local structure)</li>
                 <li>Google Maps embed for local visibility</li>
-                <li>2 rounds of revisions included</li>
+                <li>Fast load times — optimized for performance</li>
               </ul>
             </div>
 
             <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Optional add-on</p>
-              <h2 className="h2">Monthly Care</h2>
-              <p className="p">Ongoing support so you never have to think about your website again.</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>AI Receptionist</p>
+              <h2 className="h2">24/7 Lead Capture</h2>
+              <p className="p">A custom AI trained on your business that handles inquiries while you're on the job — and alerts you the moment a lead comes in.</p>
               <ul className="list">
-                <li>Monthly content updates (text, photos, services)</li>
-                <li>Speed & uptime monitoring</li>
-                <li>Minor layout and copy changes</li>
-                <li>Light SEO maintenance</li>
-                <li>Up to 60 minutes of updates per month</li>
+                <li>Trained on your services, pricing, and FAQs</li>
+                <li>Answers questions and qualifies leads automatically</li>
+                <li>Captures name, phone, and what they need</li>
+                <li>Instant SMS notification to you when a lead arrives</li>
+                <li>Appointment booking integration available</li>
               </ul>
             </div>
 
             <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Optional add-on</p>
-              <h2 className="h2">Light Marketing</h2>
-              <p className="p">A simple monthly system to help you show up locally and stay active online.</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Reporting & Updates</p>
+              <h2 className="h2">Monthly Reports + Care</h2>
+              <p className="p">Stay informed without lifting a finger. Every month you get a clear report and a quick check-in so you always know what your site is doing.</p>
+              <ul className="list">
+                <li>Monthly report: visits, chats, leads, forms</li>
+                <li>Weekly check-in text — no surprises</li>
+                <li>60 min/month of content updates</li>
+                <li>Speed and uptime monitoring</li>
+                <li>SEO maintenance and minor layout tweaks</li>
+              </ul>
+            </div>
+
+            <div className="card">
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Growth & Visibility</p>
+              <h2 className="h2">Local SEO & Marketing</h2>
+              <p className="p">Optional growth services for businesses that want to actively show up in more searches and grow their local reputation.</p>
               <ul className="list">
                 <li>Google Business Profile setup & optimization</li>
-                <li>Basic local SEO structure</li>
-                <li>1–2 social posts/month (templates + captions)</li>
-                <li>Monthly performance check-in</li>
+                <li>Local SEO structure and monitoring</li>
+                <li>2 social posts/month (templates + captions)</li>
+                <li>Review response management</li>
+                <li>Monthly 20-min strategy call</li>
               </ul>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* ── Setup services ── */}
+      <section className="surface">
+        <div className="section">
+          <span className="badge">Setup services</span>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>The full picture, handled.</h2>
+          <p className="p" style={{ maxWidth: 520, marginBottom: 36 }}>Most clients need more than just a website. Here's everything else we can take off your plate.</p>
+          <div className="grid cols-3">
             <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Available add-ons</p>
-              <h2 className="h2">A La Carte</h2>
-              <p className="p">Keep the base package lean, then add what you actually need.</p>
-              <ul className="list">
-                <li>Extra page — $200</li>
-                <li>Copywriting help — $400</li>
-                <li>Logo cleanup / mini brand kit — $200</li>
-                <li>Booking integration — $100</li>
-                <li>Site migration from existing host — $500</li>
-              </ul>
+              <h3 className="h3">Domain Registration</h3>
+              <p className="p" style={{ marginBottom: 0 }}>We register your domain name, configure DNS, and connect it to your site. No confusing dashboards, no tech setup on your end.</p>
+            </div>
+            <div className="card">
+              <h3 className="h3">Business Email</h3>
+              <p className="p" style={{ marginBottom: 0 }}>Google Workspace setup so you get you@yourbusiness.com. Instantly looks more professional than a Gmail or Yahoo address.</p>
+            </div>
+            <div className="card">
+              <h3 className="h3">Hosting & Infrastructure</h3>
+              <p className="p" style={{ marginBottom: 0 }}>Your site is deployed on fast, reliable hosting. We handle the technical side — you never have to think about servers.</p>
             </div>
           </div>
         </div>
@@ -111,7 +149,7 @@ export default function Services() {
         <div className="section">
           <span className="badge">FAQ</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>Common questions</h2>
-          <p className="p" style={{ maxWidth: 480, marginBottom: 32 }}>If you have a question not answered here, just reach out.</p>
+          <p className="p" style={{ maxWidth: 480, marginBottom: 36 }}>Still have questions? Reach out — happy to chat.</p>
           <FAQ items={faqs} />
         </div>
       </section>

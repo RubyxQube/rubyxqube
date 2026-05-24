@@ -7,44 +7,46 @@ import { siteConfig } from "../siteConfig.js";
 export default function Home() {
   const packages = [
     {
-      name: "One-Time Website Build",
-      bestFor: "You want a great site and be done with it.",
-      price: "$2,000",
-      timeline: "2–3 weeks",
+      name: "Launch",
+      tagline: "Get your business online professionally.",
+      price: "$2,500",
+      billing: "one-time",
       bullets: [
-        "4–6 pages (Home, About, Services, Gallery, Quote, Privacy)",
-        "Mobile responsive",
+        "5–6 page website (Home, About, Services, Gallery, Quote, Privacy)",
+        "Mobile responsive — looks great on every device",
         "Contact form + click-to-call buttons",
-        "Basic SEO (titles + descriptions)",
+        "Basic SEO (titles, descriptions, local structure)",
         "Google Maps embed",
         "2 revision rounds included",
       ],
     },
     {
-      name: "Website + Monthly Care",
-      bestFor: "You want the site maintained without thinking about it.",
-      price: "$2,000 + $250/mo",
-      timeline: "2–3 wks + ongoing",
+      name: "Autopilot",
+      tagline: "Capture every lead — even while you're on a job.",
+      price: "$3,000",
+      billing: "+ $399/mo",
       bullets: [
-        "Everything in Website Build",
-        "Monthly content updates (text, photos, services)",
-        "Speed & uptime monitoring",
-        "Minor layout changes",
-        "Up to 60 min of updates/month",
+        "Everything in Launch",
+        "Custom AI receptionist trained on your business",
+        "24/7 lead capture — answers questions, qualifies prospects",
+        "Instant SMS alert when a new lead comes in",
+        "Monthly report: visits, chats, leads captured",
+        "60 min/month of site updates",
       ],
       highlight: true,
     },
     {
-      name: "Website + Light Marketing",
-      bestFor: "You want more visibility and a steady flow of leads.",
-      price: "$2,000 + $500/mo",
-      timeline: "2–3 wks + ongoing",
+      name: "Momentum",
+      tagline: "Actively grow your local presence every month.",
+      price: "$3,000",
+      billing: "+ $699/mo",
       bullets: [
-        "Everything in Monthly Care",
-        "Google Business Profile setup & optimization",
-        "Basic local SEO structure",
-        "1–2 posts/month + GBP updates",
-        "Monthly performance check-in",
+        "Everything in Autopilot",
+        "Google Business Profile management",
+        "Local SEO monitoring & updates",
+        "2 social posts/month",
+        "Review response management",
+        "Monthly 20-min strategy call",
       ],
     },
   ];
@@ -55,34 +57,145 @@ export default function Home() {
       {/* ── Hero ── */}
       <section className="surface heroSurface">
         <div className="heroSection">
-          <span className="badge">Treasure Valley Web Design</span>
-          <h1 className="h1 heroTitle">
-            Websites that help local businesses{" "}
-            <span className="accentText">get more calls</span>
+          <span className="badge">AI-Powered Web Design · {siteConfig.serviceArea}</span>
+          <h1 className="h1 heroTitle" style={{ maxWidth: "20ch" }}>
+            Stop losing leads<br />
+            <span className="accentText">while you're on the job.</span>
           </h1>
           <p className="p" style={{ fontSize: 17, maxWidth: 540, marginBottom: 32 }}>
-            {siteConfig.brand} builds clean, mobile-friendly websites for service businesses in the {siteConfig.serviceArea}. Lead capture, local SEO, and optional monthly support — live in 2–3 weeks.
+            {siteConfig.brand} builds professional websites with a built-in AI receptionist that captures leads 24/7, answers customer questions, and sends you instant alerts — so you never miss a job opportunity.
           </p>
           <div className="btnRow">
-            <Link className="btn primary" to="/contact">Get a Free Quote</Link>
+            <Link className="btn primary" to="/contact">Get a Free Audit</Link>
             <a className="btn" href={`tel:${siteConfig.phoneE164}`}>Call {siteConfig.phoneDisplay}</a>
             <Link className="btn" to="/pricing">See Pricing</Link>
           </div>
 
-          <div className="hr" style={{ marginTop: 48 }} />
+          <div className="hr" style={{ marginTop: 52 }} />
 
           <div className="grid cols-3">
             <div className="kpi">
-              <strong>Clean & fast</strong>
-              <span>Modern layout that looks great on every device, every screen size</span>
+              <strong>24/7 Lead Capture</strong>
+              <span>Your AI receptionist works nights, weekends, and holidays — no breaks</span>
             </div>
             <div className="kpi">
-              <strong>Built to convert</strong>
-              <span>Contact forms and click-to-call buttons that make it easy for customers to reach you</span>
+              <strong>Instant SMS Alerts</strong>
+              <span>Get a text the moment a lead comes in, with their name and what they need</span>
             </div>
             <div className="kpi">
-              <strong>Locally found</strong>
-              <span>Titles, descriptions, and local basics so you actually show up in search results</span>
+              <strong>Live in 2–3 Weeks</strong>
+              <span>From kickoff call to launched site — fast, simple, zero tech headaches</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── The Problem ── */}
+      <section className="surface">
+        <div className="section">
+          <div className="grid cols-2" style={{ gap: 48, alignItems: "center" }}>
+            <div>
+              <span className="badge">The problem</span>
+              <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>
+                You're losing jobs to businesses that respond faster.
+              </h2>
+              <p className="p">
+                Most service businesses miss leads every single day. A customer searches for a plumber at 9pm, finds your site, fills out a form — and you don't see it until tomorrow morning. By then they've already called someone else.
+              </p>
+              <p className="p" style={{ marginBottom: 0 }}>
+                The businesses winning local search aren't necessarily better at their trade. They're just faster to respond. An AI receptionist changes that overnight.
+              </p>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              <div className="card" style={{ borderLeft: "3px solid rgba(239,68,68,0.50)" }}>
+                <p style={{ margin: 0, fontWeight: 600, fontSize: 15 }}>❌ Without AI Receptionist</p>
+                <p className="p" style={{ margin: "8px 0 0", fontSize: 14 }}>Customer visits at 10pm. No one responds. They call your competitor. You wake up to nothing.</p>
+              </div>
+              <div className="card" style={{ borderLeft: "3px solid rgba(59,130,246,0.60)" }}>
+                <p style={{ margin: 0, fontWeight: 600, fontSize: 15 }}>✓ With AI Receptionist</p>
+                <p className="p" style={{ margin: "8px 0 0", fontSize: 14 }}>Customer visits at 10pm. AI greets them, answers their questions, captures their info. You get a text: "New lead — Sarah, needs HVAC repair, Meridian."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── AI Receptionist Feature ── */}
+      <section className="surface">
+        <div className="section">
+          <span className="badge">AI Receptionist</span>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>
+            Meet your new <span className="accentText">24/7 employee.</span>
+          </h2>
+          <p className="p" style={{ maxWidth: 520, marginBottom: 40 }}>
+            Built with AI and trained on your specific business — your services, pricing, service area, and FAQs. It handles the front desk so you can focus on the work.
+          </p>
+
+          <div className="grid cols-3">
+            <div className="card">
+              <div style={{ fontSize: 28, marginBottom: 14 }}>💬</div>
+              <h3 className="h3">Answers questions instantly</h3>
+              <p className="p" style={{ marginBottom: 0 }}>Knows your services, pricing, service area, and hours. Handles the most common questions without you lifting a finger.</p>
+            </div>
+            <div className="card">
+              <div style={{ fontSize: 28, marginBottom: 14 }}>📋</div>
+              <h3 className="h3">Qualifies and captures leads</h3>
+              <p className="p" style={{ marginBottom: 0 }}>Asks the right questions — what do they need, where are they located, when do they need it. Saves it all so you have everything before you call back.</p>
+            </div>
+            <div className="card">
+              <div style={{ fontSize: 28, marginBottom: 14 }}>📱</div>
+              <h3 className="h3">Alerts you in real time</h3>
+              <p className="p" style={{ marginBottom: 0 }}>The moment a lead comes in, you get a text. Name, contact info, what they need, and when. No checking dashboards, no missed emails.</p>
+            </div>
+            <div className="card">
+              <div style={{ fontSize: 28, marginBottom: 14 }}>📅</div>
+              <h3 className="h3">Books appointments</h3>
+              <p className="p" style={{ marginBottom: 0 }}>Connect your calendar and let customers book directly through the chat. No phone tag, no back-and-forth.</p>
+            </div>
+            <div className="card">
+              <div style={{ fontSize: 28, marginBottom: 14 }}>🕐</div>
+              <h3 className="h3">Never off the clock</h3>
+              <p className="p" style={{ marginBottom: 0 }}>Works nights, weekends, and holidays. No sick days, no vacations, no missed calls when you're on a job.</p>
+            </div>
+            <div className="card">
+              <div style={{ fontSize: 28, marginBottom: 14 }}>📊</div>
+              <h3 className="h3">Monthly performance reports</h3>
+              <p className="p" style={{ marginBottom: 0 }}>See exactly how many visitors, conversations, and leads your site generated each month. Know your ROI.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ROI ── */}
+      <section className="surface">
+        <div className="section">
+          <div className="grid cols-2" style={{ gap: 48, alignItems: "center" }}>
+            <div>
+              <span className="badge">The math</span>
+              <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>
+                It pays for itself with one job.
+              </h2>
+              <p className="p">
+                The Autopilot plan is $399/month. For most service businesses, that's less than a single job. If your AI receptionist captures even one extra job per month that you would have otherwise missed — it's already paid for.
+              </p>
+              <p className="p" style={{ marginBottom: 0 }}>
+                Compare that to a part-time receptionist at $2,500–4,000/month, or the cost of a lead going to a competitor.
+              </p>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {[
+                { trade: "Plumber", range: "$350–800" },
+                { trade: "HVAC tech", range: "$400–900" },
+                { trade: "Electrician", range: "$300–700" },
+                { trade: "Landscaper", range: "$400–1,200" },
+                { trade: "Contractor", range: "$500–2,000+" },
+              ].map(({ trade, range }) => (
+                <div key={trade} className="kpi" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <span style={{ fontWeight: 600 }}>{trade}</span>
+                  <span style={{ color: "#60a5fa", fontWeight: 700 }}>{range} avg. job</span>
+                </div>
+              ))}
+              <p className="small" style={{ marginTop: 8 }}>Autopilot plan: <strong style={{ color: "rgba(255,255,255,0.80)" }}>$399/mo</strong></p>
             </div>
           </div>
         </div>
@@ -91,24 +204,24 @@ export default function Home() {
       {/* ── How it works ── */}
       <section className="surface">
         <div className="section">
-          <span className="badge">Simple process</span>
-          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>From zero to live in weeks</h2>
-          <p className="p" style={{ maxWidth: 480, marginBottom: 32 }}>No lengthy forms. No confusing back-and-forth. Three steps and you're live.</p>
+          <span className="badge">Process</span>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>From call to live site in weeks.</h2>
+          <p className="p" style={{ maxWidth: 480, marginBottom: 36 }}>No tech headaches. No lengthy intake forms. You run your business — I handle everything else.</p>
           <div className="grid cols-3">
             <div className="card">
               <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 01</p>
-              <h3 className="h3">Quick call</h3>
-              <p className="p" style={{ marginBottom: 0 }}>15 minutes to understand your business, your goals, and what you want customers to do when they find you online.</p>
+              <h3 className="h3">Free audit call</h3>
+              <p className="p" style={{ marginBottom: 0 }}>15 minutes to review your current online presence and identify exactly what's costing you leads. No commitment.</p>
             </div>
             <div className="card">
               <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 02</p>
-              <h3 className="h3">Build + review</h3>
-              <p className="p" style={{ marginBottom: 0 }}>I build the site and share it for your review. Two rounds of revisions included — we refine until it's right.</p>
+              <h3 className="h3">Build + train</h3>
+              <p className="p" style={{ marginBottom: 0 }}>I build your site and train your AI on your specific business — services, pricing, FAQs, service area. You review and approve.</p>
             </div>
             <div className="card">
               <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 03</p>
-              <h3 className="h3">Launch + support</h3>
-              <p className="p" style={{ marginBottom: 0 }}>Go live. Optionally add monthly care or light marketing to keep your site fresh and generating leads.</p>
+              <h3 className="h3">Launch + optimize</h3>
+              <p className="p" style={{ marginBottom: 0 }}>Go live. Monthly reports show you exactly how many leads your site is generating. We tune the AI as you get real data.</p>
             </div>
           </div>
         </div>
@@ -118,8 +231,8 @@ export default function Home() {
       <section className="surface">
         <div className="section">
           <span className="badge">Pricing</span>
-          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>Clear packages. No surprises.</h2>
-          <p className="p" style={{ maxWidth: 480, marginBottom: 32 }}>Every package starts with a solid website build. Add ongoing support if you want it.</p>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>Simple, honest pricing.</h2>
+          <p className="p" style={{ maxWidth: 480, marginBottom: 36 }}>No contracts, no hidden fees. Every package starts with a professional website build.</p>
           <div className="grid cols-3">
             {packages.map((p) => (
               <PackageCard key={p.name} {...p} />
@@ -128,7 +241,10 @@ export default function Home() {
         </div>
       </section>
 
-      <CTA />
+      <CTA
+        title="Start with a free audit — no commitment."
+        subtitle="Send me your current site (or tell me you don't have one) and I'll tell you exactly what's costing you leads and how to fix it."
+      />
     </div>
   );
 }
