@@ -1,9 +1,16 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+import { fileURLToPath, URL } from "node:url";
 
-// If deploying to GitHub Pages, set base to your repo name:
-// e.g. base: "/my-repo-name/"
 export default defineConfig({
-  plugins: [react()],
-  // base: "/my-repo-name/",
+  plugins: [
+    react(),
+    tailwindcss(),
+  ],
+  resolve: {
+    alias: {
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
+  },
 });
