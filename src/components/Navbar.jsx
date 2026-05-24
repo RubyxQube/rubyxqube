@@ -20,6 +20,7 @@ export default function Navbar() {
           <NavLink to="/services" style={navLinkStyle}>Services</NavLink>
           <NavLink to="/pricing" style={navLinkStyle}>Pricing</NavLink>
           <NavLink to="/portfolio" style={navLinkStyle}>Portfolio</NavLink>
+          <NavLink to="/about" style={navLinkStyle}>About</NavLink>
 
           <NavLink className="btn primary" to="/quote">
             Get a Quote

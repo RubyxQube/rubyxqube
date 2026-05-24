@@ -8,6 +8,7 @@ import Pricing from "./pages/Pricing.jsx";
 import Portfolio from "./pages/Portfolio.jsx";
 import Contact from "./pages/Contact.jsx";
 import Privacy from "./pages/Privacy.jsx";
+import About from "./pages/About.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/quote" element={<Contact />} />
         <Route path="/contact" element={<Contact />} />
 
+        <Route path="/about" element={<About />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="*" element={<NotFound />} />
       </Route>

@@ -11,6 +11,7 @@ const titles = (brand) => ({
   "/services": `Services • ${brand}`,
   "/pricing": `Pricing • ${brand}`,
   "/portfolio": `Portfolio • ${brand}`,
+  "/about": `About • ${brand}`,
   "/quote": `Get a Quote • ${brand}`,
   "/contact": `Get a Quote • ${brand}`, // alias
   "/privacy": `Privacy • ${brand}`,
@@ -42,7 +43,7 @@ export default function Layout() {
       />
       <ScrollToTop />
       <Navbar />
-      <main className="container mainGrow">
+      <main className="mainGrow">
         <Outlet />
       </main>
       <Footer />

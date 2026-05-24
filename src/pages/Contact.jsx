@@ -127,7 +127,8 @@ ${form.notes || "(none)"}`
 
   return (
     <div className="pageMinHeight">
-      <section className="surface section">
+      <section className="surface heroSurface">
+      <div className="section" style={{ paddingTop: 80, paddingBottom: 80 }}>
         <span className="badge">Fast replies • Simple process</span>
         <h1 className="h1" style={{ marginTop: 12 }}>Get a Quote</h1>
         <p className="p" style={{ maxWidth: 820 }}>
@@ -308,6 +309,7 @@ ${form.notes || "(none)"}`
               If you want real submissions, connect Formspree/Basin/Getform later.
             </p>
           </div>
+        </div>
         </div>
       </section>
     </div>
