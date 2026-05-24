@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import logo from "../assets/logo-withwords-wh.png";
+import Logo from "./Logo.jsx";
 
 const navLinkStyle = ({ isActive }) => ({
-  borderColor: isActive ? "rgba(59,130,246,0.28)" : "transparent",
-  background: isActive ? "rgba(59,130,246,0.12)" : "transparent",
+  borderColor: isActive ? "rgba(225,29,72,0.28)" : "transparent",
+  background: isActive ? "rgba(225,29,72,0.10)" : "transparent",
   color: isActive ? "rgba(255,255,255,0.92)" : undefined,
 });
 
@@ -12,8 +12,8 @@ export default function Navbar() {
   return (
     <div className="navWrap">
       <div className="navBar">
-        <Link className="brand" to="/">
-          <img src={logo} alt="Qube Solutions logo" className="logo" />
+        <Link className="brand" to="/" aria-label="RubyxQube home">
+          <Logo height={42} />
         </Link>
 
         <nav className="navLinks" aria-label="Primary">
@@ -21,10 +21,7 @@ export default function Navbar() {
           <NavLink to="/pricing" style={navLinkStyle}>Pricing</NavLink>
           <NavLink to="/portfolio" style={navLinkStyle}>Portfolio</NavLink>
           <NavLink to="/about" style={navLinkStyle}>About</NavLink>
-
-          <NavLink className="btn primary" to="/quote">
-            Get a Quote
-          </NavLink>
+          <NavLink className="btn primary" to="/quote">Get a Quote</NavLink>
         </nav>
       </div>
     </div>

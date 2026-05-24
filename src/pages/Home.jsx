@@ -192,7 +192,7 @@ export default function Home() {
               ].map(({ trade, range }) => (
                 <div key={trade} className="kpi" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <span style={{ fontWeight: 600 }}>{trade}</span>
-                  <span style={{ color: "#60a5fa", fontWeight: 700 }}>{range} avg. job</span>
+                  <span style={{ color: "#fb7185", fontWeight: 700 }}>{range} avg. job</span>
                 </div>
               ))}
               <p className="small" style={{ marginTop: 8 }}>Autopilot plan: <strong style={{ color: "rgba(255,255,255,0.80)" }}>$399/mo</strong></p>
@@ -209,17 +209,17 @@ export default function Home() {
           <p className="p" style={{ maxWidth: 480, marginBottom: 36 }}>No tech headaches. No lengthy intake forms. You run your business — I handle everything else.</p>
           <div className="grid cols-3">
             <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 01</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 01</p>
               <h3 className="h3">Free audit call</h3>
               <p className="p" style={{ marginBottom: 0 }}>15 minutes to review your current online presence and identify exactly what's costing you leads. No commitment.</p>
             </div>
             <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 02</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 02</p>
               <h3 className="h3">Build + train</h3>
               <p className="p" style={{ marginBottom: 0 }}>I build your site and train your AI on your specific business — services, pricing, FAQs, service area. You review and approve.</p>
             </div>
             <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 03</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 03</p>
               <h3 className="h3">Launch + optimize</h3>
               <p className="p" style={{ marginBottom: 0 }}>Go live. Monthly reports show you exactly how many leads your site is generating. We tune the AI as you get real data.</p>
             </div>

@@ -80,7 +80,7 @@ export default function Services() {
           <div className="grid cols-2">
 
             <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Web Development</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Web Development</p>
               <h2 className="h2">Professional Website</h2>
               <p className="p">A clean, fast, mobile-friendly site built to convert visitors into leads — not just look good.</p>
               <ul className="list">
@@ -94,7 +94,7 @@ export default function Services() {
             </div>
 
             <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>AI Receptionist</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>AI Receptionist</p>
               <h2 className="h2">24/7 Lead Capture</h2>
               <p className="p">A custom AI trained on your business that handles inquiries while you're on the job — and alerts you the moment a lead comes in.</p>
               <ul className="list">
@@ -109,7 +109,7 @@ export default function Services() {
             </div>
 
             <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Reporting & Updates</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Reporting & Updates</p>
               <h2 className="h2">Monthly Reports + Care</h2>
               <p className="p">Stay informed without lifting a finger. Every month you get a clear report and a quick check-in so you always know what your site is doing.</p>
               <ul className="list">
@@ -122,7 +122,7 @@ export default function Services() {
             </div>
 
             <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Growth & Visibility</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Growth & Visibility</p>
               <h2 className="h2">Local SEO & Marketing</h2>
               <p className="p">Optional growth services for businesses that want to actively show up in more searches and grow their local reputation.</p>
               <ul className="list">

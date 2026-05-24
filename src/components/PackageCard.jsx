@@ -10,7 +10,7 @@ export default function PackageCard({ name, tagline, bestFor, price, billing, ti
       {highlight && (
         <div className="badge" style={{ marginBottom: 14 }}>Most Popular</div>
       )}
-      <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 8 }}>{name}</p>
+      <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 8 }}>{name}</p>
       <h3 className="h3" style={{ marginBottom: 6 }}>{subtitle}</h3>
       <div className="hr" />
       <div style={{ marginBottom: 16 }}>

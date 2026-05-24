@@ -164,7 +164,7 @@ export default function Pricing() {
               <div className="card" key={a.title}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8, gap: 16 }}>
                   <h3 className="h3" style={{ marginBottom: 0 }}>{a.title}</h3>
-                  <span style={{ fontWeight: 700, fontSize: 14, color: "#60a5fa", whiteSpace: "nowrap" }}>{a.price}</span>
+                  <span style={{ fontWeight: 700, fontSize: 14, color: "#fb7185", whiteSpace: "nowrap" }}>{a.price}</span>
                 </div>
                 <p className="p" style={{ marginBottom: 0, fontSize: 14 }}>{a.desc}</p>
               </div>

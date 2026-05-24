@@ -98,17 +98,17 @@ export default function About() {
           <p className="p" style={{ maxWidth: 480, marginBottom: 32 }}>Three steps from first conversation to a live website.</p>
           <div className="grid cols-3">
             <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 01</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 01</p>
               <h3 className="h3">Kickoff call</h3>
               <p className="p" style={{ marginBottom: 0 }}>15 minutes to understand your business, your goals, and what you want customers to do on your site.</p>
             </div>
             <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 02</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 02</p>
               <h3 className="h3">Build + revise</h3>
               <p className="p" style={{ marginBottom: 0 }}>I build the site and share a preview. Two rounds of revisions included — we refine until it's right.</p>
             </div>
             <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 03</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 03</p>
               <h3 className="h3">Launch + support</h3>
               <p className="p" style={{ marginBottom: 0 }}>Go live. Optionally add a monthly care plan and I'll keep your site updated so you never have to think about it.</p>
             </div>

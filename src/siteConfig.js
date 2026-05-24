@@ -1,7 +1,9 @@
+// ─── Site configuration — single source of truth ─────────────────────────
+// Brand name is "RubyxQube" (working name — update once LLC is confirmed)
 export const siteConfig = {
-  brand: "Qube Solutions",
+  brand: "RubyxQube",
   serviceArea: "Treasure Valley",
-  email: "boydquerubin@gmail.com",
+  email: "boydquerubin@gmail.com",     // update to boyd@rubyxqube.com once Google Workspace is set up
   phoneDisplay: "(208) 970-8624",
-  phoneE164: "+12089708624", // keep as +1 + 10 digits
+  phoneE164: "+12089708624",
 };

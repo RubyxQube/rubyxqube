@@ -1,17 +1,17 @@
 :root{
-  --bg: #080808;
+  --bg: #0a0809;
   --text: rgba(255,255,255,0.90);
   --muted: rgba(255,255,255,0.48);
   --line: rgba(255,255,255,0.08);
   --radius: 14px;
   --max: 1120px;
 
-  /* Accent — electric blue */
-  --accent: #3b82f6;
-  --accent-hover: #2563eb;
-  --accent-dim: rgba(59,130,246,0.12);
-  --accent-border: rgba(59,130,246,0.28);
-  --accent-glow: rgba(59,130,246,0.22);
+  /* Accent — ruby red */
+  --accent: #e11d48;
+  --accent-hover: #c0112f;
+  --accent-dim: rgba(225,29,72,0.10);
+  --accent-border: rgba(225,29,72,0.28);
+  --accent-glow: rgba(225,29,72,0.22);
 }
 
 *{ box-sizing: border-box; }
@@ -35,22 +35,20 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.2
    SECTION SYSTEM — full-width bands
 ───────────────────────────────────────── */
 
-/* Full-width section background */
 .surface{
   position: relative;
   width: 100%;
-  background: rgba(255,255,255,0.028);
+  background: rgba(255,255,255,0.026);
   border-top: 1px solid rgba(255,255,255,0.07);
   overflow: hidden;
 }
 
-/* Hero: transparent — let the gradient show through fully */
 .heroSurface{
   background: transparent;
   border-top: none;
 }
 
-/* Ambient blue glow at top of every section */
+/* Ambient ruby glow at top of every section */
 .surface::before{
   content:'';
   position: absolute;
@@ -58,19 +56,18 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.2
   transform: translateX(-50%);
   width: 55%;
   height: 220px;
-  background: radial-gradient(ellipse at 50% 0%, rgba(59,130,246,0.05), transparent 70%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(225,29,72,0.05), transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* Hero glow is bigger and brighter */
 .heroSurface::before{
   width: 80%;
   height: 420px;
-  background: radial-gradient(ellipse at 50% 0%, rgba(59,130,246,0.11), transparent 65%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(225,29,72,0.10), transparent 65%);
 }
 
-/* Decorative right-side glow on hero */
+/* Decorative right-side warm glow on hero */
 .heroSurface::after{
   content:'';
   position: absolute;
@@ -78,14 +75,13 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.2
   right: -8%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(99,102,241,0.08), transparent 60%);
+  background: radial-gradient(circle, rgba(225,29,72,0.06), transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
 
 .surface > *{ position: relative; z-index: 1; }
 
-/* Content constraint + vertical padding */
 .section{
   max-width: var(--max);
   margin: 0 auto;
@@ -126,9 +122,9 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.2
 .h3{ font-size: 17px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; }
 .p{ color: var(--muted); margin: 0 0 14px; line-height: 1.7; }
 
-/* Gradient text */
+/* Gradient text — ruby tones */
 .accentText{
-  background: linear-gradient(130deg, #60a5fa 0%, #a78bfa 100%);
+  background: linear-gradient(130deg, #fda4af 0%, #e11d48 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -147,7 +143,7 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.2
   border: 1px solid var(--accent-border);
   font-size: 11px;
   font-weight: 700;
-  color: #93c5fd;
+  color: #fda4af;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -187,7 +183,7 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.2
 }
 .btn.primary:hover{
   background: var(--accent-hover);
-  border-color: #1d4ed8;
+  border-color: #9f1239;
   transform: translateY(-2px);
   box-shadow: 0 8px 28px var(--accent-glow);
 }
@@ -238,15 +234,14 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.2
   box-shadow: 0 24px 56px rgba(0,0,0,0.45), 0 0 0 1px var(--accent-dim);
 }
 
-/* Highlight card (recommended package) */
 .cardHighlight{
   border-color: var(--accent-border) !important;
   border-top-color: var(--accent) !important;
-  background: rgba(59,130,246,0.07) !important;
+  background: rgba(225,29,72,0.07) !important;
   box-shadow: 0 0 0 1px var(--accent-dim), 0 16px 40px rgba(0,0,0,0.40);
 }
 .cardHighlight:hover{
-  background: rgba(59,130,246,0.10) !important;
+  background: rgba(225,29,72,0.10) !important;
   box-shadow: 0 0 0 1px var(--accent-border), 0 24px 56px rgba(0,0,0,0.50);
 }
 
@@ -264,7 +259,7 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.2
   content: '→';
   position: absolute;
   left: 0;
-  color: #60a5fa;
+  color: #fb7185;
   font-size: 11px;
   top: 3px;
 }
@@ -298,7 +293,7 @@ select{
   background-color: rgba(255,255,255,0.05);
   cursor: pointer;
 }
-select option{ background: #141420; color: rgba(255,255,255,0.90); }
+select option{ background: #150a0d; color: rgba(255,255,255,0.90); }
 .textarea{ min-height: 130px; resize: vertical; }
 label{
   display:block; font-weight: 600; font-size: 12px;
@@ -315,7 +310,6 @@ label{
 }
 ::placeholder{ color: rgba(255,255,255,0.20); }
 
-/* Selected card (contact form) */
 .selectedCard{
   background: var(--accent-dim) !important;
   border: 1px solid var(--accent-border) !important;
@@ -327,7 +321,7 @@ label{
 .navWrap{
   position: sticky; top: 0; z-index: 20;
   backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  background: rgba(8,8,8,0.80);
+  background: rgba(10,8,9,0.82);
   border-bottom: 1px solid rgba(255,255,255,0.07);
 }
 .navBar{
@@ -336,9 +330,7 @@ label{
   max-width: var(--max); margin: 0 auto;
 }
 .brand{ display:flex; align-items:center; gap: 10px; font-weight: 800; }
-.brand:hover{ opacity: 0.85; }
-.brandMark{ display: none; }
-.logo{ height: 64px; width: auto; display: block; border-radius: 6px; }
+.brand:hover{ opacity: 0.85; text-decoration: none; }
 
 .navLinks{ display:flex; gap: 2px; align-items:center; }
 .navLinks a{
@@ -360,7 +352,6 @@ label{
   background: var(--accent-dim);
   font-weight: 600;
 }
-/* Get a Quote CTA in nav */
 .navLinks .btn.primary{
   margin-left: 8px;
   padding: 8px 18px;
@@ -373,7 +364,7 @@ label{
 ───────────────────────────────────────── */
 .footerWrap{
   border-top: 1px solid rgba(255,255,255,0.07);
-  background: rgba(5,5,5,0.95);
+  background: rgba(5,3,4,0.95);
 }
 .footerInner{
   max-width: var(--max); margin: 0 auto;
@@ -395,7 +386,6 @@ label{
   text-decoration: none;
 }
 .footerBrand{ display:flex; align-items:center; gap: 10px; }
-.footerLogo{ height: 52px; width: auto; border-radius: 6px; opacity: 0.80; }
 
 /* ─────────────────────────────────────────
    LAYOUT SHELL
@@ -404,7 +394,6 @@ label{
 .mainGrow{ flex: 1; display: flex; flex-direction: column; }
 .pageMinHeight{ display: flex; flex-direction: column; min-height: calc(100vh - 84px); }
 
-/* Pricing card alignment */
 .grid.cols-3 > .card{ height: 100%; display: flex; flex-direction: column; }
 .card ul.list{ margin-top: 16px; }
 .card .hr{ margin: 18px 0; }
@@ -425,7 +414,6 @@ label{
     gap: 10px;
   }
   .navBar .brand{ grid-area: brand; }
-  .logo{ height: 48px; }
 
   .navLinks{
     grid-area: links;
@@ -462,6 +450,5 @@ label{
   }
 
   .footerInner{ padding: 16px; flex-direction: column; align-items: flex-start; }
-  .footerLogo{ height: 38px; }
   .footerLinks a{ padding: 7px 11px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
 }

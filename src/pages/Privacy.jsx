@@ -87,7 +87,7 @@ export default function Privacy() {
             </p>
             <p className="p" style={{ marginBottom: 0 }}>
               If you want your information removed, email us at{" "}
-              <a href={`mailto:${siteConfig.email}`} style={{ color: "#60a5fa" }}>{siteConfig.email}</a> and
+              <a href={`mailto:${siteConfig.email}`} style={{ color: "#fb7185" }}>{siteConfig.email}</a> and
               we'll delete it within 7 business days.
             </p>
           </div>
@@ -124,7 +124,7 @@ export default function Privacy() {
             <h2 className="h2" style={{ marginBottom: 12 }}>8. Contact & Questions</h2>
             <p className="p" style={{ marginBottom: 0 }}>
               Questions about this policy or your data? Reach out directly:<br />
-              <a href={`mailto:${siteConfig.email}`} style={{ color: "#60a5fa" }}>{siteConfig.email}</a>
+              <a href={`mailto:${siteConfig.email}`} style={{ color: "#fb7185" }}>{siteConfig.email}</a>
               {" · "}{siteConfig.phoneDisplay}
             </p>
           </div>

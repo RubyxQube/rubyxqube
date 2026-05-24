@@ -21,10 +21,10 @@ const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 // ─── Default system prompt (Qube Solutions) ────────────────────────────────
 // Override per client by passing systemPrompt in the request body,
 // or by setting a SYSTEM_PROMPT environment variable.
-const DEFAULT_SYSTEM_PROMPT = `You are the AI receptionist for Qube Solutions, a web design and AI agency based in Boise, Idaho.
+const DEFAULT_SYSTEM_PROMPT = `You are the AI receptionist for RubyxQube, a web design and AI agency based in Boise, Idaho.
 
 Owner: Boyd Querubin
-Email: boyd@qubesolutions.com
+Email: boydquerubin@gmail.com
 Service area: Treasure Valley — Boise, Meridian, Nampa, Caldwell, Eagle, Kuna (and remote)
 
 Services & pricing:

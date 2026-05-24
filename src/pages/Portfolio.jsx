@@ -83,7 +83,7 @@ export default function Portfolio() {
 
                 {/* Left: description + bullets */}
                 <div style={{ flex: "1 1 320px" }}>
-                  <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
                     {project.category}
                   </p>
                   <h2 className="h2" style={{ marginBottom: 10 }}>{project.name}</h2>
@@ -150,7 +150,7 @@ export default function Portfolio() {
           <div className="grid cols-2">
             {clientWork.map((project) => (
               <div key={project.id} className="card" style={{ display: "flex", flexDirection: "column" }}>
-                <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
+                <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
                   {project.category}
                 </p>
                 <h2 className="h2" style={{ marginBottom: 10 }}>{project.name}</h2>
@@ -174,7 +174,7 @@ export default function Portfolio() {
 
             {/* Placeholder — grows as clients are added */}
             <div className="card" style={{ display: "flex", flexDirection: "column", justifyContent: "center", border: "1px dashed rgba(59,130,246,0.25)", background: "rgba(59,130,246,0.04)" }}>
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
                 Your business · {siteConfig.serviceArea}
               </p>
               <h2 className="h2" style={{ marginBottom: 10 }}>Want a site like this?</h2>
