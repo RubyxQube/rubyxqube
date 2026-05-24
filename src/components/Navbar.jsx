@@ -3,8 +3,9 @@ import { NavLink, Link } from "react-router-dom";
 import logo from "../assets/logo-withwords-bl.png";
 
 const navLinkStyle = ({ isActive }) => ({
-  borderColor: isActive ? "rgba(255,255,255,0.22)" : "transparent",
-  background: isActive ? "rgba(255,255,255,0.06)" : "transparent",
+  borderColor: isActive ? "rgba(217,119,6,0.28)" : "transparent",
+  background: isActive ? "rgba(217,119,6,0.08)" : "transparent",
+  color: isActive ? "rgba(26,17,6,0.92)" : undefined,
 });
 
 export default function Navbar() {

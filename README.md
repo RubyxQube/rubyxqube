@@ -1,16 +1,108 @@
-# React + Vite
+# Qube Solutions
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Marketing website for **Qube Solutions** — a web design service for small businesses in the Treasure Valley area.
 
-Currently, two official plugins are available:
+Built with React + Vite. Custom CSS design system (no Tailwind in production).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev       # dev server → http://localhost:5173
+npm run build     # production build → dist/
+npm run preview   # preview production build locally
+```
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+
+```
+src/
+  ├── main.jsx            Entry point (React StrictMode + BrowserRouter)
+  ├── App.jsx             Route definitions
+  ├── siteConfig.js       Brand info, contact details — edit here, not inline
+  ├── styles.css          Design system (CSS variables + component classes)
+  ├── components/
+  │   ├── Layout.jsx      Navbar + Footer wrapper (wraps every page)
+  │   ├── Navbar.jsx
+  │   ├── Footer.jsx
+  │   ├── CTA.jsx
+  │   ├── FAQ.jsx
+  │   ├── PackageCard.jsx
+  │   ├── PortfolioGrid.jsx
+  │   └── ScrollToTop.jsx
+  └── pages/
+      ├── Home.jsx        Hero, package overview, process steps
+      ├── Services.jsx    Full service details + FAQ
+      ├── Pricing.jsx     Package cards + add-ons table
+      ├── Portfolio.jsx   Work showcase
+      ├── Contact.jsx     Get-a-quote form (also at /quote)
+      ├── About.jsx
+      ├── Privacy.jsx
+      └── NotFound.jsx
+```
+
+---
+
+## Pages & Routes
+
+| Route | Component | Purpose |
+|-------|-----------|---------|
+| `/` | Home | Landing page |
+| `/services` | Services | Service details + FAQ |
+| `/pricing` | Pricing | Packages + add-ons |
+| `/portfolio` | Portfolio | Work showcase |
+| `/contact` or `/quote` | Contact | Get-a-quote form |
+| `/privacy` | Privacy | Privacy policy |
+
+---
+
+## Styling
+
+All styles live in `src/styles.css`. Uses CSS custom properties and semantic class names — **not Tailwind**.
+
+**Key class names:**
+
+| Class | Usage |
+|-------|-------|
+| `.surface` | Glassmorphism card base |
+| `.card` | Elevated card with shadow |
+| `.btn`, `.btn.primary` | Buttons |
+| `.grid .cols-2`, `.grid .cols-3` | Responsive layout grid |
+| `.h1`–`.h3`, `.p` | Typography |
+| `.badge` | Pill label |
+
+**CSS variables:** `--bg`, `--surface`, `--text`, `--muted`, `--line`, `--shadow-*`, `--accent-*`
+
+**Breakpoints:** `720px` (tablet), `860px` (desktop)
+
+---
+
+## Site Config
+
+Edit `src/siteConfig.js` to update brand name, contact details, or service area.
+
+```js
+export const siteConfig = {
+  brand: "Qube Solutions",
+  serviceArea: "Treasure Valley",
+  email: "boydquerubin@gmail.com",
+  phoneDisplay: "(208) 970-8624",
+  phoneE164: "+12089708624",
+};
+```
+
+---
+
+## Packages & Pricing
+
+| Package | Price |
+|---------|-------|
+| Website Build | $2,000 one-time |
+| Website + Monthly Care | $2,000 + $250/mo |
+| Website + Light Marketing | $2,000 + $500/mo |
+
+**Add-ons:** Extra page ($200) · Copywriting ($400) · Logo cleanup ($200) · Booking integration ($100) · Site migration ($500)

@@ -1,13 +1,16 @@
 :root{
-  --bg: #f7f9fc;
-  --card: rgba(255,255,255,0.78);
-  --card2: rgba(255,255,255,0.90);
-  --text: rgba(15,23,42,0.92);     /* slate-ish */
-  --muted: rgba(15,23,42,0.68);
-  --line: rgba(15,23,42,0.10);
-  --shadow: 0 10px 30px rgba(15,23,42,0.10);
+  --bg: #faf7f4;
+  --card: rgba(255,252,248,0.82);
+  --card2: rgba(255,253,250,0.94);
+  --text: rgba(26,17,6,0.90);
+  --muted: rgba(26,17,6,0.58);
+  --line: rgba(26,17,6,0.10);
+  --shadow: 0 10px 30px rgba(26,17,6,0.10);
   --radius: 18px;
   --max: 1120px;
+  --amber: #d97706;
+  --amber-dark: #b45309;
+  --amber-xdark: #92400e;
 }
 
 
@@ -18,14 +21,14 @@ body{
   margin: 0;
   position: relative;
   min-height: 100vh;
-  background: linear-gradient(135deg, rgba(59,130,246,0.05), rgba(16,185,129,0.04)) , var(--bg);
+  background: var(--bg);
   color: var(--text);
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-  line-height: 1.5;
+  font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  line-height: 1.55;
   isolation: isolate;
 }
 
-/* soft, friendly daylight glows */
+/* warm, grounded ambient glow */
 body::before{
   content: "";
   position: fixed;
@@ -33,9 +36,9 @@ body::before{
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(1100px 650px at 15% -10%, rgba(59,130,246,0.14), transparent 60%),
-    radial-gradient(900px 520px at 90% 0%, rgba(16,185,129,0.12), transparent 58%),
-    radial-gradient(900px 650px at 55% 110%, rgba(236,72,153,0.08), transparent 62%);
+    radial-gradient(1100px 650px at 15% -10%, rgba(245,158,11,0.14), transparent 60%),
+    radial-gradient(900px 520px at 90% 0%, rgba(101,163,13,0.10), transparent 58%),
+    radial-gradient(900px 650px at 55% 110%, rgba(249,115,22,0.09), transparent 62%);
 }
 
 body::after{
@@ -45,31 +48,29 @@ body::after{
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(1200px 780px at 50% 105%, rgba(99,102,241,0.10), transparent 64%),
-    radial-gradient(1100px 740px at 22% 110%, rgba(14,165,233,0.08), transparent 66%),
-    radial-gradient(1200px 740px at 85% 112%, rgba(34,197,94,0.07), transparent 66%);
+    radial-gradient(1200px 780px at 50% 105%, rgba(217,119,6,0.10), transparent 64%),
+    radial-gradient(1100px 740px at 22% 110%, rgba(251,146,60,0.08), transparent 66%),
+    radial-gradient(1200px 740px at 85% 112%, rgba(74,222,128,0.06), transparent 66%);
 }
 
 a{ color:inherit; text-decoration:none; }
-a:hover{ text-decoration: underline; text-decoration-color: rgba(15,23,42,0.25); }
+a:hover{ text-decoration: underline; text-decoration-color: rgba(26,17,6,0.25); }
 
 .container{
   max-width: var(--max);
   margin: 0 auto;
   padding: 24px;
-  background: rgba(11,15,23,0.20);
-  border-radius: 22px;
   background: transparent;
 }
 
 .surface{
-  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.70));
-  border: 1px solid rgba(15,23,42,0.10);
+  background: linear-gradient(180deg, rgba(255,252,248,0.94), rgba(255,250,244,0.74));
+  border: 1px solid rgba(26,17,6,0.09);
   border-radius: var(--radius);
-  box-shadow: 0 18px 55px rgba(15,23,42,0.12);
+  box-shadow: 0 18px 55px rgba(26,17,6,0.10);
 }
 
-.section{ padding: 32px 28px 28px; }
+.section{ padding: 36px 32px 32px; }
 .section + .section{ margin-top: 18px; }
 
 .grid{
@@ -81,64 +82,67 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(15,23,42,0.25);
   .grid.cols-2{ grid-template-columns: repeat(2, 1fr); }
 }
 
-.h1{ font-size: clamp(34px, 4vw, 54px); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 12px; }
-.h2{ font-size: clamp(24px, 3vw, 34px); letter-spacing: -0.01em; margin: 0 0 8px; }
-.h3{ font-size: 18px; margin: 0 0 8px; }
+.h1{ font-size: clamp(34px, 4vw, 56px); line-height: 1.05; letter-spacing: -0.025em; font-weight: 800; margin: 0 0 14px; }
+.h2{ font-size: clamp(22px, 3vw, 32px); letter-spacing: -0.015em; font-weight: 700; margin: 0 0 8px; }
+.h3{ font-size: 17px; font-weight: 700; margin: 0 0 8px; }
 .p{ color: var(--muted); margin: 0 0 14px; }
 
 .badge{
   display:inline-flex;
   align-items:center;
   gap:8px;
-  padding: 7px 12px;
+  padding: 7px 13px;
   border-radius: 999px;
-  background: rgba(59,130,246,0.10);
-  border: 1px solid rgba(59,130,246,0.22);
-  box-shadow: 0 3px 10px rgba(15,23,42,0.08);
-  font-size: 13px;
-  color: rgba(15,23,42,0.82);
+  background: rgba(217,119,6,0.10);
+  border: 1px solid rgba(217,119,6,0.26);
+  box-shadow: 0 2px 8px rgba(26,17,6,0.07);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: rgba(26,17,6,0.80);
   line-height: 1;
   margin-top: 2px;
+  letter-spacing: 0.01em;
 }
 
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding: 11px 14px;
+  padding: 11px 16px;
   border-radius: 12px;
-  border: 1px solid rgba(15,23,42,0.14);
-  background: rgba(255,255,255,0.72);
-  color: rgba(15,23,42,0.92);
-  font-weight: 650;
+  border: 1px solid rgba(26,17,6,0.14);
+  background: rgba(255,252,248,0.80);
+  color: rgba(26,17,6,0.90);
+  font-weight: 600;
+  font-size: 14.5px;
   cursor: pointer;
-  transition: transform .08s ease, background .12s ease, border-color .12s ease;
+  transition: transform .08s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
   text-decoration:none;
 }
 .btn:hover{
   text-decoration:none;
   transform: translateY(-1px);
-  background: rgba(255,255,255,0.92);
-  border-color: rgba(15,23,42,0.18);
-  box-shadow: 0 3px 10px rgba(15,23,42,0.14);
+  background: rgba(255,252,248,0.96);
+  border-color: rgba(26,17,6,0.18);
+  box-shadow: 0 4px 12px rgba(26,17,6,0.12);
 }
 .btn.primary{
-  background: rgba(59,130,246,0.18);
-  border-color: rgba(59,130,246,0.28);
-  color: rgba(15,23,42,0.92);
+  background: var(--amber);
+  border-color: var(--amber-dark);
+  color: #ffffff;
+  font-weight: 700;
 }
 .btn.primary:hover{
-  background: rgba(59,130,246,0.24);
-  border-color: rgba(59,130,246,0.34);
+  background: var(--amber-dark);
+  border-color: var(--amber-xdark);
   transform: translateY(-1px);
-  box-shadow: 0 3px 10px rgba(15,23,42,0.14);
+  box-shadow: 0 6px 18px rgba(180,83,9,0.28);
 }
 
 .btnRow{
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  /* margin-top: 16px;    */
   align-items: center;
 }
 
@@ -152,12 +156,12 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(15,23,42,0.25);
 
 .btnRow .btn{
   min-height: 44px;
-  padding: 11px 16px;
+  padding: 11px 18px;
 }
 
 @media (min-width: 520px){
   .btnRow .btn{
-    min-width: 140px;  /* makes them visually equal */
+    min-width: 140px;
   }
 }
 
@@ -169,36 +173,35 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(15,23,42,0.25);
 
 .small{ font-size: 13px; color: var(--muted); }
 .kpi{
-  padding: 14px;
+  padding: 16px;
   border-radius: 14px;
-  background: rgba(255,255,255,0.78);
-  border: 1px solid rgba(255,255,255,0.12);
-  border: 1px solid rgba(15,23,42,0.10);
+  background: rgba(255,252,248,0.86);
+  border: 1px solid rgba(26,17,6,0.09);
   box-shadow:
-    0 2px 10px rgba(15,23,42,0.10),
-    0 1px 0 rgba(255,255,255,0.9) inset;
+    0 2px 10px rgba(26,17,6,0.08),
+    0 1px 0 rgba(255,255,255,0.85) inset;
 }
-.kpi strong{ display:block; font-size: 18px; margin-bottom: 2px; }
+.kpi strong{ display:block; font-size: 17px; font-weight: 700; margin-bottom: 3px; }
 .kpi span{ color: var(--muted); font-size: 13px; }
 
 .card{
-  padding: 16px;
+  padding: 18px;
   border-radius: 16px;
-  background: rgba(255,255,255,0.86);
-  border: 1px solid rgba(15,23,42,0.10);
+  background: rgba(255,252,248,0.90);
+  border: 1px solid rgba(26,17,6,0.09);
   box-shadow:
-    0 10px 24px rgba(15,23,42,0.10),
-    0 1px 0 rgba(255,255,255,0.9) inset;
-  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    0 10px 24px rgba(26,17,6,0.09),
+    0 1px 0 rgba(255,255,255,0.85) inset;
+  transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease;
 }
 
-/* .card:hover{
-  transform: translateY(-2px);
-  border-color: rgba(15,23,42,0.14);
+.card:hover{
+  transform: translateY(-3px);
+  border-color: rgba(26,17,6,0.13);
   box-shadow:
-    0 18px 40px rgba(15,23,42,0.14),
-    0 1px 0 rgba(255,255,255,0.95) inset;
-} */
+    0 20px 44px rgba(26,17,6,0.13),
+    0 1px 0 rgba(255,255,255,0.90) inset;
+}
 
 .list{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
 .list li{ margin: 7px 0; }
@@ -207,9 +210,9 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(15,23,42,0.25);
   width:100%;
   padding: 12px 12px;
   border-radius: 12px;
-  border: 1px solid rgba(15,23,42,0.14);
-  background: rgba(255,255,255,0.85);
-  color: rgba(15,23,42,0.92);
+  border: 1px solid rgba(26,17,6,0.14);
+  background: rgba(255,252,248,0.90);
+  color: rgba(26,17,6,0.90);
   outline: none;
 }
 
@@ -217,23 +220,23 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(15,23,42,0.25);
 select,
 .input,
 .textarea{
-  font-size: 16px;           /* prevents iOS zoom + keeps consistent sizing */
+  font-size: 16px;
   line-height: 1.2;
+  font-family: inherit;
 }
 
 select{
-  min-height: 48px;          /* same “visual height” as inputs */
-  padding: 12px 42px 12px 12px; /* extra right padding for chevron */
+  min-height: 48px;
+  padding: 12px 42px 12px 12px;
   border-radius: 14px;
-  background-color: rgba(255,255,255,0.85);
+  background-color: rgba(255,252,248,0.90);
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
 
-  /* draw a consistent chevron */
   background-image:
-    linear-gradient(45deg, transparent 50%, rgba(15,23,42,0.55) 50%),
-    linear-gradient(135deg, rgba(15,23,42,0.55) 50%, transparent 50%);
+    linear-gradient(45deg, transparent 50%, rgba(26,17,6,0.50) 50%),
+    linear-gradient(135deg, rgba(26,17,6,0.50) 50%, transparent 50%);
   background-position:
     calc(100% - 18px) 50%,
     calc(100% - 12px) 50%;
@@ -241,21 +244,20 @@ select{
   background-repeat: no-repeat;
 }
 
-/* Some iOS versions need this to fully equalize */
 select:focus{
   outline: none;
 }
 
 .textarea{ min-height: 120px; resize: vertical; }
-label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; color: rgba(15,23,42,0.78); }
+label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; color: rgba(26,17,6,0.72); }
 
 .navWrap{
   position: sticky;
   top: 0;
   z-index: 20;
-  backdrop-filter: blur(10px);
-  background: rgba(247,249,252,0.70);
-  border-bottom: 1px solid rgba(15,23,42,0.10);
+  backdrop-filter: blur(12px);
+  background: rgba(250,247,244,0.75);
+  border-bottom: 1px solid rgba(26,17,6,0.09);
 }
 .navBar{
   display:flex;
@@ -273,8 +275,8 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
 }
 
 .brand:hover{
-  border-color: rgba(15,23,42,0.12);
-  box-shadow: 0 1px 5px rgba(15,23,42,0.12);
+  border-color: rgba(26,17,6,0.10);
+  box-shadow: 0 1px 5px rgba(26,17,6,0.10);
   border-radius: 12px;
 }
 .brandMark{
@@ -293,34 +295,37 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
   align-items:center;
 }
 .navLinks a{
-  color: rgba(15,23,42,0.78);
+  color: rgba(26,17,6,0.72);
   border: 1px solid transparent;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 14.5px;
+  transition: background .1s ease, color .1s ease, border-color .1s ease;
 }
 
 .navLinks a:hover{
-  color: rgba(15,23,42,0.92);
-  /* border-color: rgba(15,23,42,0.10); */
-  background: rgba(15,23,42,0.04);
-  transform: translateY(-1px);
-  /* box-shadow: 0 14px 28px rgba(15,23,42,0.12); */
+  color: rgba(26,17,6,0.92);
+  background: rgba(26,17,6,0.05);
+  text-decoration: none;
 }
 
- /* Active state (NavLink applies inline styles too, this helps even without them) */
 .navLinks a[aria-current="page"]{
-  color: rgba(15,23,42,0.92);
-  border-color: rgba(15,23,42,0.14);
-  background: rgba(15,23,42,0.05);
+  color: rgba(26,17,6,0.92);
+  border-color: rgba(217,119,6,0.28);
+  background: rgba(217,119,6,0.08);
+  font-weight: 600;
 }
 
 .heroTitle{
-  max-width: 28ch; 
-  margin: 10px 0 12px;
+  max-width: 28ch;
+  margin: 10px 0 14px;
 }
 
 .footerWrap{
   margin-top: 28px;
-  border-top: 1px solid rgba(15,23,42,0.10);
-  background: linear-gradient(180deg, rgba(247,249,252,0.92), rgba(247,249,252,0.78));
+  border-top: 1px solid rgba(26,17,6,0.09);
+  background: linear-gradient(180deg, rgba(250,247,244,0.94), rgba(250,246,240,0.80));
   backdrop-filter: blur(10px);
 }
 
@@ -334,7 +339,7 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
   align-items: center;
   justify-content: space-between;
 
-  color: rgba(15,23,42,0.72);   /* <-- key fix */
+  color: rgba(26,17,6,0.65);
   font-size: 14px;
 }
 
@@ -346,19 +351,20 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
 }
 
 .footerLinks a{
-  color: rgba(15,23,42,0.78);   /* <-- key fix */
+  color: rgba(26,17,6,0.70);
   padding: 6px 10px;
   border-radius: 10px;
   border: 1px solid transparent;
   text-decoration: none;
+  font-size: 13.5px;
+  transition: background .1s ease, border-color .1s ease;
 }
 
 .footerLinks a:hover{
-  color: rgba(15,23,42,0.92);
-  border-color: rgba(15,23,42,0.10);
-  background: rgba(15,23,42,0.04);
-  transform: translateY(-1px);
-  box-shadow: 0 3px 10px rgba(15,23,42,0.12);
+  color: rgba(26,17,6,0.90);
+  border-color: rgba(26,17,6,0.10);
+  background: rgba(26,17,6,0.04);
+  text-decoration: none;
 }
 
 .footerBrand{
@@ -372,7 +378,7 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
   width: auto;
   display:block;
   border-radius: 8px;
-  opacity: 0.95;              /* helps on light bg */
+  opacity: 0.95;
 }
 
 /* Sticky footer layout */
@@ -382,21 +388,19 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
   flex-direction: column;
 }
 
-/* Main content should expand to push footer down */
 .mainGrow{
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-/* Ensure each page section can fill the viewport on short pages */
 .pageMinHeight{
-  min-height: calc(100vh - 90px); /* fallback; adjusted by layout flex */
+  min-height: calc(100vh - 90px);
   display: flex;
   flex-direction: column;
 }
 
-/* Make pricing cards line up neatly in a row */
+/* Pricing card alignment */
 .grid.cols-3 > .card {
   height: 100%;
   display: flex;
@@ -412,20 +416,20 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
 }
 
 .selectedCard{
-  background: rgba(59,130,246,0.08);
-  border: 1px solid rgba(59,130,246,0.20);
+  background: rgba(217,119,6,0.07);
+  border: 1px solid rgba(217,119,6,0.24);
   border-radius: 14px;
 }
 
-/* Better focus + readability */
+/* Focus states */
 .input:focus, .textarea:focus, select:focus{
-  border-color: rgba(59,130,246,0.35);
-  box-shadow: 0 0 0 4px rgba(59,130,246,0.12);
-  background: rgba(255,255,255,0.95);
+  border-color: rgba(217,119,6,0.44);
+  box-shadow: 0 0 0 4px rgba(217,119,6,0.12);
+  background: rgba(255,252,248,0.98);
 }
 
 ::placeholder{
-  color: rgba(15,23,42,0.45);
+  color: rgba(26,17,6,0.38);
 }
 
 /* =========================
@@ -433,9 +437,8 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
 ========================= */
 @media (max-width: 720px){
 
-  /* tighter container/section spacing */
   .container{ padding: 14px; }
-  .section{ padding: 20px 16px 16px; }
+  .section{ padding: 22px 18px 18px; }
 
   /* ---------- NAVBAR ---------- */
   .navBar{
@@ -449,7 +452,6 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
     align-items: center;
   }
 
-  /* brand left */
   .navBar .brand{
     grid-area: brand;
     display: flex;
@@ -458,14 +460,12 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
     justify-content: flex-start;
   }
 
-  /* logo slightly smaller on mobile */
   .logo{
     height: 54px;
     width: auto;
     border-radius: 12px;
   }
 
-  /* links become a single horizontal row (no wrap) */
   .navLinks{
     grid-area: links;
     display: flex;
@@ -479,35 +479,29 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
 
   .navLinks a{
     white-space: nowrap;
-    padding: 10px 12px;
+    padding: 9px 13px;
     border-radius: 999px;
-    background: rgba(15,23,42,0.04);
-    border: 1px solid rgba(15,23,42,0.08);
-    color: rgba(15,23,42,0.78);
+    background: rgba(26,17,6,0.04);
+    border: 1px solid rgba(26,17,6,0.08);
+    color: rgba(26,17,6,0.72);
+    font-size: 14px;
   }
   .navLinks a[aria-current="page"]{
-    background: rgba(59,130,246,0.14);
-    border-color: rgba(59,130,246,0.22);
-    color: rgba(15,23,42,0.92);
+    background: rgba(217,119,6,0.12);
+    border-color: rgba(217,119,6,0.28);
+    color: rgba(26,17,6,0.90);
   }
 
-  /* CTA: smaller pill on the right, not a giant block */
   .navLinks .btn.primary{
-    grid-area: cta;
-    padding: 10px 12px;
+    position: static;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 9px 13px;
     border-radius: 999px;
-  }
-
-  /* If your CTA is inside navLinks, pull it out visually */
-  .navLinks .btn.primary{
-    position: sticky;
-    right: 0;
-    background: rgba(59,130,246,0.18);
-    border-color: rgba(59,130,246,0.28);
+    margin-left: 6px;
   }
 
   /* ---------- HERO / CTA CARD BUTTONS ---------- */
-  /* Make CTA buttons stack full-width (best mobile UX) */
   .btnRow{
     display: flex;
     flex-direction: column;
@@ -519,21 +513,8 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
     width: 100%;
     min-height: 48px;
     border-radius: 14px;
-    font-size: 16px;
+    font-size: 15.5px;
   }
-
-  /* keep primary consistent (optional: make them all uniform by removing primary bg difference) */
-  /* Uncomment if you want ALL buttons identical */
-  /*
-  .btn.primary{
-    background: rgba(255,255,255,0.72);
-    border-color: rgba(15,23,42,0.14);
-  }
-  .btn.primary:hover{
-    background: rgba(255,255,255,0.92);
-    border-color: rgba(15,23,42,0.18);
-  }
-  */
 
   /* ---------- FOOTER ---------- */
   .footerInner{
@@ -560,9 +541,13 @@ label{ display:block; font-weight: 600; font-size: 13px; margin: 12px 0 8px; col
     gap: 10px;
   }
   .footerLinks a{
-    padding: 10px 12px;
+    padding: 9px 12px;
     border-radius: 999px;
-    background: rgba(15,23,42,0.04);
-    border: 1px solid rgba(15,23,42,0.08);
+    background: rgba(26,17,6,0.04);
+    border: 1px solid rgba(26,17,6,0.08);
+  }
+
+  .navLinks{
+    align-items: center;
   }
 }
