@@ -6,7 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docs:pdf": "md-to-pdf docs/ROADMAP.md && md-to-pdf docs/SOP.md && md-to-pdf docs/TODO.md",
+    "docs:pdf:roadmap": "md-to-pdf docs/ROADMAP.md",
+    "docs:pdf:sop": "md-to-pdf docs/SOP.md",
+    "docs:pdf:todo": "md-to-pdf docs/TODO.md",
+    "img:svg-to-png": "node scripts/svg-to-png.mjs",
+    "img:optimize-svg": "svgo --folder src/assets"
   },
   "dependencies": {
     "@paper-design/shaders-react": "^0.0.76",
@@ -26,6 +32,9 @@
     "@types/react-dom": "^19.2.3",
     "@types/three": "^0.184.1",
     "@vitejs/plugin-react": "^4.3.2",
+    "md-to-pdf": "^5.2.5",
+    "sharp": "^0.34.5",
+    "svgo": "^4.0.1",
     "typescript": "^6.0.3",
     "vite": "^5.4.8"
   }
