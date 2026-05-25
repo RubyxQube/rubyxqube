@@ -104,12 +104,7 @@ function PalettePicker({ selectedPalette, onSelect }) {
 
   return (
     <div>
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-        gap: 12,
-        marginBottom: 24,
-      }}>
+      <div className="grid cols-4" style={{ gap: 12, marginBottom: 24 }}>
         {PALETTES.map(p => (
           <div
             key={p.id}
