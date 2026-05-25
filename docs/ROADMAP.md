@@ -1,4 +1,4 @@
-# Qube Solutions — Business Roadmap
+# RubyxQube — Business Roadmap
 
 > **Owner:** Boyd Querubin  
 > **Model:** Solo web design + AI receptionist agency for Treasure Valley service businesses  
@@ -15,7 +15,7 @@ Get the foundation in place before actively selling.
 - [ ] Open business checking account (separate from personal)
 - [ ] Set up invoicing + contracts (Wave for invoicing, free / HoneyBook for contracts)
 - [ ] Get a business phone number (Google Voice is free, or OpenPhone $15/mo)
-- [ ] Set up Google Workspace for boyd@qubesolutions.com
+- [ ] Set up Google Workspace for boyd@rubyxqube.com
 
 ### Operations
 - [ ] Set up Notion workspace — one page per client (template in SOP.md)
@@ -25,18 +25,21 @@ Get the foundation in place before actively selling.
 - [ ] Create intake questionnaire (Google Form or Typeform)
 
 ### Product
-- [ ] Update Contact.jsx pricing to match new packages (Launch / Autopilot / Momentum)
+- [x] Update Contact.jsx pricing to match new packages (Launch / Autopilot / Momentum)
+- [x] Set up analytics stack — GA4 (G-9X0RYL01J3) live on rubyxqube.com
+- [x] Contact form live — Formspree (@formspree/react), tested and working
 - [ ] Build AI chatbot MVP using OpenAI API (needed before selling Autopilot)
 - [ ] Document chatbot onboarding process (what info you need from client)
-- [ ] Set up analytics stack (Google Analytics 4 on all client sites)
 - [ ] Screenshot Phoenix Stoneworks for portfolio
 
 ### Website
 - [x] Rebuild site with AI receptionist positioning
 - [x] Add Bastion MSP to portfolio
+- [x] Connect rubyxqube.com — live on Vercel
+- [x] Social meta tags + sitemap.xml + FAQ on contact page
 - [ ] Add real screenshot/preview images to portfolio cards
-- [ ] Test all forms and CTAs end-to-end
-- [ ] Set up Google Search Console for qube-solutions.com
+- [ ] Test all forms and CTAs end-to-end on mobile
+- [ ] Set up Google Search Console for rubyxqube.com
 
 ---
 
@@ -86,7 +89,7 @@ Get the foundation in place before actively selling.
 
 ### Marketing
 - [ ] 2 LinkedIn posts/month (case studies, tips for service business owners)
-- [ ] Create a Google Business Profile for Qube Solutions
+- [ ] Create a Google Business Profile for RubyxQube
 - [ ] Get listed in Treasure Valley local business directories
 - [ ] Start collecting email addresses (Mailchimp free tier, monthly tips email)
 

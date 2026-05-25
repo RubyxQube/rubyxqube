@@ -7,7 +7,6 @@
 
 ## 🔴 Critical (Do This Week)
 
-- [x] **Fix Contact.jsx pricing** — still shows old packages ($2,000 etc.), needs to match Launch / Autopilot / Momentum
 - [ ] **Register the LLC** — Idaho SOS online filing, ~$100. Don't take money without this.
 - [ ] **Open a business bank account** — keep revenue separate from personal from day one
 - [ ] **Set up Wave** (wave.com) — free invoicing + bookkeeping. Create your first invoice template.
@@ -18,15 +17,15 @@
 
 ### Business Setup
 - [ ] Get a business phone number (Google Voice is free — forward to your cell)
-- [ ] Set up Google Workspace — boyd@qubesolutions.com looks more professional than Gmail
+- [ ] Set up Google Workspace — boyd@rubyxqube.com once LLC is confirmed
 - [ ] Create a simple service agreement / contract (1 page, use a free template from Bonsai or Docracy)
 - [ ] Create a proposal template in Google Docs or Notion
 
 ### Website
 - [ ] Screenshot Phoenix Stoneworks site for the portfolio card (add a real preview image)
-- [ ] Test the contact form end-to-end on mobile (does the mailto open? Does it autofill correctly?)
-- [ ] Set up Google Search Console for rubyxqube.com (submit sitemap.xml once domain is live)
-- [ ] Add Google Analytics 4 to the RubyxQube site itself (need GA4 Measurement ID)
+- [ ] Test the contact form end-to-end on mobile
+- [ ] Set up Google Search Console for rubyxqube.com — submit `/sitemap.xml`
+- [ ] Add a "Free Audit" landing page — one focused page for cold outreach links
 
 ### Operations
 - [ ] Set up Notion workspace:
@@ -48,18 +47,13 @@
 - [ ] Create an onboarding questionnaire (Google Form — use the questions in SOP.md Section 5)
 - [ ] Write up Phoenix Stoneworks as a case study (1 page: challenge, what you built, result)
 - [ ] Get a testimonial / Google review from Phoenix Stoneworks
-- [ ] Create a Google Business Profile for Qube Solutions
+- [ ] Create a Google Business Profile for RubyxQube
 
 ---
 
 ## 🔵 Product / Site Improvements
 
 - [ ] Add real preview images to portfolio cards (screenshot tools: Screely, BrowserFrame)
-- [x] Add an FAQ section to the Contact page (reduces friction before they fill out the form)
-- [ ] Connect Formspree (or Basin) to the contact form — replaces the mailto hack with real form submissions
-- [ ] Add a "Free Audit" landing page — one focused page for cold outreach links
-- [x] Add social sharing meta tags (og:title, og:image) so links look good when shared
-- [x] Set up a `/sitemap.xml` for SEO
 - [ ] Consider adding a blog (1 post/month targeting local SEO terms like "web design Boise Idaho")
 
 ---
@@ -67,9 +61,9 @@
 ## 🟣 Bastion MSP
 
 - [ ] Pull latest changes from dev workstation (git pull / merge)
-- [ ] Sync screenshots for the Qube Solutions portfolio card
-- [ ] Clarify: is the portal.bastionmsp.com publicly linkable, or is it client-only? (decide whether to feature it in the portfolio or just mention it)
-- [ ] Cross-sell opportunity: could Bastion MSP clients be pitched a website refresh through Qube Solutions?
+- [ ] Sync screenshots for the RubyxQube portfolio card
+- [ ] Clarify: is the portal.bastionmsp.com publicly linkable, or is it client-only?
+- [ ] Cross-sell opportunity: could Bastion MSP clients be pitched a website refresh through RubyxQube?
 
 ---
 
@@ -82,12 +76,20 @@
 - [ ] "Website in a Week" productized offer — fixed scope, fixed $1,500, 5-day turnaround
 - [ ] LinkedIn presence — 2 posts/month, case studies, tips for service business owners
 - [ ] Local Facebook Groups — join Boise/Treasure Valley small business groups, provide value
-- [ ] Explore: Qube Solutions + Bastion MSP bundle (web + cybersecurity for SMBs)
+- [ ] Explore RubyxQube + Bastion MSP bundle (web + cybersecurity for SMBs)
 
 ---
 
 ## ✅ Done
 
+- [x] **Fix Contact.jsx pricing** — updated to Launch / Autopilot / Momentum with correct prices
+- [x] **Add FAQ section to Contact page** — 6 common questions to reduce friction
+- [x] **Add social sharing meta tags** — og:title, og:description, og:image, Twitter card
+- [x] **Add `/sitemap.xml`** — all 7 routes, ready to submit to Search Console
+- [x] **Google Analytics 4** — G-9X0RYL01J3 live on site
+- [x] **Formspree contact form** — @formspree/react, tested and working (submissions → Gmail)
+- [x] **Connect rubyxqube.com** — domain live on Vercel, DNS via Vercel nameservers
+- [x] **Rebrand to RubyxQube** — page title, meta description, TODO.md, ROADMAP.md
 - [x] Rebuild site with AI receptionist positioning (Home, Services, Pricing)
 - [x] New package structure: Launch / Autopilot / Momentum
 - [x] Add About page to nav
