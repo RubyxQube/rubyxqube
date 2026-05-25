@@ -66,7 +66,7 @@ export default function Home() {
             {siteConfig.brand} builds professional websites with a built-in AI receptionist that captures leads 24/7, answers customer questions, and sends you instant alerts — so you never miss a job opportunity.
           </p>
           <div className="btnRow">
-            <Link className="btn primary" to="/contact">Get a Free Audit</Link>
+            <a className="btn primary" href={siteConfig.calendlyUrl} target="_blank" rel="noopener noreferrer">Get a Free Audit</a>
             <a className="btn" href={`tel:${siteConfig.phoneE164}`}>Call {siteConfig.phoneDisplay}</a>
             <Link className="btn" to="/pricing">See Pricing</Link>
           </div>

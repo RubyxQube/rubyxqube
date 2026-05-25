@@ -49,7 +49,7 @@ export default function Audit() {
             Boyd reviews your current online presence and tells you exactly what's working, what isn't, and what to fix first. 15 minutes. No pitch. No commitment.
           </p>
           <div className="btnRow">
-            <Link className="btn primary" to="/contact?service=audit">Book Your Free Audit</Link>
+            <a className="btn primary" href={siteConfig.calendlyUrl} target="_blank" rel="noopener noreferrer">Book Your Free Audit</a>
             <a className="btn" href={`tel:${siteConfig.phoneE164}`}>Call {siteConfig.phoneDisplay}</a>
           </div>
 
@@ -121,9 +121,9 @@ export default function Audit() {
               <p className="p" style={{ marginBottom: 20 }}>
                 No pressure. No follow-up emails every week. Just honest advice.
               </p>
-              <Link className="btn primary" to="/contact?service=audit" style={{ display: "inline-flex" }}>
+              <a className="btn primary" href={siteConfig.calendlyUrl} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex" }}>
                 Book Your Free Audit →
-              </Link>
+              </a>
             </div>
           </div>
         </div>
