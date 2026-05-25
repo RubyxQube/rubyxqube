@@ -11,6 +11,7 @@ import Privacy from "./pages/Privacy.jsx";
 import About from "./pages/About.jsx";
 import Audit from "./pages/Audit.jsx";
 import Report from "./pages/Report.jsx";
+import Designs from "./pages/Designs.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
 
         <Route path="/about" element={<About />} />
         <Route path="/audit" element={<Audit />} />
+        <Route path="/designs" element={<Designs />} />
         <Route path="/report" element={<Report />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="*" element={<NotFound />} />

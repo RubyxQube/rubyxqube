@@ -1,0 +1,262 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import CTA from "../components/CTA.jsx";
+import { siteConfig } from "../siteConfig.js";
+
+// ─── Design catalogue ────────────────────────────────────────────────────────
+const DESIGNS = [
+  {
+    id: "tradesman",
+    name: "The Tradesman",
+    tagline: "Bold, high-contrast, built to convert",
+    desc: "Dark background, bold typography, phone number front and center. Makes trades businesses look established and trustworthy the moment someone lands on the page.",
+    industries: ["Plumbing", "HVAC", "Electrical", "Roofing", "Landscaping", "Concrete"],
+    palette: { bg: "#111827", nav: "#0f172a", hero: "#111827", accent: "#f59e0b", text: "#ffffff", muted: "#6b7280", card: "#1f2937" },
+  },
+  {
+    id: "professional",
+    name: "The Professional",
+    tagline: "Clean, minimal, corporate confidence",
+    desc: "White space, navy accents, clean structured layout. Builds immediate trust and credibility for professional service providers who need to look polished.",
+    industries: ["Law", "Accounting", "Consulting", "Financial", "Insurance", "Medical"],
+    palette: { bg: "#f8fafc", nav: "#1e3a5f", hero: "#ffffff", accent: "#1e3a5f", text: "#1e293b", muted: "#94a3b8", card: "#f1f5f9" },
+  },
+  {
+    id: "local",
+    name: "The Local",
+    tagline: "Warm, inviting, community-first",
+    desc: "Warm tones, story-driven layout, reviews front and center. Makes local businesses feel welcoming and like a trusted part of the neighborhood.",
+    industries: ["Restaurant", "Café", "Salon", "Bakery", "Boutique", "Florist"],
+    palette: { bg: "#fef9f0", nav: "#2d5016", hero: "#fef9f0", accent: "#2d5016", text: "#1c1917", muted: "#a8a29e", card: "#fef3c7" },
+  },
+  {
+    id: "modern",
+    name: "The Modern",
+    tagline: "Sleek, minimal, unmistakably premium",
+    desc: "Pure black canvas, bold typography, surgical use of accent color. For businesses that want to look like the most premium option in their market.",
+    industries: ["Real Estate", "Architecture", "Photography", "Interior Design", "Marketing"],
+    palette: { bg: "#0a0a0a", nav: "#0a0a0a", hero: "#0a0a0a", accent: "#e11d48", text: "#ffffff", muted: "#525252", card: "#171717" },
+  },
+  {
+    id: "bold",
+    name: "The Bold",
+    tagline: "High-energy, action-oriented, call-driving",
+    desc: "Strong blue and orange contrast, action-focused CTAs, no wasted space. Built for businesses where every visitor is a potential job — and speed matters.",
+    industries: ["Auto Repair", "Towing", "Moving", "Pest Control", "Security", "Gym"],
+    palette: { bg: "#ffffff", nav: "#1e40af", hero: "#1e40af", accent: "#f97316", text: "#1e293b", muted: "#94a3b8", card: "#f1f5f9" },
+  },
+  {
+    id: "warm",
+    name: "The Warm",
+    tagline: "Friendly, approachable, relationship-first",
+    desc: "Amber tones, testimonials lead the page, approachable photography. For service businesses built on personal trust where referrals are everything.",
+    industries: ["Cleaning", "Childcare", "Pet Services", "Senior Care", "Tutoring", "Therapy"],
+    palette: { bg: "#fffbeb", nav: "#92400e", hero: "#fffbeb", accent: "#d97706", text: "#1c1917", muted: "#a8a29e", card: "#fef3c7" },
+  },
+];
+
+// ─── Mini mockup preview ─────────────────────────────────────────────────────
+function MockupPreview({ p }) {
+  return (
+    <div style={{
+      width: "100%",
+      aspectRatio: "16/10",
+      borderRadius: 8,
+      overflow: "hidden",
+      background: p.bg,
+      border: "1px solid rgba(255,255,255,0.06)",
+      flexShrink: 0,
+    }}>
+      {/* Navbar */}
+      <div style={{
+        background: p.nav,
+        height: 22,
+        display: "flex",
+        alignItems: "center",
+        padding: "0 10px",
+        gap: 6,
+        borderBottom: `2px solid ${p.accent}`,
+      }}>
+        <div style={{ width: 14, height: 14, background: p.accent, borderRadius: 3 }} />
+        <div style={{ width: 28, height: 5, background: p.text, borderRadius: 2, opacity: 0.8 }} />
+        <div style={{ flex: 1 }} />
+        {[1,2,3].map(i => (
+          <div key={i} style={{ width: 18, height: 4, background: p.text, borderRadius: 2, opacity: 0.3 }} />
+        ))}
+        <div style={{ width: 22, height: 10, background: p.accent, borderRadius: 3 }} />
+      </div>
+
+      {/* Hero */}
+      <div style={{
+        background: p.hero,
+        padding: "14px 12px 12px",
+        borderBottom: `1px solid ${p.card}`,
+      }}>
+        <div style={{ width: "75%", height: 8, background: p.text, borderRadius: 3, opacity: 0.85, marginBottom: 6 }} />
+        <div style={{ width: "55%", height: 5, background: p.text, borderRadius: 2, opacity: 0.35, marginBottom: 4 }} />
+        <div style={{ width: "40%", height: 5, background: p.text, borderRadius: 2, opacity: 0.35, marginBottom: 10 }} />
+        <div style={{ display: "flex", gap: 6 }}>
+          <div style={{ width: 44, height: 13, background: p.accent, borderRadius: 4 }} />
+          <div style={{ width: 36, height: 13, background: "transparent", border: `1.5px solid ${p.accent}`, borderRadius: 4, opacity: 0.5 }} />
+        </div>
+      </div>
+
+      {/* Cards row */}
+      <div style={{ display: "flex", gap: 6, padding: "10px 12px" }}>
+        {[1,2,3].map(i => (
+          <div key={i} style={{
+            flex: 1,
+            background: p.card,
+            borderRadius: 5,
+            padding: "7px 6px",
+          }}>
+            <div style={{ width: 14, height: 14, background: p.accent, borderRadius: 3, opacity: 0.7, marginBottom: 5 }} />
+            <div style={{ width: "80%", height: 4, background: p.text, borderRadius: 2, opacity: 0.5, marginBottom: 3 }} />
+            <div style={{ width: "60%", height: 3, background: p.text, borderRadius: 2, opacity: 0.25 }} />
+          </div>
+        ))}
+      </div>
+
+      {/* CTA bar */}
+      <div style={{
+        background: p.accent,
+        margin: "0 12px",
+        borderRadius: 5,
+        height: 18,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 6,
+      }}>
+        <div style={{ width: 60, height: 4, background: p.nav === p.hero ? p.bg : p.nav, borderRadius: 2, opacity: 0.7 }} />
+        <div style={{ width: 28, height: 10, background: "rgba(255,255,255,0.2)", borderRadius: 3 }} />
+      </div>
+    </div>
+  );
+}
+
+// ─── Design card ─────────────────────────────────────────────────────────────
+function DesignCard({ design, onSelect, selected }) {
+  const { palette: p } = design;
+  return (
+    <div
+      className="card"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 16,
+        cursor: "pointer",
+        outline: selected ? `2px solid var(--accent)` : "2px solid transparent",
+        transition: "outline 0.15s",
+      }}
+      onClick={() => onSelect(design.id)}
+    >
+      <MockupPreview p={p} />
+
+      {/* Palette swatches */}
+      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+        {[p.nav, p.hero === p.nav ? p.card : p.hero, p.accent, p.text === "#ffffff" ? "#ffffff" : p.text].map((color, i) => (
+          <div key={i} style={{
+            width: 20, height: 20,
+            borderRadius: "50%",
+            background: color,
+            border: "1px solid rgba(255,255,255,0.12)",
+            flexShrink: 0,
+          }} />
+        ))}
+        <span style={{ fontSize: 11, color: "var(--muted)", marginLeft: 4 }}>color palette</span>
+      </div>
+
+      <div>
+        <h3 className="h3" style={{ marginBottom: 4 }}>{design.name}</h3>
+        <p style={{ fontSize: 13, color: "var(--accent)", fontWeight: 600, marginBottom: 8 }}>{design.tagline}</p>
+        <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.6 }}>{design.desc}</p>
+      </div>
+
+      {/* Industry tags */}
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+        {design.industries.map(tag => (
+          <span key={tag} className="badge" style={{ fontSize: 11 }}>{tag}</span>
+        ))}
+      </div>
+
+      <a
+        className="btn primary"
+        href={siteConfig.calendlyUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ display: "inline-flex", justifyContent: "center", marginTop: "auto" }}
+        onClick={e => e.stopPropagation()}
+      >
+        Get this style →
+      </a>
+    </div>
+  );
+}
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
+export default function Designs() {
+  const [selected, setSelected] = useState(null);
+
+  return (
+    <>
+      {/* Hero */}
+      <section className="section heroSection" style={{ textAlign: "center", paddingBottom: 0 }}>
+        <span className="badge" style={{ marginBottom: 16 }}>Design Styles</span>
+        <h1 className="h1" style={{ marginBottom: 16 }}>
+          Find a style you love
+        </h1>
+        <p style={{ fontSize: 18, color: "var(--muted)", maxWidth: 560, margin: "0 auto 12px" }}>
+          Browse our design styles below. When you book a free audit call, tell Boyd which one caught your eye — or bring your own reference.
+        </p>
+        <p style={{ fontSize: 14, color: "var(--muted)", maxWidth: 480, margin: "0 auto 48px", opacity: 0.7 }}>
+          Every site is custom-built for your business. These are starting points, not templates.
+        </p>
+      </section>
+
+      {/* Grid */}
+      <section className="section" style={{ paddingTop: 24 }}>
+        <div className="grid cols-3" style={{ gap: 24 }}>
+          {DESIGNS.map(d => (
+            <DesignCard
+              key={d.id}
+              design={d}
+              selected={selected === d.id}
+              onSelect={setSelected}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* Custom note */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="surface" style={{
+          textAlign: "center",
+          padding: "40px 32px",
+          borderRadius: 16,
+          maxWidth: 640,
+          margin: "0 auto",
+        }}>
+          <p style={{ fontSize: 28, marginBottom: 12 }}>🎨</p>
+          <h2 className="h2" style={{ marginBottom: 12 }}>Don't see what you want?</h2>
+          <p style={{ color: "var(--muted)", marginBottom: 24, lineHeight: 1.6 }}>
+            These are starting points. If you have a reference site, a color in mind, or just a feeling — bring it to the audit call. Boyd will figure out exactly what fits your business.
+          </p>
+          <a
+            className="btn primary"
+            href={siteConfig.calendlyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Book a Free Audit →
+          </a>
+        </div>
+      </section>
+
+      <CTA
+        title="Ready to get started?"
+        subtitle="Book a free 15-minute audit call. No commitment — just honest feedback on what your business needs online."
+      />
+    </>
+  );
+}
