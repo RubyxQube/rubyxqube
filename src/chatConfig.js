@@ -24,6 +24,12 @@ export const chatConfig = {
   accentColor: "#e11d48",
   accentHover: "#c0112f",
 
+  // ── Chat button icon ───────────────────────────────────────────────────────
+  // Path to logo mark (no text) — shown in the floating chat button.
+  // For client sites: set to their logo mark PNG (e.g. "/brand/logo-mark.png")
+  // Set to null to fall back to the default 💬 emoji.
+  buttonIcon: "/brand/logo-mark-192.png",
+
   // ── Footer disclosure ──────────────────────────────────────────────────────
   poweredBy: "Powered by Claude AI",
 

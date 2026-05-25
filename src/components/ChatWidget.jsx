@@ -413,9 +413,17 @@ export default function ChatWidget() {
         aria-label={open ? "Close chat" : "Chat with us"}
         title={open ? "Close" : "Chat with us"}
       >
-        <span style={{ fontSize: 22, display: "block", lineHeight: 1 }}>
-          {open ? "✕" : "💬"}
-        </span>
+        {open ? (
+          <span style={{ fontSize: 22, display: "block", lineHeight: 1 }}>✕</span>
+        ) : chatConfig.buttonIcon ? (
+          <img
+            src={chatConfig.buttonIcon}
+            alt="Chat"
+            style={{ width: 30, height: 30, objectFit: "contain", display: "block" }}
+          />
+        ) : (
+          <span style={{ fontSize: 22, display: "block", lineHeight: 1 }}>💬</span>
+        )}
       </button>
     </>
   );
