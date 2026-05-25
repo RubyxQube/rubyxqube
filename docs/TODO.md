@@ -14,16 +14,13 @@
 
 ## 🟡 High Priority (This Month)
 
-### Site Overhaul — UP NEXT
-- [ ] **Full site redesign** — complete overhaul of rubyxqube.com (new layout, content, structure)
-
-The following are all blocked until the overhaul is done:
+### Website
 - [ ] Portfolio card — Phoenix Stoneworks real screenshot
 - [ ] Phoenix Stoneworks case study (1 page: challenge → what you built → result)
 - [ ] Get a Google review / testimonial from Phoenix Stoneworks
 - [ ] Google Search Console — submit `/sitemap.xml`
 - [ ] Add a "Free Audit" landing page for cold outreach links
-- [ ] Test contact form end-to-end on mobile after redesign
+- [ ] Test contact form end-to-end on mobile
 
 ### Business Setup
 - [ ] Get a business phone number (Google Voice is free — forward to your cell)
@@ -70,6 +67,7 @@ The following are all blocked until the overhaul is done:
 ## ✅ Done
 
 ### Brand & Design (May 2026)
+- [x] **Full site overhaul** — new layout, content, and structure ✅
 - [x] **Official logo PNGs exported** — horizontal, stacked, clean variants + mark at 512/192/64px
 - [x] **favicon.ico** — 16/32/48px ruby cube, live on rubyxqube.com
 - [x] **apple-touch-icon.png** — 180px, ruby red background
