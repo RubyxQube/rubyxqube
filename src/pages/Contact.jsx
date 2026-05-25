@@ -39,6 +39,8 @@ function packageFromNeed(need) {
   );
 }
 
+const FORMSPREE_ID = "xeedllpy";
+
 export default function Contact() {
   const [form, setForm] = React.useState({
     name: "",
@@ -48,17 +50,17 @@ export default function Contact() {
     serviceSelectionId: "launch",
     need: "Launch",
     timeline: "This month",
-    contactMethod: "Text",
+    contactMethod: "Call",
     contactValue: "",
     notes: "",
   });
+  const [submitting, setSubmitting] = React.useState(false);
+  const [submitted, setSubmitted] = React.useState(false);
+  const [error, setError] = React.useState(null);
 
-React.useEffect(() => {
-    setForm((s) => {
-      return { ...s, contactValue: "" };
-    });
+  React.useEffect(() => {
+    setForm((s) => ({ ...s, contactValue: "" }));
   }, [form.contactMethod]);
-
 
   const selectedPackage =
     PACKAGES.find((p) => p.id === form.serviceSelectionId) ||
@@ -67,7 +69,6 @@ React.useEffect(() => {
   function onChange(e) {
     const { name, value } = e.target;
 
-    // Keep Need and Service Selection in sync (so user isn't picking twice)
     if (name === "serviceSelectionId") {
       const p = PACKAGES.find((x) => x.id === value) || PACKAGES[0];
       setForm((s) => ({
@@ -83,8 +84,7 @@ React.useEffect(() => {
       setForm((s) => ({
         ...s,
         need: value,
-        serviceSelectionId:
-          value === "Not sure" ? "unsure" : (p?.id || "build"),
+        serviceSelectionId: value === "Not sure" ? "unsure" : (p?.id || "launch"),
       }));
       return;
     }
@@ -97,33 +97,38 @@ React.useEffect(() => {
     form.city.trim().length > 1 &&
     form.contactValue.trim().length > 3;
 
-  // Static hosting-safe: uses mailto. Swap to Formspree/Basin/Getform later.
-  const mailto = () => {
-    if (!canSend) return;
-
-    const subject = encodeURIComponent(
-      `Quote Request - ${siteConfig.brand} (${siteConfig.serviceArea})`
-    );
-
-    const body = encodeURIComponent(
-      `Name: ${form.name}
-Business: ${form.business || "(not provided)"}
-City: ${form.city}
-Website: ${form.website || "(not provided)"}
-
-Service Selection: ${selectedPackage.label}
-Need: ${form.need}
-Timeline: ${form.timeline}
-
-Preferred Contact: ${form.contactMethod}
-Contact Details: ${form.contactValue}
-
-Notes:
-${form.notes || "(none)"}`
-    );
-
-    window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
-  };
+  async function handleSubmit() {
+    if (!canSend || submitting) return;
+    setSubmitting(true);
+    setError(null);
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          business: form.business || "(not provided)",
+          city: form.city,
+          website: form.website || "(not provided)",
+          package: selectedPackage.label,
+          timeline: form.timeline,
+          contact_method: form.contactMethod,
+          contact_value: form.contactValue,
+          notes: form.notes || "(none)",
+          _subject: `Quote Request — ${form.name} (${form.city})`,
+        }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError("Something went wrong. Please try again or email us directly.");
+      }
+    } catch {
+      setError("Network error. Please try again or email us directly.");
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   return (
     <div className="pageMinHeight">
@@ -287,28 +292,39 @@ ${form.notes || "(none)"}`
               placeholder={`What services do you offer? Any pages you want (gallery, FAQ, reviews)? Any examples you like?`}
             />
 
-            <div className="btnRow">
-              <button
-                className="btn primary"
-                type="button"
-                onClick={mailto}
-                disabled={!canSend}
-                style={!canSend ? { opacity: 0.85, cursor: "not-allowed" } : undefined}
-              >
-                Send Request
-              </button>
-            </div>
+            {submitted ? (
+              <div className="card" style={{ marginTop: 8, background: "rgba(34,197,94,0.12)", border: "1px solid rgba(34,197,94,0.3)" }}>
+                <p className="p" style={{ marginBottom: 0, fontWeight: 600 }}>
+                  ✅ Request sent! I'll be in touch within 1 business day.
+                </p>
+              </div>
+            ) : (
+              <>
+                <div className="btnRow">
+                  <button
+                    className="btn primary"
+                    type="button"
+                    onClick={handleSubmit}
+                    disabled={!canSend || submitting}
+                    style={(!canSend || submitting) ? { opacity: 0.85, cursor: "not-allowed" } : undefined}
+                  >
+                    {submitting ? "Sending…" : "Send Request"}
+                  </button>
+                </div>
 
-            {!canSend && (
-              <p className="small" style={{ marginTop: 8, marginBottom: 0 }}>
-                Please add your name, city, and a way to contact you.
-              </p>
+                {!canSend && (
+                  <p className="small" style={{ marginTop: 8, marginBottom: 0 }}>
+                    Please add your name, city, and a way to contact you.
+                  </p>
+                )}
+
+                {error && (
+                  <p className="small" style={{ marginTop: 8, marginBottom: 0, color: "#fb7185" }}>
+                    {error}
+                  </p>
+                )}
+              </>
             )}
-
-            <p className="small" style={{ marginTop: 10, marginBottom: 0 }}>
-              This form uses your email app (mailto) so it works on Vercel/GitHub Pages without a backend.
-              If you want real submissions, connect Formspree/Basin/Getform later.
-            </p>
           </div>
         </div>
         </div>
