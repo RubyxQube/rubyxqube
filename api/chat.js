@@ -15,7 +15,6 @@
  */
 
 import Anthropic from "@anthropic-ai/sdk";
-import { Resend } from "resend";
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
@@ -89,18 +88,26 @@ async function sendEmailAlert(lead, businessName) {
     return;
   }
   try {
-    const resend = new Resend(process.env.RESEND_API_KEY);
-    await resend.emails.send({
-      from: "onboarding@resend.dev",
-      to: process.env.ALERT_EMAIL,
-      subject: `🔔 New lead — ${businessName || "RubyxQube"}`,
-      text:
-        `New lead captured via AI chatbot\n\n` +
-        `Name: ${lead.name}\n` +
-        `Contact: ${lead.contact}\n` +
-        `Needs: ${lead.service_needed}` +
-        (lead.notes ? `\nNotes: ${lead.notes}` : ""),
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${process.env.RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: "onboarding@resend.dev",
+        to: process.env.ALERT_EMAIL,
+        subject: `🔔 New lead — ${businessName || "RubyxQube"}`,
+        text:
+          `New lead captured via AI chatbot\n\n` +
+          `Name: ${lead.name}\n` +
+          `Contact: ${lead.contact}\n` +
+          `Needs: ${lead.service_needed}` +
+          (lead.notes ? `\nNotes: ${lead.notes}` : ""),
+      }),
     });
+    const data = await res.json();
+    if (!res.ok) throw new Error(JSON.stringify(data));
     console.log("Email sent for lead:", lead.name);
   } catch (err) {
     console.error("Resend error:", err.message);
