@@ -39,7 +39,7 @@
 ## 🟢 Before First Client
 
 - [ ] **Build the AI chatbot MVP** — core feature of the Autopilot package, can't sell it without it
-  - OpenAI API account + API key
+  - Anthropic API key (already have — add ANTHROPIC_API_KEY to Vercel env vars)
   - System prompt template ready (see SOP.md Section 7)
   - Lead capture working (name, phone, what they need)
   - SMS alert to your phone via Twilio

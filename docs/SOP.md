@@ -1,4 +1,4 @@
-# Qube Solutions — Standard Operating Procedures
+# RubyxQube — Standard Operating Procedures
 
 > Reference this any time you're onboarding a client, building a site, or doing monthly care.  
 > Update it whenever you discover a better way to do something.
@@ -8,7 +8,7 @@
 ## 1. Lead Intake
 
 ### Where leads come from
-- Website contact form (Contact.jsx → mailto for now, upgrade to Formspree later)
+- Website contact form (Contact.jsx → Formspree, live)
 - Direct referral / warm intro
 - Cold outreach (you reaching out to them)
 - Google Business Profile
@@ -166,7 +166,7 @@ Send as Google Form or run through on the kickoff call.
 ### Week 1
 - [ ] Register domain (Namecheap or Google Domains)
 - [ ] Set up hosting (Vercel — free tier for static/React sites)
-- [ ] Scaffold site (clone Qube Solutions template or start fresh)
+- [ ] Scaffold site (clone RubyxQube template or start fresh)
 - [ ] Write copy from onboarding notes (or send to client for review)
 - [ ] Build: Home, About, Services pages
 - [ ] First internal review — mobile check, links work, forms work
@@ -181,7 +181,7 @@ Send as Google Form or run through on the kickoff call.
 
 ### Week 3
 - [ ] Apply revisions
-- [ ] For Autopilot/Momentum: deploy AI chatbot (OpenAI API, train on their data)
+- [ ] For Autopilot/Momentum: deploy AI chatbot (Claude API via Anthropic, train on their data)
 - [ ] Test chatbot: run 10 sample conversations, verify lead capture + SMS alert
 - [ ] Revision Round 2 (final round)
 - [ ] DNS cutover — go live
@@ -199,7 +199,7 @@ Send as Google Form or run through on the kickoff call.
 - SMS number for lead alerts
 
 ### Build checklist
-- [ ] Set up OpenAI API key (stored in 1Password)
+- [ ] Confirm Anthropic API key is in Vercel env vars (ANTHROPIC_API_KEY — stored in 1Password)
 - [ ] Create system prompt using client's business info
 - [ ] Configure lead capture fields: name, phone, what they need
 - [ ] Set up SMS alert (Twilio or similar) — fires when lead is captured
@@ -320,6 +320,6 @@ If a client cancels (30 days notice required):
 | Google Search Console | SEO monitoring | Free |
 | Wave | Invoicing + bookkeeping | Free |
 | DocuSign / HelloSign | Contracts | ~$15/mo or free tier |
-| OpenAI API | AI chatbot (Autopilot clients) | Pay per use ~$10–30/mo/client |
+| Anthropic API (Claude) | AI chatbot powered by Claude Haiku (Autopilot clients) | Pay per use ~$1–3/mo/client |
 | Twilio | SMS lead alerts | ~$1–2/mo/client |
 | Calendly | Book audit calls | Free |

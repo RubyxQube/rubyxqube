@@ -28,7 +28,7 @@ Get the foundation in place before actively selling.
 - [x] Update Contact.jsx pricing to match new packages (Launch / Autopilot / Momentum)
 - [x] Set up analytics stack — GA4 (G-9X0RYL01J3) live on rubyxqube.com
 - [x] Contact form live — Formspree (@formspree/react), tested and working
-- [ ] Build AI chatbot MVP using OpenAI API (needed before selling Autopilot)
+- [ ] Build AI chatbot MVP using Anthropic Claude API (needed before selling Autopilot — code already exists, needs deployment + testing)
 - [ ] Document chatbot onboarding process (what info you need from client)
 - [ ] Screenshot Phoenix Stoneworks for portfolio
 

@@ -1,4 +1,4 @@
-# Qube Solutions — Business Model
+# RubyxQube — Business Model
 
 > Internal document. Updated as the business evolves.  
 > Last reviewed: May 2026
@@ -7,7 +7,7 @@
 
 ## What We Are
 
-**Qube Solutions** is a productized web design + AI services agency for small service businesses in the Treasure Valley (and beyond). We don't sell hours — we sell outcomes: a live website with an AI receptionist that captures leads while the client is on the job.
+**RubyxQube** is a productized web design + AI services agency for small service businesses in the Treasure Valley (and beyond). We don't sell hours — we sell outcomes: a live website with a Claude-powered AI receptionist that captures leads while the client is on the job.
 
 The model is designed to be high-margin, recurring, and solo-operable up to ~$15k MRR before needing help.
 
@@ -71,7 +71,7 @@ A traditional receptionist costs $2,500–4,000/month. A part-time answering ser
 | Item | Cost | Notes |
 |------|------|-------|
 | **Revenue** | $399/mo | Monthly retainer |
-| AI API costs | ~$2–5/mo | OpenAI GPT-4o-mini, ~100 conversations at 1,500 tokens avg |
+| AI API costs | ~$0.50–1/mo | Claude Haiku (Anthropic API), ~100 conversations at 1,500 tokens avg |
 | SMS alerts (Twilio) | ~$1–2/mo | ~100 SMS/month at $0.0075 each |
 | Hosting (Vercel) | ~$0–2/mo | Free tier covers most clients; Pro plan $20/mo shared across all |
 | Time (care + report) | ~1.5 hrs/mo | At your effective rate of $100/hr = $150/mo cost |
@@ -177,7 +177,7 @@ At 30 Autopilot clients + 5 Momentum: **$14,470/mo MRR** — this is the solo ce
 | Risk | Likelihood | Mitigation |
 |------|-----------|------------|
 | Client churn (cancel retainer) | Medium | Weekly check-ins + monthly strategy calls build stickiness; 30-day cancellation notice gives recovery time |
-| AI API pricing changes | Low | GPT-4o-mini costs have dropped consistently; even a 10× increase = $50/mo at scale |
+| AI API pricing changes | Low | Claude Haiku pricing is stable; even a 10× increase = ~$54/mo at 50 clients |
 | Time crunch (too many clients, too little time) | High (Phase 2) | SOPs must be tight; hire VA before hitting capacity wall |
 | Client doesn't see ROI | Medium | Monthly reports show concrete lead numbers; onboard with realistic expectations |
 | Larger competitor enters market | Medium | Local relationships + responsiveness is the moat; not replicable by remote agencies |
@@ -189,6 +189,6 @@ At 30 Autopilot clients + 5 Momentum: **$14,470/mo MRR** — this is the solo ce
 1. **Referral program** — pay $250–500 per referred signed client. Service businesses talk to each other.
 2. **Case studies** — one published case study with before/after lead numbers is worth 10 cold calls.
 3. **Google Business Profile** — optimize Qube Solutions' own GBP for "web design Boise" searches.
-4. **The Qube Solutions site itself** — it runs the AI receptionist. Any visitor who asks gets a live demo.
-5. **Bastion MSP cross-sell** — cybersecurity + web = a compelling bundle for regulated SMBs.
+4. **The RubyxQube site itself** — it runs the Claude AI receptionist. Any visitor who asks gets a live demo of exactly what we sell.
+5. **Bastion MSP cross-sell** — cybersecurity + web + AI = a compelling bundle for regulated SMBs.
 6. **Expand service area** — once SOPs are tight, work is remote. No reason to stay Treasure Valley only.

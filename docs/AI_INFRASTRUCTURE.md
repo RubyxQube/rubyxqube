@@ -1,4 +1,4 @@
-# Qube Solutions — AI Infrastructure & Management
+# RubyxQube — AI Infrastructure & Management
 
 > Internal reference for how the AI receptionist is built, managed, and billed.  
 > Answers: Do clients get their own API plan, or do we use ours?
@@ -35,12 +35,12 @@ This is the right model for our market. A plumber or landscaper doesn't know wha
 
 | Model | Input | Output | Est. monthly cost |
 |-------|-------|--------|-------------------|
-| GPT-4o-mini | $0.15/1M | $0.60/1M | **~$0.05–0.15** |
-| GPT-4o | $5.00/1M | $15.00/1M | **~$0.75–2.00** |
-| Claude Haiku 4.5 | $0.80/1M | $4.00/1M | **~$0.25–0.50** |
+| **Claude Haiku 4.5** ✓ | $0.80/1M | $4.00/1M | **~$0.25–0.50** |
 | Claude Sonnet 4.6 | $3.00/1M | $15.00/1M | **~$0.75–2.00** |
+| GPT-4o-mini (alternative) | $0.15/1M | $0.60/1M | **~$0.05–0.15** |
+| GPT-4o (alternative) | $5.00/1M | $15.00/1M | **~$0.75–2.00** |
 
-**We use GPT-4o-mini for client chatbots. At $399/mo retainer, the AI cost is effectively zero.**
+**We use Claude Haiku (Anthropic API) for client chatbots. At $399/mo retainer, the AI cost is effectively zero.**
 
 Add Twilio SMS alerts:
 - ~100 SMS/month × $0.0079/SMS = **$0.79/month**
@@ -53,39 +53,39 @@ Add Twilio SMS alerts:
 
 ## At Scale
 
-| Clients | Monthly conversations | Token usage | GPT-4o-mini cost | Twilio SMS | Total infra |
+| Clients | Monthly conversations | Token usage | Claude Haiku cost | Twilio SMS | Total infra |
 |---------|----------------------|-------------|------------------|-----------|-------------|
-| 5 | 500 | 750K | $0.75 | $4 | **~$5/mo** |
-| 15 | 1,500 | 2.25M | $2.25 | $12 | **~$14/mo** |
-| 30 | 3,000 | 4.5M | $4.50 | $24 | **~$29/mo** |
-| 50 | 5,000 | 7.5M | $7.50 | $40 | **~$48/mo** |
+| 5 | 500 | 750K | ~$1.40 | $4 | **~$5/mo** |
+| 15 | 1,500 | 2.25M | ~$4.20 | $12 | **~$16/mo** |
+| 30 | 3,000 | 4.5M | ~$8.40 | $24 | **~$32/mo** |
+| 50 | 5,000 | 7.5M | ~$14 | $40 | **~$54/mo** |
 
-At 50 clients generating $19,950/mo MRR, AI infrastructure is $48/month — less than 0.25% of revenue.
+At 50 clients generating $19,950/mo MRR, AI infrastructure is ~$54/month — less than 0.3% of revenue.
 
-**When to revisit this model:** If average conversations exceed 500/month per client (high-traffic business), consider a small AI usage surcharge or bump the retainer. At 500 conversations/month, GPT-4o-mini still costs less than $1.
+**When to revisit this model:** If average conversations exceed 500/month per client (high-traffic business), consider a small AI usage surcharge or bump the retainer. At 500 conversations/month, Claude Haiku still costs less than $2.
 
 ---
 
 ## Tech Stack Decision: Which AI?
 
 ### For client chatbots (the AI receptionist)
-**→ OpenAI GPT-4o-mini**  
-- Cheapest capable model on the market
-- Fast response times (important for chat UX)
-- More than good enough for FAQ + lead capture tasks
-- Well-documented, widely supported
+**→ Claude Haiku 4.5 (Anthropic API)**  
+- Fast, affordable, and more than capable for FAQ + lead capture
+- Backed by Anthropic — same company behind Claude.ai (strong brand trust)
+- This is our main selling point: "Powered by Claude" is a differentiator
+- Default model: `claude-haiku-4-5-20251001`
 
-**→ Upgrade path:** If a client's chatbot needs to handle complex conversations (e.g., a medical spa or law firm), use GPT-4o or Claude Sonnet 4.6 — charge a higher tier retainer.
+**→ Upgrade path:** If a client needs more nuanced conversations (e.g., medical spa, law firm), upgrade to Claude Sonnet 4.6 — charge a higher retainer tier ($599–799/mo).
 
-### For internal tooling (reports, content generation)
+### For internal tooling (reports, content generation, Claude Code)
 **→ Claude Sonnet 4.6 via Anthropic API**  
-- Better writing quality for case studies, social posts, email drafts
+- Better reasoning and writing for case studies, social posts, proposals
 - Used internally, not client-facing
 
-### For the Qube Solutions website itself
-**→ Claude Haiku 4.5 or GPT-4o-mini**  
-- Our own chatbot should use our best thinking at low cost
-- Doubles as a live demo for every visitor
+### For the RubyxQube website itself
+**→ Claude Haiku 4.5**  
+- Our own chatbot is a live demo for every visitor — it must be impressive
+- Same stack we sell to clients — dogfooded first, credibility built in
 
 ---
 
@@ -93,18 +93,17 @@ At 50 clients generating $19,950/mo MRR, AI infrastructure is $48/month — less
 
 ### One centralized API account
 ```
-Boyd's OpenAI Account (org-level)
-├── Project: qube-solutions-site       ← our own chatbot
-├── Project: client-phoenix-stoneworks  ← per-client projects
-├── Project: client-[name]
+Boyd's Anthropic Account
+├── rubyxqube-site          ← our own chatbot (live demo)
+├── client-phoenix-stoneworks ← per-client deployments
+├── client-[name]
 └── ...
 ```
 
-Using OpenAI's **Projects** feature lets you:
-- Set separate API keys per client (so compromised key = isolated blast radius)
-- Set spending limits per project
-- Track usage and cost per client separately
-- Rotate keys without affecting other clients
+Each client site gets its own Vercel project with its own `ANTHROPIC_API_KEY` env var:
+- Compromised key = isolated blast radius (only affects one client)
+- Rotate keys per client without affecting others
+- Track usage in Anthropic console per key
 
 ### Vercel Serverless Functions (API proxy)
 Client chatbots never expose the API key in the browser. All calls go through a Vercel Edge Function:
@@ -112,9 +111,9 @@ Client chatbots never expose the API key in the browser. All calls go through a 
 ```
 Browser (user types message)
   → POST /api/chat (Vercel Edge Function)
-    → Reads OPENAI_API_KEY from Vercel env vars
-    → Forwards to OpenAI with client-specific system prompt
-    → Returns AI response
+    → Reads ANTHROPIC_API_KEY from Vercel env vars
+    → Forwards to Anthropic (Claude Haiku) with client-specific system prompt
+    → Returns Claude's response
   → Browser displays response
 ```
 
@@ -136,7 +135,7 @@ Lead captured
 ## Scaling the Infrastructure
 
 ### Phase 1 (1–5 clients)
-- Single OpenAI org account
+- Single Anthropic API account (one key per client Vercel project)
 - Vercel Hobby plan (free) — serverless functions included
 - Twilio trial → pay-as-you-go
 - System prompts stored in Vercel env vars per client project
@@ -145,10 +144,10 @@ Lead captured
 
 ### Phase 2 (5–20 clients)
 - Upgrade to Vercel Pro ($20/mo) for better function limits and analytics
-- OpenAI org: set per-project spend limits ($10–20/mo per client max)
+- Anthropic: monitor usage per API key in Anthropic console
 - Twilio verified number ($1/mo)
 - Add a simple leads database: Supabase free tier (store all leads from all clients)
-- Monthly usage dashboard: pull OpenAI usage API → know exactly what each client costs
+- Monthly usage dashboard: track Claude API usage → know exactly what each client costs
 - Estimated monthly infra cost: **$30–80**
 
 ### Phase 3 (20–50 clients)
@@ -164,8 +163,8 @@ Lead captured
 
 ### API Key Management
 - **Never store API keys in code** — always in Vercel environment variables or 1Password
-- One API key per client project in OpenAI — isolates exposure
-- If a client churns: disable their project key immediately
+- One `ANTHROPIC_API_KEY` per client Vercel project — isolates exposure
+- If a client churns: delete their API key in Anthropic console immediately
 - 1Password vault has one entry per client with all credentials
 
 ### Client Data
@@ -184,31 +183,31 @@ Lead captured
 
 **This is non-negotiable — we must run the AI receptionist on our own site.**
 
-Why: Every visitor to qube-solutions.com is a potential client. If our chatbot is good, they experience the product firsthand. If we don't run it ourselves, we have no credibility selling it.
+Why: Every visitor to rubyxqube.com is a potential client. If our chatbot is good, they experience the product firsthand. Saying "Powered by Claude" to a visitor who just chatted with our bot is the most effective demo possible.
 
 ### What our chatbot should do:
-1. **Greet visitors** — "Hey, I'm the Qube Solutions AI assistant. Looking to get a website built or have questions about our services?"
+1. **Greet visitors** — "Hey, I'm the RubyxQube AI assistant. Looking to get a website built or have questions about our services?"
 2. **Answer questions** about services, pricing, timeline, AI receptionist
 3. **Qualify leads** — what type of business, current website situation, service area
 4. **Capture info** — name, phone or email, what they're looking for
 5. **Alert Boyd via SMS** — same system we sell to clients, dogfooded first
 
-### System prompt for Qube Solutions chatbot:
+### System prompt for RubyxQube chatbot:
 ```
-You are the AI receptionist for Qube Solutions, a web design and AI services 
+You are the AI receptionist for RubyxQube, a web design and AI services 
 agency based in Boise, Idaho serving the Treasure Valley area.
 
 Owner: Boyd Querubin
 Services:
-- Launch Package: $2,500 one-time — professional 5–6 page website
-- Autopilot: $3,000 + $399/mo — website + AI receptionist + monthly care
+- Launch: $2,500 one-time — professional 5–6 page website
+- Autopilot: $3,000 + $399/mo — website + Claude AI receptionist + monthly care
 - Momentum: $3,000 + $699/mo — Autopilot + local SEO + social + strategy
 
 Common questions:
 Q: How long does it take? → 2–3 weeks from kickoff call to live site.
 Q: Do you do e-commerce? → No, we focus on lead generation sites for service businesses.
-Q: What's the AI receptionist? → A chatbot trained on the client's specific business — 
-   answers questions, captures leads, sends SMS alerts 24/7.
+Q: What's the AI receptionist? → A chatbot powered by Claude (same AI as Claude.ai), 
+   trained on the client's business — answers questions, captures leads, sends SMS alerts 24/7.
 Q: Is there a contract? → No contracts. Month-to-month. Cancel anytime with 30 days notice.
 Q: What areas do you serve? → Primarily the Treasure Valley (Boise, Meridian, Nampa, 
    Caldwell, Eagle, Kuna) but we work remotely with businesses anywhere.
@@ -225,12 +224,12 @@ Keep responses short and conversational. Don't be salesy.
 ```
 
 ### Implementation Plan (see TODO.md for task breakdown):
-1. Build chatbot UI component (floating button → chat window)
-2. Create Vercel Edge Function `/api/chat`
-3. Add OpenAI API key to Vercel env vars
-4. Add Twilio SMS notification
+1. Build chatbot UI component (floating button → chat window) ← already built
+2. Create Vercel Edge Function `/api/chat` ← already built
+3. Add `ANTHROPIC_API_KEY` to Vercel env vars ← already in .env.local
+4. Add Twilio SMS notification ← Twilio package installed
 5. Add lead storage to Supabase
-6. Deploy and test
+6. Deploy and test on rubyxqube.com first, then replicate per client
 
 ---
 
