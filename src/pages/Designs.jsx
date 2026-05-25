@@ -76,6 +76,14 @@ const DESIGNS = [
     industries: ["Wedding Planning", "Luxury Real Estate", "Catering", "Spa", "Jewelry", "Event Design"],
     palette: { bg: "#0f0f0f", nav: "#0f0f0f", hero: "#0f0f0f", accent: "#c9a84c", text: "#fefce8", muted: "#78716c", card: "#1a1a1a" },
   },
+  {
+    id: "clinical",
+    name: "The Clinical",
+    tagline: "Clean, precise, patient-ready",
+    desc: "Clinical whites, sky blue accents, and structured layout that immediately signals professionalism and care. Patients decide within seconds whether they trust you — this design earns it.",
+    industries: ["Dental", "Medical", "Optometry", "Dermatology", "Urgent Care", "Veterinary"],
+    palette: { bg: "#f8fafc", nav: "#0369a1", hero: "#ffffff", accent: "#0284c7", text: "#0c1a2e", muted: "#94a3b8", card: "#e0f2fe" },
+  },
 ];
 
 // ─── Color palettes ───────────────────────────────────────────────────────────
@@ -328,16 +336,12 @@ function DesignCard({ design, onSelect, selected }) {
         ))}
       </div>
 
-      <a
-        className="btn primary"
-        href={siteConfig.calendlyUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ display: "inline-flex", justifyContent: "center", marginTop: "auto" }}
-        onClick={e => e.stopPropagation()}
-      >
-        Get this style →
-      </a>
+      {/* Selected indicator */}
+      {selected && (
+        <div style={{ fontSize: 12, color: "var(--accent)", fontWeight: 700, letterSpacing: "0.05em" }}>
+          ✓ Selected
+        </div>
+      )}
     </div>
   );
 }
@@ -382,6 +386,41 @@ export default function Designs() {
             />
           ))}
         </div>
+
+        {/* Contextual CTA — only shows when a style is selected */}
+        {selected && (() => {
+          const picked = DESIGNS.find(d => d.id === selected);
+          return (
+            <div style={{
+              marginTop: 24,
+              background: "var(--surface)",
+              border: "1px solid rgba(225,29,72,0.25)",
+              borderRadius: 12,
+              padding: "20px 24px",
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              gap: 16,
+            }}>
+              <div style={{ flex: 1, minWidth: 200 }}>
+                <p style={{ fontWeight: 700, marginBottom: 4 }}>
+                  You picked: <span style={{ color: "var(--accent)" }}>{picked.name}</span>
+                </p>
+                <p style={{ fontSize: 13, color: "var(--muted)" }}>
+                  Mention "{picked.name}" on your audit call — or keep browsing and pick a color palette below.
+                </p>
+              </div>
+              <a
+                className="btn primary"
+                href={siteConfig.calendlyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Book audit call →
+              </a>
+            </div>
+          );
+        })()}
       </section>
 
       {/* Palette picker */}
