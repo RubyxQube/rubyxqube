@@ -1,7 +1,22 @@
-# Project Context — Qube Solutions Site
+# Project Context — RubyxQube Site
 
 ## What This Is
-A React + Vite marketing website for Qube Solutions — Boyd's web design service for small businesses in the Treasure Valley (Boise, ID area). The site showcases services, pricing, and portfolio while proving design quality.
+A React + Vite marketing website for RubyxQube — Boyd's web design and AI agency for small businesses in the Treasure Valley (Boise, ID area). The site showcases services, pricing, and portfolio while proving design quality.
+
+## Mobile-First Is Non-Negotiable
+
+**Every page, every component, every change must be mobile responsive.**
+
+RubyxQube sells mobile-first websites as its core product. The site IS the demo. If it looks broken on mobile, the pitch is dead.
+
+Rules:
+- Design for mobile screen first, then expand to tablet (720px) and desktop (860px)
+- Use `.grid.cols-2` and `.grid.cols-3` — these are already responsive via the CSS breakpoints
+- Never use fixed pixel widths on containers — use `max-width` + `width: 100%`
+- `padding` on `.section` and `.heroSection` already collapses on mobile — use those classes
+- Test mentally: "Does this stack vertically on a 390px screen?"
+- Inline grid styles must include `repeat(auto-fit, minmax(...))` or responsive column counts
+- `flexWrap: "wrap"` on any `display: flex` row that contains multiple elements
 
 ## Tech Stack
 - **Framework:** React 18 + React Router v6
@@ -18,15 +33,17 @@ npm run preview  # Preview production build
 ```
 
 ## Design Direction
-**Warm & local** — earthy, professional, approachable for small business owners.
+**Dark, sleek, ruby red** — professional, modern, high-contrast for tech-forward service businesses.
 
 | Token | Value |
 |-------|-------|
-| `--bg` | `#faf7f4` (warm cream) |
-| `--text` | `rgba(26,17,6,0.90)` (warm dark brown) |
-| `--muted` | `rgba(26,17,6,0.58)` |
-| `--amber` | `#d97706` (primary CTA color) |
-| Radial glows | Amber, terracotta, sage — **not** blue/green/pink |
+| `--bg` | `#0a0809` (near black) |
+| `--text` | `rgba(255,255,255,0.90)` |
+| `--muted` | `rgba(255,255,255,0.48)` |
+| `--accent` | `#e11d48` (ruby red — primary CTA, badges, highlights) |
+| `--accent-hover` | `#c0112f` |
+| `--accent-dim` | `rgba(225,29,72,0.10)` |
+| Radial glows | Ruby red — `rgba(225,29,72,...)` — **not** blue/green/amber |
 | Font | Plus Jakarta Sans, weights 400–800 |
 
 ## Key Files

@@ -38,12 +38,12 @@
 
 ## 🟢 Before First Client
 
-- [ ] **Build the AI chatbot MVP** — core feature of the Autopilot package, can't sell it without it
-  - Anthropic API key (already have — add ANTHROPIC_API_KEY to Vercel env vars)
-  - System prompt template ready (see SOP.md Section 7)
-  - Lead capture working (name, phone, what they need)
-  - SMS alert to your phone via Twilio
-  - Test on a demo page before deploying to a client
+- [x] **Build the AI chatbot MVP** — LIVE ✅
+  - Anthropic API key in Vercel ✅
+  - System prompt ready ✅
+  - Lead capture working (name, contact, service) ✅
+  - Email alert via Resend → boydquerubin@gmail.com ✅
+  - SMS via Twilio — pending A2P 10DLC registration (after LLC + EIN)
 - [ ] Create an onboarding questionnaire (Google Form — use the questions in SOP.md Section 5)
 - [ ] Write up Phoenix Stoneworks as a case study (1 page: challenge, what you built, result)
 - [ ] Get a testimonial / Google review from Phoenix Stoneworks
