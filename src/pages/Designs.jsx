@@ -53,6 +53,30 @@ const DESIGNS = [
     industries: ["Cleaning", "Childcare", "Pet Services", "Senior Care", "Tutoring", "Therapy"],
     palette: { bg: "#fffbeb", nav: "#92400e", hero: "#fffbeb", accent: "#d97706", text: "#1c1917", muted: "#a8a29e", card: "#fef3c7" },
   },
+  {
+    id: "outdoors",
+    name: "The Outdoors",
+    tagline: "Rugged, earthy, built for the field",
+    desc: "Deep forest greens, earthy tones, and a grounded layout that signals experience. For businesses that work outside and want a site that feels as solid as their work.",
+    industries: ["Tree Service", "Fencing", "Hunting Guide", "Farming", "Outdoor Recreation", "Excavation"],
+    palette: { bg: "#f5f0e0", nav: "#1a3a1a", hero: "#f5f0e0", accent: "#2d6a2d", text: "#1c1917", muted: "#78716c", card: "#e8e0cc" },
+  },
+  {
+    id: "wellness",
+    name: "The Wellness",
+    tagline: "Calm, clean, health-focused",
+    desc: "Soft teal accents, open white space, and a layout that feels as calming as the services offered. Builds confidence that clients are in good hands.",
+    industries: ["Chiropractic", "Physical Therapy", "Massage", "Yoga", "Nutrition", "Mental Health"],
+    palette: { bg: "#f0fdfa", nav: "#0d9488", hero: "#ffffff", accent: "#0d9488", text: "#134e4a", muted: "#94a3b8", card: "#ccfbf1" },
+  },
+  {
+    id: "luxury",
+    name: "The Luxury",
+    tagline: "Premium, sophisticated, unforgettable",
+    desc: "Deep charcoal, gold accents, and refined typography that signals you are the premium option in your market. Clients self-qualify before they even call.",
+    industries: ["Wedding Planning", "Luxury Real Estate", "Catering", "Spa", "Jewelry", "Event Design"],
+    palette: { bg: "#0f0f0f", nav: "#0f0f0f", hero: "#0f0f0f", accent: "#c9a84c", text: "#fefce8", muted: "#78716c", card: "#1a1a1a" },
+  },
 ];
 
 // ─── Mini mockup preview ─────────────────────────────────────────────────────
