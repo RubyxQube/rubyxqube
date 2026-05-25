@@ -206,6 +206,132 @@ function stackedCleanR(id, h) {
 </div>`;
 }
 
+// ── Dark variants (dark text on transparent — for light/white backgrounds) ───
+
+function wordmarkDark(fs) {
+  return `<span style="font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;font-weight:800;font-size:${fs}px;letter-spacing:-0.03em;color:rgba(10,8,9,0.93);white-space:nowrap;line-height:1;">Ruby<span style="color:#e11d48;">x</span>Qube</span>`;
+}
+
+function wordmarkDarkTM(fs) {
+  return `<span style="font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;font-weight:800;font-size:${fs}px;letter-spacing:-0.03em;color:rgba(10,8,9,0.93);white-space:nowrap;line-height:1;">Ruby<span style="color:#e11d48;">x</span>Qube<sup style="font-size:0.42em;font-weight:700;letter-spacing:0;color:rgba(10,8,9,0.45);vertical-align:super;line-height:0;">™</sup></span>`;
+}
+
+function wordmarkDarkR(fs) {
+  return `<span style="font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;font-weight:800;font-size:${fs}px;letter-spacing:-0.03em;color:rgba(10,8,9,0.93);white-space:nowrap;line-height:1;">Ruby<span style="color:#e11d48;">x</span>Qube<sup style="font-size:0.42em;font-weight:700;letter-spacing:0;color:rgba(10,8,9,0.45);vertical-align:super;line-height:0;">®</sup></span>`;
+}
+
+function taglineSpanDark(fs) {
+  return `<span style="font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;font-weight:400;font-size:${fs}px;letter-spacing:0.18em;color:rgba(0,0,0,0.45);text-transform:uppercase;white-space:nowrap;line-height:1;">Website&nbsp;•&nbsp;AI</span>`;
+}
+
+function horizontalDark(id, h) {
+  const mw = h * 0.78, fs = h * 0.40, ts = h * 0.165, gap = h * 0.22, tg = h * 0.07;
+  return `<div id="${id}" style="display:inline-flex;align-items:center;gap:${gap}px;padding:12px;background:transparent;">
+  ${cubeSVG(id + "mk", mw, h)}
+  <div style="display:flex;flex-direction:column;align-items:center;gap:${tg}px;">
+    ${wordmarkDark(fs)}
+    ${taglineSpanDark(ts)}
+  </div>
+</div>`;
+}
+
+function stackedDark(id, h) {
+  const mw = h * 0.78, fs = h * 0.21, ts = h * 0.10, gap = h * 0.05, tg = h * 0.02;
+  return `<div id="${id}" style="display:inline-flex;flex-direction:column;align-items:center;gap:${gap}px;padding:14px;background:transparent;">
+  ${cubeSVG(id + "mk", mw, h)}
+  ${wordmarkDark(fs)}
+  <span style="font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;font-weight:400;font-size:${ts}px;letter-spacing:0.18em;color:rgba(0,0,0,0.45);text-transform:uppercase;white-space:nowrap;line-height:1;margin-top:${tg}px;">Website&nbsp;•&nbsp;AI</span>
+</div>`;
+}
+
+function horizontalCleanDark(id, h) {
+  const mw = h * 0.78, fs = h * 0.40, gap = h * 0.22;
+  return `<div id="${id}" style="display:inline-flex;align-items:center;gap:${gap}px;padding:12px;background:transparent;">
+  ${cubeSVG(id + "mk", mw, h)}
+  ${wordmarkDark(fs)}
+</div>`;
+}
+
+function stackedCleanDark(id, h) {
+  const mw = h * 0.78, fs = h * 0.21, gap = h * 0.05;
+  return `<div id="${id}" style="display:inline-flex;flex-direction:column;align-items:center;gap:${gap}px;padding:14px;background:transparent;">
+  ${cubeSVG(id + "mk", mw, h)}
+  ${wordmarkDark(fs)}
+</div>`;
+}
+
+function horizontalDarkTM(id, h) {
+  const mw = h * 0.78, fs = h * 0.40, ts = h * 0.165, gap = h * 0.22, tg = h * 0.07;
+  return `<div id="${id}" style="display:inline-flex;align-items:center;gap:${gap}px;padding:12px;background:transparent;">
+  ${cubeSVG(id + "mk", mw, h)}
+  <div style="display:flex;flex-direction:column;align-items:center;gap:${tg}px;">
+    ${wordmarkDarkTM(fs)}
+    ${taglineSpanDark(ts)}
+  </div>
+</div>`;
+}
+
+function stackedDarkTM(id, h) {
+  const mw = h * 0.78, fs = h * 0.21, ts = h * 0.10, gap = h * 0.05, tg = h * 0.02;
+  return `<div id="${id}" style="display:inline-flex;flex-direction:column;align-items:center;gap:${gap}px;padding:14px;background:transparent;">
+  ${cubeSVG(id + "mk", mw, h)}
+  ${wordmarkDarkTM(fs)}
+  <span style="font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;font-weight:400;font-size:${ts}px;letter-spacing:0.18em;color:rgba(0,0,0,0.45);text-transform:uppercase;white-space:nowrap;line-height:1;margin-top:${tg}px;">Website&nbsp;•&nbsp;AI</span>
+</div>`;
+}
+
+function horizontalCleanDarkTM(id, h) {
+  const mw = h * 0.78, fs = h * 0.40, gap = h * 0.22;
+  return `<div id="${id}" style="display:inline-flex;align-items:center;gap:${gap}px;padding:12px;background:transparent;">
+  ${cubeSVG(id + "mk", mw, h)}
+  ${wordmarkDarkTM(fs)}
+</div>`;
+}
+
+function stackedCleanDarkTM(id, h) {
+  const mw = h * 0.78, fs = h * 0.21, gap = h * 0.05;
+  return `<div id="${id}" style="display:inline-flex;flex-direction:column;align-items:center;gap:${gap}px;padding:14px;background:transparent;">
+  ${cubeSVG(id + "mk", mw, h)}
+  ${wordmarkDarkTM(fs)}
+</div>`;
+}
+
+function horizontalDarkR(id, h) {
+  const mw = h * 0.78, fs = h * 0.40, ts = h * 0.165, gap = h * 0.22, tg = h * 0.07;
+  return `<div id="${id}" style="display:inline-flex;align-items:center;gap:${gap}px;padding:12px;background:transparent;">
+  ${cubeSVG(id + "mk", mw, h)}
+  <div style="display:flex;flex-direction:column;align-items:center;gap:${tg}px;">
+    ${wordmarkDarkR(fs)}
+    ${taglineSpanDark(ts)}
+  </div>
+</div>`;
+}
+
+function stackedDarkR(id, h) {
+  const mw = h * 0.78, fs = h * 0.21, ts = h * 0.10, gap = h * 0.05, tg = h * 0.02;
+  return `<div id="${id}" style="display:inline-flex;flex-direction:column;align-items:center;gap:${gap}px;padding:14px;background:transparent;">
+  ${cubeSVG(id + "mk", mw, h)}
+  ${wordmarkDarkR(fs)}
+  <span style="font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;font-weight:400;font-size:${ts}px;letter-spacing:0.18em;color:rgba(0,0,0,0.45);text-transform:uppercase;white-space:nowrap;line-height:1;margin-top:${tg}px;">Website&nbsp;•&nbsp;AI</span>
+</div>`;
+}
+
+function horizontalCleanDarkR(id, h) {
+  const mw = h * 0.78, fs = h * 0.40, gap = h * 0.22;
+  return `<div id="${id}" style="display:inline-flex;align-items:center;gap:${gap}px;padding:12px;background:transparent;">
+  ${cubeSVG(id + "mk", mw, h)}
+  ${wordmarkDarkR(fs)}
+</div>`;
+}
+
+function stackedCleanDarkR(id, h) {
+  const mw = h * 0.78, fs = h * 0.21, gap = h * 0.05;
+  return `<div id="${id}" style="display:inline-flex;flex-direction:column;align-items:center;gap:${gap}px;padding:14px;background:transparent;">
+  ${cubeSVG(id + "mk", mw, h)}
+  ${wordmarkDarkR(fs)}
+</div>`;
+}
+
 function buildHTML() {
   return `<!DOCTYPE html>
 <html>
@@ -230,9 +356,21 @@ ${horizontalCleanTM( "logo-h-clean-tm", 72)}
 ${stackedCleanTM(    "logo-v-clean-tm", 100)}
 ${horizontalR(       "logo-h-r",        72)}
 ${stackedR(          "logo-v-r",        100)}
-${horizontalCleanR(  "logo-h-clean-r",  72)}
-${stackedCleanR(     "logo-v-clean-r",  100)}
-${markDiv(           "logo-mark",       300)}
+${horizontalCleanR(  "logo-h-clean-r",      72)}
+${stackedCleanR(     "logo-v-clean-r",      100)}
+${horizontalDark(        "logo-h-dark",         72)}
+${stackedDark(           "logo-v-dark",         100)}
+${horizontalCleanDark(   "logo-h-clean-dark",   72)}
+${stackedCleanDark(      "logo-v-clean-dark",   100)}
+${horizontalDarkTM(      "logo-h-dark-tm",      72)}
+${stackedDarkTM(         "logo-v-dark-tm",      100)}
+${horizontalCleanDarkTM( "logo-h-clean-dark-tm",72)}
+${stackedCleanDarkTM(    "logo-v-clean-dark-tm",100)}
+${horizontalDarkR(       "logo-h-dark-r",       72)}
+${stackedDarkR(          "logo-v-dark-r",       100)}
+${horizontalCleanDarkR(  "logo-h-clean-dark-r", 72)}
+${stackedCleanDarkR(     "logo-v-clean-dark-r", 100)}
+${markDiv(               "logo-mark",           300)}
 </body>
 </html>`;
 }
@@ -268,6 +406,9 @@ async function main() {
     hBuf, vBuf, hCleanBuf, vCleanBuf,
     hTMBuf, vTMBuf, hCleanTMBuf, vCleanTMBuf,
     hRBuf, vRBuf, hCleanRBuf, vCleanRBuf,
+    hDarkBuf, vDarkBuf, hCleanDarkBuf, vCleanDarkBuf,
+    hDarkTMBuf, vDarkTMBuf, hCleanDarkTMBuf, vCleanDarkTMBuf,
+    hDarkRBuf, vDarkRBuf, hCleanDarkRBuf, vCleanDarkRBuf,
     mBuf,
   ] = await Promise.all([
     capture("logo-h"),
@@ -282,6 +423,18 @@ async function main() {
     capture("logo-v-r"),
     capture("logo-h-clean-r"),
     capture("logo-v-clean-r"),
+    capture("logo-h-dark"),
+    capture("logo-v-dark"),
+    capture("logo-h-clean-dark"),
+    capture("logo-v-clean-dark"),
+    capture("logo-h-dark-tm"),
+    capture("logo-v-dark-tm"),
+    capture("logo-h-clean-dark-tm"),
+    capture("logo-v-clean-dark-tm"),
+    capture("logo-h-dark-r"),
+    capture("logo-v-dark-r"),
+    capture("logo-h-clean-dark-r"),
+    capture("logo-v-clean-dark-r"),
     capture("logo-mark"),
   ]);
 
@@ -326,6 +479,43 @@ async function main() {
 
   await writeFile(resolve(BRAND, "logo-stacked-clean-r.png"), vCleanRBuf);
   console.log("✓ public/brand/logo-stacked-clean-r.png");
+
+  // ── Dark variants (dark text on transparent — for light/white backgrounds) ──
+  await writeFile(resolve(BRAND, "logo-horizontal-dark.png"), hDarkBuf);
+  console.log("✓ public/brand/logo-horizontal-dark.png");
+
+  await writeFile(resolve(BRAND, "logo-horizontal-clean-dark.png"), hCleanDarkBuf);
+  console.log("✓ public/brand/logo-horizontal-clean-dark.png");
+
+  await writeFile(resolve(BRAND, "logo-stacked-dark.png"), vDarkBuf);
+  console.log("✓ public/brand/logo-stacked-dark.png");
+
+  await writeFile(resolve(BRAND, "logo-stacked-clean-dark.png"), vCleanDarkBuf);
+  console.log("✓ public/brand/logo-stacked-clean-dark.png");
+
+  await writeFile(resolve(BRAND, "logo-horizontal-dark-tm.png"), hDarkTMBuf);
+  console.log("✓ public/brand/logo-horizontal-dark-tm.png");
+
+  await writeFile(resolve(BRAND, "logo-horizontal-clean-dark-tm.png"), hCleanDarkTMBuf);
+  console.log("✓ public/brand/logo-horizontal-clean-dark-tm.png");
+
+  await writeFile(resolve(BRAND, "logo-stacked-dark-tm.png"), vDarkTMBuf);
+  console.log("✓ public/brand/logo-stacked-dark-tm.png");
+
+  await writeFile(resolve(BRAND, "logo-stacked-clean-dark-tm.png"), vCleanDarkTMBuf);
+  console.log("✓ public/brand/logo-stacked-clean-dark-tm.png");
+
+  await writeFile(resolve(BRAND, "logo-horizontal-dark-r.png"), hDarkRBuf);
+  console.log("✓ public/brand/logo-horizontal-dark-r.png");
+
+  await writeFile(resolve(BRAND, "logo-horizontal-clean-dark-r.png"), hCleanDarkRBuf);
+  console.log("✓ public/brand/logo-horizontal-clean-dark-r.png");
+
+  await writeFile(resolve(BRAND, "logo-stacked-dark-r.png"), vDarkRBuf);
+  console.log("✓ public/brand/logo-stacked-dark-r.png");
+
+  await writeFile(resolve(BRAND, "logo-stacked-clean-dark-r.png"), vCleanDarkRBuf);
+  console.log("✓ public/brand/logo-stacked-clean-dark-r.png");
 
   // ── Mark 512 (transparent, square padded) ──
   await sharp(mBuf)
