@@ -172,25 +172,15 @@ function PalettePicker({ selectedPalette, onSelect }) {
               Mention "{picked.name}" on your audit call — Boyd will build your site around this palette.
             </p>
           </div>
-          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-            <a
-              className="btn primary"
-              href={siteConfig.calendlyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Book audit call →
-            </a>
-            <a
-              href={coolorsUrl(picked.colors)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn"
-              style={{ borderColor: "rgba(255,255,255,0.15)" }}
-            >
-              View on Coolors ↗
-            </a>
-          </div>
+          <a
+            href={coolorsUrl(picked.colors)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn"
+            style={{ borderColor: "rgba(255,255,255,0.15)", flexShrink: 0 }}
+          >
+            View on Coolors ↗
+          </a>
         </div>
       )}
 
@@ -351,32 +341,36 @@ export default function Designs() {
   const [selected, setSelected] = useState(null);
   const [selectedPalette, setSelectedPalette] = useState(null);
 
+  const pickedStyle   = DESIGNS.find(d => d.id === selected);
+  const pickedPalette = PALETTES.find(p => p.id === selectedPalette);
+  const bothPicked    = !!pickedStyle && !!pickedPalette;
+
   return (
     <>
       {/* Hero */}
       <section className="section heroSection" style={{ textAlign: "center", paddingBottom: 0 }}>
         <span className="badge" style={{ marginBottom: 16 }}>Design Styles</span>
-        <h1 className="h1" style={{ marginBottom: 16 }}>
-          Build your vision
-        </h1>
+        <h1 className="h1" style={{ marginBottom: 16 }}>Build your vision</h1>
         <p style={{ fontSize: 18, color: "var(--muted)", maxWidth: 560, margin: "0 auto 12px" }}>
-          Pick a layout style and a color palette. Bring both to your free audit call — Boyd builds the rest.
+          Two steps. Pick a layout style, then pick your colors. Boyd builds the rest.
         </p>
         <p style={{ fontSize: 14, color: "var(--muted)", maxWidth: 480, margin: "0 auto 48px", opacity: 0.7 }}>
           Every site is custom-built for your business. These are starting points, not templates.
         </p>
       </section>
 
-      {/* Grid */}
+      {/* Step 1 — Layout style */}
       <section className="section" style={{ paddingTop: 24 }}>
         <div style={{ marginBottom: 24 }}>
-          <span className="badge" style={{ marginBottom: 12 }}>Step 1</span>
+          <span className="badge" style={{ marginBottom: 12 }}>
+            {selected ? "Step 1 ✓" : "Step 1"}
+          </span>
           <h2 className="h2" style={{ marginBottom: 8 }}>Choose a layout style</h2>
           <p style={{ color: "var(--muted)", maxWidth: 520 }}>
-            Each style is designed for a specific type of business. Click one that fits your vibe.
+            Each style is built for a specific type of business. Click one that fits.
           </p>
         </div>
-        <div className="grid cols-3" style={{ gap: 24 }}>
+        <div className="grid cols-5" style={{ gap: 16 }}>
           {DESIGNS.map(d => (
             <DesignCard
               key={d.id}
@@ -387,82 +381,104 @@ export default function Designs() {
           ))}
         </div>
 
-        {/* Contextual CTA — only shows when a style is selected */}
-        {selected && (() => {
-          const picked = DESIGNS.find(d => d.id === selected);
-          return (
-            <div style={{
-              marginTop: 24,
-              background: "var(--surface)",
-              border: "1px solid rgba(225,29,72,0.25)",
-              borderRadius: 12,
-              padding: "20px 24px",
-              display: "flex",
-              flexWrap: "wrap",
-              alignItems: "center",
-              gap: 16,
-            }}>
-              <div style={{ flex: 1, minWidth: 200 }}>
-                <p style={{ fontWeight: 700, marginBottom: 4 }}>
-                  You picked: <span style={{ color: "var(--accent)" }}>{picked.name}</span>
-                </p>
-                <p style={{ fontSize: 13, color: "var(--muted)" }}>
-                  Mention "{picked.name}" on your audit call — or keep browsing and pick a color palette below.
-                </p>
-              </div>
+        {/* Style selected nudge */}
+        {selected && !bothPicked && (
+          <div style={{
+            marginTop: 20,
+            padding: "14px 20px",
+            background: "rgba(225,29,72,0.07)",
+            border: "1px solid rgba(225,29,72,0.18)",
+            borderRadius: 10,
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+          }}>
+            <span style={{ color: "var(--accent)", fontWeight: 700 }}>✓ {pickedStyle.name}</span>
+            <span style={{ color: "var(--muted)", fontSize: 14 }}>— nice. Now pick your colors below.</span>
+          </div>
+        )}
+      </section>
+
+      {/* Step 2 — Color palette */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div style={{ marginBottom: 24 }}>
+          <span className="badge" style={{ marginBottom: 12 }}>
+            {selectedPalette ? "Step 2 ✓" : "Step 2"}
+          </span>
+          <h2 className="h2" style={{ marginBottom: 8 }}>Pick your colors</h2>
+          <p style={{ color: "var(--muted)", maxWidth: 520 }}>
+            Choose a palette that feels right. You can always tweak shades on the audit call.
+          </p>
+        </div>
+        <PalettePicker selectedPalette={selectedPalette} onSelect={setSelectedPalette} />
+      </section>
+
+      {/* Final CTA — only appears when BOTH are selected */}
+      {bothPicked && (
+        <section className="section" style={{ paddingTop: 0 }}>
+          <div style={{
+            background: "var(--surface)",
+            border: "1px solid rgba(225,29,72,0.30)",
+            borderRadius: 16,
+            padding: "32px",
+          }}>
+            <p style={{ fontSize: 13, color: "var(--accent)", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>
+              You're ready to book
+            </p>
+            <h2 className="h2" style={{ marginBottom: 8 }}>
+              {pickedStyle.name} · {pickedPalette.name}
+            </h2>
+            <p style={{ color: "var(--muted)", marginBottom: 24, maxWidth: 520, lineHeight: 1.6 }}>
+              Bring these two picks to your free audit call. Boyd will show you exactly how your business would look with this combination — and what he'd add or change based on your specific goals.
+            </p>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <a
                 className="btn primary"
                 href={siteConfig.calendlyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Book audit call →
+                Book your free audit call →
               </a>
+              <button
+                className="btn"
+                style={{ borderColor: "rgba(255,255,255,0.15)", background: "transparent", cursor: "pointer" }}
+                onClick={() => { setSelected(null); setSelectedPalette(null); }}
+              >
+                Start over
+              </button>
             </div>
-          );
-        })()}
-      </section>
-
-      {/* Palette picker */}
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div style={{ marginBottom: 32 }}>
-          <span className="badge" style={{ marginBottom: 12 }}>Step 2</span>
-          <h2 className="h2" style={{ marginBottom: 8 }}>Pick your colors</h2>
-          <p style={{ color: "var(--muted)", marginBottom: 24, maxWidth: 520 }}>
-            Choose a palette that feels right for your brand. Click any palette to select it, then book your audit call — Boyd will bring it to life.
-          </p>
-        </div>
-        <PalettePicker selectedPalette={selectedPalette} onSelect={setSelectedPalette} />
-      </section>
+          </div>
+        </section>
+      )}
 
       {/* Custom note */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="surface" style={{
           textAlign: "center",
-          padding: "40px 32px",
+          padding: "36px 32px",
           borderRadius: 16,
-          maxWidth: 640,
+          maxWidth: 600,
           margin: "0 auto",
         }}>
-          <p style={{ fontSize: 28, marginBottom: 12 }}>🎨</p>
-          <h2 className="h2" style={{ marginBottom: 12 }}>Don't see what you want?</h2>
-          <p style={{ color: "var(--muted)", marginBottom: 24, lineHeight: 1.6 }}>
-            These are starting points. If you have a reference site, a color in mind, or just a feeling — bring it to the audit call. Boyd will figure out exactly what fits your business.
+          <h3 className="h3" style={{ marginBottom: 10 }}>Don't see what you want?</h3>
+          <p style={{ color: "var(--muted)", marginBottom: 20, lineHeight: 1.6, fontSize: 14 }}>
+            Bring a reference site, a screenshot, or just describe the feeling. Boyd will figure out exactly what fits your business on the call.
           </p>
           <a
-            className="btn primary"
             href={siteConfig.calendlyUrl}
             target="_blank"
             rel="noopener noreferrer"
+            style={{ fontSize: 14, color: "var(--accent)", fontWeight: 600, textDecoration: "none" }}
           >
-            Book a Free Audit →
+            Book a free audit anyway →
           </a>
         </div>
       </section>
 
       <CTA
         title="Ready to get started?"
-        subtitle="Book a free 15-minute audit call. No commitment — just honest feedback on what your business needs online."
+        subtitle="Free 15-minute audit call. No commitment — just honest feedback on what your business needs online."
       />
     </>
   );
