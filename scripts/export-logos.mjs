@@ -72,7 +72,7 @@ function cubeSVG(id, width, height) {
 }
 
 function wordmark(fs) {
-  return `<span style="font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;font-weight:800;font-size:${fs}px;letter-spacing:-0.03em;color:rgba(255,255,255,0.93);white-space:nowrap;line-height:1;">Ruby<span style="color:#e11d48;">x</span>Qube</span>`;
+  return `<span style="font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;font-weight:800;font-size:${fs}px;letter-spacing:-0.03em;color:rgba(255,255,255,0.93);white-space:nowrap;line-height:1;">Ruby<span style="color:#e11d48;">x</span>Qube<sup style="font-size:0.42em;font-weight:700;letter-spacing:0;color:rgba(255,255,255,0.45);vertical-align:super;line-height:0;">™</sup></span>`;
 }
 
 function taglineSpan(fs) {

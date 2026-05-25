@@ -120,7 +120,7 @@ export default function Logo({
         lineHeight: 1,
       }}
     >
-      Ruby<span style={{ color: "#e11d48" }}>x</span>Qube
+      Ruby<span style={{ color: "#e11d48" }}>x</span>Qube<sup style={{ fontSize: "0.42em", fontWeight: 700, letterSpacing: 0, color: "rgba(255,255,255,0.45)", verticalAlign: "super", lineHeight: 0 }}>™</sup>
     </span>
   );
 
@@ -169,7 +169,7 @@ export default function Logo({
               lineHeight: 1,
             }}
           >
-            Ruby<span style={{ color: "#e11d48" }}>x</span>Qube
+            Ruby<span style={{ color: "#e11d48" }}>x</span>Qube<sup style={{ fontSize: "0.42em", fontWeight: 700, letterSpacing: 0, color: "rgba(255,255,255,0.45)", verticalAlign: "super", lineHeight: 0 }}>™</sup>
           </span>
         )}
         {tagline && (
