@@ -239,7 +239,7 @@ export default function Report() {
               Prepared by Boyd Querubin · RubyxQube
             </p>
             <p style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", margin: 0 }}>
-              Questions? boydquerubin@gmail.com · (208) 970-8624
+              Questions? boyd@rubyxqube.com · (208) 970-8624
             </p>
           </div>
           <Link to="/pricing" className="btn primary" style={{ display: "inline-flex" }}>

@@ -3,7 +3,7 @@
 export const siteConfig = {
   brand: "RubyxQube",
   serviceArea: "Treasure Valley",
-  email: "boydquerubin@gmail.com",     // update to boyd@rubyxqube.com once Google Workspace is set up
+  email: "boyd@rubyxqube.com",
   phoneDisplay: "(208) 970-8624",
   phoneE164: "+12089708624",
 };

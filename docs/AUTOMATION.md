@@ -106,7 +106,7 @@ node scripts/provision-client.mjs --slug "phoenix-stoneworks" --name "Phoenix St
 **Goal:** Lead automatically appears in Notion CRM, not just in email/SMS
 
 ### Current state
-Lead fires → Resend email → boydquerubin@gmail.com + Twilio SMS  
+Lead fires → Resend email → boyd@rubyxqube.com + Twilio SMS  
 Boyd manually adds to Notion CRM (this is the gap)
 
 ### Automation

@@ -258,7 +258,7 @@ export default function ChatWidget() {
         {
           role: "assistant",
           content:
-            "I'm having connection trouble. Please reach out directly — boydquerubin@gmail.com or call (208) 970-8624.",
+            "I'm having connection trouble. Please reach out directly — boyd@rubyxqube.com or call (208) 970-8624.",
           id: Date.now() + 1,
           error: true,
         },

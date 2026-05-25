@@ -24,7 +24,7 @@ const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 const DEFAULT_SYSTEM_PROMPT = `You are the AI receptionist for RubyxQube, a web design and AI agency based in Boise, Idaho.
 
 Owner: Boyd Querubin
-Email: boydquerubin@gmail.com
+Email: boyd@rubyxqube.com
 Service area: Treasure Valley — Boise, Meridian, Nampa, Caldwell, Eagle, Kuna (and remote)
 
 Services & pricing:

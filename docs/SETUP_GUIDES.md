@@ -23,7 +23,7 @@
 **After setup:**
 - Sign into Gmail with boyd@rubyxqube.com
 - Set up email signature: Boyd Querubin | RubyxQube™ | rubyxqube.com | (208) [your number]
-- Forward from `boydquerubin@gmail.com` temporarily if you want one inbox
+- Forward from `boydquerubin@gmail.com` temporarily if you want one inbox (optional — boyd@rubyxqube.com is now primary)
 
 ---
 

@@ -89,7 +89,7 @@ Edit `src/siteConfig.js` to update brand name, contact details, or service area.
 export const siteConfig = {
   brand: "Qube Solutions",
   serviceArea: "Treasure Valley",
-  email: "boydquerubin@gmail.com",
+  email: "boyd@rubyxqube.com",
   phoneDisplay: "(208) 970-8624",
   phoneE164: "+12089708624",
 };
