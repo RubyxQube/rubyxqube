@@ -84,6 +84,22 @@ const DESIGNS = [
     industries: ["Dental", "Medical", "Optometry", "Dermatology", "Urgent Care", "Veterinary"],
     palette: { bg: "#f8fafc", nav: "#0369a1", hero: "#ffffff", accent: "#0284c7", text: "#0c1a2e", muted: "#94a3b8", card: "#e0f2fe" },
   },
+  {
+    id: "builder",
+    name: "The Builder",
+    tagline: "Solid, structural, project-driven",
+    desc: "Industrial textures, project portfolio front and center, built-for-scale layout. For general contractors and developers who win jobs on reputation and need a site that shows serious work.",
+    industries: ["General Contractor", "Home Builder", "Developer", "Remodeling", "Commercial Build", "Excavation"],
+    palette: { bg: "#1c1c1c", nav: "#111111", hero: "#1c1c1c", accent: "#ea580c", text: "#ffffff", muted: "#6b7280", card: "#2a2a2a" },
+  },
+  {
+    id: "storefront",
+    name: "The Storefront",
+    tagline: "Product-first, scroll-stopping, shop-ready",
+    desc: "Bold product photography, clean shop layout, built to convert browsers into buyers. For product-based businesses — online or brick-and-mortar — where the product does the selling.",
+    industries: ["Online Shop", "Boutique", "Handmade Goods", "Specialty Food", "Gift Shop", "Craft Brewery"],
+    palette: { bg: "#ffffff", nav: "#18181b", hero: "#f4f4f5", accent: "#7c3aed", text: "#18181b", muted: "#71717a", card: "#fafafa" },
+  },
 ];
 
 // ─── Color palettes ───────────────────────────────────────────────────────────
