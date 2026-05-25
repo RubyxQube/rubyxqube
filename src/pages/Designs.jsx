@@ -370,7 +370,7 @@ export default function Designs() {
             Each style is built for a specific type of business. Click one that fits.
           </p>
         </div>
-        <div className="grid cols-5" style={{ gap: 16 }}>
+        <div className="grid cols-3" style={{ gap: 16 }}>
           {DESIGNS.map(d => (
             <DesignCard
               key={d.id}
