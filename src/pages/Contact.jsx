@@ -1,4 +1,5 @@
 import React from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { siteConfig } from "../siteConfig.js";
 
 const PACKAGES = [
@@ -39,9 +40,9 @@ function packageFromNeed(need) {
   );
 }
 
-const FORMSPREE_ID = "xeedllpy";
-
 export default function Contact() {
+  const [fsState, fsSend] = useForm("xeedllpy");
+
   const [form, setForm] = React.useState({
     name: "",
     business: "",
@@ -54,9 +55,6 @@ export default function Contact() {
     contactValue: "",
     notes: "",
   });
-  const [submitting, setSubmitting] = React.useState(false);
-  const [submitted, setSubmitted] = React.useState(false);
-  const [error, setError] = React.useState(null);
 
   React.useEffect(() => {
     setForm((s) => ({ ...s, contactValue: "" }));
@@ -98,36 +96,19 @@ export default function Contact() {
     form.contactValue.trim().length > 3;
 
   async function handleSubmit() {
-    if (!canSend || submitting) return;
-    setSubmitting(true);
-    setError(null);
-    try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          name: form.name,
-          business: form.business || "(not provided)",
-          city: form.city,
-          website: form.website || "(not provided)",
-          package: selectedPackage.label,
-          timeline: form.timeline,
-          contact_method: form.contactMethod,
-          contact_value: form.contactValue,
-          notes: form.notes || "(none)",
-          _subject: `Quote Request — ${form.name} (${form.city})`,
-        }),
-      });
-      if (res.ok) {
-        setSubmitted(true);
-      } else {
-        setError("Something went wrong. Please try again or email us directly.");
-      }
-    } catch {
-      setError("Network error. Please try again or email us directly.");
-    } finally {
-      setSubmitting(false);
-    }
+    if (!canSend || fsState.submitting) return;
+    await fsSend({
+      name: form.name,
+      business: form.business || "(not provided)",
+      city: form.city,
+      website: form.website || "(not provided)",
+      package: selectedPackage.label,
+      timeline: form.timeline,
+      contact_method: form.contactMethod,
+      contact_value: form.contactValue,
+      notes: form.notes || "(none)",
+      _subject: `Quote Request — ${form.name} (${form.city})`,
+    });
   }
 
   return (
@@ -292,7 +273,7 @@ export default function Contact() {
               placeholder={`What services do you offer? Any pages you want (gallery, FAQ, reviews)? Any examples you like?`}
             />
 
-            {submitted ? (
+            {fsState.succeeded ? (
               <div className="card" style={{ marginTop: 8, background: "rgba(34,197,94,0.12)", border: "1px solid rgba(34,197,94,0.3)" }}>
                 <p className="p" style={{ marginBottom: 0, fontWeight: 600 }}>
                   ✅ Request sent! I'll be in touch within 1 business day.
@@ -305,10 +286,10 @@ export default function Contact() {
                     className="btn primary"
                     type="button"
                     onClick={handleSubmit}
-                    disabled={!canSend || submitting}
-                    style={(!canSend || submitting) ? { opacity: 0.85, cursor: "not-allowed" } : undefined}
+                    disabled={!canSend || fsState.submitting}
+                    style={(!canSend || fsState.submitting) ? { opacity: 0.85, cursor: "not-allowed" } : undefined}
                   >
-                    {submitting ? "Sending…" : "Send Request"}
+                    {fsState.submitting ? "Sending…" : "Send Request"}
                   </button>
                 </div>
 
@@ -318,11 +299,7 @@ export default function Contact() {
                   </p>
                 )}
 
-                {error && (
-                  <p className="small" style={{ marginTop: 8, marginBottom: 0, color: "#fb7185" }}>
-                    {error}
-                  </p>
-                )}
+                <ValidationError errors={fsState.errors} className="small" style={{ marginTop: 8, color: "#fb7185" }} />
               </>
             )}
           </div>
