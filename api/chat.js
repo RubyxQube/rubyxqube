@@ -12,6 +12,8 @@
  *   TWILIO_AUTH_TOKEN        optional
  *   TWILIO_FROM_NUMBER       optional — your Twilio number, e.g. +12085551234
  *   ALERT_PHONE_NUMBER       optional — your cell number to receive SMS alerts
+ *   NOTION_TOKEN             optional — enables auto CRM card on lead capture
+ *   NOTION_DATABASE_ID       optional — Client Pipeline database ID
  */
 
 import Anthropic from "@anthropic-ai/sdk";
@@ -139,6 +141,55 @@ async function sendSMSAlert(lead, businessName) {
   }
 }
 
+// ─── Optional Notion CRM card ──────────────────────────────────────────────
+async function createNotionLead(lead, businessName) {
+  if (!process.env.NOTION_TOKEN || !process.env.NOTION_DATABASE_ID) {
+    console.log("Notion skipped — NOTION_TOKEN or NOTION_DATABASE_ID not set.");
+    return;
+  }
+  try {
+    const isEmail = lead.contact.includes("@");
+    const notesText =
+      `Needs: ${lead.service_needed}` +
+      (lead.notes ? `\n${lead.notes}` : "") +
+      `\nSource: ${businessName || "RubyxQube"} chatbot`;
+
+    const properties = {
+      Name:   { title:     [{ text: { content: `Lead — ${lead.name}` } }] },
+      Status: { status:    { name: "🔍 Prospect" } },
+      Owner:  { rich_text: [{ text: { content: lead.name } }] },
+      Source: { select:    { name: "Inbound" } },
+      Notes:  { rich_text: [{ text: { content: notesText } }] },
+      "Next Action": { rich_text: [{ text: { content: "Follow up call" } }] },
+    };
+
+    if (isEmail) {
+      properties["Email"] = { email: lead.contact };
+    } else {
+      properties["Phone"] = { phone_number: lead.contact };
+    }
+
+    const res = await fetch("https://api.notion.com/v1/pages", {
+      method: "POST",
+      headers: {
+        Authorization:    `Bearer ${process.env.NOTION_TOKEN}`,
+        "Content-Type":   "application/json",
+        "Notion-Version": "2022-06-28",
+      },
+      body: JSON.stringify({
+        parent:     { database_id: process.env.NOTION_DATABASE_ID },
+        properties,
+      }),
+    });
+
+    const data = await res.json();
+    if (!res.ok) throw new Error(JSON.stringify(data));
+    console.log("✓ Notion lead card created:", lead.name);
+  } catch (err) {
+    console.error("Notion error:", err.message);
+  }
+}
+
 // ─── Handler ───────────────────────────────────────────────────────────────
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -180,9 +231,10 @@ export default async function handler(req, res) {
     if (response1.stop_reason === "tool_use") {
       const toolUse = response1.content.find((b) => b.type === "tool_use");
 
-      // Fire SMS + email without blocking the response
+      // Fire SMS + email + Notion without blocking the response
       sendSMSAlert(toolUse.input, businessName).catch(() => {});
       sendEmailAlert(toolUse.input, businessName).catch(() => {});
+      createNotionLead(toolUse.input, businessName).catch(() => {});
 
       // Second call: give Claude the tool result so it can respond naturally
       const response2 = await client.messages.create({
