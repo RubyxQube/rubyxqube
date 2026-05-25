@@ -1,99 +1,90 @@
 # RubyxQube — TODO
 
-> Ordered by priority. Work top to bottom.  
-> Move completed items to `## Done` at the bottom.
+> Last updated: May 2026. No clients yet — focused on closing first 3.  
+> Work top to bottom. Don't skip ahead.
 
 ---
 
-## 🔴 Critical (Do Next)
+## 🔴 This Week — Unblock Everything
 
-- [ ] **Get an EIN** — IRS.gov, free, 5 minutes. Needed for business bank account, Wave, contractors.
-- [ ] **Open a business bank account** — bring LLC docs + EIN. Keep revenue separate from personal.
-- [ ] **Set up Wave** — free invoicing at wave.com. Connect bank account. Create first invoice template.
-- [ ] **Get boyd@rubyxqube.com** — Google Workspace ~$6/mo. Use this for ALL client communication.
+These are the last things standing between you and taking real client money.
+
+- [ ] **Get EIN** — IRS.gov, free, 5 minutes online. Required for business bank account.
+- [ ] **Open business bank account** — bring LLC docs + EIN. Separate from personal from day one.
+- [ ] **Set up Wave** — wave.com, free. Connect bank account. Create invoice template (Launch $2,500 / Autopilot $399/mo / Momentum $699/mo).
+- [ ] **Get boyd@rubyxqube.com** — Google Workspace $6/mo. Use this for ALL client communication from now on.
+- [ ] **Download service agreement template** — bonsai.io/templates (free, no account needed). Customize for RubyxQube. This is your contract until the signing page is built.
 
 ---
 
-## 🟡 High Priority (This Month)
+## 🟡 Before First Client Onboards
 
-### Legal & Contracts
-- [ ] Download a web design service agreement template from Bonsai (free templates, no account needed) — customize for RubyxQube
-- [ ] Write a basic contractor agreement (for when you hire a VA or freelancer)
-- [ ] **Skip DocuSign/HelloSign/PandaDoc** — no free API tiers. We're building our own signing page (see Automation section above). See `docs/LEGAL.md` for full analysis.
-- [ ] See `docs/LEGAL.md` for full checklist
+### Ops Setup
+- [ ] **Set up Notion** — CRM board (Lead → Proposal → Active Build → Launched → Monthly Care → Churned) + client page template (SOP.md §4)
+- [ ] **Set up 1Password** — one vault per client for credentials + API keys
+- [ ] **Set up Calendly** — free tier, one event: "Free Website Audit" (15 min). Connect to your calendar. This is your lead conversion tool.
+- [ ] **Set up Loom** — free tier. Use for recording personalized audit videos to send cold prospects.
+- [ ] **Set up UptimeRobot** — uptimerobot.com, free. Add rubyxqube.com now. Add each client site at launch.
+- [ ] **Set up Wave recurring invoices** — configure auto-send + payment reminders for each retainer client at onboarding.
+- [ ] **Create onboarding questionnaire** — Google Form using questions in SOP.md §5. Send to every new client before kickoff call.
 
-### Lead Generation
-- [ ] Set up Calendly — "Free Audit Call" (15 min), connect to your calendar
-- [ ] Set up Loom (free) — for recording free audit videos to send cold prospects
-- [ ] Create Google Business Profile for RubyxQube
-- [ ] Join 3 Treasure Valley Facebook business groups and introduce yourself
-- [ ] Identify 20 cold prospects (Google Maps → local service businesses with bad/no sites)
-- [ ] Send first 10 cold outreach emails (template in `docs/LEAD_GEN.md`)
-- [ ] See `docs/LEAD_GEN.md` for full playbook
+### Lead Gen (Start Now)
+- [ ] **Create Google Business Profile** for RubyxQube — "Web Designer" + "Marketing Agency" category
+- [ ] **Join 3 Treasure Valley Facebook business groups** — introduce yourself, provide value, don't pitch
+- [ ] **Identify 20 cold prospects** — Google Maps, find local service businesses with bad/no websites
+- [ ] **Send first 10 cold outreach emails** — template in LEAD_GEN.md. Goal: book audit calls.
+- [ ] **Reach out to warm network** — friends, family, Bastion MSP contacts. Ask for referrals, not business directly.
 
-### Website — Services & Samples
-- [ ] Add Google Maps embed demo/sample to the site (show the feature, not just describe it)
-- [ ] Add **"Browse Designs"** page (`/designs`) — independent previews of site styles clients can choose from
-- [ ] Add AI chatbot live demo callout — make it more visible as a core offering
-- [ ] Screenshot Phoenix Stoneworks for portfolio card
-- [ ] Submit `/sitemap.xml` to Google Search Console
-
-### Phoenix Stoneworks (First Client — Reference Model)
-- [ ] Confirm code lives in dedicated GitHub repo (`phoenix-stoneworks-site`) — see `docs/CLIENT_HOSTING.md`
-- [ ] Confirm site is on its own Vercel project with separate `ANTHROPIC_API_KEY`
-- [ ] Confirm client's domain DNS is pointing to Vercel (not RubyxQube's account)
-- [ ] Set up GA4 property for Phoenix Stoneworks, share read access with client
-- [ ] Create Notion client page for Phoenix Stoneworks
-- [ ] Create 1Password vault for Phoenix Stoneworks credentials
-- [ ] Get written testimonial + Google review from Phoenix Stoneworks
+### Phoenix Stoneworks (Reference Client — Do This Right)
+- [ ] Confirm code is in its own GitHub repo (`phoenix-stoneworks-site`, private)
+- [ ] Confirm it's on its own Vercel project with separate `ANTHROPIC_API_KEY`
+- [ ] Confirm client owns their domain and DNS points to Vercel
+- [ ] Create GA4 property for Phoenix, share read access with client
+- [ ] Create Notion client page + 1Password vault for their credentials
+- [ ] Screenshot the site → add to portfolio card on rubyxqube.com
+- [ ] Ask for a written testimonial + Google review
 - [ ] Write 1-page case study (challenge → what you built → result)
-- [ ] Check: are they on a monthly retainer? If yes, invoice via Wave.
+- [ ] Confirm: are they on a monthly retainer? If yes, invoice via Wave.
 
-### Operations
-- [ ] Set up Notion workspace — CRM board + client page template (see SOP.md Section 4)
-- [ ] Set up 1Password — one vault per client
-- [ ] Create onboarding questionnaire (Google Form — questions in SOP.md Section 5)
-- [ ] Get a business phone number (Google Voice is free)
+### Website
+- [ ] Submit sitemap.xml to Google Search Console
+- [ ] Test contact form + chatbot end-to-end on a real mobile device
+- [ ] Add Google Maps embed demo/sample to services page
 
 ---
 
-## 🤖 Automation (See `docs/AUTOMATION.md` for full details)
+## 🤖 Automation Build Queue
 
-### Do Now (free, no code)
-- [ ] **UptimeRobot** — set up free uptime monitoring for rubyxqube.com + each client site at launch (uptimerobot.com, 5 min)
-- [ ] **Wave recurring invoices** — configure auto-send on 1st of month + payment reminders for each retainer client
-- [ ] **Vercel deploy notifications** — confirm email alerts are on for all projects
+### Do Now (no code, free)
+- [ ] UptimeRobot — rubyxqube.com + each client at launch
+- [ ] Wave auto-invoicing — set up per retainer client at onboarding
 
 ### Build Soon (before 3rd client)
-- [ ] **Contract signing page** — `/sign/[token]` on rubyxqube.com. Client types name → legally binding (E-SIGN + Idaho UETA) → Puppeteer PDF → auto-triggers provisioning. $0/month forever. See `docs/AUTOMATION.md §0` and `docs/LEGAL.md`
-- [ ] **`scripts/send-contract.mjs`** — generates unique signing link + emails it to client. Feeds into the signing page above.
-- [ ] **`scripts/provision-client.mjs`** — CLI script: GitHub API + Vercel API → create repo from template + Vercel project automatically. See `docs/AUTOMATION.md §1`
-- [ ] **Chatbot lead → Notion CRM** — add Notion API call to `api/chat.js` so every captured lead auto-appears in Notion. No external tools needed. See `docs/AUTOMATION.md §2`
-- [ ] **`scripts/offboard-client.mjs`** — generates zip of client repo + HANDOFF.md + sends offboarding email + pauses Vercel. Build this before your first cancellation. See `docs/AUTOMATION.md §7`
+- [ ] **Contract signing page** (`/sign/[token]`) — biggest win. Typed name = legally binding (E-SIGN + Idaho UETA). Puppeteer PDF + Resend email + auto-triggers provisioning. See AUTOMATION.md §0.
+- [ ] **`scripts/send-contract.mjs`** — generates unique link, emails client
+- [ ] **`scripts/provision-client.mjs`** — GitHub API + Vercel API → new client repo + project in one command. See AUTOMATION.md §1.
+- [ ] **Chatbot lead → Notion CRM** — Notion API call in `api/chat.js`. Leads auto-appear in CRM. See AUTOMATION.md §2.
+- [ ] **`scripts/offboard-client.mjs`** — zip repo + HANDOFF.md + pause Vercel + email. Build before first cancellation. See AUTOMATION.md §7.
+- [ ] **Create `client-template` repo** — fork for every new client. See CLIENT_HOSTING.md.
 
 ### Build Phase 2 (5+ clients)
-- [ ] **`scripts/generate-report.mjs`** — pulls GA4 Data API + chatbot leads → populates report template → exports PDF via Puppeteer → emails client via Resend. See `docs/AUTOMATION.md §6`
-- [ ] **Non-payment escalation** — day 30: SMS alert to Boyd, day 45: warning email to client, day 60: auto-pause Vercel via API. See `docs/AUTOMATION.md §5`
-- [ ] **`scripts/pause-client.mjs`** — Vercel API call to disable a client deployment (non-payment or offboarding). See `docs/AUTOMATION.md §5`
-
-### Build Phase 3 (10+ clients)
-- [ ] **Cron-based monthly reporting** — GitHub Actions or Vercel cron fires on 1st of month, runs `generate-report.mjs` for all active clients automatically
+- [ ] **`scripts/generate-report.mjs`** — GA4 API → PDF via Puppeteer → email via Resend on 1st of month
+- [ ] **Non-payment escalation** — day 30 SMS to Boyd, day 45 warning email to client, day 60 Vercel pause. See AUTOMATION.md §5.
 
 ---
 
-## 🔵 Product / Site Features (Build Queue)
+## 🔵 Product / Site (Build Queue)
 
-- [ ] **`/designs` page** — "Browse website designs you might like" — self-contained, built from scratch with Puppeteer-rendered previews. Huge lead gen tool.
-- [ ] **Client template repo** — create `client-template` repo to fork for every new client (see `docs/CLIENT_HOSTING.md`)
-- [ ] Consider adding a blog (1 post/month — "web design Boise Idaho" and similar local terms)
+- [ ] **`/designs` page** — "Browse website designs you might like." Independent previews clients can pick from. Major lead gen tool.
+- [ ] Blog — 1 post/month targeting local SEO ("web design Boise Idaho")
 
 ---
 
 ## 🟣 Bastion MSP
 
-- [ ] Pull latest changes from dev workstation (git pull / merge)
-- [ ] Sync screenshots for the RubyxQube portfolio card
-- [ ] Clarify: is portal.bastionmsp.com publicly linkable, or client-only?
+- [ ] Pull latest changes from dev workstation (git pull)
+- [ ] Sync screenshots for RubyxQube portfolio card
+- [ ] Clarify: is portal.bastionmsp.com publicly linkable?
 - [ ] Cross-sell: pitch Bastion MSP clients a website through RubyxQube
 
 ---
@@ -101,47 +92,44 @@
 ## 🔲 Future / Backlog
 
 - [ ] Client portal (login, stats) — Supabase + Next.js, Phase 3
-- [ ] Automated monthly report generation (pull GA4 via API)
-- [ ] Referral / affiliate program ($200–500 per referred client)
-- [ ] Raise Autopilot pricing to $499/mo once you have 5+ clients
-- [ ] "Website in a Week" productized offer — fixed scope, $1,500, 5-day turnaround
-- [ ] LinkedIn presence — 2 posts/month, case studies
-- [ ] Explore RubyxQube + Bastion MSP bundle (web + cybersecurity for SMBs)
+- [ ] Automated monthly reporting (GA4 API + Puppeteer + Resend cron)
+- [ ] Referral/affiliate program ($200–500 per referred client)
+- [ ] Raise Autopilot to $499/mo at 5+ clients
+- [ ] "Website in a Week" productized offer — $1,500, 5-day turnaround
+- [ ] LinkedIn — 2 posts/month, case studies
+- [ ] Contract signing page → evaluate as standalone micro-SaaS product (COSTS.md)
+- [ ] Explore RubyxQube + Bastion MSP bundle
 
 ---
 
 ## ✅ Done
 
-### Brand & Design (May 2026)
-- [x] **Full site overhaul** — new layout, content, and structure ✅
-- [x] **Official logo PNGs exported** — horizontal, stacked, clean variants + mark at 512/192/64px
-- [x] **favicon.ico** — 16/32/48px ruby cube, live on rubyxqube.com
-- [x] **apple-touch-icon.png** — 180px, ruby red background
-- [x] **Logo redesign** — ruby red cube with faint X across side faces (0.07 opacity)
-- [x] **Rebrand: Qube Solutions → RubyxQube** — ruby red accent (#e11d48), dark sleek design
+### Brand & Legal
+- [x] RubyxQube LLC registered — Idaho SOS ✅
+- [x] USPTO trademark application filed — RubyxQube™ ($350) ✅
+- [x] Twilio A2P 10DLC registered — SMS alerts fully operational ✅
+- [x] Full site overhaul — new layout, content, structure ✅
+- [x] Logo redesign — ruby cube with faint X across side faces (0.07 opacity) ✅
+- [x] All brand PNGs exported — 16 logo variants (no mark / TM / ® / clean) + mark at 512/192/64px ✅
+- [x] favicon.ico (16/32/48px) + apple-touch-icon.png (180px ruby red bg) ✅
+- [x] TM added to footer legal line: "RubyxQube™ is a trademark of RubyxQube LLC" ✅
 
-### Chatbot & Backend
-- [x] **AI chatbot MVP** — LIVE on rubyxqube.com
-  - Anthropic API (Claude Haiku) via Vercel serverless ✅
-  - Lead capture (name, contact, service) ✅
-  - Email alerts via Resend → boydquerubin@gmail.com ✅
-  - SMS alerts via Twilio — A2P 10DLC registered ✅
-
-### Legal & Business
-- [x] **Register the LLC** — Idaho SOS ✅
+### Docs Created
+- [x] ROADMAP.md, SOP.md, TODO.md ✅
+- [x] CLIENT_HOSTING.md — per-client stack, GitHub org, Vercel, domain policy, scaling ✅
+- [x] LEAD_GEN.md — warm/cold/community/partnership/paid playbook ✅
+- [x] LEGAL.md — contracts, e-sig research, Idaho notes, EIN, privacy ✅
+- [x] AUTOMATION.md — full lifecycle automation plan (contract → provision → report → offboard) ✅
+- [x] COSTS.md — all costs, margins, revenue scenarios, free tier limits ✅
 
 ### Site & Infrastructure
-- [x] **Social sharing meta tags** — og:image updated to logo-horizontal.png
-- [x] **Add `/sitemap.xml`** — all routes, ready to submit to Search Console
-- [x] **Google Analytics 4** — G-9X0RYL01J3 live
-- [x] **Formspree contact form** — tested, submissions → Gmail
-- [x] **Connect rubyxqube.com** — domain live on Vercel
-- [x] **Fix Vercel 404 routing** — SPA rewrite rule
-- [x] **MeshGradient animated background** — full site ambient
-- [x] **Fix Contact.jsx pricing** — Launch / Autopilot / Momentum with correct prices
-- [x] **Add FAQ section to Contact page**
-- [x] New package structure: Launch / Autopilot / Momentum
-- [x] Add About page + Bastion co-founder background
-- [x] Add Bastion MSP to portfolio
-- [x] Deploy to Vercel via GitHub
-- [x] Create ROADMAP.md, SOP.md, TODO.md
+- [x] AI chatbot live on rubyxqube.com (Claude Haiku, lead capture, email + SMS alerts) ✅
+- [x] Social sharing meta tags + og:image → logo-horizontal.png ✅
+- [x] sitemap.xml — all routes ✅
+- [x] Google Analytics 4 — G-9X0RYL01J3 ✅
+- [x] Formspree contact form — tested ✅
+- [x] rubyxqube.com — live on Vercel, custom domain ✅
+- [x] Vercel 404 SPA rewrite rule ✅
+- [x] MeshGradient animated background ✅
+- [x] Launch / Autopilot / Momentum package structure ✅
+- [x] About page + Bastion MSP portfolio ✅

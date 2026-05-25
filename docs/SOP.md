@@ -1,7 +1,28 @@
 # RubyxQube — Standard Operating Procedures
 
 > Reference this any time you're onboarding a client, building a site, or doing monthly care.  
-> Update it whenever you discover a better way to do something.
+> Update it whenever you discover a better way to do something.  
+> Last updated: May 2026 — pre-first-client. Stack is live and tested.
+
+---
+
+## Quick Reference — Tools in Use
+
+| Tool | Purpose | Status |
+|------|---------|--------|
+| Vercel | Hosting (rubyxqube.com + all client sites) | ✅ Live |
+| GitHub | Code storage (one private repo per client) | ✅ Live |
+| Anthropic API | AI chatbot (Claude Haiku) | ✅ Live |
+| Twilio | SMS lead alerts (A2P 10DLC registered) | ✅ Live |
+| Resend | Email alerts + client emails | ✅ Live |
+| Formspree | Contact forms (no backend) | ✅ Live |
+| GA4 | Analytics (one property per client) | ✅ Live |
+| Wave | Invoicing + bookkeeping | ⬜ Set up |
+| Notion | CRM + client pages | ⬜ Set up |
+| 1Password | Credentials + API keys | ⬜ Set up |
+| Calendly | Book audit calls | ⬜ Set up |
+| UptimeRobot | Site uptime monitoring | ⬜ Set up |
+| Google Workspace | boyd@rubyxqube.com | ⬜ Set up |
 
 ---
 
@@ -69,16 +90,22 @@ Add-ons: [any extras quoted]
 To proceed: sign this proposal + 50% deposit
 ```
 
-### Contract
-- Use a simple service agreement (1–2 pages)
-- Key clauses: scope, timeline, payment terms, revision rounds, ownership on final payment
-- Sign via DocuSign or HelloSign
+### Contract & E-Signature
+**Current process (until signing page is built):**
+- Use the service agreement template (downloaded from Bonsai, customized for RubyxQube — see LEGAL.md)
+- Email PDF to client, ask them to reply with "I agree" + their typed name (legally binding under E-SIGN Act + Idaho UETA)
+- Save their reply as part of the contract record
+
+**Future process (once built — see AUTOMATION.md §0):**
+- Run: `node scripts/send-contract.mjs --slug "[client]" --package "[package]" --setup [price] --monthly [price]`
+- Client receives email with unique `/sign/[token]` link
+- They read + type their name → Puppeteer PDF generated → emailed to both parties → provisioning auto-triggers
 
 ### Payment
-- 50% deposit to start
-- 50% on launch day
-- Monthly retainer billed on the 1st of each month (Stripe or Wave)
-- Accepted: bank transfer, card, Zelle
+- 50% deposit to start (invoice via Wave)
+- 50% on launch day (invoice via Wave)
+- Monthly retainer: Wave auto-recurring invoice on 1st of month
+- Accepted: bank transfer, Zelle (no fee), card via Wave (2.9% + 30¢)
 
 ---
 
@@ -86,29 +113,46 @@ To proceed: sign this proposal + 50% deposit
 
 Once contract is signed and deposit received:
 
-### Create client folder in Google Drive
+### Automated (once provision script is built)
+```
+node scripts/provision-client.mjs --slug "[clientslug]" --name "[Business Name]"
+```
+Creates GitHub repo from template + Vercel project automatically. Until then, do manually.
+
+### Manual setup checklist
+- [ ] Create private GitHub repo: `[clientslug]-site` (fork from `client-template`)
+- [ ] Create Vercel project linked to that repo
+- [ ] Add env vars to Vercel: `ANTHROPIC_API_KEY`, `ALERT_PHONE_NUMBER`, Twilio vars, `RESEND_API_KEY`, `ALERT_EMAIL`
+- [ ] Add all credentials to 1Password under `[Client Name]` vault
+- [ ] Create client page in Notion CRM (move stage to: **Active Build**)
+- [ ] Create GA4 property for client, share read access with their Google account
+
+### Google Drive folder structure
 ```
 /Clients
   /[BusinessName]
     /Assets          ← logos, photos client provides
     /Copy            ← content drafts, approved copy
-    /Credentials     ← stored in 1Password, not here
+    /Credentials     ← stored in 1Password, NOT here
     /Deliverables    ← final exports, screenshots
     /Reports         ← monthly report PDFs
 ```
 
-### Create client page in Notion
-Include:
+### Notion client page should include
 - Business name, owner name, contact info
-- Package + add-ons
-- Domain, hosting, and login info (link to 1Password vault)
-- Timeline and milestones
+- Package + add-ons + pricing
+- Domain name + registrar
+- Vercel project URL + GitHub repo link
+- 1Password vault link
+- GA4 property ID
+- Timeline + milestones
 - Notes from kickoff call
 - Monthly report log
 
 ### Kickoff call (30–45 min)
 Run through the Onboarding Questionnaire (see Section 5).  
-Record the call (ask permission) — useful reference during build.
+Record the call (ask permission) — useful reference during build.  
+After call: move Notion stage to **Active Build**.
 
 ---
 
@@ -309,17 +353,25 @@ If a client cancels (30 days notice required):
 
 ## Tools Stack
 
-| Tool | Purpose | Cost |
-|------|---------|------|
-| Notion | Client CRM + docs + SOPs | Free |
-| Google Drive | File storage per client | Free |
-| 1Password | Credentials + API keys | ~$3/mo |
-| Vercel | Hosting (client sites + Qube site) | Free (Hobby) |
-| Formspree | Contact forms without backend | Free (50 submissions/mo) |
-| Google Analytics 4 | Site analytics for all clients | Free |
-| Google Search Console | SEO monitoring | Free |
-| Wave | Invoicing + bookkeeping | Free |
-| DocuSign / HelloSign | Contracts | ~$15/mo or free tier |
-| Anthropic API (Claude) | AI chatbot powered by Claude Haiku (Autopilot clients) | Pay per use ~$1–3/mo/client |
-| Twilio | SMS lead alerts | ~$1–2/mo/client |
-| Calendly | Book audit calls | Free |
+| Tool | Purpose | Cost | Status |
+|------|---------|------|--------|
+| Vercel | Hosting — rubyxqube.com + all client sites | Free (Hobby) | ✅ Live |
+| GitHub | Code — one private repo per client | Free | ✅ Live |
+| Anthropic API | AI chatbot — Claude Haiku per client | ~$1–3/mo/client | ✅ Live |
+| Twilio | SMS lead alerts — A2P 10DLC registered | ~$1–2/mo/client | ✅ Live |
+| Resend | Email alerts + automated client emails | Free tier | ✅ Live |
+| Formspree | Contact forms (no backend needed) | Free (50/mo) | ✅ Live |
+| Google Analytics 4 | Site analytics — one property per client | Free | ✅ Live |
+| Google Search Console | SEO monitoring per client | Free | ✅ Live |
+| UptimeRobot | Uptime monitoring — all client sites | Free (50 monitors) | ⬜ Set up |
+| Wave | Invoicing + bookkeeping + auto-recurring | Free | ⬜ Set up |
+| Notion | CRM + client pages + SOPs | Free | ⬜ Set up |
+| 1Password | Credentials + API keys — one vault per client | ~$3/mo | ⬜ Set up |
+| Google Workspace | boyd@rubyxqube.com | $6/mo | ⬜ Set up |
+| Calendly | Book audit calls | Free | ⬜ Set up |
+| Custom signing page | Contract e-signature — legally binding, $0/mo | Free (build it) | ⬜ Build |
+| Google Drive | File storage per client | Free | ✅ Use now |
+
+> See COSTS.md for full cost breakdown and margin analysis.  
+> See AUTOMATION.md for what gets automated and when to build it.  
+> See CLIENT_HOSTING.md for the per-client GitHub/Vercel/domain setup.
