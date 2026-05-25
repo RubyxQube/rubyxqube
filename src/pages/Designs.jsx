@@ -406,6 +406,7 @@ export default function Designs() {
             border: "1px solid rgba(225,29,72,0.18)",
             borderRadius: 10,
             display: "flex",
+            flexWrap: "wrap",
             alignItems: "center",
             gap: 10,
           }}>
