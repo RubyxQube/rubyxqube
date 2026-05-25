@@ -75,6 +75,10 @@ function wordmark(fs) {
   return `<span style="font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;font-weight:800;font-size:${fs}px;letter-spacing:-0.03em;color:rgba(255,255,255,0.93);white-space:nowrap;line-height:1;">Ruby<span style="color:#e11d48;">x</span>Qube</span>`;
 }
 
+function wordmarkTM(fs) {
+  return `<span style="font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;font-weight:800;font-size:${fs}px;letter-spacing:-0.03em;color:rgba(255,255,255,0.93);white-space:nowrap;line-height:1;">Ruby<span style="color:#e11d48;">x</span>Qube<sup style="font-size:0.42em;font-weight:700;letter-spacing:0;color:rgba(255,255,255,0.45);vertical-align:super;line-height:0;">™</sup></span>`;
+}
+
 function taglineSpan(fs) {
   return `<span style="font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;font-weight:400;font-size:${fs}px;letter-spacing:0.18em;color:rgba(255,255,255,0.28);text-transform:uppercase;white-space:nowrap;line-height:1;">Website&nbsp;•&nbsp;AI</span>`;
 }
@@ -122,6 +126,44 @@ function stackedClean(id, h) {
 </div>`;
 }
 
+// ── TM variants ──────────────────────────────────────────────────────────────
+
+function horizontalTM(id, h) {
+  const mw = h * 0.78, fs = h * 0.40, ts = h * 0.165, gap = h * 0.22, tg = h * 0.07;
+  return `<div id="${id}" style="display:inline-flex;align-items:center;gap:${gap}px;padding:12px;background:transparent;">
+  ${cubeSVG(id + "mk", mw, h)}
+  <div style="display:flex;flex-direction:column;align-items:center;gap:${tg}px;">
+    ${wordmarkTM(fs)}
+    ${taglineSpan(ts)}
+  </div>
+</div>`;
+}
+
+function stackedTM(id, h) {
+  const mw = h * 0.78, fs = h * 0.21, ts = h * 0.10, gap = h * 0.05, tg = h * 0.02;
+  return `<div id="${id}" style="display:inline-flex;flex-direction:column;align-items:center;gap:${gap}px;padding:14px;background:transparent;">
+  ${cubeSVG(id + "mk", mw, h)}
+  ${wordmarkTM(fs)}
+  <span style="font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;font-weight:400;font-size:${ts}px;letter-spacing:0.18em;color:rgba(255,255,255,0.28);text-transform:uppercase;white-space:nowrap;line-height:1;margin-top:${tg}px;">Website&nbsp;•&nbsp;AI</span>
+</div>`;
+}
+
+function horizontalCleanTM(id, h) {
+  const mw = h * 0.78, fs = h * 0.40, gap = h * 0.22;
+  return `<div id="${id}" style="display:inline-flex;align-items:center;gap:${gap}px;padding:12px;background:transparent;">
+  ${cubeSVG(id + "mk", mw, h)}
+  ${wordmarkTM(fs)}
+</div>`;
+}
+
+function stackedCleanTM(id, h) {
+  const mw = h * 0.78, fs = h * 0.21, gap = h * 0.05;
+  return `<div id="${id}" style="display:inline-flex;flex-direction:column;align-items:center;gap:${gap}px;padding:14px;background:transparent;">
+  ${cubeSVG(id + "mk", mw, h)}
+  ${wordmarkTM(fs)}
+</div>`;
+}
+
 function buildHTML() {
   return `<!DOCTYPE html>
 <html>
@@ -136,11 +178,15 @@ function buildHTML() {
 </style>
 </head>
 <body>
-${horizontal(     "logo-h",       72)}
-${stacked(        "logo-v",       100)}
-${horizontalClean("logo-h-clean", 72)}
-${stackedClean(   "logo-v-clean", 100)}
-${markDiv(        "logo-mark",    300)}
+${horizontal(        "logo-h",          72)}
+${stacked(           "logo-v",          100)}
+${horizontalClean(   "logo-h-clean",    72)}
+${stackedClean(      "logo-v-clean",    100)}
+${horizontalTM(      "logo-h-tm",       72)}
+${stackedTM(         "logo-v-tm",       100)}
+${horizontalCleanTM( "logo-h-clean-tm", 72)}
+${stackedCleanTM(    "logo-v-clean-tm", 100)}
+${markDiv(           "logo-mark",       300)}
 </body>
 </html>`;
 }
@@ -172,32 +218,46 @@ async function main() {
     return buf;
   }
 
-  const [hBuf, vBuf, hCleanBuf, vCleanBuf, mBuf] = await Promise.all([
+  const [hBuf, vBuf, hCleanBuf, vCleanBuf, hTMBuf, vTMBuf, hCleanTMBuf, vCleanTMBuf, mBuf] = await Promise.all([
     capture("logo-h"),
     capture("logo-v"),
     capture("logo-h-clean"),
     capture("logo-v-clean"),
+    capture("logo-h-tm"),
+    capture("logo-v-tm"),
+    capture("logo-h-clean-tm"),
+    capture("logo-v-clean-tm"),
     capture("logo-mark"),
   ]);
 
   await browser.close();
   console.log("🔒 Browser closed.\n");
 
-  // ── Horizontal (with tagline) ──
+  // ── No TM ────────────────────────────────────────────────────────────
   await writeFile(resolve(BRAND, "logo-horizontal.png"), hBuf);
   console.log("✓ public/brand/logo-horizontal.png");
 
-  // ── Horizontal (no tagline) ──
   await writeFile(resolve(BRAND, "logo-horizontal-clean.png"), hCleanBuf);
   console.log("✓ public/brand/logo-horizontal-clean.png");
 
-  // ── Stacked (with tagline) ──
   await writeFile(resolve(BRAND, "logo-stacked.png"), vBuf);
   console.log("✓ public/brand/logo-stacked.png");
 
-  // ── Stacked (no tagline) ──
   await writeFile(resolve(BRAND, "logo-stacked-clean.png"), vCleanBuf);
   console.log("✓ public/brand/logo-stacked-clean.png");
+
+  // ── TM variants ───────────────────────────────────────────────────────
+  await writeFile(resolve(BRAND, "logo-horizontal-tm.png"), hTMBuf);
+  console.log("✓ public/brand/logo-horizontal-tm.png");
+
+  await writeFile(resolve(BRAND, "logo-horizontal-clean-tm.png"), hCleanTMBuf);
+  console.log("✓ public/brand/logo-horizontal-clean-tm.png");
+
+  await writeFile(resolve(BRAND, "logo-stacked-tm.png"), vTMBuf);
+  console.log("✓ public/brand/logo-stacked-tm.png");
+
+  await writeFile(resolve(BRAND, "logo-stacked-clean-tm.png"), vCleanTMBuf);
+  console.log("✓ public/brand/logo-stacked-clean-tm.png");
 
   // ── Mark 512 (transparent, square padded) ──
   await sharp(mBuf)
