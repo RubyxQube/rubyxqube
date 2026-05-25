@@ -319,9 +319,9 @@ label{
    NAVBAR
 ───────────────────────────────────────── */
 .navWrap{
-  position: sticky; top: 0; z-index: 20;
+  position: sticky; top: 0; z-index: 100;
   backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  background: rgba(10,8,9,0.82);
+  background: rgba(10,8,9,0.88);
   border-bottom: 1px solid rgba(255,255,255,0.07);
 }
 .navBar{
@@ -352,40 +352,94 @@ label{
   background: var(--accent-dim);
   font-weight: 600;
 }
-.navLinks .btn.primary{
+.navLinks .navCta{
   margin-left: 8px;
   padding: 8px 18px;
   font-size: 13.5px;
   border-radius: 8px;
 }
 
+/* Hamburger button — hidden on desktop */
+.navHamburger{
+  display: none;
+  background: none; border: none;
+  color: rgba(255,255,255,0.75);
+  cursor: pointer; padding: 6px;
+  border-radius: 8px;
+  transition: background .15s;
+}
+.navHamburger:hover{ background: rgba(255,255,255,0.07); }
+
+/* Mobile drawer */
+.mobileMenu{
+  position: fixed;
+  top: 61px; left: 0; right: 0; bottom: 0;
+  z-index: 99;
+  background: rgba(10,8,9,0.97);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 20px 20px 40px;
+  overflow-y: auto;
+  animation: menuSlideIn 0.18s ease;
+}
+@keyframes menuSlideIn{
+  from{ opacity: 0; transform: translateY(-8px); }
+  to  { opacity: 1; transform: translateY(0); }
+}
+.mobileLink{
+  display: block;
+  padding: 14px 16px;
+  font-size: 17px; font-weight: 500;
+  border-radius: 10px;
+  transition: background .1s, color .1s;
+  text-decoration: none;
+}
+.mobileLink:hover{ background: rgba(255,255,255,0.05); text-decoration: none; }
+
 /* ─────────────────────────────────────────
    FOOTER
 ───────────────────────────────────────── */
 .footerWrap{
   border-top: 1px solid rgba(255,255,255,0.07);
-  background: rgba(5,3,4,0.95);
+  background: rgba(5,3,4,0.98);
 }
 .footerInner{
   max-width: var(--max); margin: 0 auto;
-  padding: 20px 40px;
-  display: flex; flex-wrap: wrap; gap: 14px;
-  align-items: center; justify-content: space-between;
-  color: rgba(255,255,255,0.32); font-size: 13px;
+  padding: 52px 48px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
 }
-.footerLinks{ display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
+.footerBrand{
+  display: flex; flex-direction: column; gap: 12px;
+}
+.footerBrand p{
+  font-size: 13px; color: rgba(255,255,255,0.38);
+  margin: 0; line-height: 1.6; max-width: 240px;
+}
+.footerCol h4{
+  font-size: 11px; font-weight: 700;
+  color: rgba(255,255,255,0.30);
+  letter-spacing: 0.09em; text-transform: uppercase;
+  margin: 0 0 14px;
+}
+.footerCol{ display: flex; flex-direction: column; gap: 2px; }
+.footerLinks{ display: flex; flex-direction: column; gap: 2px; }
 .footerLinks a{
-  color: rgba(255,255,255,0.38);
-  padding: 6px 12px; border-radius: 8px;
-  border: 1px solid transparent; font-size: 13px;
-  transition: background .1s, color .1s;
+  color: rgba(255,255,255,0.50);
+  padding: 5px 0; font-size: 14px;
+  transition: color .1s;
+  border: none; background: none;
 }
-.footerLinks a:hover{
-  color: rgba(255,255,255,0.75);
-  background: rgba(255,255,255,0.05);
-  text-decoration: none;
+.footerLinks a:hover{ color: rgba(255,255,255,0.90); text-decoration: none; }
+.footerBottom{
+  max-width: var(--max); margin: 0 auto;
+  padding: 16px 48px 28px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex; flex-wrap: wrap; gap: 12px;
+  align-items: center; justify-content: space-between;
+  font-size: 12px; color: rgba(255,255,255,0.25);
 }
-.footerBrand{ display:flex; align-items:center; gap: 10px; }
 
 /* ─────────────────────────────────────────
    LAYOUT SHELL
@@ -401,44 +455,21 @@ label{
 /* ─────────────────────────────────────────
    MOBILE
 ───────────────────────────────────────── */
-@media (max-width: 720px){
+@media (max-width: 860px){
+  /* Hamburger on, desktop nav off */
+  .navLinks{ display: none; }
+  .navHamburger{ display: flex; align-items: center; justify-content: center; }
+  .navBar{ padding: 10px 20px; }
 
+  /* Footer stacks to single column */
+  .footerInner{ grid-template-columns: 1fr; gap: 28px; padding: 36px 22px 28px; }
+  .footerBottom{ padding: 14px 22px 24px; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .footerBrand p{ max-width: 100%; }
+}
+
+@media (max-width: 720px){
   .section{ padding: 56px 22px; }
   .heroSection{ padding: 64px 22px 56px; }
-
-  .navBar{
-    padding: 10px 16px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-areas: "brand cta" "links links";
-    gap: 10px;
-  }
-  .navBar .brand{ grid-area: brand; }
-
-  .navLinks{
-    grid-area: links;
-    display: flex; flex-wrap: nowrap;
-    overflow-x: auto; -webkit-overflow-scrolling: touch;
-    gap: 6px; padding-bottom: 4px; align-items: center;
-  }
-  .navLinks::-webkit-scrollbar{ display: none; }
-  .navLinks a{
-    white-space: nowrap; padding: 7px 12px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    color: rgba(255,255,255,0.58); font-size: 13px;
-  }
-  .navLinks a[aria-current="page"]{
-    background: var(--accent-dim);
-    border-color: var(--accent-border);
-    color: rgba(255,255,255,0.92);
-  }
-  .navLinks .btn.primary{
-    flex: 0 0 auto; white-space: nowrap;
-    padding: 7px 13px; border-radius: 999px;
-    margin-left: 4px; font-size: 13px;
-  }
 
   .btnRow{
     flex-direction: column;
@@ -448,7 +479,4 @@ label{
     width: 100%; min-height: 50px;
     border-radius: 10px; font-size: 15px; justify-content: center;
   }
-
-  .footerInner{ padding: 16px; flex-direction: column; align-items: flex-start; }
-  .footerLinks a{ padding: 7px 11px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
 }

@@ -1,21 +1,66 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { siteConfig } from "../siteConfig.js";
 import Logo from "./Logo.jsx";
+import { siteConfig } from "../siteConfig.js";
 
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="footerWrap">
       <div className="footerInner">
+
+        {/* Brand col */}
         <div className="footerBrand">
           <Logo height={36} />
-          <span>© {year} {siteConfig.brand}. All rights reserved.</span>
+          <p>
+            AI-powered websites for local service businesses in the Treasure Valley — and beyond.
+          </p>
+          <a
+            href={`tel:${siteConfig.phoneE164}`}
+            style={{ fontSize: 13, color: "rgba(255,255,255,0.50)", transition: "color .1s" }}
+            onMouseOver={e => e.target.style.color = "rgba(255,255,255,0.90)"}
+            onMouseOut={e => e.target.style.color = "rgba(255,255,255,0.50)"}
+          >
+            {siteConfig.phoneDisplay}
+          </a>
+          <a
+            href={`mailto:${siteConfig.email}`}
+            style={{ fontSize: 13, color: "rgba(255,255,255,0.50)", transition: "color .1s" }}
+            onMouseOver={e => e.target.style.color = "rgba(255,255,255,0.90)"}
+            onMouseOut={e => e.target.style.color = "rgba(255,255,255,0.50)"}
+          >
+            {siteConfig.email}
+          </a>
         </div>
-        <div className="footerLinks">
-          <Link to="/privacy">Privacy</Link>
-          <Link to="/quote">Get a Quote</Link>
+
+        {/* Services col */}
+        <div className="footerCol">
+          <h4>Services</h4>
+          <nav className="footerLinks">
+            <Link to="/services">What We Build</Link>
+            <Link to="/pricing">Packages & Pricing</Link>
+            <Link to="/audit">Free Website Audit</Link>
+            <Link to="/portfolio">Portfolio</Link>
+          </nav>
         </div>
+
+        {/* Company col */}
+        <div className="footerCol">
+          <h4>Company</h4>
+          <nav className="footerLinks">
+            <Link to="/about">About Boyd</Link>
+            <Link to="/contact">Get a Quote</Link>
+            <Link to="/report">Sample Report</Link>
+            <Link to="/privacy">Privacy Policy</Link>
+          </nav>
+        </div>
+
+      </div>
+
+      {/* Bottom bar */}
+      <div className="footerBottom">
+        <span>© {year} {siteConfig.brand}. All rights reserved.</span>
+        <span>Boise, Idaho · Serving the {siteConfig.serviceArea} & beyond</span>
       </div>
     </footer>
   );

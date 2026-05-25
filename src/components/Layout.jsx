@@ -15,6 +15,8 @@ const titles = (brand) => ({
   "/about": `About • ${brand}`,
   "/quote": `Get a Quote • ${brand}`,
   "/contact": `Get a Quote • ${brand}`, // alias
+  "/audit": `Free Website Audit • ${brand}`,
+  "/report": `Sample Monthly Report • ${brand}`,
   "/privacy": `Privacy • ${brand}`,
 });
 
