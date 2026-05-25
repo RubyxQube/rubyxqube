@@ -1,4 +1,4 @@
-# Qube Solutions — TODO
+# RubyxQube — TODO
 
 > Ordered by priority. Work top to bottom.  
 > Move completed items to `## Done` at the bottom.
@@ -7,7 +7,7 @@
 
 ## 🔴 Critical (Do This Week)
 
-- [ ] **Fix Contact.jsx pricing** — still shows old packages ($2,000 etc.), needs to match Launch / Autopilot / Momentum
+- [x] **Fix Contact.jsx pricing** — still shows old packages ($2,000 etc.), needs to match Launch / Autopilot / Momentum
 - [ ] **Register the LLC** — Idaho SOS online filing, ~$100. Don't take money without this.
 - [ ] **Open a business bank account** — keep revenue separate from personal from day one
 - [ ] **Set up Wave** (wave.com) — free invoicing + bookkeeping. Create your first invoice template.
@@ -25,8 +25,8 @@
 ### Website
 - [ ] Screenshot Phoenix Stoneworks site for the portfolio card (add a real preview image)
 - [ ] Test the contact form end-to-end on mobile (does the mailto open? Does it autofill correctly?)
-- [ ] Set up Google Search Console for qube-solutions.com
-- [ ] Add Google Analytics 4 to the Qube Solutions site itself
+- [ ] Set up Google Search Console for rubyxqube.com (submit sitemap.xml once domain is live)
+- [ ] Add Google Analytics 4 to the RubyxQube site itself (need GA4 Measurement ID)
 
 ### Operations
 - [ ] Set up Notion workspace:
@@ -55,11 +55,11 @@
 ## 🔵 Product / Site Improvements
 
 - [ ] Add real preview images to portfolio cards (screenshot tools: Screely, BrowserFrame)
-- [ ] Add an FAQ section to the Contact page (reduces friction before they fill out the form)
+- [x] Add an FAQ section to the Contact page (reduces friction before they fill out the form)
 - [ ] Connect Formspree (or Basin) to the contact form — replaces the mailto hack with real form submissions
 - [ ] Add a "Free Audit" landing page — one focused page for cold outreach links
-- [ ] Add social sharing meta tags (og:title, og:image) so links look good when shared
-- [ ] Set up a `/sitemap.xml` for SEO
+- [x] Add social sharing meta tags (og:title, og:image) so links look good when shared
+- [x] Set up a `/sitemap.xml` for SEO
 - [ ] Consider adding a blog (1 post/month targeting local SEO terms like "web design Boise Idaho")
 
 ---

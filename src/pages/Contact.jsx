@@ -129,6 +129,7 @@ ${form.notes || "(none)"}`
     <div className="pageMinHeight">
       <section className="surface heroSurface">
       <div className="section" style={{ paddingTop: 80, paddingBottom: 80 }}>
+
         <span className="badge">Fast replies • Simple process</span>
         <h1 className="h1" style={{ marginTop: 12 }}>Get a Quote</h1>
         <p className="p" style={{ maxWidth: 820 }}>
@@ -310,6 +311,47 @@ ${form.notes || "(none)"}`
             </p>
           </div>
         </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="surface">
+        <div className="section" style={{ paddingTop: 64, paddingBottom: 80 }}>
+          <span className="badge">Common questions</span>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 40 }}>Before you reach out</h2>
+          <div className="grid cols-2" style={{ gap: 24 }}>
+            {[
+              {
+                q: "How long does a website build take?",
+                a: "Typically 2–3 weeks from when I receive your completed questionnaire and any content. Rush timelines are available for an added fee.",
+              },
+              {
+                q: "Do I need to provide my own content?",
+                a: "I'll guide you through it with a simple questionnaire. If you want professionally written copy, add copywriting for $500 — I handle everything.",
+              },
+              {
+                q: "I already have a domain. Can you use it?",
+                a: "Yes, absolutely. I'll connect your existing domain at no extra charge. If you don't have one yet, domain setup is a $75 add-on.",
+              },
+              {
+                q: "Do you offer payment plans?",
+                a: "Yes. I typically split it 50% upfront and 50% at launch. If you need a different arrangement, just ask — I'm flexible for the right fit.",
+              },
+              {
+                q: "What if I'm not happy with the design?",
+                a: "Every package includes 2 rounds of revisions before launch. I work closely with you throughout so surprises are rare.",
+              },
+              {
+                q: "What happens if I cancel my monthly plan?",
+                a: "Your site stays live — you own it. You just won't have the monthly updates, AI receptionist, or ongoing support anymore.",
+              },
+            ].map(({ q, a }) => (
+              <div className="card" key={q}>
+                <h3 className="h3" style={{ marginBottom: 10 }}>{q}</h3>
+                <p className="p" style={{ marginBottom: 0 }}>{a}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
