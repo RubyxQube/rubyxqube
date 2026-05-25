@@ -376,7 +376,7 @@ export default function Designs() {
       </section>
 
       {/* Step 1 — Layout style */}
-      <section className="section" style={{ paddingTop: 24 }}>
+      <section className="section">
         <div style={{ marginBottom: 24 }}>
           <span className="badge" style={{ marginBottom: 12 }}>
             {selected ? "Step 1 ✓" : "Step 1"}
@@ -416,7 +416,7 @@ export default function Designs() {
       </section>
 
       {/* Step 2 — Color palette */}
-      <section className="section" style={{ paddingTop: 0 }}>
+      <section className="section">
         <div style={{ marginBottom: 24 }}>
           <span className="badge" style={{ marginBottom: 12 }}>
             {selectedPalette ? "Step 2 ✓" : "Step 2"}
@@ -431,7 +431,7 @@ export default function Designs() {
 
       {/* Final CTA — only appears when BOTH are selected */}
       {bothPicked && (
-        <section className="section" style={{ paddingTop: 0 }}>
+        <section className="section">
           <div style={{
             background: "var(--surface)",
             border: "1px solid rgba(225,29,72,0.30)",
@@ -469,7 +469,7 @@ export default function Designs() {
       )}
 
       {/* Custom note */}
-      <section className="section" style={{ paddingTop: 0 }}>
+      <section className="section">
         <div className="surface" style={{
           textAlign: "center",
           padding: "36px 32px",
