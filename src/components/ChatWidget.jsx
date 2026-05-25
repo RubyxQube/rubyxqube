@@ -83,6 +83,43 @@ const S = {
   },
 };
 
+// ─── Inline markdown renderer (bold, italic, plain) ──────────────────────
+function renderInline(text) {
+  const parts = text.split(/(\*\*.*?\*\*|\*.*?\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**"))
+      return <strong key={i}>{part.slice(2, -2)}</strong>;
+    if (part.startsWith("*") && part.endsWith("*"))
+      return <em key={i}>{part.slice(1, -1)}</em>;
+    return part;
+  });
+}
+
+function renderContent(text) {
+  const lines = text.split("\n");
+  const out = [];
+  let i = 0;
+  while (i < lines.length) {
+    const line = lines[i];
+    if (line.match(/^[-•]\s/)) {
+      // Collect consecutive bullet lines into a list
+      const items = [];
+      while (i < lines.length && lines[i].match(/^[-•]\s/)) {
+        items.push(<li key={i} style={{ marginBottom: 2 }}>{renderInline(lines[i].replace(/^[-•]\s/, ""))}</li>);
+        i++;
+      }
+      out.push(<ul key={`ul-${i}`} style={{ margin: "4px 0", paddingLeft: 16 }}>{items}</ul>);
+    } else if (line.trim() === "" || line.trim() === "---") {
+      out.push(<br key={i} />);
+      i++;
+    } else {
+      out.push(<span key={i} style={{ display: "block" }}>{renderInline(line)}</span>);
+      i++;
+    }
+  }
+  return out;
+}
+
 // ─── Bubble ───────────────────────────────────────────────────────────────
 function Bubble({ msg, accent }) {
   const isUser = msg.role === "user";
@@ -97,11 +134,10 @@ function Bubble({ msg, accent }) {
           color: "rgba(255,255,255,0.90)",
           fontSize: 14,
           lineHeight: 1.55,
-          whiteSpace: "pre-wrap",
           wordBreak: "break-word",
         }}
       >
-        {msg.content}
+        {isUser ? msg.content : renderContent(msg.content)}
       </div>
     </div>
   );
@@ -222,7 +258,7 @@ export default function ChatWidget() {
         {
           role: "assistant",
           content:
-            "I'm having connection trouble. Please reach out directly — boyd@qubesolutions.com or call us.",
+            "I'm having connection trouble. Please reach out directly — boydquerubin@gmail.com or call (208) 970-8624.",
           id: Date.now() + 1,
           error: true,
         },

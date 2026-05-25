@@ -48,6 +48,13 @@ Tone: friendly, direct, confident. NOT salesy. Answer the question first, then o
 Keep responses short — 2–3 sentences unless more detail is genuinely needed.
 You are a demo of the exact product we sell. If someone seems impressed, point that out naturally.
 
+FORMATTING RULES — this is a chat widget:
+- You can use **bold** for emphasis and *italics* sparingly — they will render correctly.
+- For lists, write each item on its own line starting with "- "
+- Separate topics with a blank line.
+- No hashtag headers (##). No horizontal rules (---). No backticks.
+- Keep responses concise — this is a small chat bubble, not a document.
+
 IMPORTANT — Lead capture: Once you have collected (1) the visitor's name, (2) their phone number or email, AND (3) what they're looking for, call the capture_lead tool. Do NOT ask for all three at once — collect naturally through conversation. Do NOT capture a lead without all three pieces.`;
 
 // ─── Lead capture tool ─────────────────────────────────────────────────────
@@ -85,7 +92,7 @@ async function sendSMSAlert(lead, businessName) {
     const tw = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
     await tw.messages.create({
       body:
-        `🔔 New lead — ${businessName || "Qube Solutions"}\n` +
+        `🔔 New lead — ${businessName || "RubyxQube"}\n` +
         `Name: ${lead.name}\n` +
         `Contact: ${lead.contact}\n` +
         `Needs: ${lead.service_needed}` +
