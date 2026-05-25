@@ -59,7 +59,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="footerBottom">
-        <span>© {year} {siteConfig.brand}. All rights reserved.</span>
+        <span>© {year} RubyxQube LLC. All rights reserved. RubyxQube™ is a trademark of RubyxQube LLC.</span>
         <span>Boise, Idaho · Serving the {siteConfig.serviceArea} & beyond</span>
       </div>
     </footer>
