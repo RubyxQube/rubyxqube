@@ -15,6 +15,7 @@
  */
 
 import Anthropic from "@anthropic-ai/sdk";
+import { Resend } from "resend";
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
@@ -80,6 +81,31 @@ const LEAD_TOOL = {
     required: ["name", "contact", "service_needed"],
   },
 };
+
+// ─── Optional email via Resend ─────────────────────────────────────────────
+async function sendEmailAlert(lead, businessName) {
+  if (!process.env.RESEND_API_KEY || !process.env.ALERT_EMAIL) {
+    console.log("Email skipped — RESEND_API_KEY or ALERT_EMAIL not set.");
+    return;
+  }
+  try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    await resend.emails.send({
+      from: "onboarding@resend.dev",
+      to: process.env.ALERT_EMAIL,
+      subject: `🔔 New lead — ${businessName || "RubyxQube"}`,
+      text:
+        `New lead captured via AI chatbot\n\n` +
+        `Name: ${lead.name}\n` +
+        `Contact: ${lead.contact}\n` +
+        `Needs: ${lead.service_needed}` +
+        (lead.notes ? `\nNotes: ${lead.notes}` : ""),
+    });
+    console.log("Email sent for lead:", lead.name);
+  } catch (err) {
+    console.error("Resend error:", err.message);
+  }
+}
 
 // ─── Optional SMS via Twilio ────────────────────────────────────────────────
 async function sendSMSAlert(lead, businessName) {
@@ -147,8 +173,9 @@ export default async function handler(req, res) {
     if (response1.stop_reason === "tool_use") {
       const toolUse = response1.content.find((b) => b.type === "tool_use");
 
-      // Fire SMS without blocking the response
+      // Fire SMS + email without blocking the response
       sendSMSAlert(toolUse.input, businessName).catch(() => {});
+      sendEmailAlert(toolUse.input, businessName).catch(() => {});
 
       // Second call: give Claude the tool result so it can respond naturally
       const response2 = await client.messages.create({
