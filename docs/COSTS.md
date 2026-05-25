@@ -10,10 +10,14 @@
 | Item | Cost | Notes |
 |------|------|-------|
 | Idaho LLC registration | ~$100 | Idaho SOS — paid |
+| USPTO trademark application — RubyxQube | $350 | Trademark (not copyright — USPTO handles trademarks; Copyright Office handles copyrights). Protects the brand name/logo in commerce. Pending approval. |
 | Twilio A2P brand registration | $4 | One-time — paid |
 | Twilio A2P campaign registration | ~$15 | One-time — paid |
 | Domain — rubyxqube.com | ~$12–15 | Annual, via Vercel |
-| **Total paid to date** | **~$131–134** | |
+| **Total paid to date** | **~$481–484** | |
+
+> **Trademark vs. Copyright:** USPTO = trademarks (brand names, logos). US Copyright Office = copyrights (creative works like writing, music, art). You filed a trademark — the right move for protecting a business name.  
+> Monitor application status at [USPTO TSDR](https://tsdr.uspto.gov). Typical approval timeline: 8–12 months. Watch for Office Actions requiring a response.
 
 ---
 
