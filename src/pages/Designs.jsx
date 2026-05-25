@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
 
@@ -78,6 +77,136 @@ const DESIGNS = [
     palette: { bg: "#0f0f0f", nav: "#0f0f0f", hero: "#0f0f0f", accent: "#c9a84c", text: "#fefce8", muted: "#78716c", card: "#1a1a1a" },
   },
 ];
+
+// ─── Color palettes ───────────────────────────────────────────────────────────
+const PALETTES = [
+  { id: "ruby-red",     name: "Ruby Red",      mood: "Bold & modern",       colors: ["#e11d48","#0a0809","#c0112f","#ffffff","#6b7280"] },
+  { id: "ocean-deep",   name: "Ocean Deep",    mood: "Strong & trustworthy", colors: ["#1e40af","#0f172a","#3b82f6","#dbeafe","#ffffff"] },
+  { id: "forest-pro",   name: "Forest Pro",    mood: "Grounded & natural",   colors: ["#1a3a1a","#2d6a2d","#f5f0e0","#c4a882","#ffffff"] },
+  { id: "sunset-bold",  name: "Sunset Bold",   mood: "Energetic & warm",     colors: ["#ea580c","#1c1917","#fef3c7","#fb923c","#ffffff"] },
+  { id: "pure-clean",   name: "Pure Clean",    mood: "Crisp & professional", colors: ["#0f172a","#3b82f6","#f8fafc","#e2e8f0","#93c5fd"] },
+  { id: "gold-luxe",    name: "Gold Luxe",     mood: "Premium & refined",    colors: ["#0f0f0f","#c9a84c","#fefce8","#a16207","#1a1a1a"] },
+  { id: "teal-fresh",   name: "Teal Fresh",    mood: "Calm & health-forward",colors: ["#0d9488","#f0fdfa","#134e4a","#99f6e4","#ffffff"] },
+  { id: "purple-pro",   name: "Purple Pro",    mood: "Creative & confident", colors: ["#7c3aed","#0f0f0f","#f5f3ff","#a78bfa","#ffffff"] },
+  { id: "slate-modern", name: "Slate Modern",  mood: "Sleek & understated",  colors: ["#1e293b","#334155","#3b82f6","#f8fafc","#e2e8f0"] },
+  { id: "warm-amber",   name: "Warm Amber",    mood: "Friendly & inviting",  colors: ["#d97706","#fffbeb","#1c1917","#fbbf24","#92400e"] },
+  { id: "navy-classic", name: "Navy Classic",  mood: "Trusted & established",colors: ["#1e3a5f","#f8fafc","#c4a882","#dbeafe","#0f172a"] },
+  { id: "crimson-dark", name: "Crimson Dark",  mood: "Powerful & urgent",    colors: ["#dc2626","#111827","#ffffff","#fca5a5","#374151"] },
+];
+
+function coolorsUrl(colors) {
+  return "https://coolors.co/" + colors.map(c => c.replace("#", "")).join("-");
+}
+
+// ─── Palette picker ───────────────────────────────────────────────────────────
+function PalettePicker({ selectedPalette, onSelect }) {
+  const picked = PALETTES.find(p => p.id === selectedPalette);
+
+  return (
+    <div>
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
+        gap: 12,
+        marginBottom: 24,
+      }}>
+        {PALETTES.map(p => (
+          <div
+            key={p.id}
+            onClick={() => onSelect(p.id === selectedPalette ? null : p.id)}
+            style={{
+              background: "var(--surface)",
+              border: selectedPalette === p.id
+                ? "2px solid var(--accent)"
+                : "2px solid rgba(255,255,255,0.06)",
+              borderRadius: 10,
+              padding: "12px 14px",
+              cursor: "pointer",
+              transition: "border-color 0.15s",
+            }}
+          >
+            {/* Swatches */}
+            <div style={{ display: "flex", gap: 4, marginBottom: 10 }}>
+              {p.colors.map((color, i) => (
+                <div key={i} style={{
+                  flex: 1,
+                  height: 28,
+                  background: color,
+                  borderRadius: 5,
+                  border: "1px solid rgba(255,255,255,0.08)",
+                }} />
+              ))}
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <span style={{ fontSize: 13, fontWeight: 700, color: "var(--text)" }}>{p.name}</span>
+              {selectedPalette === p.id && (
+                <span style={{ fontSize: 11, color: "var(--accent)", fontWeight: 600 }}>✓ Selected</span>
+              )}
+            </div>
+            <span style={{ fontSize: 11, color: "var(--muted)" }}>{p.mood}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Selected palette CTA */}
+      {picked && (
+        <div style={{
+          background: "var(--surface)",
+          border: "1px solid rgba(225,29,72,0.25)",
+          borderRadius: 12,
+          padding: "20px 24px",
+          display: "flex",
+          flexWrap: "wrap",
+          alignItems: "center",
+          gap: 16,
+          marginBottom: 16,
+        }}>
+          <div style={{ flex: 1, minWidth: 200 }}>
+            <p style={{ fontWeight: 700, marginBottom: 4 }}>
+              You picked: <span style={{ color: "var(--accent)" }}>{picked.name}</span>
+            </p>
+            <p style={{ fontSize: 13, color: "var(--muted)" }}>
+              Mention "{picked.name}" on your audit call — Boyd will build your site around this palette.
+            </p>
+          </div>
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+            <a
+              className="btn primary"
+              href={siteConfig.calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Book audit call →
+            </a>
+            <a
+              href={coolorsUrl(picked.colors)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn"
+              style={{ borderColor: "rgba(255,255,255,0.15)" }}
+            >
+              View on Coolors ↗
+            </a>
+          </div>
+        </div>
+      )}
+
+      {/* Coolors explore link */}
+      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        <span style={{ fontSize: 13, color: "var(--muted)" }}>Want to explore more?</span>
+        <a
+          href="https://coolors.co/generate"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ fontSize: 13, color: "var(--accent)", fontWeight: 600, textDecoration: "none" }}
+        >
+          Open Coolors palette generator ↗
+        </a>
+        <span style={{ fontSize: 12, color: "var(--muted)", opacity: 0.6 }}>— screenshot your favorite and share it on the call</span>
+      </div>
+    </div>
+  );
+}
 
 // ─── Mini mockup preview ─────────────────────────────────────────────────────
 function MockupPreview({ p }) {
@@ -221,6 +350,7 @@ function DesignCard({ design, onSelect, selected }) {
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function Designs() {
   const [selected, setSelected] = useState(null);
+  const [selectedPalette, setSelectedPalette] = useState(null);
 
   return (
     <>
@@ -228,10 +358,10 @@ export default function Designs() {
       <section className="section heroSection" style={{ textAlign: "center", paddingBottom: 0 }}>
         <span className="badge" style={{ marginBottom: 16 }}>Design Styles</span>
         <h1 className="h1" style={{ marginBottom: 16 }}>
-          Find a style you love
+          Build your vision
         </h1>
         <p style={{ fontSize: 18, color: "var(--muted)", maxWidth: 560, margin: "0 auto 12px" }}>
-          Browse our design styles below. When you book a free audit call, tell Boyd which one caught your eye — or bring your own reference.
+          Pick a layout style and a color palette. Bring both to your free audit call — Boyd builds the rest.
         </p>
         <p style={{ fontSize: 14, color: "var(--muted)", maxWidth: 480, margin: "0 auto 48px", opacity: 0.7 }}>
           Every site is custom-built for your business. These are starting points, not templates.
@@ -240,6 +370,13 @@ export default function Designs() {
 
       {/* Grid */}
       <section className="section" style={{ paddingTop: 24 }}>
+        <div style={{ marginBottom: 24 }}>
+          <span className="badge" style={{ marginBottom: 12 }}>Step 1</span>
+          <h2 className="h2" style={{ marginBottom: 8 }}>Choose a layout style</h2>
+          <p style={{ color: "var(--muted)", maxWidth: 520 }}>
+            Each style is designed for a specific type of business. Click one that fits your vibe.
+          </p>
+        </div>
         <div className="grid cols-3" style={{ gap: 24 }}>
           {DESIGNS.map(d => (
             <DesignCard
@@ -250,6 +387,19 @@ export default function Designs() {
             />
           ))}
         </div>
+        </div>
+      </section>
+
+      {/* Palette picker */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div style={{ marginBottom: 32 }}>
+          <span className="badge" style={{ marginBottom: 12 }}>Step 2</span>
+          <h2 className="h2" style={{ marginBottom: 8 }}>Pick your colors</h2>
+          <p style={{ color: "var(--muted)", marginBottom: 24, maxWidth: 520 }}>
+            Choose a palette that feels right for your brand. Click any palette to select it, then book your audit call — Boyd will bring it to life.
+          </p>
+        </div>
+        <PalettePicker selectedPalette={selectedPalette} onSelect={setSelectedPalette} />
       </section>
 
       {/* Custom note */}
