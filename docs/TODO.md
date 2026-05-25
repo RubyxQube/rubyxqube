@@ -17,9 +17,9 @@
 ## 🟡 High Priority (This Month)
 
 ### Legal & Contracts
-- [ ] Get a service agreement template (Bonsai or Docracy) — customize for RubyxQube
-- [ ] Set up DocuSign or HelloSign for e-signatures
+- [ ] Download a web design service agreement template from Bonsai (free templates, no account needed) — customize for RubyxQube
 - [ ] Write a basic contractor agreement (for when you hire a VA or freelancer)
+- [ ] **Skip DocuSign/HelloSign/PandaDoc** — no free API tiers. We're building our own signing page (see Automation section above). See `docs/LEGAL.md` for full analysis.
 - [ ] See `docs/LEGAL.md` for full checklist
 
 ### Lead Generation
@@ -65,6 +65,8 @@
 - [ ] **Vercel deploy notifications** — confirm email alerts are on for all projects
 
 ### Build Soon (before 3rd client)
+- [ ] **Contract signing page** — `/sign/[token]` on rubyxqube.com. Client types name → legally binding (E-SIGN + Idaho UETA) → Puppeteer PDF → auto-triggers provisioning. $0/month forever. See `docs/AUTOMATION.md §0` and `docs/LEGAL.md`
+- [ ] **`scripts/send-contract.mjs`** — generates unique signing link + emails it to client. Feeds into the signing page above.
 - [ ] **`scripts/provision-client.mjs`** — CLI script: GitHub API + Vercel API → create repo from template + Vercel project automatically. See `docs/AUTOMATION.md §1`
 - [ ] **Chatbot lead → Notion CRM** — add Notion API call to `api/chat.js` so every captured lead auto-appears in Notion. No external tools needed. See `docs/AUTOMATION.md §2`
 - [ ] **`scripts/offboard-client.mjs`** — generates zip of client repo + HANDOFF.md + sends offboarding email + pauses Vercel. Build this before your first cancellation. See `docs/AUTOMATION.md §7`

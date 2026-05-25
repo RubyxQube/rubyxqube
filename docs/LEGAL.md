@@ -24,10 +24,48 @@ Using Gmail for client communications looks unprofessional and could hurt trust.
 
 You need a signed contract before doing any paid work. No exceptions.
 
-### Where to get a template
-- **Bonsai** (bonsai.io) — freelance-specific, has web design templates, free tier available
-- **Docracy** (docracy.com) — free legal templates
-- **HelloSign / Docusign** — for e-signatures once you have a template
+### E-Signature Tool Research (Accurate as of May 2026)
+
+| Tool | Free Tier | API | Verdict |
+|------|-----------|-----|---------|
+| **Bonsai** | 7-day trial only | ❌ No API | Skip — no automation possible |
+| **Docracy** | Defunct (acquired by eversign) | — | Skip — platform is gone |
+| **Dropbox Sign** (HelloSign) | 3/month, not legally binding in API test mode | ✅ $75/mo for production | Too expensive for now |
+| **DocuSign** | 3 docs total (one-time) | Enterprise only | Way too expensive |
+| **PandaDoc** | 60/year with watermark | Enterprise only | API is enterprise-locked |
+| **DocuSeal** | 10/month (no API), self-host = unlimited | ✅ $20/mo + $0.20/doc | Best paid option |
+| **Custom Vercel page** | Free forever | ✅ Full control | **Best option — see below** |
+
+### ✅ Best Approach: Build a Custom Signing Page (Free + Fully Automated)
+
+**A typed name in a web form is 100% legally binding in Idaho and under US federal law.**
+
+- **Federal:** E-SIGN Act — typed name = valid signature as long as intent, consent, and audit trail exist
+- **Idaho:** UETA (Idaho Code § 28-50-107) — electronic signatures fully enforceable since 1999
+- **Not valid for:** wills, adoption/divorce, court orders — none of which apply to web agency contracts
+
+**What to build** (`/sign/[token]` page on rubyxqube.com):
+1. `send-contract.mjs --slug "phoenix-stoneworks" --package "autopilot"` generates a unique signing link
+2. Contract HTML populated with client name, package, price, dates
+3. Client visits the link, reads the full contract, types their name, clicks "Sign & Accept"
+4. Serverless function records: name typed, timestamp, IP address, user agent
+5. Puppeteer generates a signed PDF copy
+6. Resend emails signed PDF to both client and Boyd
+7. Webhook triggers `provision-client.mjs` automatically
+
+**Zero ongoing cost. Full automation. Legally valid. Professional.**
+
+### Second Option: DocuSeal Cloud ($20/mo + $0.20/doc)
+If you want a polished third-party solution with zero build time:
+- [docuseal.com](https://www.docuseal.com) — open source, REST API, legally compliant
+- $20/mo Pro plan required for API access
+- $0.20 per signed document via API
+- 20 clients/year ≈ $20–24/month total
+- Can self-host on a $5/mo VPS (free forever, full API)
+
+### Where to get a contract template
+- Download a web design service agreement template from [Bonsai](https://www.hellobonsai.com/templates) (templates are free even without an account)
+- Customize it for RubyxQube, save as the HTML source for the signing page
 
 ### What must be in every contract
 

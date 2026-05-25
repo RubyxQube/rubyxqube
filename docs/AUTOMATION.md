@@ -18,6 +18,60 @@ Don't automate:
 
 ---
 
+## 0. Contract Signing (Send → Sign → Auto-Provision)
+
+**Trigger:** Boyd runs `send-contract.mjs` after verbal agreement  
+**Goal:** Client signs from a link, provisioning starts automatically — zero manual steps
+
+### Why not Bonsai / DocuSign / HelloSign?
+- Bonsai: no API
+- Docracy: defunct
+- DocuSign: $25+/envelope
+- HelloSign: $75/mo for production API
+- PandaDoc: enterprise-only API
+- **Verdict: Build it ourselves — typed name is legally binding under E-SIGN + Idaho UETA**
+
+### Script: `scripts/send-contract.mjs`
+
+```
+node scripts/send-contract.mjs --slug "phoenix-stoneworks" --package "autopilot" --setup 3000 --monthly 399
+```
+
+**What it does:**
+1. Generates a unique signing token (UUID)
+2. Stores contract details in a simple JSON record (Vercel KV or a flat file)
+3. Sends the client an email via Resend with their unique signing link:
+   `https://rubyxqube.com/sign/[token]`
+
+### Signing Page: `/sign/[token]`
+
+A page on rubyxqube.com that:
+- Renders the full contract HTML with their name, package, price, dates pre-filled
+- Has a "Type your full name to sign" input + date field
+- Records on submission: name typed, timestamp, IP address, user agent
+- Calls Puppeteer via serverless function to generate signed PDF
+- Emails signed PDF to client + boyd@rubyxqube.com via Resend
+- Triggers `provision-client.mjs` automatically (provisioning starts the moment they sign)
+
+### Audit trail stored per contract:
+```json
+{
+  "clientSlug": "phoenix-stoneworks",
+  "signerName": "John Smith",
+  "signedAt": "2026-05-25T14:32:00Z",
+  "ipAddress": "71.45.xxx.xxx",
+  "userAgent": "Mozilla/5.0...",
+  "documentVersion": "v1.2",
+  "pdfPath": "/contracts/phoenix-stoneworks-2026-05-25.pdf"
+}
+```
+
+**Legal validity:** Fully binding under US E-SIGN Act and Idaho UETA (Idaho Code § 28-50-107).  
+**Cost:** $0/month forever.  
+**Status:** 🔲 Not built — highest-value automation to build. See `docs/LEGAL.md` for full analysis.
+
+---
+
 ## 1. New Client Provisioning
 
 **Trigger:** Contract signed + deposit received  
