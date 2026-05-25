@@ -79,6 +79,10 @@ function wordmarkTM(fs) {
   return `<span style="font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;font-weight:800;font-size:${fs}px;letter-spacing:-0.03em;color:rgba(255,255,255,0.93);white-space:nowrap;line-height:1;">Ruby<span style="color:#e11d48;">x</span>Qube<sup style="font-size:0.42em;font-weight:700;letter-spacing:0;color:rgba(255,255,255,0.45);vertical-align:super;line-height:0;">™</sup></span>`;
 }
 
+function wordmarkR(fs) {
+  return `<span style="font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;font-weight:800;font-size:${fs}px;letter-spacing:-0.03em;color:rgba(255,255,255,0.93);white-space:nowrap;line-height:1;">Ruby<span style="color:#e11d48;">x</span>Qube<sup style="font-size:0.42em;font-weight:700;letter-spacing:0;color:rgba(255,255,255,0.45);vertical-align:super;line-height:0;">®</sup></span>`;
+}
+
 function taglineSpan(fs) {
   return `<span style="font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;font-weight:400;font-size:${fs}px;letter-spacing:0.18em;color:rgba(255,255,255,0.28);text-transform:uppercase;white-space:nowrap;line-height:1;">Website&nbsp;•&nbsp;AI</span>`;
 }
@@ -164,6 +168,44 @@ function stackedCleanTM(id, h) {
 </div>`;
 }
 
+// ── ® variants ───────────────────────────────────────────────────────────────
+
+function horizontalR(id, h) {
+  const mw = h * 0.78, fs = h * 0.40, ts = h * 0.165, gap = h * 0.22, tg = h * 0.07;
+  return `<div id="${id}" style="display:inline-flex;align-items:center;gap:${gap}px;padding:12px;background:transparent;">
+  ${cubeSVG(id + "mk", mw, h)}
+  <div style="display:flex;flex-direction:column;align-items:center;gap:${tg}px;">
+    ${wordmarkR(fs)}
+    ${taglineSpan(ts)}
+  </div>
+</div>`;
+}
+
+function stackedR(id, h) {
+  const mw = h * 0.78, fs = h * 0.21, ts = h * 0.10, gap = h * 0.05, tg = h * 0.02;
+  return `<div id="${id}" style="display:inline-flex;flex-direction:column;align-items:center;gap:${gap}px;padding:14px;background:transparent;">
+  ${cubeSVG(id + "mk", mw, h)}
+  ${wordmarkR(fs)}
+  <span style="font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;font-weight:400;font-size:${ts}px;letter-spacing:0.18em;color:rgba(255,255,255,0.28);text-transform:uppercase;white-space:nowrap;line-height:1;margin-top:${tg}px;">Website&nbsp;•&nbsp;AI</span>
+</div>`;
+}
+
+function horizontalCleanR(id, h) {
+  const mw = h * 0.78, fs = h * 0.40, gap = h * 0.22;
+  return `<div id="${id}" style="display:inline-flex;align-items:center;gap:${gap}px;padding:12px;background:transparent;">
+  ${cubeSVG(id + "mk", mw, h)}
+  ${wordmarkR(fs)}
+</div>`;
+}
+
+function stackedCleanR(id, h) {
+  const mw = h * 0.78, fs = h * 0.21, gap = h * 0.05;
+  return `<div id="${id}" style="display:inline-flex;flex-direction:column;align-items:center;gap:${gap}px;padding:14px;background:transparent;">
+  ${cubeSVG(id + "mk", mw, h)}
+  ${wordmarkR(fs)}
+</div>`;
+}
+
 function buildHTML() {
   return `<!DOCTYPE html>
 <html>
@@ -186,6 +228,10 @@ ${horizontalTM(      "logo-h-tm",       72)}
 ${stackedTM(         "logo-v-tm",       100)}
 ${horizontalCleanTM( "logo-h-clean-tm", 72)}
 ${stackedCleanTM(    "logo-v-clean-tm", 100)}
+${horizontalR(       "logo-h-r",        72)}
+${stackedR(          "logo-v-r",        100)}
+${horizontalCleanR(  "logo-h-clean-r",  72)}
+${stackedCleanR(     "logo-v-clean-r",  100)}
 ${markDiv(           "logo-mark",       300)}
 </body>
 </html>`;
@@ -218,7 +264,12 @@ async function main() {
     return buf;
   }
 
-  const [hBuf, vBuf, hCleanBuf, vCleanBuf, hTMBuf, vTMBuf, hCleanTMBuf, vCleanTMBuf, mBuf] = await Promise.all([
+  const [
+    hBuf, vBuf, hCleanBuf, vCleanBuf,
+    hTMBuf, vTMBuf, hCleanTMBuf, vCleanTMBuf,
+    hRBuf, vRBuf, hCleanRBuf, vCleanRBuf,
+    mBuf,
+  ] = await Promise.all([
     capture("logo-h"),
     capture("logo-v"),
     capture("logo-h-clean"),
@@ -227,6 +278,10 @@ async function main() {
     capture("logo-v-tm"),
     capture("logo-h-clean-tm"),
     capture("logo-v-clean-tm"),
+    capture("logo-h-r"),
+    capture("logo-v-r"),
+    capture("logo-h-clean-r"),
+    capture("logo-v-clean-r"),
     capture("logo-mark"),
   ]);
 
@@ -258,6 +313,19 @@ async function main() {
 
   await writeFile(resolve(BRAND, "logo-stacked-clean-tm.png"), vCleanTMBuf);
   console.log("✓ public/brand/logo-stacked-clean-tm.png");
+
+  // ── ® variants (use after USPTO approval) ────────────────────────────
+  await writeFile(resolve(BRAND, "logo-horizontal-r.png"), hRBuf);
+  console.log("✓ public/brand/logo-horizontal-r.png");
+
+  await writeFile(resolve(BRAND, "logo-horizontal-clean-r.png"), hCleanRBuf);
+  console.log("✓ public/brand/logo-horizontal-clean-r.png");
+
+  await writeFile(resolve(BRAND, "logo-stacked-r.png"), vRBuf);
+  console.log("✓ public/brand/logo-stacked-r.png");
+
+  await writeFile(resolve(BRAND, "logo-stacked-clean-r.png"), vCleanRBuf);
+  console.log("✓ public/brand/logo-stacked-clean-r.png");
 
   // ── Mark 512 (transparent, square padded) ──
   await sharp(mBuf)
