@@ -57,10 +57,32 @@
 
 ---
 
+## 🤖 Automation (See `docs/AUTOMATION.md` for full details)
+
+### Do Now (free, no code)
+- [ ] **UptimeRobot** — set up free uptime monitoring for rubyxqube.com + each client site at launch (uptimerobot.com, 5 min)
+- [ ] **Wave recurring invoices** — configure auto-send on 1st of month + payment reminders for each retainer client
+- [ ] **Vercel deploy notifications** — confirm email alerts are on for all projects
+
+### Build Soon (before 3rd client)
+- [ ] **`scripts/provision-client.mjs`** — CLI script: GitHub API + Vercel API → create repo from template + Vercel project automatically. See `docs/AUTOMATION.md §1`
+- [ ] **Chatbot lead → Notion CRM** — add Notion API call to `api/chat.js` so every captured lead auto-appears in Notion. No external tools needed. See `docs/AUTOMATION.md §2`
+- [ ] **`scripts/offboard-client.mjs`** — generates zip of client repo + HANDOFF.md + sends offboarding email + pauses Vercel. Build this before your first cancellation. See `docs/AUTOMATION.md §7`
+
+### Build Phase 2 (5+ clients)
+- [ ] **`scripts/generate-report.mjs`** — pulls GA4 Data API + chatbot leads → populates report template → exports PDF via Puppeteer → emails client via Resend. See `docs/AUTOMATION.md §6`
+- [ ] **Non-payment escalation** — day 30: SMS alert to Boyd, day 45: warning email to client, day 60: auto-pause Vercel via API. See `docs/AUTOMATION.md §5`
+- [ ] **`scripts/pause-client.mjs`** — Vercel API call to disable a client deployment (non-payment or offboarding). See `docs/AUTOMATION.md §5`
+
+### Build Phase 3 (10+ clients)
+- [ ] **Cron-based monthly reporting** — GitHub Actions or Vercel cron fires on 1st of month, runs `generate-report.mjs` for all active clients automatically
+
+---
+
 ## 🔵 Product / Site Features (Build Queue)
 
 - [ ] **`/designs` page** — "Browse website designs you might like" — self-contained, built from scratch with Puppeteer-rendered previews. Huge lead gen tool.
-- [ ] **Client template repo** — fork `client-template` for every new client (see `docs/CLIENT_HOSTING.md`)
+- [ ] **Client template repo** — create `client-template` repo to fork for every new client (see `docs/CLIENT_HOSTING.md`)
 - [ ] Consider adding a blog (1 post/month — "web design Boise Idaho" and similar local terms)
 
 ---
