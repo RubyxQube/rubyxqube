@@ -51,7 +51,7 @@ function parseContract(page) {
     amount:             p["Amount"]?.number || 0,
     paymentTerms:       extractText(p["Payment Terms"]),
     projectDescription: extractText(p["Project Description"]),
-    status:             p["Status"]?.status?.name || "Pending",
+    status:             p["Status"]?.select?.name || "Pending",
     signedName:         extractText(p["Signed Name"]),
     createdDate:        page.created_time?.split("T")[0] || "",
   };
@@ -67,7 +67,7 @@ async function markSigned(pageId, signedName, ip) {
     },
     body: JSON.stringify({
       properties: {
-        Status:       { status: { name: "Signed" } },
+        Status:       { select: { name: "Signed" } },
         "Signed Name": { rich_text: [{ text: { content: signedName } }] },
         "Signed At":  { date: { start: new Date().toISOString() } },
       },

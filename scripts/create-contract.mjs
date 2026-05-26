@@ -68,7 +68,7 @@ async function createNotionContract({ token, clientName, clientEmail, clientPhon
         Amount:               { number: parseFloat(amount) },
         "Payment Terms":      { rich_text: [{ text: { content: paymentTerms || "50% upfront, 50% on launch" } }] },
         "Project Description":{ rich_text: [{ text: { content: projectDescription || "" } }] },
-        Status:               { status: { name: "Pending" } },
+        Status:               { select: { name: "Pending" } },
       },
     }),
   });
