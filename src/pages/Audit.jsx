@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
 
+
 const WHAT_YOU_GET = [
   {
     icon: "🔍",
@@ -49,7 +50,7 @@ export default function Audit() {
             Boyd reviews your current online presence and tells you exactly what's working, what isn't, and what to fix first. 15 minutes. No pitch. No commitment.
           </p>
           <div className="btnRow">
-            <a className="btn primary" href={siteConfig.calendlyUrl} target="_blank" rel="noopener noreferrer">Book Your Free Audit</a>
+            <Link className="btn primary" to="/contact">Book Your Free Audit</Link>
             <a className="btn" href={`tel:${siteConfig.phoneE164}`}>Call {siteConfig.phoneDisplay}</a>
           </div>
 
@@ -121,9 +122,9 @@ export default function Audit() {
               <p className="p" style={{ marginBottom: 20 }}>
                 No pressure. No follow-up emails every week. Just honest advice.
               </p>
-              <a className="btn primary" href={siteConfig.calendlyUrl} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex" }}>
+              <Link className="btn primary" to="/contact" style={{ display: "inline-flex" }}>
                 Book Your Free Audit →
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -158,7 +159,8 @@ export default function Audit() {
       {/* ── Bottom CTA ── */}
       <CTA
         title="Ready to find out where you stand?"
-        subtitle="Free. 15 minutes. No commitment. Book it now and Boyd will review your online presence before the call."
+        subtitle="Free. 15 minutes. No commitment. Fill out the short form and Boyd will review your online presence before the call."
+        ctaTo="/contact"
       />
 
     </div>
