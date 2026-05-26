@@ -60,9 +60,9 @@ async function interactiveMode() {
   const clientEmail = (await prompt(rl, "  Client email:         ")).trim();
   const clientPhone = (await prompt(rl, "  Client phone:         ")).trim();
 
-  console.log("\n  Packages: 1) Launch  2) Momentum  3) Autopilot  4) Custom");
+  console.log("\n  Packages: 1) Launch  2) Autopilot  3) Momentum  4) Custom");
   const pkgInput    = (await prompt(rl, "  Package (1-4):        ")).trim();
-  const pkgMap      = { "1": "Launch", "2": "Momentum", "3": "Autopilot", "4": "Custom" };
+  const pkgMap      = { "1": "Launch", "2": "Autopilot", "3": "Momentum", "4": "Custom" };
   const pkg         = pkgMap[pkgInput] || pkgInput;
 
   const amountRaw   = (await prompt(rl, "  Total amount ($):     ")).trim();
