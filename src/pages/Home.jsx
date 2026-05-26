@@ -44,7 +44,7 @@ export default function Home() {
         "Everything in Autopilot",
         "Google Business Profile management",
         "Local SEO monitoring & updates",
-        "2 social posts/month",
+        "Priority same-day edits",
         "Review response management",
         "Monthly 20-min strategy call",
       ],
@@ -83,8 +83,8 @@ export default function Home() {
               <span>Get a text the moment a lead comes in, with their name and what they need</span>
             </div>
             <div className="kpi">
-              <strong>Live in 2–3 Weeks</strong>
-              <span>From kickoff call to launched site — fast, simple, zero tech headaches</span>
+              <strong>Live in Days</strong>
+              <span>From kickoff call to launched site in as little as 3 days — zero tech headaches</span>
             </div>
           </div>
         </div>
@@ -205,7 +205,7 @@ export default function Home() {
       <section className="surface">
         <div className="section">
           <span className="badge">Process</span>
-          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>From call to live site in weeks.</h2>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>From call to live site in days.</h2>
           <p className="p" style={{ maxWidth: 480, marginBottom: 36 }}>No tech headaches. No lengthy intake forms. You run your business — I handle everything else.</p>
           <div className="grid cols-3">
             <div className="card">

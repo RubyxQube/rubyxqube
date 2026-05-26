@@ -45,7 +45,7 @@ export default function About() {
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
               <div className="card">
                 <h3 className="h3">Fast turnaround</h3>
-                <p className="p" style={{ marginBottom: 0 }}>Most sites go live in 2–3 weeks from the kickoff call. I keep the process tight so you're not waiting around.</p>
+                <p className="p" style={{ marginBottom: 0 }}>Most sites go live in as little as 3 days from the kickoff call. I keep the process tight so you're not waiting around.</p>
               </div>
               <div className="card">
                 <h3 className="h3">Direct communication</h3>
@@ -137,7 +137,7 @@ export default function About() {
                 <li>Based in Boise, Idaho</li>
                 <li>Co-founder of Bastion MSP (cybersecurity)</li>
                 <li>Serving the {siteConfig.serviceArea} and beyond</li>
-                <li>Websites launch in 2–3 weeks</li>
+                <li>Websites launch in as little as 3 days</li>
                 <li>Flat-rate pricing, no hidden costs</li>
                 <li>Direct communication — no middlemen</li>
               </ul>

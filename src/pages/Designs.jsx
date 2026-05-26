@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
 
@@ -352,14 +352,182 @@ function DesignCard({ design, onSelect, selected }) {
   );
 }
 
+// ─── Lead capture modal ───────────────────────────────────────────────────────
+function LeadModal({ pickedStyle, pickedPalette, onClose, calendlyUrl }) {
+  const [name, setName]       = useState("");
+  const [email, setEmail]     = useState("");
+  const [status, setStatus]   = useState("idle"); // idle | sending | done | error
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setStatus("sending");
+    try {
+      await fetch("/api/designs-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          style:   pickedStyle?.name   || "",
+          palette: pickedPalette?.name || "",
+        }),
+      });
+      setStatus("done");
+      setTimeout(() => {
+        window.open(calendlyUrl, "_blank");
+        onClose();
+      }, 800);
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  return (
+    <div style={{
+      position: "fixed", inset: 0, zIndex: 1000,
+      background: "rgba(0,0,0,0.75)",
+      display: "flex", alignItems: "center", justifyContent: "center",
+      padding: 20,
+    }} onClick={onClose}>
+      <div
+        style={{
+          background: "var(--surface)",
+          border: "1px solid rgba(225,29,72,0.25)",
+          borderRadius: 16,
+          padding: "36px 32px",
+          maxWidth: 440,
+          width: "100%",
+        }}
+        onClick={e => e.stopPropagation()}
+      >
+        {status === "done" ? (
+          <div style={{ textAlign: "center" }}>
+            <div style={{ fontSize: 40, marginBottom: 16 }}>✓</div>
+            <h3 className="h3" style={{ marginBottom: 8 }}>Got it — opening Calendly now</h3>
+            <p style={{ color: "var(--muted)", fontSize: 14 }}>Boyd will know your picks before the call.</p>
+          </div>
+        ) : (
+          <>
+            <p style={{ fontSize: 12, color: "var(--accent)", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
+              One last step
+            </p>
+            <h3 className="h3" style={{ marginBottom: 8 }}>Drop your info</h3>
+            <p style={{ color: "var(--muted)", fontSize: 14, marginBottom: 24, lineHeight: 1.6 }}>
+              Boyd will know you picked <strong style={{ color: "var(--text)" }}>{pickedStyle?.name}</strong> + <strong style={{ color: "var(--text)" }}>{pickedPalette?.name}</strong> before you even say hello.
+            </p>
+
+            {/* Selection summary */}
+            <div style={{
+              background: "rgba(225,29,72,0.06)",
+              border: "1px solid rgba(225,29,72,0.15)",
+              borderRadius: 10,
+              padding: "12px 16px",
+              marginBottom: 24,
+              display: "flex",
+              gap: 16,
+              flexWrap: "wrap",
+            }}>
+              <div>
+                <div style={{ fontSize: 11, color: "var(--muted)", marginBottom: 2 }}>Layout</div>
+                <div style={{ fontSize: 14, fontWeight: 700 }}>{pickedStyle?.name}</div>
+              </div>
+              <div>
+                <div style={{ fontSize: 11, color: "var(--muted)", marginBottom: 2 }}>Colors</div>
+                <div style={{ fontSize: 14, fontWeight: 700 }}>{pickedPalette?.name}</div>
+              </div>
+            </div>
+
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              <input
+                type="text"
+                placeholder="Your name"
+                required
+                value={name}
+                onChange={e => setName(e.target.value)}
+                style={{
+                  background: "var(--bg)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  borderRadius: 8,
+                  padding: "11px 14px",
+                  color: "var(--text)",
+                  fontSize: 15,
+                  fontFamily: "inherit",
+                  outline: "none",
+                  width: "100%",
+                }}
+              />
+              <input
+                type="email"
+                placeholder="Email address"
+                required
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                style={{
+                  background: "var(--bg)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  borderRadius: 8,
+                  padding: "11px 14px",
+                  color: "var(--text)",
+                  fontSize: 15,
+                  fontFamily: "inherit",
+                  outline: "none",
+                  width: "100%",
+                }}
+              />
+              {status === "error" && (
+                <p style={{ fontSize: 13, color: "#f87171" }}>Something went wrong — try again or book directly via Calendly.</p>
+              )}
+              <button
+                type="submit"
+                className="btn primary"
+                disabled={status === "sending"}
+                style={{ width: "100%", justifyContent: "center" }}
+              >
+                {status === "sending" ? "Saving…" : "Book Free Audit →"}
+              </button>
+              <button
+                type="button"
+                onClick={onClose}
+                style={{ background: "none", border: "none", color: "var(--muted)", fontSize: 13, cursor: "pointer" }}
+              >
+                Cancel
+              </button>
+            </form>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function Designs() {
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected]           = useState(null);
   const [selectedPalette, setSelectedPalette] = useState(null);
+  const [showModal, setShowModal]         = useState(false);
+
+  const step2Ref = useRef(null);
+  const ctaRef   = useRef(null);
 
   const pickedStyle   = DESIGNS.find(d => d.id === selected);
   const pickedPalette = PALETTES.find(p => p.id === selectedPalette);
   const bothPicked    = !!pickedStyle && !!pickedPalette;
+
+  function handleSelectStyle(id) {
+    const next = id === selected ? null : id;
+    setSelected(next);
+    if (next) {
+      setTimeout(() => step2Ref.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 120);
+    }
+  }
+
+  function handleSelectPalette(id) {
+    const next = id === selectedPalette ? null : id;
+    setSelectedPalette(next);
+    if (next && selected) {
+      setTimeout(() => ctaRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 120);
+    }
+  }
 
   return (
     <>
@@ -392,13 +560,13 @@ export default function Designs() {
               key={d.id}
               design={d}
               selected={selected === d.id}
-              onSelect={setSelected}
+              onSelect={handleSelectStyle}
             />
           ))}
         </div>
 
         {/* Style selected nudge */}
-        {selected && !bothPicked && (
+        {selected && (
           <div style={{
             marginTop: 20,
             padding: "14px 20px",
@@ -411,13 +579,15 @@ export default function Designs() {
             gap: 10,
           }}>
             <span style={{ color: "var(--accent)", fontWeight: 700 }}>✓ {pickedStyle.name}</span>
-            <span style={{ color: "var(--muted)", fontSize: 14 }}>— nice. Now pick your colors below.</span>
+            <span style={{ color: "var(--muted)", fontSize: 14 }}>
+              {bothPicked ? "— and your colors are set. Ready to book below." : "— nice. Now pick your colors below."}
+            </span>
           </div>
         )}
       </section>
 
       {/* Step 2 — Color palette */}
-      <section className="section">
+      <section className="section" ref={step2Ref}>
         <div style={{ marginBottom: 24 }}>
           <span className="badge" style={{ marginBottom: 12 }}>
             {selectedPalette ? "Step 2 ✓" : "Step 2"}
@@ -427,12 +597,12 @@ export default function Designs() {
             Choose a palette that feels right. You can always tweak shades on the audit call.
           </p>
         </div>
-        <PalettePicker selectedPalette={selectedPalette} onSelect={setSelectedPalette} />
+        <PalettePicker selectedPalette={selectedPalette} onSelect={handleSelectPalette} />
       </section>
 
       {/* Final CTA — only appears when BOTH are selected */}
       {bothPicked && (
-        <section className="section">
+        <section className="section" ref={ctaRef}>
           <div style={{
             background: "var(--surface)",
             border: "1px solid rgba(225,29,72,0.30)",
@@ -446,17 +616,15 @@ export default function Designs() {
               {pickedStyle.name} · {pickedPalette.name}
             </h2>
             <p style={{ color: "var(--muted)", marginBottom: 24, maxWidth: 520, lineHeight: 1.6 }}>
-              Bring these two picks to your free audit call. Boyd will show you exactly how your business would look with this combination — and what he'd add or change based on your specific goals.
+              Boyd will know your picks before the call — he'll show you exactly how your business would look with this combination.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <a
+              <button
                 className="btn primary"
-                href={siteConfig.calendlyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() => setShowModal(true)}
               >
-                Book your free audit call →
-              </a>
+                Book your free audit →
+              </button>
               <button
                 className="btn"
                 style={{ borderColor: "rgba(255,255,255,0.15)", background: "transparent", cursor: "pointer" }}
@@ -497,6 +665,16 @@ export default function Designs() {
         title="Ready to get started?"
         subtitle="Free 15-minute audit call. No commitment — just honest feedback on what your business needs online."
       />
+
+      {/* Lead capture modal */}
+      {showModal && (
+        <LeadModal
+          pickedStyle={pickedStyle}
+          pickedPalette={pickedPalette}
+          onClose={() => setShowModal(false)}
+          calendlyUrl={siteConfig.calendlyUrl}
+        />
+      )}
     </>
   );
 }

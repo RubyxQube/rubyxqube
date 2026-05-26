@@ -43,7 +43,7 @@ export default function Pricing() {
         "Everything in Autopilot",
         "Google Business Profile management",
         "Local SEO monitoring & updates",
-        "2 social posts/month",
+        "Priority same-day edits",
         "Review response management",
         "Monthly 20-min strategy call",
       ],

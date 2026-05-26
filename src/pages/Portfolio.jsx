@@ -191,7 +191,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <CTA title="Ready to be the next project?" subtitle="Most sites launch in 2–3 weeks. Let's get yours started." />
+      <CTA title="Ready to be the next project?" subtitle="Most sites launch in as little as 3 days. Let's get yours started." />
     </div>
   );
 }

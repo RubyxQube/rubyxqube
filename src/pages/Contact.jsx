@@ -22,7 +22,7 @@ const PACKAGES = [
     label: "Momentum — $3,000 + $699/mo",
     needValue: "Momentum",
     priceLine: "$3,000 + $699/mo",
-    includes: "Everything in Autopilot + Google Business Profile management, local SEO, 2 social posts/mo, review response management, monthly strategy call.",
+    includes: "Everything in Autopilot + Google Business Profile management, local SEO, priority same-day edits, review response management, monthly strategy call.",
   },
   {
     id: "unsure",
@@ -316,7 +316,7 @@ export default function Contact() {
             {[
               {
                 q: "How long does a website build take?",
-                a: "Typically 2–3 weeks from when I receive your completed questionnaire and any content. Rush timelines are available for an added fee.",
+                a: "As little as 3 days from when I receive your completed questionnaire and any content. Most sites are live within a week.",
               },
               {
                 q: "Do I need to provide my own content?",

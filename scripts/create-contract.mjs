@@ -117,18 +117,15 @@ async function createNotionContract({ token, clientName, clientEmail, clientPhon
 // ─── Email template ───────────────────────────────────────────────────────────
 function printEmailTemplate(clientName, pkg, amount, url) {
   const first = clientName.split(" ")[0];
-  console.log("  ┌─── CLOSING EMAIL — copy & paste ────────────────────────────┐\n");
-  console.log(`  Subject: Your RubyxQube Agreement — ${pkg} Package\n`);
-  console.log(`  Hi ${first},\n`);
-  console.log(`  Excited to get started on your site. Here's the agreement for`);
-  console.log(`  your ${pkg} package ($${parseFloat(amount).toLocaleString()}) — just read through`);
-  console.log(`  and type your name at the bottom to sign electronically:\n`);
-  console.log(`  👉 ${url}\n`);
-  console.log(`  Once signed, I'll send over the first invoice and we'll kick`);
-  console.log(`  things off from there. Any questions, just reply here.\n`);
-  console.log(`  — Boyd`);
-  console.log(`  RubyxQube | boyd@rubyxqube.com | (208) 970-8624\n`);
-  console.log("  └─────────────────────────────────────────────────────────────┘\n");
+  console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+  console.log("CLOSING EMAIL — copy & paste");
+  console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
+  console.log(`Subject: Your RubyxQube Agreement — ${pkg} Package\n`);
+  console.log(`Hi ${first},\n`);
+  console.log(`Excited to get started on your site. Here's the agreement for your ${pkg} package ($${parseFloat(amount).toLocaleString()}) — just read through and type your name at the bottom to sign electronically:\n`);
+  console.log(`${url}\n`);
+  console.log(`Once signed, I'll send over the first invoice and we'll kick things off from there. Any questions, just reply here.\n`);
+  console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
 }
 
 // ─── Main ─────────────────────────────────────────────────────────────────────

@@ -27,7 +27,7 @@ export default function Services() {
     },
     {
       q: "How fast can you launch?",
-      a: "Most sites go live in 2–3 weeks from the kickoff call. The AI setup runs in parallel so it's ready at launch, not after.",
+      a: "Most sites go live in as little as 3 days from the kickoff call. The AI setup runs in parallel so it's ready at launch, not after.",
     },
     {
       q: "What if I already have a website?",
@@ -128,7 +128,7 @@ export default function Services() {
               <ul className="list">
                 <li>Google Business Profile setup & optimization</li>
                 <li>Local SEO structure and monitoring</li>
-                <li>2 social posts/month (templates + captions)</li>
+                <li>Priority same-day edits — any change, turned around same day</li>
                 <li>Review response management</li>
                 <li>Monthly 20-min strategy call</li>
               </ul>
