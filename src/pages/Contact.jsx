@@ -116,11 +116,10 @@ export default function Contact() {
       <section className="surface heroSurface">
       <div className="section" style={{ paddingTop: 80, paddingBottom: 80 }}>
 
-        <span className="badge">Fast replies • Simple process</span>
-        <h1 className="h1" style={{ marginTop: 12 }}>Get a Quote</h1>
+        <span className="badge">Free • No commitment • 15 minutes</span>
+        <h1 className="h1" style={{ marginTop: 12 }}>Book Your Free Audit</h1>
         <p className="p" style={{ maxWidth: 820 }}>
-          Tell me what you do and what city you serve in the {siteConfig.serviceArea}.
-          I’ll reply with a simple plan and a quote.
+          Tell me about your business and what you’re looking for. I’ll come to the call with a plan already built.
         </p>
 
         <div className="grid cols-2">
@@ -155,7 +154,7 @@ export default function Contact() {
           </div>
 
           <div className="card">
-            <h2 className="h2">Quote form</h2>
+            <h2 className="h2">Audit Request</h2>
 
             <div className="grid cols-2">
               <div>
@@ -289,7 +288,7 @@ export default function Contact() {
                     disabled={!canSend || fsState.submitting}
                     style={(!canSend || fsState.submitting) ? { opacity: 0.85, cursor: "not-allowed" } : undefined}
                   >
-                    {fsState.submitting ? "Sending…" : "Send Request"}
+                    {fsState.submitting ? "Sending…" : "Book Free Audit"}
                   </button>
                 </div>
 
