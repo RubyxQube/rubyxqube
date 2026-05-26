@@ -66,7 +66,7 @@ async function interactiveMode() {
   const pkg         = pkgMap[pkgInput] || pkgInput;
 
   const amountRaw   = (await prompt(rl, "  Total amount ($):     ")).trim();
-  const termsInput  = (await prompt(rl, "  Payment terms         \n  [50% upfront, 50% on launch]: ")).trim();
+  const termsInput  = (await prompt(rl, "  Payment terms (e.g. '50% upfront, 50% on launch')\n  Hit Enter to use default: ")).trim();
   const terms       = termsInput || "50% upfront, 50% on launch";
   const desc        = (await prompt(rl, "  Project description:  ")).trim();
 
