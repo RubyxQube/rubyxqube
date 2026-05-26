@@ -353,7 +353,7 @@ function DesignCard({ design, onSelect, selected }) {
 }
 
 // ─── Lead capture modal ───────────────────────────────────────────────────────
-function LeadModal({ pickedStyle, pickedPalette, onClose, calendlyUrl }) {
+function LeadModal({ pickedStyle, pickedPalette, onClose }) {
   const [name, setName]       = useState("");
   const [email, setEmail]     = useState("");
   const [status, setStatus]   = useState("idle"); // idle | sending | done | error
@@ -373,10 +373,6 @@ function LeadModal({ pickedStyle, pickedPalette, onClose, calendlyUrl }) {
         }),
       });
       setStatus("done");
-      setTimeout(() => {
-        window.open(calendlyUrl, "_blank");
-        onClose();
-      }, 800);
     } catch {
       setStatus("error");
     }
@@ -404,8 +400,17 @@ function LeadModal({ pickedStyle, pickedPalette, onClose, calendlyUrl }) {
         {status === "done" ? (
           <div style={{ textAlign: "center" }}>
             <div style={{ fontSize: 40, marginBottom: 16 }}>✓</div>
-            <h3 className="h3" style={{ marginBottom: 8 }}>Got it — opening Calendly now</h3>
-            <p style={{ color: "var(--muted)", fontSize: 14 }}>Boyd will know your picks before the call.</p>
+            <h3 className="h3" style={{ marginBottom: 8 }}>You're on the list</h3>
+            <p style={{ color: "var(--muted)", fontSize: 14, lineHeight: 1.6 }}>
+              Boyd will reach out within 1 business day to schedule your audit call — already knowing you picked <strong style={{ color: "var(--text)" }}>{pickedStyle?.name}</strong> + <strong style={{ color: "var(--text)" }}>{pickedPalette?.name}</strong>.
+            </p>
+            <button
+              onClick={onClose}
+              className="btn primary"
+              style={{ marginTop: 24, width: "100%", justifyContent: "center" }}
+            >
+              Done
+            </button>
           </div>
         ) : (
           <>
@@ -651,14 +656,12 @@ export default function Designs() {
           <p style={{ color: "var(--muted)", marginBottom: 20, lineHeight: 1.6, fontSize: 14 }}>
             Bring a reference site, a screenshot, or just describe the feeling. Boyd will figure out exactly what fits your business on the call.
           </p>
-          <a
-            href={siteConfig.calendlyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/contact"
             style={{ fontSize: 14, color: "var(--accent)", fontWeight: 600, textDecoration: "none" }}
           >
             Book a free audit anyway →
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -673,7 +676,6 @@ export default function Designs() {
           pickedStyle={pickedStyle}
           pickedPalette={pickedPalette}
           onClose={() => setShowModal(false)}
-          calendlyUrl={siteConfig.calendlyUrl}
         />
       )}
     </>
