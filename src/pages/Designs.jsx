@@ -385,18 +385,19 @@ function LeadModal({ pickedStyle, pickedPalette, onClose, calendlyUrl }) {
   return (
     <div style={{
       position: "fixed", inset: 0, zIndex: 1000,
-      background: "rgba(0,0,0,0.75)",
+      background: "rgba(0,0,0,0.85)",
       display: "flex", alignItems: "center", justifyContent: "center",
       padding: 20,
     }} onClick={onClose}>
       <div
         style={{
-          background: "var(--surface)",
-          border: "1px solid rgba(225,29,72,0.25)",
+          background: "#1a0f12",
+          border: "1px solid rgba(225,29,72,0.30)",
           borderRadius: 16,
           padding: "36px 32px",
           maxWidth: 440,
           width: "100%",
+          boxShadow: "0 24px 64px rgba(0,0,0,0.6)",
         }}
         onClick={e => e.stopPropagation()}
       >
