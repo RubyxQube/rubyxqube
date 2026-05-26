@@ -250,7 +250,7 @@ export default function Sign() {
         alignItems: "center",
         justifyContent: "space-between",
       }}>
-        <Logo height={32} />
+        <Logo height={32} dark />
         <span style={{ fontSize: 12, color: "#6b7280" }}>
           Secure · Electronic Signature
         </span>

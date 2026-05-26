@@ -17,8 +17,11 @@ export default function Logo({
   markOnly = false,
   layout = "horizontal",
   tagline = null,
+  dark = false,
   style = {},
 }) {
+  const textColor    = dark ? "rgba(10,8,9,0.93)"  : "rgba(255,255,255,0.93)";
+  const taglineColor = dark ? "rgba(10,8,9,0.45)"  : "rgba(255,255,255,0.28)";
   const markH = height;
   const markW = markH * 0.78;
   const fontSize = height * 0.40;
@@ -115,7 +118,7 @@ export default function Logo({
         fontWeight: 800,
         fontSize,
         letterSpacing: "-0.03em",
-        color: "rgba(255,255,255,0.93)",
+        color: textColor,
         whiteSpace: "nowrap",
         lineHeight: 1,
       }}
@@ -132,7 +135,7 @@ export default function Logo({
         fontWeight: 400,
         fontSize: tagSize,
         letterSpacing: "0.18em",
-        color: "rgba(255,255,255,0.28)",
+        color: taglineColor,
         textTransform: "uppercase",
         whiteSpace: "nowrap",
         lineHeight: 1,
