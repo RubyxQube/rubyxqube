@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
 
