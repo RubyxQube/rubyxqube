@@ -1,5 +1,4 @@
 import React from "react";
-import { useForm, ValidationError } from "@formspree/react";
 import { siteConfig } from "../siteConfig.js";
 
 const PACKAGES = [
@@ -41,7 +40,7 @@ function packageFromNeed(need) {
 }
 
 export default function Contact() {
-  const [fsState, fsSend] = useForm("xeedllpy");
+  const [status, setStatus] = React.useState("idle"); // idle | sending | sent | error
 
   const [form, setForm] = React.useState({
     name: "",
@@ -96,19 +95,29 @@ export default function Contact() {
     form.contactValue.trim().length > 3;
 
   async function handleSubmit() {
-    if (!canSend || fsState.submitting) return;
-    await fsSend({
-      name: form.name,
-      business: form.business || "(not provided)",
-      city: form.city,
-      website: form.website || "(not provided)",
-      package: selectedPackage.label,
-      timeline: form.timeline,
-      contact_method: form.contactMethod,
-      contact_value: form.contactValue,
-      notes: form.notes || "(none)",
-      _subject: `Quote Request — ${form.name} (${form.city})`,
-    });
+    if (!canSend || status === "sending") return;
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name:           form.name,
+          business:       form.business || "",
+          city:           form.city,
+          website:        form.website  || "",
+          package:        selectedPackage.label,
+          timeline:       form.timeline,
+          contact_method: form.contactMethod,
+          contact_value:  form.contactValue,
+          notes:          form.notes || "",
+        }),
+      });
+      if (!res.ok) throw new Error("Server error");
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -272,7 +281,7 @@ export default function Contact() {
               placeholder={`What services do you offer? Any pages you want (gallery, FAQ, reviews)? Any examples you like?`}
             />
 
-            {fsState.succeeded ? (
+            {status === "sent" ? (
               <div className="card" style={{ marginTop: 8, background: "rgba(34,197,94,0.12)", border: "1px solid rgba(34,197,94,0.3)" }}>
                 <p className="p" style={{ marginBottom: 0, fontWeight: 600 }}>
                   ✅ Request sent! I'll be in touch within 1 business day.
@@ -285,10 +294,10 @@ export default function Contact() {
                     className="btn primary"
                     type="button"
                     onClick={handleSubmit}
-                    disabled={!canSend || fsState.submitting}
-                    style={(!canSend || fsState.submitting) ? { opacity: 0.85, cursor: "not-allowed" } : undefined}
+                    disabled={!canSend || status === "sending"}
+                    style={(!canSend || status === "sending") ? { opacity: 0.85, cursor: "not-allowed" } : undefined}
                   >
-                    {fsState.submitting ? "Sending…" : "Book Free Audit"}
+                    {status === "sending" ? "Sending…" : "Book Free Audit"}
                   </button>
                 </div>
 
@@ -298,7 +307,11 @@ export default function Contact() {
                   </p>
                 )}
 
-                <ValidationError errors={fsState.errors} className="small" style={{ marginTop: 8, color: "#fb7185" }} />
+                {status === "error" && (
+                  <p className="small" style={{ marginTop: 8, color: "#fb7185" }}>
+                    Something went wrong — please call or email directly.
+                  </p>
+                )}
               </>
             )}
           </div>
