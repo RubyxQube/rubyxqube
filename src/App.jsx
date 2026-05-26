@@ -12,11 +12,15 @@ import About from "./pages/About.jsx";
 import Audit from "./pages/Audit.jsx";
 import Report from "./pages/Report.jsx";
 import Designs from "./pages/Designs.jsx";
+import Sign from "./pages/Sign.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
 export default function App() {
   return (
     <Routes>
+      {/* Contract signing — standalone page, no navbar/footer */}
+      <Route path="/sign/:token" element={<Sign />} />
+
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
