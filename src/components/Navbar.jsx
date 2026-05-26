@@ -48,7 +48,7 @@ export default function Navbar() {
                 {label}
               </NavLink>
             ))}
-            <NavLink className="btn primary navCta" to="/contact">Get a Quote</NavLink>
+            <NavLink className="btn primary navCta" to="/contact">Free Audit</NavLink>
           </nav>
 
           {/* Mobile hamburger */}
@@ -98,7 +98,7 @@ export default function Navbar() {
               className="btn primary"
               style={{ display: "flex", justifyContent: "center", width: "100%", padding: "14px" }}
             >
-              Get a Quote
+              Free Audit
             </Link>
           </div>
         </div>
