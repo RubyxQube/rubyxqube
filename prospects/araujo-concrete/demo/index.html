@@ -92,19 +92,20 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920&q=75');
-      background-size: cover; background-position: center 40%;
-      filter: brightness(.14) saturate(.3);
+      background-image: url('https://images.unsplash.com/photo-1574757987642-5755f0839101?w=1920&q=80');
+      background-size: cover; background-position: center 55%;
+      filter: brightness(.32) saturate(.55);
     }
     .hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(110deg, rgba(15,14,13,.98) 40%, rgba(15,14,13,.55) 100%);
+      background: linear-gradient(110deg, rgba(15,14,13,.92) 35%, rgba(15,14,13,.4) 100%);
     }
     /* Left edge accent bar */
     .hero::before {
       content: ''; position: absolute;
-      left: 0; top: 0; bottom: 0; width: 5px;
-      background: var(--accent);
+      left: 0; top: 15%; bottom: 15%; width: 3px;
+      background: var(--accent); opacity: .7;
+      border-radius: 0 2px 2px 0;
       z-index: 2;
     }
     /* Bottom diagonal cut */
@@ -129,8 +130,8 @@
       animation: fadeUp .5s .1s both ease;
     }
     .hero-title {
-      font-size: clamp(4.5rem, 11vw, 10rem);
-      color: var(--text); max-width: 13ch;
+      font-size: clamp(3.25rem, 7.5vw, 7rem);
+      color: var(--text); max-width: 18ch;
       margin-bottom: .75rem;
       animation: fadeUp .55s .2s both ease;
     }
@@ -206,6 +207,77 @@
       color: var(--text); margin-bottom: .5rem;
     }
     .service-desc { font-size: .875rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── GALLERY ── */
+    .gallery-section { background: var(--bg); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      margin-top: 3rem;
+    }
+    @media (max-width: 640px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .gallery-item {
+      position: relative; overflow: hidden;
+      aspect-ratio: 4/3; cursor: pointer;
+      background: var(--surface);
+    }
+    .gallery-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .5s ease, filter .4s ease;
+      filter: brightness(.75) saturate(.7);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.06);
+      filter: brightness(.45) saturate(.5);
+    }
+    .gallery-label {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: flex-start; justify-content: flex-end;
+      padding: 1.25rem;
+      background: linear-gradient(to top, rgba(15,14,13,.85) 0%, transparent 60%);
+      transition: background .3s;
+    }
+    .gallery-item:hover .gallery-label {
+      background: linear-gradient(to top, rgba(15,14,13,.92) 0%, rgba(15,14,13,.4) 100%);
+    }
+    .gallery-type {
+      font-size: .68rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: .12em; color: var(--accent);
+      background: var(--accent-dim); border: 1px solid rgba(194,97,42,.35);
+      border-radius: 2px; padding: .2rem .5rem; margin-bottom: .4rem;
+    }
+    .gallery-proj {
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
+      letter-spacing: .04em; color: var(--text); line-height: 1.1;
+    }
+    .gallery-loc {
+      font-size: .75rem; color: var(--muted); margin-top: .2rem;
+    }
+    /* Last card — "your photos" CTA */
+    .gallery-item-cta {
+      aspect-ratio: 4/3;
+      background: var(--surface);
+      border: 2px dashed rgba(194,97,42,.3);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 2rem; gap: .75rem;
+      transition: border-color .25s, background .25s;
+      cursor: default;
+    }
+    .gallery-item-cta:hover { border-color: var(--accent); background: var(--surface-2); }
+    .gallery-cta-icon { font-size: 2rem; opacity: .5; }
+    .gallery-cta-text {
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
+      letter-spacing: .04em; color: var(--muted); line-height: 1.2;
+    }
+    .gallery-cta-sub { font-size: .78rem; color: rgba(237,233,225,.3); line-height: 1.5; }
+    .gallery-note {
+      margin-top: 1.25rem; font-size: .75rem;
+      color: rgba(237,233,225,.25); text-align: center;
+    }
 
     /* ── WHY US ── */
     .why-grid {
@@ -428,7 +500,7 @@
   <div class="hero-content">
     <div class="hero-badge">📍 Mountain Home, Idaho</div>
     <h1 class="display hero-title">
-      Mountain<br>Home's<br><em>Concrete</em><br>Contractor
+      Mountain Home's<br><em>Concrete</em> Contractor
     </h1>
     <p class="hero-sub">
       Driveways, foundations, flatwork, and more — done right the first time. Serving Mountain Home and Elmore County.
@@ -488,6 +560,76 @@
         <p class="service-desc">Parking lots, loading areas, large commercial slabs. We handle bigger projects throughout the Mountain Home area.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ── RECENT WORK ── -->
+<section class="gallery-section">
+  <div class="container">
+    <div class="section-eyebrow">Recent Work</div>
+    <h2 class="display section-title">Projects We've Completed</h2>
+    <p class="section-sub">Every job is a reference. We stand behind the work we pour.</p>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=450&fit=crop&q=75"
+             onerror="this.src='https://placehold.co/600x450/191816/444?text=Driveway'" alt="Residential driveway">
+        <div class="gallery-label">
+          <span class="gallery-type">Driveway</span>
+          <div class="gallery-proj">Residential Driveway</div>
+          <div class="gallery-loc">Mountain Home, ID</div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=450&fit=crop&q=75"
+             onerror="this.src='https://placehold.co/600x450/191816/444?text=Flatwork'" alt="Concrete flatwork slab">
+        <div class="gallery-label">
+          <span class="gallery-type">Flatwork</span>
+          <div class="gallery-proj">Garage Slab</div>
+          <div class="gallery-loc">Mountain Home, ID</div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=450&fit=crop&q=75"
+             onerror="this.src='https://placehold.co/600x450/191816/444?text=Foundation'" alt="Concrete foundation">
+        <div class="gallery-label">
+          <span class="gallery-type">Foundation</span>
+          <div class="gallery-proj">Home Foundation</div>
+          <div class="gallery-loc">Glenns Ferry, ID</div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1587052694737-a972e4186288?w=600&h=450&fit=crop&q=75"
+             onerror="this.src='https://placehold.co/600x450/191816/444?text=Sidewalk'" alt="Concrete walkway">
+        <div class="gallery-label">
+          <span class="gallery-type">Sidewalk</span>
+          <div class="gallery-proj">Residential Walkway</div>
+          <div class="gallery-loc">Mountain Home, ID</div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?w=600&h=450&fit=crop&q=75"
+             onerror="this.src='https://placehold.co/600x450/191816/444?text=Commercial'" alt="Commercial concrete">
+        <div class="gallery-label">
+          <span class="gallery-type">Commercial</span>
+          <div class="gallery-proj">Parking Lot Slab</div>
+          <div class="gallery-loc">Elmore County, ID</div>
+        </div>
+      </div>
+
+      <div class="gallery-item-cta">
+        <div class="gallery-cta-icon">📷</div>
+        <div class="gallery-cta-text">Your Work Goes Here</div>
+        <div class="gallery-cta-sub">Photos of your actual projects — driveways, slabs, foundations — would fill this spot.</div>
+      </div>
+
+    </div>
+    <p class="gallery-note">* Photos shown are representative examples. This section would feature Araujo Concrete's actual completed projects.</p>
   </div>
 </section>
 
