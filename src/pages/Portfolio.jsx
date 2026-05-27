@@ -96,7 +96,7 @@ export default function Portfolio() {
                 {/* Right: role, tech, links */}
                 <div style={{ flex: "0 1 240px", display: "flex", flexDirection: "column", gap: 20 }}>
                   <div>
-                    <p style={{ fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.40)", letterSpacing: "0.10em", textTransform: "uppercase", marginBottom: 6 }}>Role</p>
+                    <p style={{ fontSize: 11, fontWeight: 700, color: "var(--muted)", letterSpacing: "0.10em", textTransform: "uppercase", marginBottom: 6 }}>Role</p>
                     <span style={{
                       display: "inline-block",
                       padding: "4px 12px",
@@ -112,8 +112,8 @@ export default function Portfolio() {
                   </div>
 
                   <div>
-                    <p style={{ fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.40)", letterSpacing: "0.10em", textTransform: "uppercase", marginBottom: 6 }}>Built with</p>
-                    <p style={{ fontSize: 13, color: "rgba(255,255,255,0.60)", margin: 0 }}>{project.tech}</p>
+                    <p style={{ fontSize: 11, fontWeight: 700, color: "var(--muted)", letterSpacing: "0.10em", textTransform: "uppercase", marginBottom: 6 }}>Built with</p>
+                    <p style={{ fontSize: 13, color: "var(--muted)", margin: 0 }}>{project.tech}</p>
                   </div>
 
                   <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
@@ -159,8 +159,8 @@ export default function Portfolio() {
                   {project.bullets.map((b) => <li key={b}>{b}</li>)}
                 </ul>
                 <div className="hr" />
-                <div style={{ fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.40)", letterSpacing: "0.10em", textTransform: "uppercase", marginBottom: 12 }}>Built with</div>
-                <p style={{ fontSize: 13, color: "rgba(255,255,255,0.60)", marginBottom: 20 }}>{project.tech}</p>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "var(--muted)", letterSpacing: "0.10em", textTransform: "uppercase", marginBottom: 12 }}>Built with</div>
+                <p style={{ fontSize: 13, color: "var(--muted)", marginBottom: 20 }}>{project.tech}</p>
                 <div className="btnRow">
                   {project.links.map((link) => (
                     <a key={link.href} className="btn primary" href={link.href} target="_blank" rel="noreferrer">

@@ -68,12 +68,12 @@ export default function Privacy() {
               out which service fits your business, and connect you with Boyd for follow-up.
             </p>
             <p className="p">
-              <strong style={{ color: "rgba(255,255,255,0.85)" }}>What the AI can do:</strong> Answer questions about
+              <strong style={{ color: "var(--text)" }}>What the AI can do:</strong> Answer questions about
               our services and pricing, explain how the process works, and collect your contact info if you want us to
               follow up.
             </p>
             <p className="p" style={{ marginBottom: 0 }}>
-              <strong style={{ color: "rgba(255,255,255,0.85)" }}>What the AI cannot do:</strong> Make binding commitments,
+              <strong style={{ color: "var(--text)" }}>What the AI cannot do:</strong> Make binding commitments,
               access your personal account data, or take any action outside the chat window. Any quote or agreement
               requires human confirmation from Boyd.
             </p>
@@ -104,9 +104,9 @@ export default function Privacy() {
           <div className="card" style={{ marginBottom: 24 }}>
             <h2 className="h2" style={{ marginBottom: 16 }}>6. Third-Party Services</h2>
             <ul className="list" style={{ margin: 0 }}>
-              <li><strong style={{ color: "rgba(255,255,255,0.85)" }}>Google Analytics 4</strong> — anonymous site usage data</li>
-              <li><strong style={{ color: "rgba(255,255,255,0.85)" }}>AI providers</strong> — chat message processing to generate responses (no persistent storage of your data)</li>
-              <li><strong style={{ color: "rgba(255,255,255,0.85)" }}>Vercel</strong> — website hosting (US-based)</li>
+              <li><strong style={{ color: "var(--text)" }}>Google Analytics 4</strong> — anonymous site usage data</li>
+              <li><strong style={{ color: "var(--text)" }}>AI providers</strong> — chat message processing to generate responses (no persistent storage of your data)</li>
+              <li><strong style={{ color: "var(--text)" }}>Vercel</strong> — website hosting (US-based)</li>
             </ul>
           </div>
 

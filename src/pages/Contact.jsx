@@ -152,7 +152,7 @@ export default function Contact() {
             </p>
 
             <div className="card selectedCard" style={{ padding: 14 }}>
-              <div className="small" style={{ marginBottom: 8, color: "rgba(255,255,255,0.72)" }}>
+              <div className="small" style={{ marginBottom: 8 }}>
                 Selected:
               </div>
               <div style={{ fontWeight: 700, marginBottom: 6 }}>

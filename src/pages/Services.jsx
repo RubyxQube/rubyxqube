@@ -65,7 +65,7 @@ export default function Services() {
           <p className="p" style={{ maxWidth: 560, fontSize: 17 }}>
             {siteConfig.brand} builds professional websites for {siteConfig.serviceArea} service businesses — paired with an AI receptionist built on Claude that captures leads around the clock and alerts you instantly.
           </p>
-          <p className="small" style={{ marginTop: 12, color: "rgba(255,255,255,0.45)" }}>
+          <p className="small" style={{ marginTop: 12 }}>
             Not sure how the AI works? The chat button in the bottom-right corner is the exact same product — try it.
           </p>
         </div>

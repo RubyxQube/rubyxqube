@@ -77,10 +77,10 @@ export default function Navbar({ theme = "dark", onToggle }) {
                 {label}
               </NavLink>
             ))}
-            <NavLink className="btn primary navCta" to="/contact">Free Audit</NavLink>
             <button className="themeToggle" onClick={onToggle} aria-label={toggleLabel}>
               <ToggleIcon />
             </button>
+            <NavLink className="btn primary navCta" to="/contact">Free Audit</NavLink>
           </nav>
 
           {/* Mobile hamburger only — toggle lives inside the drawer */}

@@ -14,9 +14,9 @@ export default function PackageCard({ name, tagline, bestFor, price, billing, ti
       <h3 className="h3" style={{ marginBottom: 6 }}>{subtitle}</h3>
       <div className="hr" />
       <div style={{ marginBottom: 16 }}>
-        <span style={{ fontSize: 28, fontWeight: 800, color: "rgba(255,255,255,0.92)" }}>{price}</span>
+        <span style={{ fontSize: 28, fontWeight: 800, color: "var(--text)" }}>{price}</span>
         {priceSuffix && (
-          <span style={{ fontSize: 14, color: "rgba(255,255,255,0.50)", marginLeft: 6 }}>{priceSuffix}</span>
+          <span style={{ fontSize: 14, color: "var(--muted)", marginLeft: 6 }}>{priceSuffix}</span>
         )}
       </div>
       <ul className="list" style={{ flex: 1 }}>

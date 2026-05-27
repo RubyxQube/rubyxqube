@@ -57,15 +57,10 @@ const UPDATES = [
 // ── Sub-components ─────────────────────────────────────────────────────────
 function StatCard({ label, value, delta, up }) {
   return (
-    <div style={{
-      background: "rgba(255,255,255,0.04)",
-      border: "1px solid rgba(255,255,255,0.08)",
-      borderRadius: 14,
-      padding: "22px 24px",
-    }}>
-      <p style={{ fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,0.45)", letterSpacing: "0.06em", textTransform: "uppercase", margin: "0 0 8px" }}>{label}</p>
+    <div className="card" style={{ padding: "22px 24px" }}>
+      <p style={{ fontSize: 12, fontWeight: 600, color: "var(--muted)", letterSpacing: "0.06em", textTransform: "uppercase", margin: "0 0 8px" }}>{label}</p>
       <p style={{ fontSize: 36, fontWeight: 800, margin: "0 0 6px", letterSpacing: "-0.02em" }}>{value}</p>
-      <p style={{ fontSize: 12, margin: 0, color: up ? "rgba(34,197,94,0.85)" : "rgba(255,100,100,0.85)", fontWeight: 600 }}>
+      <p style={{ fontSize: 12, margin: 0, color: up ? "rgba(34,197,94,0.85)" : "rgba(220,80,80,0.90)", fontWeight: 600 }}>
         {up ? "↑ " : "↓ "}{delta}
       </p>
     </div>
@@ -74,7 +69,7 @@ function StatCard({ label, value, delta, up }) {
 
 function Bar({ pct, color = "var(--accent)" }) {
   return (
-    <div style={{ height: 6, borderRadius: 99, background: "rgba(255,255,255,0.08)", overflow: "hidden" }}>
+    <div style={{ height: 6, borderRadius: 99, background: "var(--line)", overflow: "hidden" }}>
       <div style={{ height: "100%", width: `${pct}%`, background: color, borderRadius: 99, transition: "width 0.6s ease" }} />
     </div>
   );
@@ -101,9 +96,9 @@ export default function Report() {
         padding: "10px 24px",
         textAlign: "center",
         fontSize: 13,
-        color: "rgba(255,255,255,0.70)",
+        color: "var(--text)",
       }}>
-        📊 This is a <strong style={{ color: "rgba(255,255,255,0.90)" }}>sample monthly report</strong> — Autopilot and Momentum clients receive one of these every month. &nbsp;
+        📊 This is a <strong>sample monthly report</strong> — Autopilot and Momentum clients receive one of these every month. &nbsp;
         <Link to="/pricing" style={{ color: "var(--accent)", textDecoration: "underline" }}>See plans →</Link>
       </div>
 
@@ -117,7 +112,7 @@ export default function Report() {
             <h1 style={{ fontSize: "clamp(24px, 4vw, 40px)", fontWeight: 800, letterSpacing: "-0.03em", margin: "0 0 6px" }}>
               {CLIENT.name}
             </h1>
-            <p style={{ fontSize: 14, color: "rgba(255,255,255,0.45)", margin: 0 }}>
+            <p style={{ fontSize: 14, color: "var(--muted)", margin: 0 }}>
               {CLIENT.month} · {CLIENT.package} Package · Generated {CLIENT.generatedOn}
             </p>
           </div>
@@ -135,15 +130,15 @@ export default function Report() {
         {/* ── Traffic ── */}
         <div style={{ marginBottom: 48 }}>
           <SectionHead label="Traffic" title="Website visitors this month" />
-          <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "24px 28px", display: "flex", flexDirection: "column", gap: 18 }}>
+          <div className="card" style={{ padding: "24px 28px", display: "flex", flexDirection: "column", gap: 18 }}>
             {TRAFFIC.map((w) => (
               <div key={w.label} style={{ display: "grid", gridTemplateColumns: "72px 1fr 56px", gap: 16, alignItems: "center" }}>
-                <span style={{ fontSize: 13, color: "rgba(255,255,255,0.50)" }}>{w.label}</span>
+                <span style={{ fontSize: 13, color: "var(--muted)" }}>{w.label}</span>
                 <Bar pct={w.pct} />
                 <span style={{ fontSize: 14, fontWeight: 600, textAlign: "right" }}>{w.visitors}</span>
               </div>
             ))}
-            <p style={{ fontSize: 12, color: "rgba(255,255,255,0.30)", margin: "4px 0 0", textAlign: "right" }}>
+            <p style={{ fontSize: 12, color: "var(--muted)", margin: "4px 0 0", textAlign: "right" }}>
               Source: Google Analytics 4
             </p>
           </div>
@@ -152,7 +147,7 @@ export default function Report() {
         {/* ── Top pages ── */}
         <div style={{ marginBottom: 48 }}>
           <SectionHead label="Pages" title="Most visited pages" />
-          <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, overflow: "hidden" }}>
+          <div className="card" style={{ padding: 0, overflow: "hidden" }}>
             {TOP_PAGES.map((p, i) => (
               <div key={p.page} style={{
                 display: "grid",
@@ -160,11 +155,11 @@ export default function Report() {
                 gap: 16,
                 alignItems: "center",
                 padding: "14px 24px",
-                borderBottom: i < TOP_PAGES.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none",
+                borderBottom: i < TOP_PAGES.length - 1 ? "1px solid var(--line)" : "none",
               }}>
                 <div>
                   <span style={{ fontSize: 14, fontWeight: 600 }}>{p.label}</span>
-                  <span style={{ fontSize: 11, color: "rgba(255,255,255,0.30)", marginLeft: 8 }}>{p.page}</span>
+                  <span style={{ fontSize: 11, color: "var(--muted)", marginLeft: 8 }}>{p.page}</span>
                 </div>
                 <span style={{ fontSize: 14, fontWeight: 600, textAlign: "right" }}>{p.views}</span>
                 <Bar pct={p.pct} />
@@ -176,7 +171,7 @@ export default function Report() {
         {/* ── Leads ── */}
         <div style={{ marginBottom: 48 }}>
           <SectionHead label="Leads" title={`${LEADS.length} leads captured this month`} />
-          <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, overflow: "hidden" }}>
+          <div className="card" style={{ padding: 0, overflow: "hidden" }}>
             {LEADS.map((l, i) => (
               <div key={i} style={{
                 display: "grid",
@@ -184,15 +179,15 @@ export default function Report() {
                 gap: 16,
                 alignItems: "center",
                 padding: "14px 24px",
-                borderBottom: i < LEADS.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none",
+                borderBottom: i < LEADS.length - 1 ? "1px solid var(--line)" : "none",
               }}>
-                <span style={{ fontSize: 12, color: "rgba(255,255,255,0.35)" }}>{l.date}</span>
+                <span style={{ fontSize: 12, color: "var(--muted)" }}>{l.date}</span>
                 <span style={{ fontSize: 13, fontWeight: 600 }}>{l.name}</span>
-                <span style={{ fontSize: 13, color: "rgba(255,255,255,0.60)" }}>{l.need}</span>
+                <span style={{ fontSize: 13, color: "var(--muted)" }}>{l.need}</span>
               </div>
             ))}
           </div>
-          <p style={{ fontSize: 12, color: "rgba(255,255,255,0.30)", marginTop: 10 }}>
+          <p style={{ fontSize: 12, color: "var(--muted)", marginTop: 10 }}>
             Contact details redacted in this demo. Real reports include full name, email/phone, and AI conversation summary.
           </p>
         </div>
@@ -200,7 +195,7 @@ export default function Report() {
         {/* ── Chatbot breakdown ── */}
         <div style={{ marginBottom: 48 }}>
           <SectionHead label="AI Receptionist" title="Chatbot conversation topics" />
-          <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "24px 28px", display: "flex", flexDirection: "column", gap: 18 }}>
+          <div className="card" style={{ padding: "24px 28px", display: "flex", flexDirection: "column", gap: 18 }}>
             {CHATBOT_TOPICS.map((t) => (
               <div key={t.topic} style={{ display: "grid", gridTemplateColumns: "1fr 48px 120px", gap: 16, alignItems: "center" }}>
                 <span style={{ fontSize: 14 }}>{t.topic}</span>
@@ -214,11 +209,11 @@ export default function Report() {
         {/* ── Site updates ── */}
         <div style={{ marginBottom: 48 }}>
           <SectionHead label="Site Updates" title="Changes made this month" />
-          <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "20px 28px", display: "flex", flexDirection: "column", gap: 12 }}>
+          <div className="card" style={{ padding: "20px 28px", display: "flex", flexDirection: "column", gap: 12 }}>
             {UPDATES.map((u, i) => (
               <div key={i} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
                 <span style={{ color: "var(--accent)", fontWeight: 700, flexShrink: 0 }}>✓</span>
-                <span style={{ fontSize: 14, color: "rgba(255,255,255,0.75)" }}>{u}</span>
+                <span style={{ fontSize: 14, color: "var(--text)" }}>{u}</span>
               </div>
             ))}
           </div>
@@ -226,7 +221,7 @@ export default function Report() {
 
         {/* ── Footer note ── */}
         <div style={{
-          borderTop: "1px solid rgba(255,255,255,0.07)",
+          borderTop: "1px solid var(--line)",
           padding: "32px 0 64px",
           display: "flex",
           justifyContent: "space-between",
@@ -235,10 +230,10 @@ export default function Report() {
           gap: 20,
         }}>
           <div>
-            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.40)", margin: "0 0 4px" }}>
+            <p style={{ fontSize: 13, color: "var(--muted)", margin: "0 0 4px" }}>
               Prepared by Boyd Querubin · RubyxQube
             </p>
-            <p style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", margin: 0 }}>
+            <p style={{ fontSize: 12, color: "var(--muted)", margin: 0 }}>
               Questions? boyd@rubyxqube.com · (208) 970-8624
             </p>
           </div>

@@ -138,7 +138,7 @@ function PalettePicker({ selectedPalette, onSelect }) {
               background: "var(--surface)",
               border: selectedPalette === p.id
                 ? "2px solid var(--accent)"
-                : "2px solid rgba(255,255,255,0.06)",
+                : "2px solid var(--line)",
               borderRadius: 10,
               padding: "12px 14px",
               cursor: "pointer",
@@ -153,7 +153,7 @@ function PalettePicker({ selectedPalette, onSelect }) {
                   height: 28,
                   background: color,
                   borderRadius: 5,
-                  border: "1px solid rgba(255,255,255,0.08)",
+                  border: "1px solid var(--line)",
                 }} />
               ))}
             </div>
@@ -194,7 +194,7 @@ function PalettePicker({ selectedPalette, onSelect }) {
             target="_blank"
             rel="noopener noreferrer"
             className="btn"
-            style={{ borderColor: "rgba(255,255,255,0.15)", flexShrink: 0 }}
+            style={{ borderColor: "var(--line)", flexShrink: 0 }}
           >
             View on Coolors ↗
           </a>
@@ -227,7 +227,7 @@ function MockupPreview({ p }) {
       borderRadius: 8,
       overflow: "hidden",
       background: p.bg,
-      border: "1px solid rgba(255,255,255,0.06)",
+      border: "1px solid var(--line)",
       flexShrink: 0,
     }}>
       {/* Navbar */}
@@ -323,7 +323,7 @@ function DesignCard({ design, onSelect, selected }) {
             width: 20, height: 20,
             borderRadius: "50%",
             background: color,
-            border: "1px solid rgba(255,255,255,0.12)",
+            border: "1px solid var(--line)",
             flexShrink: 0,
           }} />
         ))}
@@ -453,7 +453,7 @@ function LeadModal({ pickedStyle, pickedPalette, onClose }) {
                 onChange={e => setName(e.target.value)}
                 style={{
                   background: "var(--bg)",
-                  border: "1px solid rgba(255,255,255,0.1)",
+                  border: "1px solid var(--line)",
                   borderRadius: 8,
                   padding: "11px 14px",
                   color: "var(--text)",
@@ -471,7 +471,7 @@ function LeadModal({ pickedStyle, pickedPalette, onClose }) {
                 onChange={e => setEmail(e.target.value)}
                 style={{
                   background: "var(--bg)",
-                  border: "1px solid rgba(255,255,255,0.1)",
+                  border: "1px solid var(--line)",
                   borderRadius: 8,
                   padding: "11px 14px",
                   color: "var(--text)",
@@ -634,7 +634,7 @@ export default function Designs() {
               </button>
               <button
                 className="btn"
-                style={{ borderColor: "rgba(255,255,255,0.15)", background: "transparent", cursor: "pointer" }}
+                style={{ borderColor: "var(--line)", background: "transparent", cursor: "pointer" }}
                 onClick={() => { setSelected(null); setSelectedPalette(null); }}
               >
                 Start over

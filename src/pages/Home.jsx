@@ -195,7 +195,7 @@ export default function Home() {
                   <span style={{ color: "#fb7185", fontWeight: 700 }}>{range} avg. job</span>
                 </div>
               ))}
-              <p className="small" style={{ marginTop: 8 }}>Autopilot plan: <strong style={{ color: "rgba(255,255,255,0.80)" }}>$399/mo</strong></p>
+              <p className="small" style={{ marginTop: 8 }}>Autopilot plan: <strong style={{ color: "var(--text)" }}>$399/mo</strong></p>
             </div>
           </div>
         </div>

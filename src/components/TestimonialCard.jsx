@@ -5,7 +5,7 @@ export default function TestimonialCard({ quote, name, role }) {
     <div className="card">
       <p className="p" style={{ marginBottom: 10 }}>"{quote}"</p>
       <div className="small">
-        <strong style={{ color: "rgba(255,255,255,0.85)" }}>{name}</strong>
+        <strong style={{ color: "var(--text)" }}>{name}</strong>
         {role ? ` • ${role}` : ""}
       </div>
     </div>
