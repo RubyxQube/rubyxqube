@@ -210,10 +210,34 @@ When a prospect converts to a paying client:
 
 ## Demo Hosting
 
-- **Demo files:** `prospects/[slug]/demo/` in the rubyxqube repo
-- **Deploy:** `vercel deploy --cwd prospects/[slug]/demo/` → free preview URL, no custom domain needed
-- **After signing:** Move to their own GitHub repo + Vercel project with custom domain
-- **If they don't convert:** Archive the folder. Vercel preview expires automatically. No ongoing cost.
+**URL convention:** `[business-name]-demo.vercel.app`
+Examples: `araujo-concrete-demo.vercel.app`, `treasure-valley-hvac-demo.vercel.app`
+
+The URL must include the business name — it's what the prospect sees in the email and what makes the demo feel personal and specific to them.
+
+**Deploy procedure:**
+```powershell
+# 1. Build demo files into prospects/[slug]/demo/ as normal
+# 2. Copy to a temp dir named [business-name]-demo (no .vercel config)
+$slug = "araujo-concrete"   # ← change per prospect
+$tmp  = "$env:TEMP\$slug-demo"
+New-Item -ItemType Directory -Path $tmp -Force | Out-Null
+Copy-Item "prospects\$slug\demo\*" -Destination $tmp -Recurse -Force
+Remove-Item "$tmp\.vercel" -Recurse -Force -ErrorAction SilentlyContinue
+
+# 3. Deploy from the named temp dir — Vercel uses the folder name as project name
+cd $tmp
+npx vercel deploy . --yes
+
+# 4. Clean up
+cd c:\Users\boydi\Projects\rubyxqube
+Remove-Item $tmp -Recurse -Force
+```
+
+The first deploy to a new `[business]-demo` name creates the Vercel project and sets `[business]-demo.vercel.app` as the alias automatically.
+
+**After signing:** Move to their own GitHub repo + Vercel project with custom domain.
+**If they don't convert:** Archive `prospects/[slug]/`. The Vercel project stays live at no cost (Vercel free tier).
 
 ---
 

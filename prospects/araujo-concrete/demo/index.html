@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Araujo Concrete LLC | Mountain Home, Idaho</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --bg:           #0f0e0d;
+      --surface:      #191816;
+      --surface-2:    #222019;
+      --text:         #ede9e1;
+      --muted:        rgba(237,233,225,0.50);
+      --accent:       #c2612a;
+      --accent-dim:   rgba(194,97,42,0.12);
+      --accent-glow:  rgba(194,97,42,0.28);
+      --border:       rgba(237,233,225,0.07);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'IBM Plex Sans', sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* Grain overlay — feels like concrete */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.032;
+      pointer-events: none;
+      z-index: 9000;
+    }
+
+    .display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.02em; line-height: 0.93; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(15,14,13,0.93);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      height: 62px; padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.35rem;
+      letter-spacing: 0.1em; color: var(--text); text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: 1.25rem; }
+    .nav-phone {
+      font-size: 0.85rem; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color .2s;
+      letter-spacing: 0.01em;
+    }
+    .nav-phone:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .55rem 1.35rem; font-weight: 600; font-size: .82rem;
+      text-transform: uppercase; letter-spacing: .07em;
+      text-decoration: none; border: none; cursor: pointer;
+      border-radius: 2px; transition: all .2s; font-family: inherit;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #d4703a; transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid rgba(237,233,225,.2); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-white { background: #fff; color: var(--accent); font-weight: 700; }
+    .btn-white:hover { background: #f0ede8; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; min-height: 100svh;
+      display: flex; align-items: center;
+      padding: 6rem 1.5rem 8rem;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920&q=75');
+      background-size: cover; background-position: center 40%;
+      filter: brightness(.14) saturate(.3);
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(110deg, rgba(15,14,13,.98) 40%, rgba(15,14,13,.55) 100%);
+    }
+    /* Left edge accent bar */
+    .hero::before {
+      content: ''; position: absolute;
+      left: 0; top: 0; bottom: 0; width: 5px;
+      background: var(--accent);
+      z-index: 2;
+    }
+    /* Bottom diagonal cut */
+    .hero::after {
+      content: ''; position: absolute;
+      bottom: -1px; left: 0; right: 0; height: 90px;
+      background: var(--bg);
+      clip-path: polygon(0 100%, 100% 0, 100% 100%);
+      z-index: 2;
+    }
+    .hero-content {
+      position: relative; z-index: 3;
+      max-width: 1200px; margin: 0 auto; width: 100%;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--accent-dim); border: 1px solid rgba(194,97,42,.35);
+      border-radius: 2px; padding: .3rem .75rem;
+      font-size: .72rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: .12em; color: var(--accent);
+      margin-bottom: 1.5rem;
+      animation: fadeUp .5s .1s both ease;
+    }
+    .hero-title {
+      font-size: clamp(4.5rem, 11vw, 10rem);
+      color: var(--text); max-width: 13ch;
+      margin-bottom: .75rem;
+      animation: fadeUp .55s .2s both ease;
+    }
+    .hero-title em { font-style: normal; color: var(--accent); }
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      color: var(--muted); max-width: 46ch;
+      margin-bottom: 2.25rem; line-height: 1.75;
+      animation: fadeUp .55s .3s both ease;
+    }
+    .hero-ctas {
+      display: flex; flex-wrap: wrap; gap: .875rem;
+      margin-bottom: 3rem;
+      animation: fadeUp .55s .4s both ease;
+    }
+    .hero-stats {
+      display: flex; flex-wrap: wrap; gap: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      animation: fadeUp .55s .5s both ease;
+    }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem; color: var(--accent); line-height: 1;
+    }
+    .stat-label {
+      font-size: .72rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .09em; margin-top: .2rem;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 5.5rem 1.5rem; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .section-eyebrow {
+      font-size: .72rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: .15em; color: var(--accent); margin-bottom: .875rem;
+    }
+    .section-title {
+      font-size: clamp(2.5rem, 5vw, 4.25rem);
+      color: var(--text); margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1.05rem; color: var(--muted);
+      max-width: 52ch; line-height: 1.75;
+    }
+
+    /* ── SERVICES ── */
+    .services-section { background: var(--surface); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.5px; margin-top: 3rem;
+      background: var(--border);
+    }
+    .service-card {
+      background: var(--surface); padding: 2rem 1.75rem;
+      position: relative; overflow: hidden;
+      transition: background .25s;
+    }
+    .service-card:hover { background: var(--surface-2); }
+    .service-card::after {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: var(--accent);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .3s ease;
+    }
+    .service-card:hover::after { transform: scaleX(1); }
+    .service-glyph { font-size: 1.75rem; margin-bottom: 1rem; }
+    .service-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.45rem; letter-spacing: .05em;
+      color: var(--text); margin-bottom: .5rem;
+    }
+    .service-desc { font-size: .875rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── WHY US ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .why-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; padding: 2.25rem;
+      transition: border-color .2s, background .2s;
+    }
+    .why-card:hover { border-color: rgba(194,97,42,.3); background: var(--surface-2); }
+    .why-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.75rem; color: rgba(194,97,42,.22);
+      line-height: 1; margin-bottom: .5rem;
+    }
+    .why-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.45rem; letter-spacing: .04em;
+      color: var(--text); margin-bottom: .625rem;
+    }
+    .why-text { font-size: .9rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── CTA STRIP ── */
+    .cta-strip { background: var(--accent); padding: 3.5rem 1.5rem; }
+    .cta-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+    }
+    .cta-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      color: #fff; line-height: 1;
+    }
+    .cta-sub { font-size: .95rem; color: rgba(255,255,255,.72); margin-top: .4rem; }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1.2fr;
+      gap: 4rem; margin-top: 3rem; align-items: start;
+    }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+    .contact-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      margin-bottom: 1.75rem;
+    }
+    .contact-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: var(--accent-dim); border: 1px solid rgba(194,97,42,.3);
+      border-radius: 2px; display: flex; align-items: center;
+      justify-content: center; font-size: 1.1rem;
+    }
+    .contact-label {
+      font-size: .72rem; text-transform: uppercase; letter-spacing: .1em;
+      color: var(--accent); margin-bottom: .25rem;
+    }
+    .contact-val {
+      font-weight: 500; color: var(--text);
+      text-decoration: none; transition: color .2s; font-size: .95rem;
+    }
+    .contact-val:hover { color: var(--accent); }
+    .personal-note {
+      margin-top: 1.5rem; padding: 1.5rem;
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      font-size: .875rem; color: var(--muted); line-height: 1.7;
+    }
+    .personal-note strong { color: var(--text); }
+
+    /* Form */
+    .form-group { margin-bottom: 1.125rem; }
+    .form-label {
+      display: block; font-size: .72rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .1em;
+      color: var(--muted); margin-bottom: .45rem;
+    }
+    .form-control {
+      width: 100%;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; padding: .7rem .95rem;
+      color: var(--text); font-family: 'IBM Plex Sans', sans-serif;
+      font-size: .875rem; transition: border-color .2s; outline: none;
+      appearance: none;
+    }
+    .form-control:focus { border-color: var(--accent); }
+    textarea.form-control { resize: vertical; min-height: 110px; }
+    .form-submit {
+      width: 100%; padding: .875rem;
+      justify-content: center; font-size: .875rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #080807;
+      border-top: 1px solid var(--border);
+      padding: 2.25rem 1.5rem;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
+      letter-spacing: .1em; color: var(--text);
+    }
+    .footer-logo span { color: var(--accent); }
+    .footer-copy { font-size: .8rem; color: var(--muted); margin-top: .2rem; }
+    .footer-lic { font-size: .75rem; color: rgba(237,233,225,.28); }
+
+    /* ── CHATBOT ── */
+    .chat-fab {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 800;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--accent); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.35rem;
+      box-shadow: 0 4px 22px var(--accent-glow);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .chat-fab:hover { transform: scale(1.08); box-shadow: 0 6px 32px var(--accent-glow); }
+
+    .chat-window {
+      position: fixed; bottom: 5.25rem; right: 1.5rem; z-index: 800;
+      width: 340px; max-height: 490px;
+      background: var(--surface); border: 1px solid rgba(237,233,225,.1);
+      border-radius: 4px; box-shadow: 0 12px 50px rgba(0,0,0,.55);
+      display: none; flex-direction: column; overflow: hidden;
+      animation: slideUp .25s ease;
+    }
+    .chat-window.open { display: flex; }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .chat-header {
+      background: var(--accent); padding: .875rem 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .chat-name { font-weight: 600; font-size: .875rem; color: #fff; }
+    .chat-status { font-size: .72rem; color: rgba(255,255,255,.72); }
+    .chat-close {
+      background: none; border: none; cursor: pointer;
+      color: rgba(255,255,255,.7); font-size: 1.1rem; line-height: 1;
+      transition: color .15s;
+    }
+    .chat-close:hover { color: #fff; }
+    .chat-msgs {
+      flex: 1; overflow-y: auto; padding: 1rem;
+      display: flex; flex-direction: column; gap: .75rem;
+    }
+    .msg {
+      max-width: 87%; padding: .6rem .875rem;
+      border-radius: 3px; font-size: .84rem; line-height: 1.55;
+    }
+    .msg-bot { background: var(--surface-2); color: var(--text); align-self: flex-start; border: 1px solid var(--border); }
+    .msg-user { background: var(--accent); color: #fff; align-self: flex-end; }
+    .chat-typing { align-self: flex-start; }
+    .chat-typing span {
+      display: inline-block; width: 6px; height: 6px;
+      border-radius: 50%; background: var(--muted); margin: 0 2px;
+      animation: blink 1.2s infinite;
+    }
+    .chat-typing span:nth-child(2) { animation-delay: .2s; }
+    .chat-typing span:nth-child(3) { animation-delay: .4s; }
+    @keyframes blink { 0%,80%,100%{opacity:.2} 40%{opacity:1} }
+    .chat-footer {
+      display: flex; gap: .5rem; padding: .75rem;
+      border-top: 1px solid var(--border); background: var(--bg);
+    }
+    .chat-input {
+      flex: 1; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; padding: .5rem .75rem;
+      color: var(--text); font-family: 'IBM Plex Sans', sans-serif;
+      font-size: .8rem; outline: none; transition: border-color .2s;
+    }
+    .chat-input:focus { border-color: var(--accent); }
+    .chat-send {
+      background: var(--accent); border: none; border-radius: 2px;
+      padding: .5rem .85rem; color: #fff; cursor: pointer;
+      font-size: .95rem; transition: background .2s;
+    }
+    .chat-send:hover { background: #d4703a; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .nav-phone { display: none; }
+      .hero-stats { gap: 1.5rem; }
+      .cta-inner { flex-direction: column; text-align: center; }
+      .chat-window { width: calc(100vw - 2rem); right: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">ARAUJO <span>CONCRETE</span></a>
+    <div class="nav-right">
+      <a href="tel:2085910911" class="nav-phone">(208) 591-0911</a>
+      <a href="#contact" class="btn btn-primary">Free Estimate</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">📍 Mountain Home, Idaho</div>
+    <h1 class="display hero-title">
+      Mountain<br>Home's<br><em>Concrete</em><br>Contractor
+    </h1>
+    <p class="hero-sub">
+      Driveways, foundations, flatwork, and more — done right the first time. Serving Mountain Home and Elmore County.
+    </p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-primary">Get a Free Estimate →</a>
+      <a href="tel:2085910911" class="btn btn-outline">📞 (208) 591-0911</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">FREE</div>
+        <div class="stat-label">Estimates — no obligation</div>
+      </div>
+      <div>
+        <div class="stat-num">LOCAL</div>
+        <div class="stat-label">Mountain Home, ID based</div>
+      </div>
+      <div>
+        <div class="stat-num">LIC.</div>
+        <div class="stat-label">Idaho GC — RCE-47605</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section class="services-section">
+  <div class="container">
+    <div class="section-eyebrow">What We Do</div>
+    <h2 class="display section-title">Our Services</h2>
+    <p class="section-sub">From driveways to foundations — concrete done right, every time. No shortcuts, no excuses.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-glyph">🛣️</div>
+        <div class="service-name">Driveways & Paving</div>
+        <p class="service-desc">Residential and commercial driveways built to handle Idaho winters. Properly graded, cleanly finished, and built to last.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-glyph">⬜</div>
+        <div class="service-name">Flatwork & Slabs</div>
+        <p class="service-desc">Garage floors, shop floors, patios — any flat concrete surface. Level, smooth, and done without cutting corners.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-glyph">🏗️</div>
+        <div class="service-name">Foundations</div>
+        <p class="service-desc">The most critical part of any build. Structural foundations for homes and outbuildings, done with the care they deserve.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-glyph">🚶</div>
+        <div class="service-name">Sidewalks & Walkways</div>
+        <p class="service-desc">Safe, clean walkways for homes and businesses. We get the grade right so water drains away — not toward your door.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-glyph">🏢</div>
+        <div class="service-name">Commercial Concrete</div>
+        <p class="service-desc">Parking lots, loading areas, large commercial slabs. We handle bigger projects throughout the Mountain Home area.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY US ── -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">Why Araujo</div>
+    <h2 class="display section-title">Built on Reputation</h2>
+    <p class="section-sub">Owner-operated. You deal directly with Jesus — not a dispatcher, not a subcontractor.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <div class="display why-heading">Locally Owned & Operated</div>
+        <p class="why-text">Mountain Home-based and Elmore County–focused. We live and work in the same community as our customers. Your reputation is our reputation.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">02</div>
+        <div class="display why-heading">Licensed General Contractor</div>
+        <p class="why-text">Idaho GC License #RCE-47605. Every job is done by a licensed contractor — so you're protected and the work is done to code.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">03</div>
+        <div class="display why-heading">Free Estimates, No Games</div>
+        <p class="why-text">We come look at your project and give you a straight number. No pressure, no obligation, no bait-and-switch. Just an honest answer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA STRIP ── -->
+<div class="cta-strip">
+  <div class="cta-inner">
+    <div>
+      <div class="display cta-heading">Ready to Get Started?</div>
+      <p class="cta-sub">Free estimates. No obligation. Concrete done right.</p>
+    </div>
+    <a href="#contact" class="btn btn-white">Request a Free Estimate →</a>
+  </div>
+</div>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="container">
+    <div class="section-eyebrow">Get In Touch</div>
+    <h2 class="display section-title">Free Estimate Request</h2>
+    <p class="section-sub">Tell us about your project. Jesus will follow up within 24 hours.</p>
+
+    <div class="contact-grid">
+      <!-- Info -->
+      <div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Call or Text</div>
+            <a href="tel:2085910911" class="contact-val">(208) 591-0911</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Based In</div>
+            <span class="contact-val">Mountain Home, Idaho 83647</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🗺️</div>
+          <div>
+            <div class="contact-label">Service Area</div>
+            <span class="contact-val">Mountain Home · Glenns Ferry · Elmore County</span>
+          </div>
+        </div>
+        <div class="personal-note">
+          <strong>Jesus Araujo</strong> personally handles every estimate and every job.
+          You'll always know who's doing your concrete work — and you'll have a direct line to the person responsible for it.
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form id="estimateForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input type="text" class="form-control" placeholder="John Smith" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" class="form-control" placeholder="(208) 555-0000" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Type of Project</label>
+          <select class="form-control">
+            <option value="" disabled selected>Select a service...</option>
+            <option>Driveway or Paving</option>
+            <option>Flatwork or Slab</option>
+            <option>Foundation</option>
+            <option>Sidewalk or Walkway</option>
+            <option>Commercial Concrete</option>
+            <option>Other / Not Sure</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tell Us About the Project</label>
+          <textarea class="form-control" placeholder="Size, location, timeline — anything that helps..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit">Send Request →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">ARAUJO <span>CONCRETE</span> LLC</div>
+      <div class="footer-copy">Mountain Home, Idaho · (208) 591-0911</div>
+    </div>
+    <div class="footer-lic">Licensed General Contractor — Idaho RCE-47605</div>
+  </div>
+</footer>
+
+<!-- ── CHATBOT ── -->
+<button class="chat-fab" onclick="toggleChat()" id="chatFab" title="Chat with us">💬</button>
+
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <div>
+      <div class="chat-name">Araujo Concrete — AI Assistant</div>
+      <div class="chat-status">● Online · Replies instantly</div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div class="chat-msgs" id="chatMsgs">
+    <div class="msg msg-bot">
+      Hey! I'm the Araujo Concrete assistant. Ask me about our services, service area, or how to get a free estimate — I'm happy to help. 👋
+    </div>
+  </div>
+  <div class="chat-footer">
+    <input class="chat-input" id="chatInput" type="text" placeholder="Ask a question..."
+           onkeydown="if(event.key==='Enter')sendMsg()">
+    <button class="chat-send" onclick="sendMsg()">→</button>
+  </div>
+</div>
+
+<script>
+  /* ── Chat widget ── */
+  function toggleChat() {
+    document.getElementById('chatWindow').classList.toggle('open');
+  }
+
+  const RESPONSES = {
+    driveway:   "We do residential and commercial driveways throughout Mountain Home and Elmore County — graded right and built for Idaho winters. Request a free estimate and Jesus will come take a look!",
+    price:      "Pricing depends on the size and scope of the project. The best way to get an accurate number is a free estimate — no obligation, just a straight answer. Fill out the form or call (208) 591-0911.",
+    area:       "We're based in Mountain Home and primarily serve Elmore County and the surrounding area. Give us a call at (208) 591-0911 and we'll confirm whether we can reach your location.",
+    estimate:   "All estimates are completely free — no obligation. Fill out the form on this page or call/text Jesus directly at (208) 591-0911.",
+    foundation: "Yes, we do foundations for homes and outbuildings. It's some of the most important work we do. Call (208) 591-0911 to talk through your project.",
+    license:    "Yes — Jesus holds Idaho General Contractor License #RCE-47605. Every job is done by a licensed contractor.",
+    default:    "Good question! For the most accurate answer, call or text Jesus at (208) 591-0911, or fill out the free estimate form on this page.",
+  };
+
+  function getReply(msg) {
+    const m = msg.toLowerCase();
+    if (/driveway|pav/.test(m))                        return RESPONSES.driveway;
+    if (/price|cost|how much|quote|charge/.test(m))    return RESPONSES.price;
+    if (/area|where|location|boise|mtn|mountain/.test(m)) return RESPONSES.area;
+    if (/estimate|free|visit|come out/.test(m))        return RESPONSES.estimate;
+    if (/foundation|base/.test(m))                     return RESPONSES.foundation;
+    if (/licens|insur|legit/.test(m))                  return RESPONSES.license;
+    return RESPONSES.default;
+  }
+
+  function sendMsg() {
+    const input = document.getElementById('chatInput');
+    const text  = input.value.trim();
+    if (!text) return;
+
+    const msgs = document.getElementById('chatMsgs');
+
+    // User bubble
+    const userEl = document.createElement('div');
+    userEl.className = 'msg msg-user';
+    userEl.textContent = text;
+    msgs.appendChild(userEl);
+    input.value = '';
+    msgs.scrollTop = msgs.scrollHeight;
+
+    // Typing indicator
+    const typing = document.createElement('div');
+    typing.className = 'msg msg-bot chat-typing';
+    typing.innerHTML = '<span></span><span></span><span></span>';
+    msgs.appendChild(typing);
+    msgs.scrollTop = msgs.scrollHeight;
+
+    // Reply
+    setTimeout(() => {
+      msgs.removeChild(typing);
+      const botEl = document.createElement('div');
+      botEl.className = 'msg msg-bot';
+      botEl.textContent = getReply(text);
+      msgs.appendChild(botEl);
+      msgs.scrollTop = msgs.scrollHeight;
+    }, 850);
+  }
+
+  /* ── Form ── */
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.textContent = '✓ Request Sent — We\'ll be in touch!';
+    btn.style.background = '#2d7a4a';
+    btn.disabled = true;
+  }
+</script>
+
+</body>
+</html>
