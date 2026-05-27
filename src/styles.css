@@ -77,31 +77,6 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.2
   z-index: 0;
 }
 
-/* ── Scan line — descends the hero once every 12s ────────────────────── */
-@keyframes scanDown {
-  0%   { top:   0%; opacity: 0; }
-  4%   { opacity: 0.55; }
-  96%  { opacity: 0.55; }
-  100% { top: 100%; opacity: 0; }
-}
-
-.heroSurface::before{
-  content: '';
-  position: absolute;
-  left: 0; right: 0;
-  top: 0;
-  height: 1px;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    var(--accent) 25%,
-    rgba(225,29,72,0.7) 50%,
-    var(--accent) 75%,
-    transparent 100%
-  );
-  animation: scanDown 12s linear infinite;
-  pointer-events: none;
-  z-index: 2;
-}
 
 .surface > *{ position: relative; z-index: 1; }
 
@@ -148,6 +123,7 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.2
    TYPOGRAPHY
 ───────────────────────────────────────── */
 .h1{
+  font-family: 'Syne', ui-sans-serif, system-ui;
   font-size: clamp(38px, 5vw, 64px);
   line-height: 1.03;
   letter-spacing: -0.03em;
@@ -163,12 +139,12 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.2
 .h3{ font-size: 17px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; }
 .p{ color: var(--muted); margin: 0 0 14px; line-height: 1.7; }
 
-/* Display headline — Fraunces serif, hero only */
+/* Display headline — Syne geometric, all h1s */
 .heroTitle{
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: 'Syne', ui-sans-serif, system-ui;
   font-weight: 800;
-  font-style: italic;
-  font-size: clamp(48px, 7.5vw, 112px);
+  font-style: normal;
+  font-size: clamp(48px, 7.5vw, 108px);
   line-height: 1.0;
   letter-spacing: -0.03em;
   margin: 0 0 24px;
