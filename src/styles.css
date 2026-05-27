@@ -656,13 +656,13 @@ label{
 [data-theme="light"] ::placeholder{ color: rgba(20,12,15,0.30); }
 [data-theme="light"] label{ color: rgba(20,12,15,0.50); }
 
-/* Ghost/outline buttons — white glass → dark glass */
-[data-theme="light"] .btn{
+/* Ghost/outline buttons — white glass → dark glass (primary keeps ruby red in both modes) */
+[data-theme="light"] .btn:not(.primary){
   color: var(--text);
   background: rgba(20,12,15,0.05);
   border-color: rgba(20,12,15,0.16);
 }
-[data-theme="light"] .btn:hover{
+[data-theme="light"] .btn:not(.primary):hover{
   background: rgba(20,12,15,0.09);
   border-color: rgba(20,12,15,0.24);
   box-shadow: 0 4px 14px rgba(0,0,0,0.10);
