@@ -26,6 +26,21 @@ Skip the chain for: typo fixes, color tweaks, copy updates, minor CSS adjustment
 
 ---
 
+## Cold Prospect Demos — Sales Pipeline
+
+To build a personalized demo site for a cold prospect:
+
+```
+[prospect-researcher] → [builder] → deploy Vercel preview → send cold outreach
+```
+
+- `prospect-researcher` — given a business name + city, scrapes Google/Yelp/their site and returns a full business profile, demo content, aesthetic recommendation, and cold outreach angle
+- No approval checkpoints — Boyd is building for himself
+
+Full reference: `docs/PROSPECT_DEMO_WORKFLOW.md`
+
+---
+
 ## Working on the RubyxQube Site
 
 The main project is a React + Vite marketing website. Rules for tech stack, design tokens, and conventions:
