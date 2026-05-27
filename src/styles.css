@@ -123,7 +123,6 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.2
    TYPOGRAPHY
 ───────────────────────────────────────── */
 .h1{
-  font-family: 'Syne', ui-sans-serif, system-ui;
   font-size: clamp(38px, 5vw, 64px);
   line-height: 1.03;
   letter-spacing: -0.03em;
@@ -139,14 +138,11 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.2
 .h3{ font-size: 17px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; }
 .p{ color: var(--muted); margin: 0 0 14px; line-height: 1.7; }
 
-/* Display headline — Syne geometric, all h1s */
+/* Hero display — Plus Jakarta Sans, larger scale */
 .heroTitle{
-  font-family: 'Syne', ui-sans-serif, system-ui;
-  font-weight: 800;
-  font-style: normal;
   font-size: clamp(48px, 7.5vw, 108px);
   line-height: 1.0;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   margin: 0 0 24px;
   max-width: 14ch;
 }
