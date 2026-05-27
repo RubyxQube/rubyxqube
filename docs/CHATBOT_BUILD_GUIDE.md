@@ -216,8 +216,22 @@ call the capture_lead tool. Collect these naturally through conversation — don
 - [ ] Widget `accentColor` matches client site color
 - [ ] Widget `businessName` and `greeting` updated
 - [ ] 10 test conversations run (common questions, edge cases, lead capture)
-- [ ] Lead capture verified (SMS fires correctly to client)
-- [ ] Client walked through what an SMS alert looks like
+- [ ] Lead capture verified (all three alert channels fire)
+- [ ] Client told about the TextBelt number (see note below)
+- [ ] Client has saved the TextBelt number as a contact
+
+### ⚠️ TextBelt number heads-up — tell every client before launch
+
+TextBelt sends from a shared carrier number (typically a 510 area code). The first text looks
+unfamiliar and iOS shows "Report Junk." This is normal — it's not a bug.
+
+**Tell every client before their site goes live:**
+> "When you get your first lead alert, it'll come from a 510 number. That's TextBelt, the SMS
+> service we use. Save that number in your phone as **[Business Name] Leads** and every future
+> alert will show up clean."
+
+Then send them a test text immediately after launch so they can save the number before a real
+lead comes in. This one conversation prevents 100% of "why am I getting spam texts?" support calls.
 
 ---
 
