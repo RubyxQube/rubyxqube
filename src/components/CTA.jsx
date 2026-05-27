@@ -13,7 +13,7 @@ export default function CTA({
     `Tell me what you do in the ${siteConfig.serviceArea}. I'll come to the call with a plan already built.`;
 
   return (
-    <section className="surface" id="cta">
+    <section className="surface redBand" id="cta">
       <div className="section">
         <span className="badge">Let's talk</span>
         <h2 className="h2" style={{ marginTop: 16, maxWidth: "22ch" }}>{title}</h2>

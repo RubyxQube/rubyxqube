@@ -1,5 +1,5 @@
 :root{
-  --bg: #0a0809;
+  --bg: #080808;
   --text: rgba(255,255,255,0.90);
   --muted: rgba(255,255,255,0.48);
   --line: rgba(255,255,255,0.08);
@@ -38,8 +38,8 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.2
 .surface{
   position: relative;
   width: 100%;
-  background: rgba(255,255,255,0.026);
-  border-top: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.032);
+  border-top: 1px solid rgba(255,255,255,0.08);
   overflow: hidden;
 }
 
@@ -48,36 +48,59 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.2
   border-top: none;
 }
 
-/* Ambient ruby glow at top of every section */
-.surface::before{
-  content:'';
+/* ── Film grain — hero only ─────────────────────────────────────────── */
+@keyframes grainShift {
+  0%   { transform: translate( 0%,  0%); }
+  10%  { transform: translate(-3%, -4%); }
+  20%  { transform: translate(-6%,  3%); }
+  30%  { transform: translate( 3%, -2%); }
+  40%  { transform: translate(-3%,  6%); }
+  50%  { transform: translate(-6%,  2%); }
+  60%  { transform: translate( 3%,  3%); }
+  70%  { transform: translate( 0%,  5%); }
+  80%  { transform: translate(-3%,  0%); }
+  90%  { transform: translate( 3%,  2%); }
+}
+
+.heroSurface::after{
+  content: '';
   position: absolute;
-  top: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 55%;
-  height: 220px;
-  background: radial-gradient(ellipse at 50% 0%, rgba(225,29,72,0.05), transparent 70%);
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  opacity: 0.038;
+  animation: grainShift 0.35s steps(1) infinite;
   pointer-events: none;
   z-index: 0;
+}
+
+/* ── Scan line — descends the hero once every 12s ────────────────────── */
+@keyframes scanDown {
+  0%   { top:   0%; opacity: 0; }
+  4%   { opacity: 0.55; }
+  96%  { opacity: 0.55; }
+  100% { top: 100%; opacity: 0; }
 }
 
 .heroSurface::before{
-  width: 80%;
-  height: 420px;
-  background: radial-gradient(ellipse at 50% 0%, rgba(225,29,72,0.10), transparent 65%);
-}
-
-/* Decorative right-side warm glow on hero */
-.heroSurface::after{
-  content:'';
+  content: '';
   position: absolute;
-  top: -10%;
-  right: -8%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(225,29,72,0.06), transparent 60%);
+  left: 0; right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--accent) 25%,
+    rgba(225,29,72,0.7) 50%,
+    var(--accent) 75%,
+    transparent 100%
+  );
+  animation: scanDown 12s linear infinite;
   pointer-events: none;
-  z-index: 0;
+  z-index: 2;
 }
 
 .surface > *{ position: relative; z-index: 1; }
@@ -140,12 +163,23 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.2
 .h3{ font-size: 17px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; }
 .p{ color: var(--muted); margin: 0 0 14px; line-height: 1.7; }
 
-/* Gradient text — ruby tones */
+/* Display headline — Fraunces serif, hero only */
+.heroTitle{
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: clamp(48px, 7.5vw, 112px);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin: 0 0 24px;
+  max-width: 14ch;
+}
+
+/* Accent text — solid ruby, no gradient */
 .accentText{
-  background: linear-gradient(130deg, #fda4af 0%, #e11d48 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
+  -webkit-text-fill-color: var(--accent);
+  background: none;
 }
 
 /* ─────────────────────────────────────────
@@ -246,10 +280,10 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.2
   transition: transform .16s, box-shadow .16s, border-color .16s, background .16s;
 }
 .card:hover{
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   background: rgba(255,255,255,0.065);
   border-top-color: var(--accent-border);
-  box-shadow: 0 24px 56px rgba(0,0,0,0.45), 0 0 0 1px var(--accent-dim);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.50);
 }
 
 .cardHighlight{
@@ -260,7 +294,43 @@ a:hover{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.2
 }
 .cardHighlight:hover{
   background: rgba(225,29,72,0.10) !important;
-  box-shadow: 0 0 0 1px var(--accent-border), 0 24px 56px rgba(0,0,0,0.50);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.50);
+}
+
+/* ─────────────────────────────────────────
+   RED BAND — full-width ruby CTA section
+───────────────────────────────────────── */
+.redBand{
+  background: var(--accent) !important;
+  border-top: none !important;
+}
+.redBand::before{ display: none; }
+.redBand .p{ color: rgba(255,255,255,0.82); }
+.redBand .h2{ color: #fff; }
+.redBand .small{ color: rgba(255,255,255,0.65); }
+.redBand .badge{
+  background: rgba(0,0,0,0.18);
+  border-color: rgba(0,0,0,0.22);
+  color: rgba(255,255,255,0.90);
+}
+.redBand .btn{
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+}
+.redBand .btn:hover{
+  background: rgba(255,255,255,0.25);
+  border-color: rgba(255,255,255,0.55);
+  box-shadow: none;
+}
+.redBand .btn.primary{
+  background: #fff;
+  border-color: #fff;
+  color: var(--accent);
+}
+.redBand .btn.primary:hover{
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
 }
 
 /* ─────────────────────────────────────────
@@ -311,7 +381,7 @@ select{
   background-color: rgba(255,255,255,0.05);
   cursor: pointer;
 }
-select option{ background: #150a0d; color: rgba(255,255,255,0.90); }
+select option{ background: #0d0d0d; color: rgba(255,255,255,0.90); }
 .textarea{ min-height: 130px; resize: vertical; }
 label{
   display:block; font-weight: 600; font-size: 12px;
@@ -339,7 +409,7 @@ label{
 .navWrap{
   position: sticky; top: 0; z-index: 100;
   backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  background: rgba(10,8,9,0.88);
+  background: rgba(8,8,8,0.90);
   border-bottom: 1px solid rgba(255,255,255,0.07);
 }
 .navBar{
@@ -393,7 +463,7 @@ label{
   position: fixed;
   top: 61px; left: 0; right: 0; bottom: 0;
   z-index: 99;
-  background: rgba(10,8,9,0.97);
+  background: rgba(8,8,8,0.97);
   backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
   border-top: 1px solid rgba(255,255,255,0.07);
   padding: 20px 20px 40px;
