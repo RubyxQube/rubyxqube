@@ -12,7 +12,7 @@ Visitor types a message
   → React ChatWidget (browser)
     → POST /api/chat (Vercel serverless function)
       → Anthropic API (Claude Haiku)
-        → If lead captured: fire Twilio SMS to client
+        → If lead captured: fire ntfy push + TextBelt SMS + Resend email
       → Returns AI response
     → Displays response in chat window
 ```
@@ -88,43 +88,44 @@ If you get `ANTHROPIC_API_KEY is not set` — double-check Vercel env vars and r
 
 ---
 
-## Step 5 — (Optional) Add Twilio SMS Alerts
+## Step 5 — (Optional) Add Lead Alerts
 
-Skip this for now if you just want the chatbot working. Add SMS when you're ready.
+Three channels, all optional, all free or near-free. Add any combination.
 
-### Setup
-1. Go to **twilio.com** → create a free account
-2. Get a phone number (~$1/mo after trial)
-3. From the Twilio Console, grab:
-   - Account SID
-   - Auth Token
-   - Your Twilio phone number (e.g. `+12085551234`)
+### ntfy.sh — push notification to Boyd's phone (free)
+1. Download the **ntfy** app (iOS / Android)
+2. Subscribe to a topic — use a random unguessable string, e.g. `rxq-alerts-7k2mxp`
+3. Add to Vercel env vars: `NTFY_TOPIC=rxq-alerts-7k2mxp`
+4. Test: visit `https://ntfy.sh/rxq-alerts-7k2mxp` → click "Send test notification"
 
-### Add to Vercel env vars
+### TextBelt SMS — text to client's phone (~$0.01/text, no A2P required)
+1. Go to **textbelt.com** → buy credits (1,000 texts = $10, no subscription)
+2. Add to Vercel env vars:
 
 | Variable | Value |
 |----------|-------|
-| `TWILIO_ACCOUNT_SID` | `ACxxxxxxxxxxxx` |
-| `TWILIO_AUTH_TOKEN` | your auth token |
-| `TWILIO_FROM_NUMBER` | `+12085551234` (your Twilio number) |
-| `ALERT_PHONE_NUMBER` | `+12085559999` (your personal cell) |
+| `TEXTBELT_KEY` | your TextBelt API key |
+| `ALERT_PHONE_NUMBER` | client's cell, E.164 format: `+12085559999` |
 
-### Install Twilio
+Use key `textbelt` for 1 free test text per day during development.
 
-```bash
-npm install twilio
-```
+### Resend email — email alert (free tier)
+1. Sign up at **resend.com** → create an API key
+2. Add to Vercel env vars:
+
+| Variable | Value |
+|----------|-------|
+| `RESEND_API_KEY` | `re_...` |
+| `ALERT_EMAIL` | where to send lead emails |
+| `FROM_EMAIL` | verified sender domain (omit to use `onboarding@resend.dev`) |
 
 ### Test
-After redeploying, run a lead capture conversation. You should get an SMS like:
+After redeploying, run a lead capture conversation. You should receive:
+- A push notification on your phone (ntfy)
+- An SMS (TextBelt)
+- An email (Resend)
 
-```
-🔔 New lead — Qube Solutions
-Name: John Smith
-Contact: (208) 555-1234
-Needs: New website for my plumbing business
-Notes: Based in Meridian, wants to launch soon
-```
+All three fire simultaneously without blocking the chat response.
 
 ---
 
@@ -263,5 +264,7 @@ Default is always Claude. Only switch if the client has a specific reason.
 | Chat window opens but no response | `ANTHROPIC_API_KEY` not set or wrong | Check Vercel env vars, redeploy |
 | "I'm having connection trouble" message | API function error | Check Vercel function logs |
 | Lead captured banner never shows | Claude not calling the tool | Review system prompt — ensure lead capture instruction is clear |
-| SMS not firing | Twilio vars not set, or wrong number format | Numbers must be E.164 format: `+12085551234` |
+| ntfy not firing | `NTFY_TOPIC` not set in Vercel, or not subscribed in app | Check env var, test at `ntfy.sh/<topic>` |
+| SMS not firing | `TEXTBELT_KEY` or `ALERT_PHONE_NUMBER` not set | Numbers must be E.164 format: `+12085551234`. Check quota at textbelt.com |
+| Email not firing | `RESEND_API_KEY` or `ALERT_EMAIL` not set | Check Resend dashboard for send logs |
 | Widget covers content on mobile | z-index or positioning conflict | Adjust `bottom` value in `ChatWidget.jsx` `S.toggleBtn` |

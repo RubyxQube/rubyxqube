@@ -1,17 +1,18 @@
 /**
  * api/calendly-webhook.js
- * Receives Calendly webhook events and texts Boyd when someone books.
+ * Receives Calendly webhook events and alerts Boyd when someone books or cancels.
  *
  * Setup in Calendly:
  *   Integrations → Webhooks → New Webhook
  *   URL: https://rubyxqube.com/api/calendly-webhook
  *   Events: invitee.created (booking) + invitee.canceled (cancellation)
  *
- * Env vars needed (already set in Vercel):
- *   TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_FROM_NUMBER, ALERT_PHONE_NUMBER
- *
- * Optional — set CALENDLY_WEBHOOK_SIGNING_KEY to verify requests are from Calendly:
- *   Found in Calendly → Integrations → Webhooks → your webhook → Signing Key
+ * Env vars:
+ *   NTFY_TOPIC                    push notification to Boyd's phone (free)
+ *   TEXTBELT_KEY                  SMS to Boyd's phone (~$0.01/text)
+ *   ALERT_PHONE_NUMBER            Boyd's cell, E.164: +1XXXXXXXXXX
+ *   RESEND_API_KEY + ALERT_EMAIL  email alert (free)
+ *   CALENDLY_WEBHOOK_SIGNING_KEY  optional — verify requests are from Calendly
  */
 
 import crypto from "crypto";
@@ -19,14 +20,13 @@ import crypto from "crypto";
 export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
-  // ── Optional signature verification ─────────────────────────────────────────
+  // ── Optional signature verification ──────────────────────────────────────
   const signingKey = process.env.CALENDLY_WEBHOOK_SIGNING_KEY;
   if (signingKey) {
     const signature = req.headers["calendly-webhook-signature"];
     if (!signature) return res.status(401).json({ error: "Missing signature" });
 
-    // Calendly sends: t=timestamp,v1=hmac
-    const parts = Object.fromEntries(signature.split(",").map(p => p.split("=")));
+    const parts     = Object.fromEntries(signature.split(",").map(p => p.split("=")));
     const timestamp = parts.t;
     const expected  = crypto
       .createHmac("sha256", signingKey)
@@ -38,34 +38,29 @@ export default async function handler(req, res) {
 
   const { event, payload } = req.body || {};
 
-  // ── Parse booking details ────────────────────────────────────────────────────
-  const name      = payload?.invitee?.name       || "Unknown";
-  const email     = payload?.invitee?.email      || "No email";
-  const phone     = payload?.invitee?.text_reminder_number || null;
-  const eventName = payload?.event_type?.name    || payload?.event?.name || "Audit Call";
-  const startTime = payload?.event?.start_time   || payload?.scheduled_event?.start_time;
+  // ── Parse booking details ─────────────────────────────────────────────────
+  const name      = payload?.invitee?.name                    || "Unknown";
+  const email     = payload?.invitee?.email                   || "No email";
+  const phone     = payload?.invitee?.text_reminder_number    || null;
+  const eventName = payload?.event_type?.name || payload?.event?.name || "Audit Call";
+  const startTime = payload?.event?.start_time || payload?.scheduled_event?.start_time;
 
-  // Format date/time if available
   let when = "time TBD";
   if (startTime) {
     try {
       when = new Date(startTime).toLocaleString("en-US", {
-        weekday: "short",
-        month:   "short",
-        day:     "numeric",
-        hour:    "numeric",
-        minute:  "2-digit",
-        timeZone: "America/Boise",
+        weekday: "short", month: "short", day: "numeric",
+        hour: "numeric", minute: "2-digit", timeZone: "America/Boise",
       });
     } catch {}
   }
 
-  // ── Build SMS body ───────────────────────────────────────────────────────────
-  let body;
+  // ── Build alert text ──────────────────────────────────────────────────────
+  let alertText;
 
   if (event === "invitee.created") {
-    body = [
-      `📅 New booking — ${eventName}`,
+    alertText = [
+      `New booking — ${eventName}`,
       ``,
       `Name:  ${name}`,
       `Email: ${email}`,
@@ -74,8 +69,8 @@ export default async function handler(req, res) {
     ].filter(Boolean).join("\n");
   } else if (event === "invitee.canceled") {
     const reason = payload?.cancellation?.reason || "No reason given";
-    body = [
-      `❌ Booking canceled — ${eventName}`,
+    alertText = [
+      `Booking canceled — ${eventName}`,
       ``,
       `Name:   ${name}`,
       `Email:  ${email}`,
@@ -83,32 +78,51 @@ export default async function handler(req, res) {
       `Reason: ${reason}`,
     ].join("\n");
   } else {
-    // Unknown event type — log and return OK
     console.log("Unhandled Calendly event:", event);
     return res.status(200).json({ ok: true });
   }
 
-  // ── Send SMS ─────────────────────────────────────────────────────────────────
-  const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_FROM_NUMBER, ALERT_PHONE_NUMBER } = process.env;
+  const isBooking  = event === "invitee.created";
+  const titleEmoji = isBooking ? "📅" : "❌";
 
-  if (TWILIO_ACCOUNT_SID && TWILIO_AUTH_TOKEN && TWILIO_FROM_NUMBER && ALERT_PHONE_NUMBER) {
-    const params = new URLSearchParams({
-      To:   ALERT_PHONE_NUMBER,
-      From: TWILIO_FROM_NUMBER,
-      Body: body,
-    });
+  // ── ntfy.sh push ──────────────────────────────────────────────────────────
+  const { NTFY_TOPIC } = process.env;
+  if (NTFY_TOPIC) {
+    await fetch(`https://ntfy.sh/${NTFY_TOPIC}`, {
+      method:  "POST",
+      headers: {
+        "Title":        `${titleEmoji} ${isBooking ? "New Booking" : "Canceled"} — ${eventName}`,
+        "Priority":     isBooking ? "high" : "default",
+        "Tags":         isBooking ? "calendar,bell" : "x,calendar",
+        "Content-Type": "text/plain",
+      },
+      body: alertText,
+    }).catch(err => console.error("ntfy error:", err.message));
+  }
 
-    await fetch(
-      `https://api.twilio.com/2010-04-01/Accounts/${TWILIO_ACCOUNT_SID}/Messages.json`,
-      {
-        method: "POST",
-        headers: {
-          Authorization: "Basic " + Buffer.from(`${TWILIO_ACCOUNT_SID}:${TWILIO_AUTH_TOKEN}`).toString("base64"),
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: params.toString(),
-      }
-    ).catch(err => console.error("Twilio error:", err.message));
+  // ── TextBelt SMS ──────────────────────────────────────────────────────────
+  const { TEXTBELT_KEY, ALERT_PHONE_NUMBER } = process.env;
+  if (TEXTBELT_KEY && ALERT_PHONE_NUMBER) {
+    await fetch("https://textbelt.com/text", {
+      method:  "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body:    new URLSearchParams({ phone: ALERT_PHONE_NUMBER, message: alertText, key: TEXTBELT_KEY }).toString(),
+    }).catch(err => console.error("TextBelt error:", err.message));
+  }
+
+  // ── Resend email ──────────────────────────────────────────────────────────
+  const { RESEND_API_KEY, ALERT_EMAIL, FROM_EMAIL } = process.env;
+  if (RESEND_API_KEY && ALERT_EMAIL) {
+    await fetch("https://api.resend.com/emails", {
+      method:  "POST",
+      headers: { "Authorization": `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        from:    FROM_EMAIL || "onboarding@resend.dev",
+        to:      [ALERT_EMAIL],
+        subject: `${isBooking ? "New booking" : "Canceled"} — ${name} (${eventName})`,
+        text:    alertText,
+      }),
+    }).catch(err => console.error("Resend error:", err.message));
   }
 
   return res.status(200).json({ ok: true });

@@ -7,10 +7,10 @@
  * Environment variables (set in Vercel dashboard):
  *   NOTION_TOKEN                  required
  *   NOTION_CONTRACTS_DATABASE_ID  required — separate from CRM database
- *   TWILIO_ACCOUNT_SID            optional — SMS alert on signing
- *   TWILIO_AUTH_TOKEN             optional
- *   TWILIO_FROM_NUMBER            optional
- *   ALERT_PHONE_NUMBER            optional
+ *   NTFY_TOPIC                    optional — push alert to Boyd on signing (free)
+ *   TEXTBELT_KEY                  optional — SMS alert to Boyd on signing (~$0.01)
+ *   ALERT_PHONE_NUMBER            optional — Boyd's cell, E.164: +1XXXXXXXXXX
+ *   RESEND_API_KEY + ALERT_EMAIL  optional — email alert on signing
  */
 
 const NOTION_VERSION = "2022-06-28";
@@ -23,8 +23,8 @@ async function findContractByToken(token) {
     {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
-        "Content-Type": "application/json",
+        Authorization:    `Bearer ${process.env.NOTION_TOKEN}`,
+        "Content-Type":   "application/json",
         "Notion-Version": NOTION_VERSION,
       },
       body: JSON.stringify({
@@ -45,78 +45,90 @@ function parseContract(page) {
   return {
     id:                 page.id,
     clientName:         extractText(p["Client Name"]),
-    clientEmail:        p["Client Email"]?.email || "",
-    clientPhone:        p["Phone"]?.phone_number || "",
-    package:            p["Package"]?.select?.name || "",
-    amount:             p["Amount"]?.number || 0,
+    clientEmail:        p["Client Email"]?.email        || "",
+    clientPhone:        p["Phone"]?.phone_number        || "",
+    package:            p["Package"]?.select?.name      || "",
+    amount:             p["Amount"]?.number             || 0,
     paymentTerms:       extractText(p["Payment Terms"]),
     projectDescription: extractText(p["Project Description"]),
-    status:             p["Status"]?.select?.name || "Pending",
+    status:             p["Status"]?.select?.name       || "Pending",
     signedName:         extractText(p["Signed Name"]),
     createdDate:        page.created_time?.split("T")[0] || "",
   };
 }
 
-async function markSigned(pageId, signedName, ip) {
+async function markSigned(pageId, signedName) {
   await fetch(`https://api.notion.com/v1/pages/${pageId}`, {
     method: "PATCH",
     headers: {
-      Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
-      "Content-Type": "application/json",
+      Authorization:    `Bearer ${process.env.NOTION_TOKEN}`,
+      "Content-Type":   "application/json",
       "Notion-Version": NOTION_VERSION,
     },
     body: JSON.stringify({
       properties: {
-        Status:       { select: { name: "Signed" } },
+        Status:        { select:    { name: "Signed" } },
         "Signed Name": { rich_text: [{ text: { content: signedName } }] },
-        "Signed At":  { date: { start: new Date().toISOString() } },
+        "Signed At":   { date:      { start: new Date().toISOString() } },
       },
     }),
   });
 }
 
-// ─── SMS alert ────────────────────────────────────────────────────────────────
+// ─── Alert helpers ────────────────────────────────────────────────────────────
 
-async function sendSmsAlert(contract, signedName) {
-  const {
-    TWILIO_ACCOUNT_SID,
-    TWILIO_AUTH_TOKEN,
-    TWILIO_FROM_NUMBER,
-    ALERT_PHONE_NUMBER,
-  } = process.env;
-  if (!TWILIO_ACCOUNT_SID || !TWILIO_AUTH_TOKEN || !TWILIO_FROM_NUMBER || !ALERT_PHONE_NUMBER) return;
-
-  const body =
-    `✍️ Contract signed!\n` +
-    `Client: ${signedName}\n` +
+async function sendSigningAlerts(contract, signedName) {
+  const alertText =
+    `Contract signed!\n` +
+    `Client:  ${signedName}\n` +
     `Package: ${contract.package} — $${contract.amount}\n` +
     `rubyxqube.com`;
 
-  const params = new URLSearchParams({
-    To: ALERT_PHONE_NUMBER,
-    From: TWILIO_FROM_NUMBER,
-    Body: body,
-  });
-
-  await fetch(
-    `https://api.twilio.com/2010-04-01/Accounts/${TWILIO_ACCOUNT_SID}/Messages.json`,
-    {
-      method: "POST",
+  // ntfy.sh push
+  const { NTFY_TOPIC } = process.env;
+  if (NTFY_TOPIC) {
+    await fetch(`https://ntfy.sh/${NTFY_TOPIC}`, {
+      method:  "POST",
       headers: {
-        Authorization:
-          "Basic " +
-          Buffer.from(`${TWILIO_ACCOUNT_SID}:${TWILIO_AUTH_TOKEN}`).toString("base64"),
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Title":        "Contract Signed!",
+        "Priority":     "urgent",
+        "Tags":         "writing,moneybag",
+        "Content-Type": "text/plain",
       },
-      body: params.toString(),
-    }
-  );
+      body: alertText,
+    }).catch(err => console.error("ntfy error:", err.message));
+  }
+
+  // TextBelt SMS
+  const { TEXTBELT_KEY, ALERT_PHONE_NUMBER } = process.env;
+  if (TEXTBELT_KEY && ALERT_PHONE_NUMBER) {
+    await fetch("https://textbelt.com/text", {
+      method:  "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body:    new URLSearchParams({ phone: ALERT_PHONE_NUMBER, message: alertText, key: TEXTBELT_KEY }).toString(),
+    }).catch(err => console.error("TextBelt error:", err.message));
+  }
+
+  // Resend email
+  const { RESEND_API_KEY, ALERT_EMAIL, FROM_EMAIL } = process.env;
+  if (RESEND_API_KEY && ALERT_EMAIL) {
+    await fetch("https://api.resend.com/emails", {
+      method:  "POST",
+      headers: { "Authorization": `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        from:    FROM_EMAIL || "onboarding@resend.dev",
+        to:      [ALERT_EMAIL],
+        subject: `Contract signed — ${signedName} (${contract.package})`,
+        text:    alertText,
+      }),
+    }).catch(err => console.error("Resend error:", err.message));
+  }
 }
 
 // ─── Handler ──────────────────────────────────────────────────────────────────
 
 export default async function handler(req, res) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin",  "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
@@ -135,14 +147,8 @@ export default async function handler(req, res) {
     if (!page) return res.status(404).json({ error: "Contract not found." });
 
     const contract = parseContract(page);
-
-    if (contract.status === "Signed") {
-      return res.status(200).json({ ...contract, alreadySigned: true });
-    }
-
-    if (contract.status === "Voided") {
-      return res.status(410).json({ error: "This contract has been voided. Contact boyd@rubyxqube.com." });
-    }
+    if (contract.status === "Signed")  return res.status(200).json({ ...contract, alreadySigned: true });
+    if (contract.status === "Voided")  return res.status(410).json({ error: "This contract has been voided. Contact boyd@rubyxqube.com." });
 
     return res.status(200).json(contract);
   }
@@ -158,16 +164,11 @@ export default async function handler(req, res) {
     if (!page) return res.status(404).json({ error: "Contract not found." });
 
     const contract = parseContract(page);
-    if (contract.status === "Signed") {
-      return res.status(409).json({ error: "Already signed.", alreadySigned: true });
-    }
-    if (contract.status === "Voided") {
-      return res.status(410).json({ error: "Contract has been voided." });
-    }
+    if (contract.status === "Signed") return res.status(409).json({ error: "Already signed.", alreadySigned: true });
+    if (contract.status === "Voided") return res.status(410).json({ error: "Contract has been voided." });
 
-    const ip = req.headers["x-forwarded-for"] || req.socket?.remoteAddress || "";
-    await markSigned(page.id, signedName.trim(), ip);
-    sendSmsAlert(contract, signedName.trim()).catch(() => {});
+    await markSigned(page.id, signedName.trim());
+    sendSigningAlerts(contract, signedName.trim()).catch(() => {});
 
     return res.status(200).json({ success: true, signedAt: new Date().toISOString() });
   }
