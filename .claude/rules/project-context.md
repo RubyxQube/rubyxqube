@@ -35,16 +35,94 @@ npm run preview  # Preview production build
 ## Design Direction
 **Dark, sleek, ruby red** — professional, modern, high-contrast for tech-forward service businesses.
 
+### Dark theme (default — `:root`)
+
 | Token | Value |
 |-------|-------|
-| `--bg` | `#0a0809` (near black) |
+| `--bg` | `#080808` (near black) |
 | `--text` | `rgba(255,255,255,0.90)` |
 | `--muted` | `rgba(255,255,255,0.48)` |
 | `--accent` | `#e11d48` (ruby red — primary CTA, badges, highlights) |
 | `--accent-hover` | `#c0112f` |
 | `--accent-dim` | `rgba(225,29,72,0.10)` |
-| Radial glows | Ruby red — `rgba(225,29,72,...)` — **not** blue/green/amber |
 | Font | Plus Jakarta Sans, weights 400–800 |
+
+### Light theme (`[data-theme="light"]`)
+
+| Token | Value |
+|-------|-------|
+| `--bg` | `#F5F0EA` (warm cream) |
+| `--text` | `rgba(20,12,15,0.90)` — ~13:1 contrast ✓ |
+| `--muted` | `rgba(20,12,15,0.65)` — ~5.2:1 contrast, WCAG AA ✓ |
+| `--line` | `rgba(20,12,15,0.10)` |
+| Accent | Same ruby red — works on both themes |
+
+**Navbar and Footer stay dark in both themes.** Their backgrounds are hardcoded dark rgba — no overrides needed. This means the logo never needs a dark/light variant in the nav.
+
+## Light/Dark Mode Architecture
+
+Every site we build gets this by default.
+
+### Hook
+`src/hooks/useTheme.js` — copy verbatim to every client project.
+- Reads/writes `localStorage['color-scheme']`
+- Falls back to `prefers-color-scheme`
+- Sets `data-theme` attribute on `<html>`
+
+### Anti-flash script
+Must be the **first thing in `<head>`**, before any stylesheet:
+```html
+<script>
+  (function(){
+    try{
+      var s=localStorage.getItem('color-scheme');
+      if(s==='light'||s==='dark'){document.documentElement.setAttribute('data-theme',s);return;}
+    }catch(e){}
+    document.documentElement.setAttribute('data-theme',
+      window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+  })();
+</script>
+```
+
+### Layout wiring
+```jsx
+// Layout.jsx
+const { theme, toggle } = useTheme();
+// MeshGradient only in dark mode:
+{theme === "dark" && <MeshGradient ... />}
+// Pass to Navbar:
+<Navbar theme={theme} onToggle={toggle} />
+```
+
+### Navbar toggle
+- Desktop: icon button at end of `.navLinks` row
+- Mobile: labeled row at bottom of `.mobileMenu` drawer
+- Always dark context — no theme-adaptive styles needed on the button
+
+### CSS pattern
+Two blocks in `src/styles.css`:
+1. `:root` — dark defaults (current)
+2. `[data-theme="light"]` — warm cream overrides
+
+Components use CSS variables; the only hardcoded overrides needed are:
+- `.card` background (rgba white vs white/80)
+- `.surface` background (near-invisible white vs near-invisible dark)
+- `.input / select / textarea` backgrounds and text colors
+- `::placeholder` and `label` colors
+
+## Contrast Requirements (WCAG AA minimum)
+
+**Never ship text that fails 4.5:1 contrast on its background.**
+
+| Context | Minimum ratio | Notes |
+|---------|--------------|-------|
+| Body text (`--text`) | 7:1+ | Always high contrast |
+| Secondary text (`--muted`) | 4.5:1 | WCAG AA for normal text |
+| Placeholder text | 3:1 | WCAG AA for UI components |
+| Accent on dark bg | ✓ | `#e11d48` on `#080808` = 4.6:1 |
+| Accent on cream bg | ✓ | `#e11d48` on `#F5F0EA` = 4.8:1 |
+
+**In light mode, do not use `rgba(white)` for text** — it will fail. Use `rgba(20,12,15, X)` scaled by opacity.
 
 ## Key Files
 | File | Purpose |

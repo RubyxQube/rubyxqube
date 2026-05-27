@@ -6,6 +6,7 @@ import Footer from "./Footer.jsx";
 import ChatWidget from "./ChatWidget.jsx";
 import { siteConfig } from "../siteConfig.js";
 import ScrollToTop from "./ScrollToTop.jsx";
+import { useTheme } from "../hooks/useTheme.js";
 
 const titles = (brand) => ({
   "/": brand,
@@ -23,6 +24,7 @@ const titles = (brand) => ({
 
 export default function Layout() {
   const { pathname } = useLocation();
+  const { theme, toggle } = useTheme();
 
   React.useEffect(() => {
     const map = titles(siteConfig.brand);
@@ -31,22 +33,24 @@ export default function Layout() {
 
   return (
     <div className="appShell">
-      {/* Animated full-site ambient background */}
-      <MeshGradient
-        colors={["#0a0809", "#110407", "#160308", "#0a0809"]}
-        speed={0.20}
-        backgroundColor="#0a0809"
-        style={{
-          position: "fixed",
-          inset: 0,
-          zIndex: -1,
-          width: "100%",
-          height: "100vh",
-          pointerEvents: "none",
-        }}
-      />
+      {/* Animated ambient background — dark mode only; light mode uses body background */}
+      {theme === "dark" && (
+        <MeshGradient
+          colors={["#0a0809", "#110407", "#160308", "#0a0809"]}
+          speed={0.20}
+          backgroundColor="#0a0809"
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: -1,
+            width: "100%",
+            height: "100vh",
+            pointerEvents: "none",
+          }}
+        />
+      )}
       <ScrollToTop />
-      <Navbar />
+      <Navbar theme={theme} onToggle={toggle} />
       <main className="mainGrow">
         <Outlet />
       </main>

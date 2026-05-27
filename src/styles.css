@@ -540,3 +540,118 @@ label{
     border-radius: 10px; font-size: 15px; justify-content: center;
   }
 }
+
+/* ─────────────────────────────────────────
+   THEME TOGGLE — lives in navbar (always dark context)
+───────────────────────────────────────── */
+.themeToggle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.55);
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 8px;
+  line-height: 1;
+  transition: background .15s, color .15s;
+  flex-shrink: 0;
+}
+.themeToggle:hover{
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.90);
+}
+
+/* Mobile drawer theme row */
+.mobileThemeToggle{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 16px;
+  background: none;
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.55);
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: color .12s;
+  text-align: left;
+}
+.mobileThemeToggle:hover{
+  color: rgba(255,255,255,0.90);
+  text-decoration: none;
+}
+
+/* ─────────────────────────────────────────
+   LIGHT THEME — data-theme="light" on <html>
+   Navbar + Footer are hardcoded dark — they stay dark.
+   Only page content / body area responds to this block.
+───────────────────────────────────────── */
+[data-theme="light"]{
+  --bg: #F5F0EA;
+  --text: rgba(20,12,15,0.90);   /* ~13:1 on cream — clear */
+  --muted: rgba(20,12,15,0.65);  /* ~5.2:1 on cream — WCAG AA */
+  --line: rgba(20,12,15,0.10);
+  --accent-dim: rgba(225,29,72,0.08);
+  --accent-border: rgba(225,29,72,0.28);
+}
+
+[data-theme="light"] body{
+  background: #F5F0EA;
+}
+
+[data-theme="light"] a:hover{
+  text-decoration-color: rgba(20,12,15,0.25);
+}
+
+[data-theme="light"] .surface{
+  background: rgba(20,12,15,0.04);
+  border-top-color: rgba(20,12,15,0.08);
+}
+
+[data-theme="light"] .card{
+  background: rgba(255,255,255,0.82);
+  border-color: rgba(20,12,15,0.09);
+  border-top-color: rgba(20,12,15,0.14);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+}
+[data-theme="light"] .card:hover{
+  background: #fff;
+  border-top-color: var(--accent-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+}
+
+[data-theme="light"] .cardHighlight{
+  background: rgba(225,29,72,0.06) !important;
+  box-shadow: 0 0 0 1px var(--accent-dim), 0 8px 32px rgba(0,0,0,0.08);
+}
+[data-theme="light"] .cardHighlight:hover{
+  background: rgba(225,29,72,0.10) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+}
+
+[data-theme="light"] .input,
+[data-theme="light"] .textarea,
+[data-theme="light"] select{
+  background: rgba(255,255,255,0.90);
+  border-color: rgba(20,12,15,0.14);
+  color: rgba(20,12,15,0.88);
+}
+[data-theme="light"] select{
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(20,12,15,0.45) 50%),
+    linear-gradient(135deg, rgba(20,12,15,0.45) 50%, transparent 50%);
+  background-color: rgba(255,255,255,0.90);
+}
+[data-theme="light"] select option{ background: #fff; color: rgba(20,12,15,0.88); }
+[data-theme="light"] .input:focus,
+[data-theme="light"] .textarea:focus,
+[data-theme="light"] select:focus{ background: #fff; }
+[data-theme="light"] ::placeholder{ color: rgba(20,12,15,0.30); }
+[data-theme="light"] label{ color: rgba(20,12,15,0.50); }

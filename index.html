@@ -1,6 +1,17 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Anti-flash: set data-theme before React loads to prevent FOUC -->
+    <script>
+      (function(){
+        try{
+          var s=localStorage.getItem('color-scheme');
+          if(s==='light'||s==='dark'){document.documentElement.setAttribute('data-theme',s);return;}
+        }catch(e){}
+        document.documentElement.setAttribute('data-theme',
+          window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta

@@ -44,6 +44,20 @@ Everything in the approved spec:
 - Use existing CSS variables: `--accent`, `--bg`, `--text`, `--muted`, `--accent-dim`
 - Use existing semantic classes: `.card`, `.surface`, `.btn`, `.grid`, `.badge`, `.section`
 - Never hardcode hex values that are already CSS variables
+- Never hardcode `rgba(255,255,255,...)` for text — that fails in light mode. Use `var(--text)` or `var(--muted)`
+
+**Light/dark mode is standard — every new site gets it:**
+- Copy `src/hooks/useTheme.js` verbatim to every client project
+- Add anti-flash script as the first element in `<head>` (see project-context.md)
+- Wire `useTheme` in Layout.jsx; pass `theme` + `onToggle` to Navbar
+- Navbar and Footer always dark — no theme variants needed for the logo
+- Add `[data-theme="light"]` CSS block for: body bg, `.surface`, `.card`, `.input/textarea/select`, `::placeholder`, `label`
+
+**Contrast is non-negotiable:**
+- `--text` must be ≥7:1 on background
+- `--muted` must be ≥4.5:1 on background (WCAG AA)
+- In light mode: use `rgba(20,12,15, X)` for dark text, never rgba(white)
+- In dark mode: use `rgba(255,255,255, X)` for light text, never rgba(black)
 
 **Mobile-first is non-negotiable:**
 - Every component must work on 390px screens
