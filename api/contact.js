@@ -1,11 +1,19 @@
 /**
  * api/contact.js
- * Handles contact/audit request form submissions.
- * - Sends Boyd an SMS via Twilio with the lead's details
- * - Returns 200 so the frontend can show a success message
+ * Handles contact/audit request form submissions from rubyxqube.com.
+ * Fires three optional alert channels — all degrade gracefully if env vars not set.
  *
- * Env vars (already in Vercel):
- *   TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_FROM_NUMBER, ALERT_PHONE_NUMBER
+ * ── ntfy.sh push (Boyd's phone — free) ────────────────────────────────────────
+ *   NTFY_TOPIC               subscribe at https://ntfy.sh/<NTFY_TOPIC>
+ *
+ * ── TextBelt SMS (~$0.01/text, no A2P required) ───────────────────────────────
+ *   TEXTBELT_KEY             buy credits at textbelt.com
+ *   ALERT_PHONE_NUMBER       E.164 format: +1XXXXXXXXXX
+ *
+ * ── Resend email (free tier) ──────────────────────────────────────────────────
+ *   RESEND_API_KEY           resend.com
+ *   ALERT_EMAIL              Boyd's notification email
+ *   FROM_EMAIL               verified sender (omit → onboarding@resend.dev)
  */
 
 export default async function handler(req, res) {
@@ -15,39 +23,73 @@ export default async function handler(req, res) {
 
   if (!name || !city) return res.status(400).json({ error: "name and city required" });
 
-  const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_FROM_NUMBER, ALERT_PHONE_NUMBER } = process.env;
+  const timestamp = new Date().toLocaleString("en-US", {
+    timeZone: "America/Boise",
+    dateStyle: "medium",
+    timeStyle: "short",
+  });
 
-  if (TWILIO_ACCOUNT_SID && TWILIO_AUTH_TOKEN && TWILIO_FROM_NUMBER && ALERT_PHONE_NUMBER) {
-    const body = [
-      `🔔 New audit request — rubyxqube.com`,
-      ``,
-      `Name:     ${name}`,
-      business ? `Business: ${business}` : null,
-      `City:     ${city}`,
-      `Package:  ${pkg || "Not specified"}`,
-      `Timeline: ${timeline || "Not specified"}`,
-      `Contact:  ${contact_method} — ${contact_value}`,
-      website   ? `Website:  ${website}` : null,
-      notes && notes !== "(none)" ? `Notes:    ${notes}` : null,
-    ].filter(Boolean).join("\n");
+  const alertText = [
+    `New audit request — rubyxqube.com`,
+    ``,
+    `Name:     ${name}`,
+    business  ? `Business: ${business}` : null,
+    `City:     ${city}`,
+    `Package:  ${pkg || "Not specified"}`,
+    `Timeline: ${timeline || "Not specified"}`,
+    `Contact:  ${contact_method} — ${contact_value}`,
+    website   ? `Website:  ${website}` : null,
+    notes && notes !== "(none)" ? `Notes: ${notes}` : null,
+    ``,
+    `Received: ${timestamp} MT`,
+  ].filter(Boolean).join("\n");
 
+  // ── ntfy.sh push ──────────────────────────────────────────────────────────
+  const { NTFY_TOPIC } = process.env;
+  if (NTFY_TOPIC) {
+    await fetch(`https://ntfy.sh/${NTFY_TOPIC}`, {
+      method:  "POST",
+      headers: {
+        "Title":        "New Audit Request — RubyxQube",
+        "Priority":     "high",
+        "Tags":         "bell,moneybag",
+        "Content-Type": "text/plain",
+      },
+      body: alertText,
+    }).catch(err => console.error("ntfy error:", err.message));
+  }
+
+  // ── TextBelt SMS ──────────────────────────────────────────────────────────
+  const { TEXTBELT_KEY, ALERT_PHONE_NUMBER } = process.env;
+  if (TEXTBELT_KEY && ALERT_PHONE_NUMBER) {
     const params = new URLSearchParams({
-      To:   ALERT_PHONE_NUMBER,
-      From: TWILIO_FROM_NUMBER,
-      Body: body,
+      phone:   ALERT_PHONE_NUMBER,
+      message: alertText,
+      key:     TEXTBELT_KEY,
     });
+    await fetch("https://textbelt.com/text", {
+      method:  "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body:    params.toString(),
+    }).catch(err => console.error("TextBelt error:", err.message));
+  }
 
-    await fetch(
-      `https://api.twilio.com/2010-04-01/Accounts/${TWILIO_ACCOUNT_SID}/Messages.json`,
-      {
-        method: "POST",
-        headers: {
-          Authorization: "Basic " + Buffer.from(`${TWILIO_ACCOUNT_SID}:${TWILIO_AUTH_TOKEN}`).toString("base64"),
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: params.toString(),
-      }
-    ).catch(err => console.error("Twilio error:", err.message));
+  // ── Resend email ──────────────────────────────────────────────────────────
+  const { RESEND_API_KEY, ALERT_EMAIL, FROM_EMAIL } = process.env;
+  if (RESEND_API_KEY && ALERT_EMAIL) {
+    await fetch("https://api.resend.com/emails", {
+      method:  "POST",
+      headers: {
+        "Authorization": `Bearer ${RESEND_API_KEY}`,
+        "Content-Type":  "application/json",
+      },
+      body: JSON.stringify({
+        from:    FROM_EMAIL || "onboarding@resend.dev",
+        to:      [ALERT_EMAIL],
+        subject: `New audit request — ${name}`,
+        text:    alertText,
+      }),
+    }).catch(err => console.error("Resend error:", err.message));
   }
 
   return res.status(200).json({ ok: true });

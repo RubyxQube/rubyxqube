@@ -3,24 +3,38 @@
  *
  * Proxies chat messages to the Anthropic API.
  * Keeps the API key server-side. Handles lead capture via Claude tool use.
- * Optionally fires an SMS via Twilio when a lead is captured.
+ * Fires three optional alert channels on lead capture — all degrade gracefully
+ * if their env vars are not set.
  *
- * Environment variables (set in Vercel dashboard):
- *   ANTHROPIC_API_KEY        required
- *   CLAUDE_MODEL             optional — defaults to claude-haiku-4-5-20251001
- *   TWILIO_ACCOUNT_SID       optional — enables SMS alerts
- *   TWILIO_AUTH_TOKEN        optional
- *   TWILIO_FROM_NUMBER       optional — your Twilio number, e.g. +12085551234
- *   ALERT_PHONE_NUMBER       optional — your cell number to receive SMS alerts
- *   NOTION_TOKEN             optional — enables auto CRM card on lead capture
- *   NOTION_DATABASE_ID       optional — Client Pipeline database ID
+ * ── Required ─────────────────────────────────────────────────────────────────
+ *   ANTHROPIC_API_KEY        Anthropic console — one per Vercel project
+ *
+ * ── Optional: model override ─────────────────────────────────────────────────
+ *   CLAUDE_MODEL             defaults to claude-haiku-4-5-20251001
+ *
+ * ── Optional: ntfy.sh push (Boyd's phone — free) ─────────────────────────────
+ *   NTFY_TOPIC               random string, e.g. "rxq-alerts-a7x9k3"
+ *                            Subscribe at https://ntfy.sh/<NTFY_TOPIC>
+ *
+ * ── Optional: TextBelt SMS (client's phone — ~$0.01/text) ────────────────────
+ *   TEXTBELT_KEY             buy credits at textbelt.com (no subscription)
+ *   ALERT_PHONE_NUMBER       client's cell, E.164 format: +1XXXXXXXXXX
+ *
+ * ── Optional: Resend email (free tier) ────────────────────────────────────────
+ *   RESEND_API_KEY           resend.com dashboard
+ *   ALERT_EMAIL              where to send lead emails
+ *   FROM_EMAIL               verified sender — omit to use onboarding@resend.dev
+ *
+ * ── Optional: Notion CRM ─────────────────────────────────────────────────────
+ *   NOTION_TOKEN             Notion integration token
+ *   NOTION_DATABASE_ID       Client Pipeline database ID
  */
 
 import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
-// ─── Default system prompt (Qube Solutions) ────────────────────────────────
+// ─── Default system prompt ────────────────────────────────────────────────────
 // Override per client by passing systemPrompt in the request body,
 // or by setting a SYSTEM_PROMPT environment variable.
 const DEFAULT_SYSTEM_PROMPT = `You are the AI receptionist for RubyxQube, a web design and AI agency based in Boise, Idaho.
@@ -40,7 +54,7 @@ Common questions:
 Q: How long does it take? → 2–3 weeks from kickoff call to live site.
 Q: Is there a contract? → No contracts. Month-to-month, cancel anytime with 30 days notice.
 Q: Do you do e-commerce? → No — we focus on lead generation sites for service businesses.
-Q: What does the AI receptionist do? → It's a chatbot (like me!) trained on your specific business. It answers questions, captures leads 24/7, and sends you an instant SMS when someone's interested.
+Q: What does the AI receptionist do? → It's a chatbot (like me!) trained on your specific business. It answers questions, captures leads 24/7, and alerts the business owner the moment someone's interested.
 Q: What AI powers it? → Claude, made by Anthropic — the same AI behind Claude.ai.
 Q: Can you add it to my existing site? → Yes — $500 setup + $199/mo.
 Q: Do you serve areas outside Treasure Valley? → Yes, we work remotely with businesses anywhere.
@@ -59,47 +73,88 @@ FORMATTING RULES — this is a chat widget:
 
 IMPORTANT — Lead capture: Once you have collected (1) the visitor's name, (2) their phone number or email, AND (3) what they're looking for, call the capture_lead tool. Do NOT ask for all three at once — collect naturally through conversation. Do NOT capture a lead without all three pieces.`;
 
-// ─── Lead capture tool ─────────────────────────────────────────────────────
+// ─── Lead capture tool ────────────────────────────────────────────────────────
 const LEAD_TOOL = {
   name: "capture_lead",
   description:
-    "Call this tool once and only once — when you have collected the visitor's name, their contact info (phone or email), AND what service or help they need. This records the lead and sends an SMS alert to the business owner.",
+    "Call this tool once and only once — when you have collected the visitor's name, their contact info (phone or email), AND what service or help they need. This records the lead and alerts the business owner.",
   input_schema: {
     type: "object",
     properties: {
-      name: { type: "string", description: "Visitor's full name" },
-      contact: { type: "string", description: "Phone number or email address" },
-      service_needed: {
-        type: "string",
-        description: "What service or help they are looking for",
-      },
-      notes: {
-        type: "string",
-        description:
-          "Any other relevant context from the conversation (business type, city, timeline, etc.)",
-      },
+      name:            { type: "string", description: "Visitor's full name" },
+      contact:         { type: "string", description: "Phone number or email address" },
+      service_needed:  { type: "string", description: "What service or help they are looking for" },
+      notes:           { type: "string", description: "Any other relevant context from the conversation (business type, city, timeline, etc.)" },
     },
     required: ["name", "contact", "service_needed"],
   },
 };
 
-// ─── Optional email via Resend ─────────────────────────────────────────────
-async function sendEmailAlert(lead, businessName) {
-  if (!process.env.RESEND_API_KEY || !process.env.ALERT_EMAIL) {
-    console.log("Email skipped — RESEND_API_KEY or ALERT_EMAIL not set.");
-    return;
-  }
+// ─── ntfy.sh push — Boyd's phone (free) ──────────────────────────────────────
+async function sendNtfyAlert(lead, businessName) {
+  if (!process.env.NTFY_TOPIC) return;
   try {
-    const res = await fetch("https://api.resend.com/emails", {
+    await fetch(`https://ntfy.sh/${process.env.NTFY_TOPIC}`, {
       method: "POST",
       headers: {
+        "Title":        `New Lead — ${businessName || "RubyxQube"}`,
+        "Priority":     "high",
+        "Tags":         "bell,moneybag",
+        "Content-Type": "text/plain",
+      },
+      body:
+        `Name: ${lead.name}\n` +
+        `Contact: ${lead.contact}\n` +
+        `Needs: ${lead.service_needed}` +
+        (lead.notes ? `\nNotes: ${lead.notes}` : ""),
+    });
+    console.log("ntfy sent for lead:", lead.name);
+  } catch (err) {
+    console.error("ntfy error:", err.message);
+  }
+}
+
+// ─── TextBelt SMS — client's phone (~$0.01/text, no A2P required) ─────────────
+async function sendSMSAlert(lead, businessName) {
+  if (!process.env.TEXTBELT_KEY || !process.env.ALERT_PHONE_NUMBER) return;
+  try {
+    const params = new URLSearchParams({
+      phone:   process.env.ALERT_PHONE_NUMBER,
+      message:
+        `New lead — ${businessName || "RubyxQube"}\n` +
+        `Name: ${lead.name}\n` +
+        `Contact: ${lead.contact}\n` +
+        `Needs: ${lead.service_needed}` +
+        (lead.notes ? `\nNotes: ${lead.notes}` : ""),
+      key: process.env.TEXTBELT_KEY,
+    });
+    const res  = await fetch("https://textbelt.com/text", {
+      method:  "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body:    params.toString(),
+    });
+    const data = await res.json();
+    if (!data.success) throw new Error(data.error || "TextBelt failed");
+    console.log("SMS sent for lead:", lead.name, "| quota remaining:", data.quotaRemaining);
+  } catch (err) {
+    console.error("TextBelt error:", err.message);
+  }
+}
+
+// ─── Resend email (free tier) ─────────────────────────────────────────────────
+async function sendEmailAlert(lead, businessName) {
+  if (!process.env.RESEND_API_KEY || !process.env.ALERT_EMAIL) return;
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method:  "POST",
+      headers: {
         "Authorization": `Bearer ${process.env.RESEND_API_KEY}`,
-        "Content-Type": "application/json",
+        "Content-Type":  "application/json",
       },
       body: JSON.stringify({
-        from: "onboarding@resend.dev",
-        to: process.env.ALERT_EMAIL,
-        subject: `🔔 New lead — ${businessName || "RubyxQube"}`,
+        from:    process.env.FROM_EMAIL || "onboarding@resend.dev",
+        to:      process.env.ALERT_EMAIL,
+        subject: `New lead — ${businessName || "RubyxQube"}`,
         text:
           `New lead captured via AI chatbot\n\n` +
           `Name: ${lead.name}\n` +
@@ -116,61 +171,29 @@ async function sendEmailAlert(lead, businessName) {
   }
 }
 
-// ─── Optional SMS via Twilio ────────────────────────────────────────────────
-async function sendSMSAlert(lead, businessName) {
-  if (!process.env.TWILIO_ACCOUNT_SID || !process.env.ALERT_PHONE_NUMBER) {
-    console.log("SMS skipped — Twilio env vars not set. Lead:", lead);
-    return;
-  }
-  try {
-    const twilio = (await import("twilio")).default;
-    const tw = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
-    await tw.messages.create({
-      body:
-        `🔔 New lead — ${businessName || "RubyxQube"}\n` +
-        `Name: ${lead.name}\n` +
-        `Contact: ${lead.contact}\n` +
-        `Needs: ${lead.service_needed}` +
-        (lead.notes ? `\nNotes: ${lead.notes}` : ""),
-      from: process.env.TWILIO_FROM_NUMBER,
-      to: process.env.ALERT_PHONE_NUMBER,
-    });
-    console.log("SMS sent for lead:", lead.name);
-  } catch (err) {
-    console.error("Twilio error:", err.message);
-  }
-}
-
-// ─── Optional Notion CRM card ──────────────────────────────────────────────
+// ─── Notion CRM card (optional) ───────────────────────────────────────────────
 async function createNotionLead(lead, businessName) {
-  if (!process.env.NOTION_TOKEN || !process.env.NOTION_DATABASE_ID) {
-    console.log("Notion skipped — NOTION_TOKEN or NOTION_DATABASE_ID not set.");
-    return;
-  }
+  if (!process.env.NOTION_TOKEN || !process.env.NOTION_DATABASE_ID) return;
   try {
-    const isEmail = lead.contact.includes("@");
+    const isEmail   = lead.contact.includes("@");
     const notesText =
       `Needs: ${lead.service_needed}` +
       (lead.notes ? `\n${lead.notes}` : "") +
       `\nSource: ${businessName || "RubyxQube"} chatbot`;
 
     const properties = {
-      Name:   { title:     [{ text: { content: `Lead — ${lead.name}` } }] },
-      Status: { status:    { name: "🔍 Prospect" } },
-      Owner:  { rich_text: [{ text: { content: lead.name } }] },
-      Source: { select:    { name: "Inbound" } },
-      Notes:  { rich_text: [{ text: { content: notesText } }] },
+      Name:          { title:     [{ text: { content: `Lead — ${lead.name}` } }] },
+      Status:        { status:    { name: "🔍 Prospect" } },
+      Owner:         { rich_text: [{ text: { content: lead.name } }] },
+      Source:        { select:    { name: "Inbound" } },
+      Notes:         { rich_text: [{ text: { content: notesText } }] },
       "Next Action": { rich_text: [{ text: { content: "Follow up call" } }] },
     };
-
-    if (isEmail) {
-      properties["Email"] = { email: lead.contact };
-    } else {
-      properties["Phone"] = { phone_number: lead.contact };
-    }
+    if (isEmail) properties["Email"] = { email: lead.contact };
+    else         properties["Phone"] = { phone_number: lead.contact };
 
     const res = await fetch("https://api.notion.com/v1/pages", {
-      method: "POST",
+      method:  "POST",
       headers: {
         Authorization:    `Bearer ${process.env.NOTION_TOKEN}`,
         "Content-Type":   "application/json",
@@ -181,23 +204,22 @@ async function createNotionLead(lead, businessName) {
         properties,
       }),
     });
-
     const data = await res.json();
     if (!res.ok) throw new Error(JSON.stringify(data));
-    console.log("✓ Notion lead card created:", lead.name);
+    console.log("Notion lead card created:", lead.name);
   } catch (err) {
     console.error("Notion error:", err.message);
   }
 }
 
-// ─── Handler ───────────────────────────────────────────────────────────────
+// ─── Handler ──────────────────────────────────────────────────────────────────
 export default async function handler(req, res) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin",  "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
   if (req.method === "OPTIONS") return res.status(200).end();
-  if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
+  if (req.method !== "POST")    return res.status(405).json({ error: "Method not allowed" });
 
   if (!process.env.ANTHROPIC_API_KEY) {
     return res.status(500).json({
@@ -207,52 +229,44 @@ export default async function handler(req, res) {
 
   const { messages, systemPrompt, model, businessName } = req.body;
 
-  const resolvedModel =
-    model ||
-    process.env.CLAUDE_MODEL ||
-    "claude-haiku-4-5-20251001";
-
-  const resolvedSystem =
-    systemPrompt ||
-    process.env.SYSTEM_PROMPT ||
-    DEFAULT_SYSTEM_PROMPT;
+  const resolvedModel  = model || process.env.CLAUDE_MODEL || "claude-haiku-4-5-20251001";
+  const resolvedSystem = systemPrompt || process.env.SYSTEM_PROMPT || DEFAULT_SYSTEM_PROMPT;
 
   try {
-    // ── First call ──────────────────────────────────────────────────────
+    // ── First Claude call ───────────────────────────────────────────────────
     const response1 = await client.messages.create({
-      model: resolvedModel,
+      model:      resolvedModel,
       max_tokens: 512,
-      system: resolvedSystem,
-      tools: [LEAD_TOOL],
+      system:     resolvedSystem,
+      tools:      [LEAD_TOOL],
       messages,
     });
 
-    // ── Tool use: lead captured ─────────────────────────────────────────
+    // ── Tool use: lead captured ─────────────────────────────────────────────
     if (response1.stop_reason === "tool_use") {
       const toolUse = response1.content.find((b) => b.type === "tool_use");
 
-      // Fire SMS + email + Notion without blocking the response
+      // Fire all alert channels without blocking the response
+      sendNtfyAlert(toolUse.input, businessName).catch(() => {});
       sendSMSAlert(toolUse.input, businessName).catch(() => {});
       sendEmailAlert(toolUse.input, businessName).catch(() => {});
       createNotionLead(toolUse.input, businessName).catch(() => {});
 
-      // Second call: give Claude the tool result so it can respond naturally
+      // Second call so Claude can respond naturally after tool result
       const response2 = await client.messages.create({
-        model: resolvedModel,
+        model:      resolvedModel,
         max_tokens: 256,
-        system: resolvedSystem,
+        system:     resolvedSystem,
         messages: [
           ...messages,
           { role: "assistant", content: response1.content },
           {
             role: "user",
-            content: [
-              {
-                type: "tool_result",
-                tool_use_id: toolUse.id,
-                content: "Lead captured. SMS alert sent to business owner.",
-              },
-            ],
+            content: [{
+              type:        "tool_result",
+              tool_use_id: toolUse.id,
+              content:     "Lead captured. Business owner has been alerted.",
+            }],
           },
         ],
       });
@@ -264,15 +278,15 @@ export default async function handler(req, res) {
       return res.json({ content: text, leadCaptured: toolUse.input });
     }
 
-    // ── Normal text response ────────────────────────────────────────────
+    // ── Normal text response ────────────────────────────────────────────────
     const text = response1.content.find((b) => b.type === "text")?.text || "";
     return res.json({ content: text });
+
   } catch (err) {
     console.error("Anthropic API error:", err);
     return res.status(500).json({
-      error: "AI service error",
-      content:
-        "Sorry, I'm having trouble right now. Please call or email Boyd directly.",
+      error:   "AI service error",
+      content: "Sorry, I'm having trouble right now. Please call or email Boyd directly.",
     });
   }
 }
