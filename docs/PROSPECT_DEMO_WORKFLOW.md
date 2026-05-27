@@ -87,6 +87,15 @@ Feed it the prospect-researcher's output. The builder:
    - **Chatbot** (optional but recommended) — pre-configured greeting, basic FAQ answers
 3. Deploys to Vercel
 
+**One page. One strong impression.**
+Not 3 mediocre pages — one polished landing page that hits every selling point:
+- Hero with their headline + primary CTA
+- Services section (what they do, clearly explained)
+- Trust signals (years in business, reviews, license if found)
+- Testimonials (real review quotes from the researcher profile)
+- Contact / CTA (phone prominent, simple form)
+- Chatbot widget (bottom-right, pre-configured for their business)
+
 **What to include:**
 - Their actual business name, phone, location
 - Services sourced from the researcher profile
@@ -201,6 +210,27 @@ When a prospect converts to a paying client:
 
 ## Demo Hosting
 
-- **During sales:** Vercel preview URL (e.g., `phoenix-stoneworks-demo-xyz.vercel.app`)
-- **After signing:** Move to their custom domain on their own Vercel project
-- **If they don't convert:** Archive or delete the preview. No ongoing cost.
+- **Demo files:** `prospects/[slug]/demo/` in the rubyxqube repo
+- **Deploy:** `vercel deploy --cwd prospects/[slug]/demo/` → free preview URL, no custom domain needed
+- **After signing:** Move to their own GitHub repo + Vercel project with custom domain
+- **If they don't convert:** Archive the folder. Vercel preview expires automatically. No ongoing cost.
+
+---
+
+## Notion Pipeline Setup (one-time)
+
+The prospect-researcher saves automatically to Notion once this is configured.
+
+**To set up:**
+1. In Notion, create a page called **"Sales Pipeline"** in the sidebar
+2. Copy the page ID from the URL (last 32 chars after the last `-`)
+3. Run:
+   ```bash
+   node --env-file=.env.local scripts/create-prospects-db.js PAGE_ID_HERE
+   ```
+4. Add the returned database ID to `.env.local`:
+   ```
+   NOTION_PROSPECTS_DATABASE_ID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   ```
+
+After that, every `prospect-researcher` run saves the profile to Notion automatically.
