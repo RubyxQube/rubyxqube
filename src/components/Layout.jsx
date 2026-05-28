@@ -33,22 +33,24 @@ export default function Layout() {
 
   return (
     <div className="appShell">
-      {/* Animated ambient background — dark mode only; light mode uses body background */}
-      {theme === "dark" && (
-        <MeshGradient
-          colors={["#0a0809", "#110407", "#160308", "#0a0809"]}
-          speed={0.20}
-          backgroundColor="#0a0809"
-          style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: -1,
-            width: "100%",
-            height: "100vh",
-            pointerEvents: "none",
-          }}
-        />
-      )}
+      {/* Animated ambient background — adapts colors per theme */}
+      <MeshGradient
+        colors={
+          theme === "dark"
+            ? ["#0a0809", "#110407", "#160308", "#0a0809"]
+            : ["#F5F0EA", "#EDE5D8", "#F0E8DC", "#F5F0EA"]
+        }
+        speed={0.20}
+        backgroundColor={theme === "dark" ? "#0a0809" : "#F5F0EA"}
+        style={{
+          position: "fixed",
+          inset: 0,
+          zIndex: -1,
+          width: "100%",
+          height: "100vh",
+          pointerEvents: "none",
+        }}
+      />
       <ScrollToTop />
       <Navbar theme={theme} onToggle={toggle} />
       <main className="mainGrow">
