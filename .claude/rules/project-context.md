@@ -57,6 +57,8 @@ npm run preview  # Preview production build
 | `--line` | `rgba(20,12,15,0.10)` |
 | Accent | Same ruby red — works on both themes |
 
+**Default theme is light.** Users who prefer dark can toggle; their choice persists in localStorage.
+
 **Navbar and Footer stay dark in both themes.** Their backgrounds are hardcoded dark rgba — no overrides needed. This means the logo never needs a dark/light variant in the nav.
 
 ## Light/Dark Mode Architecture

@@ -12,7 +12,7 @@ function getInitialTheme() {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored === 'light' || stored === 'dark') return stored;
   } catch {}
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return 'light'; // default — override with OS preference if desired
 }
 
 export function useTheme() {

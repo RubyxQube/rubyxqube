@@ -8,8 +8,7 @@
           var s=localStorage.getItem('color-scheme');
           if(s==='light'||s==='dark'){document.documentElement.setAttribute('data-theme',s);return;}
         }catch(e){}
-        document.documentElement.setAttribute('data-theme',
-          window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+        document.documentElement.setAttribute('data-theme','light');
       })();
     </script>
     <meta charset="UTF-8" />

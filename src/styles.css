@@ -656,6 +656,9 @@ label{
 [data-theme="light"] ::placeholder{ color: rgba(20,12,15,0.30); }
 [data-theme="light"] label{ color: rgba(20,12,15,0.50); }
 
+/* Badges — #fda4af is invisible on light pink bg; use darker ruby (~5:1 contrast) */
+[data-theme="light"] .badge{ color: #9f1239; }
+
 /* Ghost/outline buttons — white glass → dark glass (primary keeps ruby red in both modes) */
 [data-theme="light"] .btn:not(.primary){
   color: var(--text);
