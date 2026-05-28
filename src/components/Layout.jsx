@@ -38,7 +38,7 @@ export default function Layout() {
         colors={
           theme === "dark"
             ? ["#0a0809", "#110407", "#160308", "#0a0809"]
-            : ["#F5F0EA", "#EDE5D8", "#F0E8DC", "#F5F0EA"]
+            : ["#F5F0EA", "#F0DDE4", "#EAD9CC", "#F5EDE8"]
         }
         speed={0.20}
         backgroundColor={theme === "dark" ? "#0a0809" : "#F5F0EA"}
