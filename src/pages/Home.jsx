@@ -60,7 +60,7 @@ export default function Home() {
           <span className="badge">AI-Powered Web Design · {siteConfig.serviceArea}</span>
           <h1 className="h1 heroTitle">
             Stop losing leads<br />
-            <span className="accentText">while you're on the job.</span>
+            <span className="accentText">while you're with a client.</span>
           </h1>
           <p className="p" style={{ fontSize: 17, maxWidth: 540, marginBottom: 32 }}>
             {siteConfig.brand} builds professional websites with a built-in AI receptionist that captures leads 24/7, answers customer questions, and sends you instant alerts — so you never miss a job opportunity.
