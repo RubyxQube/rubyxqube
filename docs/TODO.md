@@ -9,8 +9,8 @@
 
 These are the last things standing between you and taking real client money.
 
-- [ ] **Get EIN** — IRS.gov, free, 5 minutes online. Required for business bank account.
-- [ ] **Open business bank account** — bring LLC docs + EIN. Separate from personal from day one.
+- [x] **Get EIN** — received ✅
+- [ ] **Open business bank account (ICCU)** — blocked on SOSbiz certificate (Idaho SOS, pending). Bring LLC docs + EIN + SOSbiz cert when it arrives.
 - [ ] **Set up Wave** — wave.com, free. Connect bank account. Create invoice template (Launch $2,500 / Autopilot $399/mo / Momentum $699/mo).
 - [ ] **Get boyd@rubyxqube.com** — Google Workspace $6/mo. Use this for ALL client communication from now on.
 - [ ] **Download service agreement template** — bonsai.io/templates (free, no account needed). Customize for RubyxQube. This is your contract until the signing page is built.
@@ -107,7 +107,7 @@ These are the last things standing between you and taking real client money.
 
 ### Brand & Legal
 - [x] RubyxQube LLC registered — Idaho SOS ✅
-- [x] USPTO trademark application filed — RubyxQube™ ($350) ✅
+- [x] USPTO trademark application filed and paid — RubyxQube™, awaiting full confirmation ✅
 - [x] Twilio A2P 10DLC registered — SMS alerts fully operational ✅
 - [x] Full site overhaul — new layout, content, structure ✅
 - [x] Logo redesign — ruby cube with faint X across side faces (0.07 opacity) ✅
