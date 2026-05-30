@@ -31,8 +31,9 @@ These are the last things standing between you and taking real client money.
 ### Lead Gen (Start Now)
 - [ ] **Create Google Business Profile** for RubyxQube — "Web Designer" + "Marketing Agency" category
 - [ ] **Join 3 Treasure Valley Facebook business groups** — introduce yourself, provide value, don't pitch
+- [ ] **Build multi-industry prospect hit list** — 5 targets per industry (trades, medical, legal, auto, fitness, real estate, etc.). Run prospect-researcher on each. Goal: understand which industries respond and convert best. See OUTREACH_TEMPLATES.md.
 - [ ] **Identify 20 cold prospects** — Google Maps, find local service businesses with bad/no websites
-- [ ] **Send first 10 cold outreach emails** — template in LEAD_GEN.md. Goal: book audit calls.
+- [ ] **Send first 10 cold outreach emails** — template in OUTREACH_TEMPLATES.md. Goal: book audit calls.
 - [ ] **Reach out to warm network** — friends, family, Bastion MSP contacts. Ask for referrals, not business directly.
 
 ### Phoenix Stoneworks (Reference Client — Do This Right)
