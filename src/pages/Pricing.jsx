@@ -115,9 +115,9 @@ export default function Pricing() {
           <div className="grid cols-3">
             {packages.map((p) => <PackageCard key={p.name} {...p} />)}
           </div>
-          <p className="small" style={{ marginTop: 24, textAlign: "center" }}>
+          <p className="p" style={{ marginTop: 28, textAlign: "center", marginBottom: 0 }}>
             Need something outside these packages?{" "}
-            <a href="/contact" style={{ color: "var(--accent)", fontWeight: 600 }}>Let's talk.</a>
+            <a href="/contact" style={{ color: "var(--accent)", fontWeight: 700 }}>Let's talk.</a>
           </p>
         </div>
       </section>

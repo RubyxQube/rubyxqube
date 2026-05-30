@@ -7,9 +7,9 @@ export default function PackageCard({ name, tagline, bestFor, price, billing, ti
 
   return (
     <div className={`card${highlight ? " cardHighlight" : ""}`} style={{ display: "flex", flexDirection: "column" }}>
-      {highlight && (
-        <div className="badge" style={{ marginBottom: 14 }}>Most Popular</div>
-      )}
+      <div style={{ minHeight: 36, marginBottom: 2 }}>
+        {highlight && <div className="badge">Most Popular</div>}
+      </div>
       <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 8 }}>{name}</p>
       <h3 className="h3" style={{ marginBottom: 6 }}>{subtitle}</h3>
       <div className="hr" />
