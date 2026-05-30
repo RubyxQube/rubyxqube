@@ -636,11 +636,20 @@ label{
   box-shadow: 0 8px 32px rgba(0,0,0,0.10);
 }
 
-/* Form fields in light mode — white bg, dark arrows on select */
+/* Form fields in light mode — white bg, stronger borders, legible placeholders */
 [data-theme="light"] .input,
 [data-theme="light"] .textarea,
 [data-theme="light"] select{
   background: #fff;
+  border-color: rgba(20,12,15,0.22);
+  color: rgba(20,12,15,0.90);
+}
+[data-theme="light"] label{
+  color: rgba(20,12,15,0.72);
+}
+[data-theme="light"] ::placeholder{
+  color: rgba(20,12,15,0.40);
+  opacity: 1;
 }
 [data-theme="light"] select{
   background-image:
