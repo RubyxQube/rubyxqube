@@ -159,6 +159,33 @@ boyd@rubyxqube.com
 
 ---
 
+## Chatbot Session Limit (Standard — Every Demo)
+
+Every prospect demo chatbot must include a **10-message session limit**. After 10 messages the input locks and the bot sends a graceful handoff to call/form directly.
+
+```js
+let msgCount = 0;
+const MSG_LIMIT = 10;
+
+function lockChat() {
+  const input = document.getElementById('chatInput');
+  const send  = document.querySelector('.chat-send');
+  input.disabled = true;
+  input.placeholder = 'Call us directly to continue';
+  send.disabled = true;
+  send.style.opacity = '0.4';
+}
+```
+
+In `sendMsg()`:
+- Increment `msgCount` after each user message
+- When `msgCount >= MSG_LIMIT`, replace the bot reply with a handoff message and call `lockChat()`
+- The handoff message should reference the business phone and/or the form on the page
+
+This applies whether the bot is keyword-based or real Claude. Resets on page reload — that's intentional.
+
+---
+
 ## The Chatbot Upgrade
 
 If you include a working chatbot on the demo, mention it explicitly:

@@ -776,6 +776,9 @@
 
 <script>
   /* ── Chat widget ── */
+  let msgCount = 0;
+  const MSG_LIMIT = 10;
+
   function toggleChat() {
     document.getElementById('chatWindow').classList.toggle('open');
   }
@@ -801,7 +804,18 @@
     return RESPONSES.default;
   }
 
+  function lockChat() {
+    const input = document.getElementById('chatInput');
+    const send  = document.querySelector('.chat-send');
+    input.disabled = true;
+    input.placeholder = 'Call us directly to continue';
+    send.disabled = true;
+    send.style.opacity = '0.4';
+  }
+
   function sendMsg() {
+    if (msgCount >= MSG_LIMIT) return;
+
     const input = document.getElementById('chatInput');
     const text  = input.value.trim();
     if (!text) return;
@@ -816,6 +830,8 @@
     input.value = '';
     msgs.scrollTop = msgs.scrollHeight;
 
+    msgCount++;
+
     // Typing indicator
     const typing = document.createElement('div');
     typing.className = 'msg msg-bot chat-typing';
@@ -828,9 +844,17 @@
       msgs.removeChild(typing);
       const botEl = document.createElement('div');
       botEl.className = 'msg msg-bot';
-      botEl.textContent = getReply(text);
-      msgs.appendChild(botEl);
-      msgs.scrollTop = msgs.scrollHeight;
+
+      if (msgCount >= MSG_LIMIT) {
+        botEl.textContent = "I've answered a lot of questions! For anything else, call or text Jesus directly at (208) 591-0911 — or fill out the free estimate form on this page.";
+        msgs.appendChild(botEl);
+        msgs.scrollTop = msgs.scrollHeight;
+        lockChat();
+      } else {
+        botEl.textContent = getReply(text);
+        msgs.appendChild(botEl);
+        msgs.scrollTop = msgs.scrollHeight;
+      }
     }, 850);
   }
 
