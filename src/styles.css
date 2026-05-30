@@ -668,6 +668,21 @@ label{
   box-shadow: 0 4px 14px rgba(0,0,0,0.10);
 }
 
+/* redBand is always red — override light mode text/button styles that land on it */
+[data-theme="light"] .redBand .badge{
+  color: rgba(255,255,255,0.90);
+}
+[data-theme="light"] .redBand .btn:not(.primary){
+  color: #fff;
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.35);
+}
+[data-theme="light"] .redBand .btn:not(.primary):hover{
+  background: rgba(255,255,255,0.25);
+  border-color: rgba(255,255,255,0.55);
+  box-shadow: none;
+}
+
 /* KPI boxes */
 [data-theme="light"] .kpi{
   background: rgba(255,255,255,0.72);
