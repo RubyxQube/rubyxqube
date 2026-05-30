@@ -48,22 +48,6 @@ export default function Pricing() {
         "Monthly 20-min strategy call",
       ],
     },
-    {
-      name: "Custom",
-      tagline: "Need something beyond the standard build? Let's figure it out.",
-      price: "Let's talk",
-      bullets: [
-        "Online booking and scheduling systems",
-        "Quote calculators and interactive forms",
-        "Before/after galleries with filters",
-        "Multi-location or multi-service sites",
-        "Job application and hiring pages",
-        "Review generation workflows",
-        "Any feature your competitors don't have",
-      ],
-      ctaTo: "/contact",
-      ctaLabel: "Talk to Boyd",
-    },
   ];
 
   const addons = [
@@ -128,9 +112,13 @@ export default function Pricing() {
       {/* ── Packages ── */}
       <section className="surface">
         <div className="section">
-          <div className="grid cols-2">
+          <div className="grid cols-3">
             {packages.map((p) => <PackageCard key={p.name} {...p} />)}
           </div>
+          <p className="small" style={{ marginTop: 24, textAlign: "center" }}>
+            Need something outside these packages?{" "}
+            <a href="/contact" style={{ color: "var(--accent)", fontWeight: 600 }}>Let's talk.</a>
+          </p>
         </div>
       </section>
 
