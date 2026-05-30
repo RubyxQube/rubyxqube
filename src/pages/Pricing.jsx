@@ -48,6 +48,22 @@ export default function Pricing() {
         "Monthly 20-min strategy call",
       ],
     },
+    {
+      name: "Custom",
+      tagline: "Need something beyond the standard build? Let's figure it out.",
+      price: "Let's talk",
+      bullets: [
+        "Online booking and scheduling systems",
+        "Quote calculators and interactive forms",
+        "Before/after galleries with filters",
+        "Multi-location or multi-service sites",
+        "Job application and hiring pages",
+        "Review generation workflows",
+        "Any feature your competitors don't have",
+      ],
+      ctaTo: "/contact",
+      ctaLabel: "Talk to Boyd",
+    },
   ];
 
   const addons = [
@@ -112,8 +128,53 @@ export default function Pricing() {
       {/* ── Packages ── */}
       <section className="surface">
         <div className="section">
-          <div className="grid cols-3">
+          <div className="grid cols-2">
             {packages.map((p) => <PackageCard key={p.name} {...p} />)}
+          </div>
+        </div>
+      </section>
+
+      {/* ── vs Wix/Squarespace comparison ── */}
+      <section className="surface">
+        <div className="section">
+          <span className="badge">Why not just use Wix?</span>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>The real cost of DIY website builders</h2>
+          <p className="p" style={{ maxWidth: 520, marginBottom: 40 }}>
+            Wix and Squarespace look cheap upfront. Over time they're not - and they'll never do what a custom site can.
+          </p>
+          <div className="grid cols-2" style={{ gap: 24 }}>
+            <div className="card" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "var(--muted)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Wix / Squarespace</p>
+              <ul className="list" style={{ margin: 0 }}>
+                {[
+                  "$29-36/mo forever - that's $1,000+ over 3 years",
+                  "You design it yourself, on their schedule",
+                  "Template everyone else is also using",
+                  "Slow load times that hurt your Google ranking",
+                  "No AI, no lead capture, no SMS alerts",
+                  "You own nothing - they can change pricing anytime",
+                  "Support is a help article, not a person",
+                ].map((b) => (
+                  <li key={b} style={{ color: "var(--muted)" }}>{b}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="card cardHighlight">
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>RubyxQube Launch</p>
+              <ul className="list" style={{ margin: 0 }}>
+                {[
+                  "$2,500 once - then it's yours, no monthly bill",
+                  "Built for you, around your business",
+                  "Custom design no one else has",
+                  "Fast, optimized, mobile-first",
+                  "AI receptionist available as an add-on",
+                  "You own the site and the domain",
+                  "Direct line to Boyd - text, call, email",
+                ].map((b) => (
+                  <li key={b}>{b}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>

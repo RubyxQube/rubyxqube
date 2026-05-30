@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function PackageCard({ name, tagline, bestFor, price, billing, timeline, bullets, highlight }) {
+export default function PackageCard({ name, tagline, bestFor, price, billing, timeline, bullets, highlight, ctaTo = "/contact", ctaLabel = "Get Started" }) {
   const subtitle = tagline || bestFor;
   const priceSuffix = billing || timeline;
 
@@ -23,8 +23,8 @@ export default function PackageCard({ name, tagline, bestFor, price, billing, ti
         {bullets.map((b) => <li key={b}>{b}</li>)}
       </ul>
       <div style={{ marginTop: 20 }}>
-        <Link className="btn primary" to="/quote" style={{ width: "100%", justifyContent: "center" }}>
-          Get Started
+        <Link className="btn primary" to={ctaTo} style={{ width: "100%", justifyContent: "center" }}>
+          {ctaLabel}
         </Link>
       </div>
     </div>
