@@ -23,6 +23,7 @@ Rules:
 - **Build tool:** Vite 5
 - **Styling:** Custom CSS in `src/styles.css` — **no Tailwind** in this project
 - **Icons:** Lucide React — standard on all projects. No emojis as UI icons. Use `color="var(--accent)"` for feature icons, `color="var(--muted)"` for utility icons (close, arrows). Size 24–26px for cards, 16px inline.
+- **Never use Unicode arrows** (↗ → ← etc.) as button or link decorators — on macOS/iOS they render as colored emoji. Use Lucide `ExternalLink` (size 13–14, `style={{ marginLeft: 6, verticalAlign: "middle" }}`) for external link buttons. Plain text only for nav/footer links — no arrow character needed.
 - **Font:** Plus Jakarta Sans (Google Fonts, loaded in `index.html`)
 - **Assets:** Logos in `src/assets/`, favicon in `public/`
 
@@ -144,12 +145,11 @@ Every project ships with this exact `vercel.json` — no exceptions:
 {
   "rewrites": [
     { "source": "/((?!.*\\.).*)", "destination": "/index.html" }
-  ],
-  "toolbar": { "enabled": false }
+  ]
 }
 ```
 
-`toolbar: false` hides the Vercel feedback toolbar from preview deployments. Never ship without it — clients will see it and think it's part of the site.
+Note: `toolbar` was removed — Vercel CLI v54+ rejects it as an invalid property and blocks all deployments. The toolbar can be disabled in the Vercel project dashboard under Settings → General if needed.
 
 ## Style Conventions
 - All styles go in `src/styles.css` — avoid `<style>` blocks or inline styles
