@@ -22,6 +22,10 @@ export default function Services() {
       a: "Every month you get a report showing: website visitors, chatbot conversations, leads captured, form submissions, and any SEO improvements. You see exactly what your site is doing for your business.",
     },
     {
+      q: "Do you set up Google Analytics and Search Console?",
+      a: "Yes, on every build. We set up Google Analytics 4 so you can see your traffic, where visitors come from, and which pages perform best. We also verify your site in Google Search Console and submit your sitemap so Google indexes you correctly. You own both accounts — we just handle the setup.",
+    },
+    {
       q: "Can you set up my business email?",
       a: "Yes. Google Workspace setup ($100) gets you a professional @yourbusiness.com email address instead of Gmail. It makes a big difference in how clients perceive you.",
     },
@@ -90,6 +94,8 @@ export default function Services() {
                 <li>Basic SEO (titles, descriptions, local structure)</li>
                 <li>Google Maps embed for local visibility</li>
                 <li>Fast load times — optimized for performance</li>
+                <li>Google Analytics 4 setup — see your traffic from day one</li>
+                <li>Google Search Console verified — your site is submitted to Google</li>
               </ul>
             </div>
 
@@ -113,7 +119,8 @@ export default function Services() {
               <h2 className="h2">Monthly Reports + Care</h2>
               <p className="p">Stay informed without lifting a finger. Every month you get a clear report and a quick check-in so you always know what your site is doing.</p>
               <ul className="list">
-                <li>Monthly report: visits, chats, leads, forms</li>
+                <li>Monthly report powered by real Google Analytics data</li>
+                <li>Traffic, chatbot activity, leads, and form submissions</li>
                 <li>Weekly check-in text — no surprises</li>
                 <li>60 min/month of content updates</li>
                 <li>Speed and uptime monitoring</li>
@@ -156,6 +163,18 @@ export default function Services() {
             <div className="card">
               <h3 className="h3">Hosting & Infrastructure</h3>
               <p className="p" style={{ marginBottom: 0 }}>Your site is deployed on fast, reliable hosting. We handle the technical side — you never have to think about servers.</p>
+            </div>
+            <div className="card">
+              <h3 className="h3">Google Analytics 4</h3>
+              <p className="p" style={{ marginBottom: 0 }}>Included on every build. You'll see exactly where your traffic comes from, which pages perform, and how visitors behave — from the day you launch.</p>
+            </div>
+            <div className="card">
+              <h3 className="h3">Google Search Console</h3>
+              <p className="p" style={{ marginBottom: 0 }}>Included on every build. Your site is verified and submitted to Google — so you can monitor indexing, spot errors, and see what searches are bringing people to you.</p>
+            </div>
+            <div className="card">
+              <h3 className="h3">Google Business Profile</h3>
+              <p className="p" style={{ marginBottom: 0 }}>Ongoing GBP management is included in Momentum — keeping your listing accurate, photos fresh, and reviews responded to. Shows up in the local map pack.</p>
             </div>
           </div>
         </div>

@@ -15,6 +15,8 @@ export default function Pricing() {
         "Contact form + click-to-call buttons",
         "Basic SEO (titles, descriptions, local structure)",
         "Google Maps embed",
+        "Google Analytics 4 setup — track traffic from day one",
+        "Google Search Console verified + sitemap submitted",
         "2 revision rounds included",
       ],
     },
@@ -29,7 +31,7 @@ export default function Pricing() {
         "24/7 lead capture — answers questions, qualifies prospects",
         "Unlimited conversations — no per-chat fees",
         "Instant SMS alert when a new lead comes in",
-        "Monthly report: visits, chats, leads captured",
+        "Monthly GA4-powered report: traffic, chats, leads captured",
         "60 min/month of site updates",
       ],
       highlight: true,
@@ -180,6 +182,8 @@ export default function Pricing() {
                 <li>Lead capture — contact forms and click-to-call</li>
                 <li>Basic SEO so you're not invisible in search</li>
                 <li>Fast loading — optimized for performance</li>
+                <li>Google Analytics 4 — you own your traffic data</li>
+                <li>Google Search Console verified + sitemap submitted</li>
                 <li>2 rounds of revisions before launch</li>
                 <li>Hosted on fast, reliable infrastructure</li>
                 <li>Direct communication — you work with Boyd, not a team</li>
@@ -192,7 +196,7 @@ export default function Pricing() {
                 <li>Custom AI receptionist trained on your business</li>
                 <li>24/7 lead capture — never miss an inquiry</li>
                 <li>Real-time SMS alerts when a lead comes in</li>
-                <li>Monthly performance report (visits, leads, chats)</li>
+                <li>Monthly GA4-powered report — traffic, leads, chatbot activity</li>
                 <li>60 minutes of site updates per month</li>
                 <li>Weekly check-in via text — you're never in the dark</li>
                 <li>Priority response within 4 business hours</li>
