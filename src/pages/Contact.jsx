@@ -365,29 +365,30 @@ export default function Contact() {
       {/* ── Leave a Review ── */}
       <section className="surface">
         <div className="section" style={{ paddingTop: 64, paddingBottom: 80 }}>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 48, alignItems: "center", maxWidth: 720 }}>
-            <div style={{ flex: "1 1 260px" }}>
-              <span className="badge" style={{ marginBottom: 16 }}>Already a client?</span>
-              <h2 className="h2" style={{ marginBottom: 12 }}>Leave us a Google review</h2>
-              <p className="p" style={{ marginBottom: 24 }}>
-                A quick review helps other local businesses find us — and it means a lot at this stage. Takes about 30 seconds.
-              </p>
-              <a
-                className="btn primary"
-                href={siteConfig.googleReviewUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Leave a Review <ExternalLink size={14} style={{ marginLeft: 6, verticalAlign: "middle" }} />
-              </a>
-            </div>
-            <div style={{ flex: "0 0 auto" }}>
+          <span className="badge" style={{ marginBottom: 16 }}>Already a client?</span>
+          <h2 className="h2" style={{ marginBottom: 8 }}>Leave us a Google review</h2>
+          <p className="p" style={{ maxWidth: 480, marginBottom: 28 }}>
+            A quick review helps other local businesses find us. Takes about 30 seconds.
+          </p>
+          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 24 }}>
+            <a
+              className="btn primary"
+              href={siteConfig.googleReviewUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Leave a Review <ExternalLink size={14} style={{ marginLeft: 6, verticalAlign: "middle" }} />
+            </a>
+            <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+              <div style={{ width: 1, height: 40, background: "var(--line)" }} />
               <img
                 src={reviewQR}
                 alt="Scan to leave a Google review for RubyxQube"
-                style={{ width: 160, height: 160, borderRadius: 12, display: "block" }}
+                style={{ width: 80, height: 80, borderRadius: 8, display: "block" }}
               />
-              <p style={{ fontSize: 11, color: "var(--muted)", textAlign: "center", marginTop: 8 }}>Scan with your phone</p>
+              <p style={{ fontSize: 12, color: "var(--muted)", margin: 0, lineHeight: 1.4 }}>
+                Or scan<br />with your phone
+              </p>
             </div>
           </div>
         </div>
