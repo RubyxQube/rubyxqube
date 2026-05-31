@@ -141,13 +141,15 @@ Uses siteConfig. Placeholder tagline. Include the RubyxQube footer credit by def
   href="https://rubyxqube.com"
   target="_blank"
   rel="noreferrer"
-  style={{ fontSize: 11, color: "rgba(255,255,255,0.25)", textDecoration: "none", transition: "color .2s" }}
-  onMouseEnter={e => e.target.style.color = "rgba(255,255,255,0.50)"}
-  onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.25)"}
+  style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 11, color: "rgba(255,255,255,0.45)", textDecoration: "none", transition: "color .2s" }}
+  onMouseEnter={e => e.currentTarget.style.color = "rgba(255,255,255,0.75)"}
+  onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.45)"}
 >
+  <img src="https://rubyxqube.com/brand/logo-mark-64.png" alt="" width={12} height={12} style={{ display: "block", opacity: 0.8 }} />
   Built and powered by RubyxQube
 </a>
 ```
+Logo is loaded from rubyxqube.com directly — no file copy needed per client.
 This is included by default. Clients can pay $150 to remove it. Note this in the project README.
 
 ### `src/pages/Home.jsx`
