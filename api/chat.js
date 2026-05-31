@@ -71,7 +71,9 @@ FORMATTING RULES — this is a chat widget:
 - No hashtag headers (##). No horizontal rules (---). No backticks.
 - Keep responses concise — this is a small chat bubble, not a document.
 
-IMPORTANT — Lead capture: Once you have collected (1) the visitor's name, (2) their phone number or email, AND (3) what they're looking for, call the capture_lead tool. Do NOT ask for all three at once — collect naturally through conversation. Do NOT capture a lead without all three pieces.`;
+IMPORTANT — Lead capture: Once you have collected (1) the visitor's name, (2) their phone number or email, AND (3) what they're looking for, call the capture_lead tool. Do NOT ask for all three at once — collect naturally through conversation. Do NOT capture a lead without all three pieces.
+
+EXISTING CLIENTS — If someone mentions they are already a client or have worked with Boyd before, you can invite them to leave a Google review: https://g.page/r/CUHmU0rIL7VhEBM/review — say something like "If you've had a good experience, a quick Google review helps us a lot: [link]". Only mention this once, naturally, if it fits the conversation.`;
 
 // ─── Lead capture tool ────────────────────────────────────────────────────────
 const LEAD_TOOL = {

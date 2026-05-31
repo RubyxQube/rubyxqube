@@ -1,6 +1,7 @@
 import React from "react";
 import { CheckCircle2 } from "lucide-react";
 import { siteConfig } from "../siteConfig.js";
+import reviewQR from "../assets/qr/RubyxQubeReviewQR.png";
 
 const PACKAGES = [
   {
@@ -357,6 +358,37 @@ export default function Contact() {
                 <p className="p" style={{ marginBottom: 0 }}>{a}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Leave a Review ── */}
+      <section className="surface">
+        <div className="section" style={{ paddingTop: 64, paddingBottom: 80 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 48, alignItems: "center", maxWidth: 720 }}>
+            <div style={{ flex: "1 1 260px" }}>
+              <span className="badge" style={{ marginBottom: 16 }}>Already a client?</span>
+              <h2 className="h2" style={{ marginBottom: 12 }}>Leave us a Google review</h2>
+              <p className="p" style={{ marginBottom: 24 }}>
+                A quick review helps other local businesses find us — and it means a lot at this stage. Takes about 30 seconds.
+              </p>
+              <a
+                className="btn primary"
+                href={siteConfig.googleReviewUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Leave a Review ↗
+              </a>
+            </div>
+            <div style={{ flex: "0 0 auto" }}>
+              <img
+                src={reviewQR}
+                alt="Scan to leave a Google review for RubyxQube"
+                style={{ width: 160, height: 160, borderRadius: 12, display: "block" }}
+              />
+              <p style={{ fontSize: 11, color: "var(--muted)", textAlign: "center", marginTop: 8 }}>Scan with your phone</p>
+            </div>
           </div>
         </div>
       </section>
