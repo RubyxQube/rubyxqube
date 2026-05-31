@@ -64,7 +64,7 @@ export default function Home() {
       {/* ── Hero ── */}
       <section className="surface heroSurface">
         <div className="heroSection">
-          <span className="badge">AI-Powered Web Design · {siteConfig.serviceArea} & Beyond</span>
+          <span className="badge">Web Design + AI Receptionist · {siteConfig.serviceArea} & Beyond</span>
           <h1 className="h1 heroTitle">
             Stop losing leads<br />
             <span className="accentText">while you're with a client.</span>
