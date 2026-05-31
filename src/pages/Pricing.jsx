@@ -140,6 +140,27 @@ export default function Pricing() {
             Try piecing together what Autopilot includes on your own. You'll spend more and still not have someone who knows your site.
           </p>
           <div className="grid cols-2" style={{ gap: 24 }}>
+            <div className="card cardHighlight">
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 }}>Autopilot — all of it, included</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 20 }}>
+                {[
+                  "Site updates — text Boyd, done same day",
+                  "Custom AI receptionist trained on your business",
+                  "Uptime monitoring built in",
+                  "Monthly GA4-powered report to your inbox",
+                  "One person who knows your entire setup",
+                ].map((label) => (
+                  <div key={label} style={{ display: "flex", gap: 10, alignItems: "flex-start", borderBottom: "1px solid var(--accent-dim)", paddingBottom: 10 }}>
+                    <CheckCircle2 size={14} color="var(--accent)" strokeWidth={2} style={{ flexShrink: 0, marginTop: 2 }} />
+                    <span style={{ fontSize: 14 }}>{label}</span>
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: 14, fontWeight: 700 }}>Total</span>
+                <span style={{ fontSize: 20, fontWeight: 800, color: "var(--accent)" }}>$399/mo</span>
+              </div>
+            </div>
             <div className="card">
               <p style={{ fontSize: 12, fontWeight: 700, color: "var(--muted)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 }}>Building it yourself</p>
               <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 20 }}>
@@ -162,27 +183,6 @@ export default function Pricing() {
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ fontSize: 14, fontWeight: 700 }}>Total</span>
                 <span style={{ fontSize: 20, fontWeight: 800, color: "var(--text)" }}>$569-919/mo</span>
-              </div>
-            </div>
-            <div className="card cardHighlight">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 }}>Autopilot — all of it, included</p>
-              <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 20 }}>
-                {[
-                  "Site updates — text Boyd, done same day",
-                  "Custom AI receptionist trained on your business",
-                  "Uptime monitoring built in",
-                  "Monthly GA4-powered report to your inbox",
-                  "One person who knows your entire setup",
-                ].map((label) => (
-                  <div key={label} style={{ display: "flex", gap: 10, alignItems: "flex-start", borderBottom: "1px solid var(--accent-dim)", paddingBottom: 10 }}>
-                    <CheckCircle2 size={14} color="var(--accent)" strokeWidth={2} style={{ flexShrink: 0, marginTop: 2 }} />
-                    <span style={{ fontSize: 14 }}>{label}</span>
-                  </div>
-                ))}
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span style={{ fontSize: 14, fontWeight: 700 }}>Total</span>
-                <span style={{ fontSize: 20, fontWeight: 800, color: "var(--accent)" }}>$399/mo</span>
               </div>
             </div>
           </div>
