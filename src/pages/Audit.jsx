@@ -85,7 +85,7 @@ export default function Audit() {
           <div className="grid cols-2" style={{ gap: 20 }}>
             {WHAT_YOU_GET.map((item) => (
               <div key={item.title} className="card" style={{ display: "flex", gap: 18, alignItems: "flex-start" }}>
-                <item.icon size={26} color="var(--accent)" strokeWidth={1.75} style={{ flexShrink: 0, marginTop: 2 }} />
+                <item.icon size={24} color="var(--accent)" strokeWidth={1.75} style={{ display: "block", flexShrink: 0, marginTop: 2 }} />
                 <div>
                   <h3 className="h3" style={{ marginBottom: 6 }}>{item.title}</h3>
                   <p className="p" style={{ marginBottom: 0 }}>{item.desc}</p>

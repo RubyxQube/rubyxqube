@@ -134,32 +134,32 @@ export default function Home() {
 
           <div className="grid cols-3">
             <div className="card">
-              <MessageCircle size={26} color="var(--accent)" strokeWidth={1.75} style={{ marginBottom: 14 }} />
+              <MessageCircle size={26} color="var(--accent)" strokeWidth={1.75} style={{ display: "block", marginBottom: 14 }} />
               <h3 className="h3">Answers questions instantly</h3>
               <p className="p" style={{ marginBottom: 0 }}>Knows your services, pricing, service area, and hours. Handles the most common questions without you lifting a finger.</p>
             </div>
             <div className="card">
-              <ClipboardCheck size={26} color="var(--accent)" strokeWidth={1.75} style={{ marginBottom: 14 }} />
+              <ClipboardCheck size={26} color="var(--accent)" strokeWidth={1.75} style={{ display: "block", marginBottom: 14 }} />
               <h3 className="h3">Qualifies and captures leads</h3>
               <p className="p" style={{ marginBottom: 0 }}>Asks the right questions — what do they need, where are they located, when do they need it. Saves it all so you have everything before you call back.</p>
             </div>
             <div className="card">
-              <Smartphone size={26} color="var(--accent)" strokeWidth={1.75} style={{ marginBottom: 14 }} />
+              <Smartphone size={26} color="var(--accent)" strokeWidth={1.75} style={{ display: "block", marginBottom: 14 }} />
               <h3 className="h3">Alerts you in real time</h3>
               <p className="p" style={{ marginBottom: 0 }}>The moment a lead comes in, you get a text. Name, contact info, what they need, and when. No checking dashboards, no missed emails.</p>
             </div>
             <div className="card">
-              <CalendarDays size={26} color="var(--accent)" strokeWidth={1.75} style={{ marginBottom: 14 }} />
+              <CalendarDays size={26} color="var(--accent)" strokeWidth={1.75} style={{ display: "block", marginBottom: 14 }} />
               <h3 className="h3">Books appointments</h3>
               <p className="p" style={{ marginBottom: 0 }}>Connect your calendar and let customers book directly through the chat. No phone tag, no back-and-forth.</p>
             </div>
             <div className="card">
-              <Clock size={26} color="var(--accent)" strokeWidth={1.75} style={{ marginBottom: 14 }} />
+              <Clock size={26} color="var(--accent)" strokeWidth={1.75} style={{ display: "block", marginBottom: 14 }} />
               <h3 className="h3">Never off the clock</h3>
               <p className="p" style={{ marginBottom: 0 }}>Works nights, weekends, and holidays. No sick days, no vacations, no missed calls when you're on a job.</p>
             </div>
             <div className="card">
-              <BarChart2 size={26} color="var(--accent)" strokeWidth={1.75} style={{ marginBottom: 14 }} />
+              <BarChart2 size={26} color="var(--accent)" strokeWidth={1.75} style={{ display: "block", marginBottom: 14 }} />
               <h3 className="h3">Monthly performance reports</h3>
               <p className="p" style={{ marginBottom: 0 }}>See exactly how many visitors, conversations, and leads your site generated each month. Know your ROI.</p>
             </div>

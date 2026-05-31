@@ -117,7 +117,7 @@ export default function Pricing() {
           </div>
           <p className="p" style={{ marginTop: 28, textAlign: "center", marginBottom: 0 }}>
             Need something outside these packages?{" "}
-            <a href="/contact" style={{ color: "var(--accent)", fontWeight: 700 }}>Let's talk.</a>
+            <a href="/contact" style={{ color: "var(--accent)", fontWeight: 700, whiteSpace: "nowrap" }}>Let's talk.</a>
           </p>
         </div>
       </section>
