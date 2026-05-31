@@ -322,8 +322,10 @@ Do this for every Autopilot and Momentum client on the 1st of each month.
 
 ### Autopilot ($399/mo)
 - [ ] Pull GA4 data: sessions, top pages, contact form submissions
+- [ ] Pull GSC data: top search queries, impressions, clicks, avg position
+- [ ] Check GSC Coverage report for any new indexing errors
 - [ ] Pull chatbot data: conversations, leads captured
-- [ ] Fill out monthly report template → send to client
+- [ ] Fill out monthly report template (GA4 + GSC + chatbot + site updates) → send to client
 - [ ] Send weekly check-in text (every Monday — just "Hey [Name], site running well this week — [one highlight]")
 - [ ] Apply any content update requests (up to 60 min/month)
 - [ ] Check site speed (PageSpeed Insights) — flag if score drops below 80
@@ -333,7 +335,7 @@ Do this for every Autopilot and Momentum client on the 1st of each month.
 - [ ] Check Google Business Profile: new reviews? Questions? Update hours/info if needed
 - [ ] Respond to any Google reviews (on their behalf or send drafts)
 - [ ] 20-min strategy call — review report + one growth idea for next month
-- [ ] Local SEO check: rank tracking for top 3 keywords
+- [ ] Local SEO check: rank tracking for top 3 keywords via GSC Performance report
 
 ---
 

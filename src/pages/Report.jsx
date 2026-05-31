@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Check, BarChart2 } from "lucide-react";
 
 // ── Sample data ────────────────────────────────────────────────────────────
 const CLIENT = {
@@ -13,7 +14,7 @@ const SUMMARY = [
   { label: "Website Visitors", value: "847", delta: "+12%", up: true },
   { label: "Leads Captured", value: "14", delta: "+3 vs last month", up: true },
   { label: "Chatbot Conversations", value: "63", delta: "74% handled without human", up: true },
-  { label: "Avg. Response Time", value: "< 2s", delta: "24/7 coverage", up: true },
+  { label: "Search Impressions", value: "1,240", delta: "+18% vs last month", up: true },
 ];
 
 const TRAFFIC = [
@@ -46,6 +47,14 @@ const CHATBOT_TOPICS = [
   { topic: "Timeline questions", count: 11, pct: 40 },
   { topic: "Service area check", count: 7, pct: 26 },
   { topic: "After-hours inquiries", count: 3, pct: 11 },
+];
+
+const SEARCH_QUERIES = [
+  { query: "stone countertops boise idaho", impressions: 312, clicks: 28, position: 4.2 },
+  { query: "phoenix stoneworks", impressions: 187, clicks: 64, position: 1.1 },
+  { query: "granite countertops meridian", impressions: 203, clicks: 19, position: 6.8 },
+  { query: "countertop installation eagle id", impressions: 156, clicks: 14, position: 5.3 },
+  { query: "outdoor kitchen stone boise", impressions: 98, clicks: 8, position: 9.1 },
 ];
 
 const UPDATES = [
@@ -98,7 +107,8 @@ export default function Report() {
         fontSize: 13,
         color: "var(--text)",
       }}>
-        📊 This is a <strong>sample monthly report</strong> — Autopilot and Momentum clients receive one of these every month. &nbsp;
+        <BarChart2 size={14} style={{ display: "inline", verticalAlign: "middle", marginRight: 6 }} />
+        This is a <strong>sample monthly report</strong> — Autopilot and Momentum clients receive one of these every month. &nbsp;
         <Link to="/pricing" style={{ color: "var(--accent)", textDecoration: "underline" }}>See plans →</Link>
       </div>
 
@@ -168,6 +178,44 @@ export default function Report() {
           </div>
         </div>
 
+        {/* ── Search performance ── */}
+        <div style={{ marginBottom: 48 }}>
+          <SectionHead label="Google Search Console" title="Top search queries this month" />
+          <div className="card" style={{ padding: 0, overflow: "hidden" }}>
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 100px 60px 80px",
+              gap: 16,
+              padding: "10px 24px",
+              borderBottom: "1px solid var(--line)",
+            }}>
+              {["Query", "Impressions", "Clicks", "Avg Position"].map((h) => (
+                <span key={h} style={{ fontSize: 11, fontWeight: 700, color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.07em" }}>{h}</span>
+              ))}
+            </div>
+            {SEARCH_QUERIES.map((q, i) => (
+              <div key={q.query} style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 100px 60px 80px",
+                gap: 16,
+                alignItems: "center",
+                padding: "14px 24px",
+                borderBottom: i < SEARCH_QUERIES.length - 1 ? "1px solid var(--line)" : "none",
+              }}>
+                <span style={{ fontSize: 13, fontWeight: 500 }}>{q.query}</span>
+                <span style={{ fontSize: 13, color: "var(--muted)", textAlign: "right" }}>{q.impressions.toLocaleString()}</span>
+                <span style={{ fontSize: 13, fontWeight: 600, textAlign: "right" }}>{q.clicks}</span>
+                <span style={{ fontSize: 13, color: q.position <= 3 ? "rgba(34,197,94,0.85)" : q.position <= 10 ? "var(--text)" : "var(--muted)", textAlign: "right", fontWeight: 600 }}>
+                  #{q.position.toFixed(1)}
+                </span>
+              </div>
+            ))}
+            <p style={{ fontSize: 12, color: "var(--muted)", margin: "0", padding: "12px 24px", borderTop: "1px solid var(--line)" }}>
+              Source: Google Search Console. Position 1-3 is the top of Google results. Under 10 means first page.
+            </p>
+          </div>
+        </div>
+
         {/* ── Leads ── */}
         <div style={{ marginBottom: 48 }}>
           <SectionHead label="Leads" title={`${LEADS.length} leads captured this month`} />
@@ -212,7 +260,7 @@ export default function Report() {
           <div className="card" style={{ padding: "20px 28px", display: "flex", flexDirection: "column", gap: 12 }}>
             {UPDATES.map((u, i) => (
               <div key={i} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
-                <span style={{ color: "var(--accent)", fontWeight: 700, flexShrink: 0 }}>✓</span>
+                <Check size={14} color="var(--accent)" strokeWidth={2.5} style={{ flexShrink: 0, marginTop: 1 }} />
                 <span style={{ fontSize: 14, color: "var(--text)" }}>{u}</span>
               </div>
             ))}
