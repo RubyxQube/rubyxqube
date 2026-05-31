@@ -35,7 +35,7 @@ export default function About() {
                 That experience gave me a different perspective on what a business website actually needs to do — not just look good, but generate trust, capture leads, and work without you babysitting it.
               </p>
               <p className="p" style={{ marginBottom: 20 }}>
-                Now I apply that same thinking to local service businesses in the Treasure Valley: contractors, tradespeople, and service providers who need a professional presence and the tools to compete.
+                Now I apply that same thinking to local service businesses — based in the Treasure Valley, working with clients across the US. Contractors, tradespeople, and service providers who need a professional presence and the tools to compete.
               </p>
               <a className="btn" href="https://www.bastionmsp.com" target="_blank" rel="noreferrer" style={{ display: "inline-flex" }}>
                 View Bastion MSP ↗
@@ -69,7 +69,7 @@ export default function About() {
               <span className="badge">Who I work with</span>
               <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>Built for local service businesses</h2>
               <p className="p">
-                Most of my clients are contractors, tradespeople, and local service providers — people who are great at what they do but don't have time to manage a website.
+                Most of my clients are contractors, tradespeople, and local service providers — people who are great at what they do but don't have time to manage a website. I'm based in Boise but work with clients across the US.
               </p>
               <p className="p" style={{ marginBottom: 0 }}>
                 They need something that looks professional, works on phones, and makes it easy for customers to call or fill out a form. I keep things simple: one person, direct communication, fast turnaround. No project managers, no inflated timelines, no surprise invoices.

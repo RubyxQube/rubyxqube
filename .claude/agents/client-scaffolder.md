@@ -135,7 +135,20 @@ Wraps pages with Navbar + Footer. Imports and wires `useTheme` hook. No MeshGrad
 Text-only brand name (no Logo.jsx). Mobile hamburger. Theme toggle.
 
 ### `src/components/Footer.jsx`
-Uses siteConfig. Placeholder tagline.
+Uses siteConfig. Placeholder tagline. Include the RubyxQube footer credit by default:
+```jsx
+<a
+  href="https://rubyxqube.com"
+  target="_blank"
+  rel="noreferrer"
+  style={{ fontSize: 11, color: "rgba(255,255,255,0.25)", textDecoration: "none", transition: "color .2s" }}
+  onMouseEnter={e => e.target.style.color = "rgba(255,255,255,0.50)"}
+  onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.25)"}
+>
+  Built and powered by RubyxQube
+</a>
+```
+This is included by default. Clients can pay $150 to remove it. Note this in the project README.
 
 ### `src/pages/Home.jsx`
 Hero section + 3-card services overview + CTA. All content as `# TODO:` placeholders populated with whatever the profile has.

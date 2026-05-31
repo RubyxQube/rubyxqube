@@ -28,6 +28,8 @@ export default function Pricing() {
       tagline: "You handle the jobs. We handle everything else.",
       price: "$3,000",
       billing: "+ $399/mo",
+      annualPrice: "$3,990",
+      annualSaving: "2 months",
       bullets: [
         "Everything in Launch",
         "Custom AI receptionist trained on your business",
@@ -44,6 +46,8 @@ export default function Pricing() {
       tagline: "Actively grow your local presence every month.",
       price: "$3,000",
       billing: "+ $699/mo",
+      annualPrice: "$6,990",
+      annualSaving: "2 months",
       bullets: [
         "Everything in Autopilot",
         "Google Business Profile management",

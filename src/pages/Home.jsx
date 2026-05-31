@@ -28,6 +28,8 @@ export default function Home() {
       tagline: "You handle the jobs. We handle everything else.",
       price: "$3,000",
       billing: "+ $399/mo",
+      annualPrice: "$3,990",
+      annualSaving: "2 months",
       bullets: [
         "Everything in Launch",
         "Custom AI receptionist trained on your business",
@@ -43,6 +45,8 @@ export default function Home() {
       tagline: "Actively grow your local presence every month.",
       price: "$3,000",
       billing: "+ $699/mo",
+      annualPrice: "$6,990",
+      annualSaving: "2 months",
       bullets: [
         "Everything in Autopilot",
         "Google Business Profile management",
@@ -60,7 +64,7 @@ export default function Home() {
       {/* ── Hero ── */}
       <section className="surface heroSurface">
         <div className="heroSection">
-          <span className="badge">AI-Powered Web Design · {siteConfig.serviceArea}</span>
+          <span className="badge">AI-Powered Web Design · {siteConfig.serviceArea} & Beyond</span>
           <h1 className="h1 heroTitle">
             Stop losing leads<br />
             <span className="accentText">while you're with a client.</span>

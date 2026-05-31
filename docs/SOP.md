@@ -313,6 +313,7 @@ Run this before going live with every site.
 - [ ] Walk them through the chatbot SMS alerts (show them what it looks like)
 - [ ] Confirm monthly report date (1st of month)
 - [ ] Send invoice for final 50% payment
+- [ ] Confirm "Built and powered by RubyxQube" footer credit is live (removable for $150 one-time — note in project README if removed)
 
 ---
 

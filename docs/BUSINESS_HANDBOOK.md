@@ -64,6 +64,22 @@ Dos and Don'ts for running the business well. This covers clients, pricing, scop
 
 ---
 
+## Footer Credit
+
+Every client site ships with a small "Built and powered by RubyxQube" link in the footer by default. It is subtle (low opacity, no color), links to rubyxqube.com, and is included in the client-scaffolder template automatically.
+
+**Do:**
+- Include it on every build by default
+- Mention it in the handoff email as a standard inclusion
+- Charge $150 one-time to remove it if the client requests
+
+**Don't:**
+- Remove it without charging
+- Make it large or prominently styled - it should be quiet, not a billboard
+- Forget to note removal in the project README if a client pays to remove it
+
+---
+
 ## Domains and Hosting
 
 **Do:**
