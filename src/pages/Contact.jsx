@@ -1,5 +1,5 @@
 import React from "react";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ExternalLink } from "lucide-react";
 import { siteConfig } from "../siteConfig.js";
 import reviewQR from "../assets/qr/RubyxQubeReviewQR.png";
 
@@ -378,7 +378,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Leave a Review ↗
+                Leave a Review <ExternalLink size={14} style={{ marginLeft: 6, verticalAlign: "middle" }} />
               </a>
             </div>
             <div style={{ flex: "0 0 auto" }}>
