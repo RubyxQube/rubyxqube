@@ -327,6 +327,7 @@ Run this before going live with every site.
 - [ ] Confirm monthly report date (1st of month)
 - [ ] Send invoice for final 50% payment
 - [ ] Confirm "Built and powered by RubyxQube" footer credit is live (removable for $150 one-time — note in project README if removed)
+- [ ] Ask for a Google review at the bottom of the launch email — this is peak happiness. Use the template in `docs/templates/REVIEW-OUTREACH.md`. Review link: https://g.page/r/CUHmU0rIL7VhEBM/review
 
 ---
 
@@ -348,6 +349,7 @@ Do this for every Autopilot and Momentum client on the 1st of each month.
 - [ ] Create 2 social posts (Instagram/Facebook — image + caption, client approves before posting)
 - [ ] Check Google Business Profile: new reviews? Questions? Update hours/info if needed
 - [ ] Respond to any Google reviews (on their behalf or send drafts)
+- [ ] If client has fewer than 10 Google reviews, include a gentle review ask in the monthly report email — use template in `docs/templates/REVIEW-OUTREACH.md`
 - [ ] 20-min strategy call — review report + one growth idea for next month
 - [ ] Local SEO check: rank tracking for top 3 keywords via GSC Performance report
 
