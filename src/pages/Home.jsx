@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { XCircle, CheckCircle2, MessageCircle, ClipboardCheck, Smartphone, CalendarDays, Clock, BarChart2 } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import PackageCard from "../components/PackageCard.jsx";
+import ComparisonSection from "../components/ComparisonSection.jsx";
 import { siteConfig } from "../siteConfig.js";
 
 export default function Home() {
@@ -227,6 +228,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <ComparisonSection condensed />
 
       {/* ── Packages ── */}
       <section className="surface">

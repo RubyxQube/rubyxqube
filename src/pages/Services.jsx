@@ -1,6 +1,7 @@
 import React from "react";
 import CTA from "../components/CTA.jsx";
 import FAQ from "../components/FAQ.jsx";
+import ComparisonSection from "../components/ComparisonSection.jsx";
 import { siteConfig } from "../siteConfig.js";
 
 export default function Services() {
@@ -144,6 +145,8 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      <ComparisonSection condensed />
 
       {/* ── Setup services ── */}
       <section className="surface">
