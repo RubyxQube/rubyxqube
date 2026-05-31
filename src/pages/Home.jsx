@@ -21,10 +21,11 @@ export default function Home() {
         "Google Maps embed",
         "2 revision rounds included",
       ],
+      note: "Great starting point. Most clients move to Autopilot before launch once they see what's included.",
     },
     {
       name: "Autopilot",
-      tagline: "Capture every lead — even while you're on a job.",
+      tagline: "You handle the jobs. We handle everything else.",
       price: "$3,000",
       billing: "+ $399/mo",
       bullets: [
@@ -32,7 +33,7 @@ export default function Home() {
         "Custom AI receptionist trained on your business",
         "24/7 lead capture — answers questions, qualifies prospects",
         "Instant SMS alert when a new lead comes in",
-        "Monthly report: visits, chats, leads captured",
+        "Monthly GA4-powered report: traffic, chats, leads captured",
         "60 min/month of site updates",
       ],
       highlight: true,
@@ -230,6 +231,56 @@ export default function Home() {
       </section>
 
       <ComparisonSection condensed />
+
+      {/* ── After launch ── */}
+      <section className="surface">
+        <div className="section">
+          <span className="badge">After day one</span>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>
+            Launch gets you live.<br />
+            <span className="accentText">Autopilot keeps you growing.</span>
+          </h2>
+          <p className="p" style={{ maxWidth: 520, marginBottom: 40 }}>
+            Your business will change. Services, prices, photos, hours. The question is who handles it when it does.
+          </p>
+          <div className="grid cols-2" style={{ gap: 24 }}>
+            <div className="card">
+              <p style={{ fontSize: 12, fontWeight: 700, color: "var(--muted)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 }}>After Launch</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                {[
+                  ["Site goes live. Boyd's job is done.", false],
+                  ["Need to update a service or price? New invoice from someone who doesn't know your setup.", false],
+                  ["Site goes down at midnight? You find out when a customer tells you.", false],
+                  ["Lead comes in at 9pm. No one answers. They call your competitor.", false],
+                  ["Want to know how your site is performing? Log in somewhere and figure it out.", false],
+                ].map(([text]) => (
+                  <div key={text} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                    <XCircle size={16} color="var(--muted)" strokeWidth={2} style={{ flexShrink: 0, marginTop: 2 }} />
+                    <p className="p" style={{ marginBottom: 0, fontSize: 14 }}>{text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="card cardHighlight">
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 }}>After Autopilot</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                {[
+                  "Site goes live. Boyd is still on your team.",
+                  "Need a change? Text Boyd. Done same day, already included.",
+                  "Site goes down? Uptime monitoring catches it before your customers do.",
+                  "Lead comes in at 9pm. AI greets them, captures their info, texts you instantly.",
+                  "Monthly report lands in your inbox. No logins, no dashboards.",
+                ].map((text) => (
+                  <div key={text} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                    <CheckCircle2 size={16} color="var(--accent)" strokeWidth={2} style={{ flexShrink: 0, marginTop: 2 }} />
+                    <p className="p" style={{ marginBottom: 0, fontSize: 14 }}>{text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ── Packages ── */}
       <section className="surface">

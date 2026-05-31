@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function PackageCard({ name, tagline, bestFor, price, billing, timeline, bullets, highlight, ctaTo = "/contact", ctaLabel = "Get Started" }) {
+export default function PackageCard({ name, tagline, bestFor, price, billing, timeline, bullets, highlight, note, ctaTo = "/contact", ctaLabel = "Get Started" }) {
   const subtitle = tagline || bestFor;
   const priceSuffix = billing || timeline;
 
@@ -22,6 +22,11 @@ export default function PackageCard({ name, tagline, bestFor, price, billing, ti
       <ul className="list" style={{ flex: 1 }}>
         {bullets.map((b) => <li key={b}>{b}</li>)}
       </ul>
+      {note && (
+        <p style={{ fontSize: 12, color: "var(--muted)", fontStyle: "italic", marginTop: 14, marginBottom: 0, lineHeight: 1.5 }}>
+          {note}
+        </p>
+      )}
       <div style={{ marginTop: 20 }}>
         <Link className="btn primary" to={ctaTo} style={{ width: "100%", justifyContent: "center" }}>
           {ctaLabel}

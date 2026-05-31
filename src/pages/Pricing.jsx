@@ -1,4 +1,5 @@
 import React from "react";
+import { CheckCircle2, XCircle } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import PackageCard from "../components/PackageCard.jsx";
 import ComparisonSection from "../components/ComparisonSection.jsx";
@@ -20,10 +21,11 @@ export default function Pricing() {
         "Google Search Console verified + sitemap submitted",
         "2 revision rounds included",
       ],
+      note: "Great starting point. Most clients move to Autopilot before launch once they see what's included.",
     },
     {
       name: "Autopilot",
-      tagline: "Capture every lead — even while you're on a job.",
+      tagline: "You handle the jobs. We handle everything else.",
       price: "$3,000",
       billing: "+ $399/mo",
       bullets: [
@@ -126,6 +128,66 @@ export default function Pricing() {
       </section>
 
       <ComparisonSection />
+
+      {/* ── Autopilot math breakdown ── */}
+      <section className="surface">
+        <div className="section">
+          <span className="badge">The math</span>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>
+            What $399/mo actually buys you
+          </h2>
+          <p className="p" style={{ maxWidth: 540, marginBottom: 40 }}>
+            Try piecing together what Autopilot includes on your own. You'll spend more and still not have someone who knows your site.
+          </p>
+          <div className="grid cols-2" style={{ gap: 24 }}>
+            <div className="card">
+              <p style={{ fontSize: 12, fontWeight: 700, color: "var(--muted)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 }}>Building it yourself</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 20 }}>
+                {[
+                  ["Freelancer for site updates (avg 2x/mo)", "$300-600/mo"],
+                  ["AI chatbot tool (separate service)", "$199/mo"],
+                  ["Uptime monitoring service", "$20/mo"],
+                  ["Monthly analytics reporting", "$50-100/mo"],
+                  ["Someone who already knows your setup", "Not possible"],
+                ].map(([label, cost]) => (
+                  <div key={label} style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 12, borderBottom: "1px solid var(--line)", paddingBottom: 10 }}>
+                    <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                      <XCircle size={14} color="var(--muted)" strokeWidth={2} style={{ flexShrink: 0, marginTop: 2 }} />
+                      <span style={{ fontSize: 14, color: "var(--muted)" }}>{label}</span>
+                    </div>
+                    <span style={{ fontSize: 13, fontWeight: 700, color: "var(--muted)", whiteSpace: "nowrap" }}>{cost}</span>
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: 14, fontWeight: 700 }}>Total</span>
+                <span style={{ fontSize: 20, fontWeight: 800, color: "var(--text)" }}>$569-919/mo</span>
+              </div>
+            </div>
+            <div className="card cardHighlight">
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 }}>Autopilot — all of it, included</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 20 }}>
+                {[
+                  "Site updates — text Boyd, done same day",
+                  "Custom AI receptionist trained on your business",
+                  "Uptime monitoring built in",
+                  "Monthly GA4-powered report to your inbox",
+                  "One person who knows your entire setup",
+                ].map((label) => (
+                  <div key={label} style={{ display: "flex", gap: 10, alignItems: "flex-start", borderBottom: "1px solid var(--accent-dim)", paddingBottom: 10 }}>
+                    <CheckCircle2 size={14} color="var(--accent)" strokeWidth={2} style={{ flexShrink: 0, marginTop: 2 }} />
+                    <span style={{ fontSize: 14 }}>{label}</span>
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: 14, fontWeight: 700 }}>Total</span>
+                <span style={{ fontSize: 20, fontWeight: 800, color: "var(--accent)" }}>$399/mo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ── What's included callout ── */}
       <section className="surface">
