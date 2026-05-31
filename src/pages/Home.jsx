@@ -64,7 +64,7 @@ export default function Home() {
       {/* ── Hero ── */}
       <section className="surface heroSurface">
         <div className="heroSection">
-          <span className="badge" style={{ textAlign: "center" }}>Web Design + AI Agent<br />{siteConfig.serviceArea} & Beyond</span>
+          <span className="badge" style={{ textAlign: "center", marginBottom: 20 }}>Web Design + AI Receptionist<br />{siteConfig.serviceArea} & Beyond</span>
           <h1 className="h1 heroTitle">
             Stop losing leads<br />
             <span className="accentText">while you're with a client.</span>
