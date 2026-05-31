@@ -25,7 +25,6 @@ const coFounded = [
     ],
     links: [
       { label: "Marketing Site", href: "https://www.bastionmsp.com" },
-      { label: "Client Portal", href: "https://portal.bastionmsp.com" },
     ],
   },
 ];
@@ -98,18 +97,7 @@ export default function Portfolio() {
                 <div style={{ flex: "0 1 240px", display: "flex", flexDirection: "column", gap: 20 }}>
                   <div>
                     <p style={{ fontSize: 11, fontWeight: 700, color: "var(--muted)", letterSpacing: "0.10em", textTransform: "uppercase", marginBottom: 6 }}>Role</p>
-                    <span style={{
-                      display: "inline-block",
-                      padding: "4px 12px",
-                      borderRadius: 20,
-                      fontSize: 13,
-                      fontWeight: 700,
-                      background: "rgba(59,130,246,0.15)",
-                      border: "1px solid rgba(59,130,246,0.30)",
-                      color: "#93c5fd",
-                    }}>
-                      {project.role}
-                    </span>
+                    <span className="badge">{project.role}</span>
                   </div>
 
                   <div>
