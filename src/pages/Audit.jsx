@@ -131,32 +131,6 @@ export default function Audit() {
         </div>
       </section>
 
-      {/* ── How it works ── */}
-      <section className="surface">
-        <div className="section">
-          <span className="badge">Process</span>
-          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>How it works</h2>
-          <p className="p" style={{ maxWidth: 460, marginBottom: 40 }}>Three steps. Done in under 24 hours from when you reach out.</p>
-          <div className="grid cols-3">
-            <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "var(--accent)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 01</p>
-              <h3 className="h3">Reach out</h3>
-              <p className="p" style={{ marginBottom: 0 }}>Fill out the short form below or call Boyd directly. Just your name, business, and website (if you have one).</p>
-            </div>
-            <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "var(--accent)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 02</p>
-              <h3 className="h3">Boyd reviews</h3>
-              <p className="p" style={{ marginBottom: 0 }}>Boyd spends 15 minutes reviewing your online presence before the call so he can give you specific, actionable feedback.</p>
-            </div>
-            <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "var(--accent)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 03</p>
-              <h3 className="h3">You get answers</h3>
-              <p className="p" style={{ marginBottom: 0 }}>On the call, Boyd walks you through what he found and what he'd prioritize. You leave with a clear picture of where you stand.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── Bottom CTA ── */}
       <CTA
         title="Ready to find out where you stand?"

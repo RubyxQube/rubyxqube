@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { XCircle, CheckCircle2, MessageCircle, ClipboardCheck, Smartphone, CalendarDays, Clock, BarChart2 } from "lucide-react";
+import { XCircle, CheckCircle2, MessageCircle, ClipboardCheck, Smartphone, Clock } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import PackageCard from "../components/PackageCard.jsx";
 import ComparisonSection from "../components/ComparisonSection.jsx";
@@ -151,84 +151,14 @@ export default function Home() {
               <p className="p" style={{ marginBottom: 0 }}>The moment a lead comes in, you get a text. Name, contact info, what they need, and when. No checking dashboards, no missed emails.</p>
             </div>
             <div className="card">
-              <CalendarDays size={26} color="var(--accent)" strokeWidth={1.75} style={{ display: "block", marginBottom: 14 }} />
-              <h3 className="h3">Books appointments</h3>
-              <p className="p" style={{ marginBottom: 0 }}>Connect your calendar and let customers book directly through the chat. No phone tag, no back-and-forth.</p>
-            </div>
-            <div className="card">
               <Clock size={26} color="var(--accent)" strokeWidth={1.75} style={{ display: "block", marginBottom: 14 }} />
               <h3 className="h3">Never off the clock</h3>
               <p className="p" style={{ marginBottom: 0 }}>Works nights, weekends, and holidays. No sick days, no vacations, no missed calls when you're on a job.</p>
             </div>
-            <div className="card">
-              <BarChart2 size={26} color="var(--accent)" strokeWidth={1.75} style={{ display: "block", marginBottom: 14 }} />
-              <h3 className="h3">Monthly performance reports</h3>
-              <p className="p" style={{ marginBottom: 0 }}>See exactly how many visitors, conversations, and leads your site generated each month. Know your ROI.</p>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* ── ROI ── */}
-      <section className="surface">
-        <div className="section">
-          <div className="grid cols-2" style={{ gap: 48, alignItems: "center" }}>
-            <div>
-              <span className="badge">The math</span>
-              <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>
-                It pays for itself with one job.
-              </h2>
-              <p className="p">
-                The Autopilot plan is $399/month. For most service businesses, that's less than a single job. If your AI receptionist captures even one extra job per month that you would have otherwise missed — it's already paid for.
-              </p>
-              <p className="p" style={{ marginBottom: 0 }}>
-                Compare that to a part-time receptionist at $2,500–4,000/month, or the cost of a lead going to a competitor.
-              </p>
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-              {[
-                { trade: "Plumber", range: "$350–800" },
-                { trade: "HVAC tech", range: "$400–900" },
-                { trade: "Electrician", range: "$300–700" },
-                { trade: "Landscaper", range: "$400–1,200" },
-                { trade: "Contractor", range: "$500–2,000+" },
-              ].map(({ trade, range }) => (
-                <div key={trade} className="kpi" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <span style={{ fontWeight: 600 }}>{trade}</span>
-                  <span style={{ color: "#fb7185", fontWeight: 700 }}>{range} avg. job</span>
-                </div>
-              ))}
-              <p className="small" style={{ marginTop: 8 }}>Autopilot plan: <strong style={{ color: "var(--text)" }}>$399/mo</strong></p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── How it works ── */}
-      <section className="surface">
-        <div className="section">
-          <span className="badge">Process</span>
-          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>From call to live site in days.</h2>
-          <p className="p" style={{ maxWidth: 480, marginBottom: 36 }}>No tech headaches. No lengthy intake forms. You run your business — I handle everything else.</p>
-          <div className="grid cols-3">
-            <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 01</p>
-              <h3 className="h3">Free audit call</h3>
-              <p className="p" style={{ marginBottom: 0 }}>15 minutes to review your current online presence and identify exactly what's costing you leads. No commitment.</p>
-            </div>
-            <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 02</p>
-              <h3 className="h3">Build + train</h3>
-              <p className="p" style={{ marginBottom: 0 }}>I build your site and train your AI on your specific business — services, pricing, FAQs, service area. You review and approve.</p>
-            </div>
-            <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 03</p>
-              <h3 className="h3">Launch + optimize</h3>
-              <p className="p" style={{ marginBottom: 0 }}>Go live. Monthly reports show you exactly how many leads your site is generating. We tune the AI as you get real data.</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <ComparisonSection condensed />
 

@@ -30,16 +30,6 @@ const RXQ_BULLETS = [
 function FullComparison() {
   return (
     <div className="grid cols-2" style={{ gap: 24 }}>
-      <div className="card" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
-        <p style={{ fontSize: 12, fontWeight: 700, color: "var(--muted)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>
-          Wix / Squarespace
-        </p>
-        <ul className="list" style={{ margin: 0 }}>
-          {WIX_BULLETS.map((b) => (
-            <li key={b} style={{ color: "var(--muted)" }}>{b}</li>
-          ))}
-        </ul>
-      </div>
       <div className="card cardHighlight">
         <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>
           RubyxQube Launch
@@ -47,6 +37,16 @@ function FullComparison() {
         <ul className="list" style={{ margin: 0 }}>
           {RXQ_BULLETS.map((b) => (
             <li key={b}>{b}</li>
+          ))}
+        </ul>
+      </div>
+      <div className="card" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+        <p style={{ fontSize: 12, fontWeight: 700, color: "var(--muted)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>
+          Wix / Squarespace
+        </p>
+        <ul className="list" style={{ margin: 0 }}>
+          {WIX_BULLETS.map((b) => (
+            <li key={b} style={{ color: "var(--muted)" }}>{b}</li>
           ))}
         </ul>
       </div>
@@ -58,15 +58,6 @@ function CondensedComparison() {
   return (
     <div className="card" style={{ display: "flex", flexWrap: "wrap", gap: 32, alignItems: "center", justifyContent: "space-between" }}>
       <div style={{ flex: "1 1 280px" }}>
-        <p style={{ fontSize: 12, fontWeight: 700, color: "var(--muted)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
-          Wix / Squarespace over 3 years
-        </p>
-        <p className="p" style={{ marginBottom: 0 }}>
-          $29-36/mo adds up to <strong style={{ color: "var(--text)" }}>$1,000+</strong> - for a template you built yourself, with no analytics setup, no Search Console, no Google Business Profile help, and no real support.
-        </p>
-      </div>
-      <div style={{ width: 1, background: "var(--line)", alignSelf: "stretch", flexShrink: 0 }} />
-      <div style={{ flex: "1 1 280px" }}>
         <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
           RubyxQube Launch
         </p>
@@ -76,6 +67,15 @@ function CondensedComparison() {
         <Link to="/pricing" style={{ color: "var(--accent)", fontWeight: 700, fontSize: 14 }}>
           See the full comparison
         </Link>
+      </div>
+      <div style={{ width: 1, background: "var(--line)", alignSelf: "stretch", flexShrink: 0 }} />
+      <div style={{ flex: "1 1 280px" }}>
+        <p style={{ fontSize: 12, fontWeight: 700, color: "var(--muted)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
+          Wix / Squarespace over 3 years
+        </p>
+        <p className="p" style={{ marginBottom: 0 }}>
+          $29-36/mo adds up to <strong style={{ color: "var(--text)" }}>$1,000+</strong> - for a template you built yourself, with no analytics setup, no Search Console, no Google Business Profile help, and no real support.
+        </p>
       </div>
     </div>
   );
