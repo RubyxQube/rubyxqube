@@ -1,27 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Search, MapPin, ClipboardList, Bot } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
 
 
 const WHAT_YOU_GET = [
   {
-    icon: "🔍",
+    icon: Search,
     title: "Website review",
     desc: "Speed, mobile experience, contact clarity, and whether your site is actually converting visitors into calls.",
   },
   {
-    icon: "📍",
+    icon: MapPin,
     title: "Local SEO check",
     desc: "Are you showing up when someone in Boise searches for what you do? We'll find the gaps.",
   },
   {
-    icon: "📋",
+    icon: ClipboardList,
     title: "Google Business Profile",
     desc: "Missing info, no reviews, wrong hours — these cost you jobs. We'll flag everything.",
   },
   {
-    icon: "🤖",
+    icon: Bot,
     title: "Lead capture gaps",
     desc: "How many leads are leaving your site without contacting you? We'll show you where they drop off.",
   },
@@ -84,7 +85,7 @@ export default function Audit() {
           <div className="grid cols-2" style={{ gap: 20 }}>
             {WHAT_YOU_GET.map((item) => (
               <div key={item.title} className="card" style={{ display: "flex", gap: 18, alignItems: "flex-start" }}>
-                <span style={{ fontSize: 28, lineHeight: 1, flexShrink: 0 }}>{item.icon}</span>
+                <item.icon size={26} color="var(--accent)" strokeWidth={1.75} style={{ flexShrink: 0, marginTop: 2 }} />
                 <div>
                   <h3 className="h3" style={{ marginBottom: 6 }}>{item.title}</h3>
                   <p className="p" style={{ marginBottom: 0 }}>{item.desc}</p>

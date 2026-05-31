@@ -22,6 +22,7 @@ Rules:
 - **Framework:** React 18 + React Router v6
 - **Build tool:** Vite 5
 - **Styling:** Custom CSS in `src/styles.css` — **no Tailwind** in this project
+- **Icons:** Lucide React — standard on all projects. No emojis as UI icons. Use `color="var(--accent)"` for feature icons, `color="var(--muted)"` for utility icons (close, arrows). Size 24–26px for cards, 16px inline.
 - **Font:** Plus Jakarta Sans (Google Fonts, loaded in `index.html`)
 - **Assets:** Logos in `src/assets/`, favicon in `public/`
 
@@ -133,6 +134,22 @@ Components use CSS variables; the only hardcoded overrides needed are:
 | `src/styles.css` | Entire design system; all shared styles live here |
 | `src/App.jsx` | Route definitions |
 | `src/components/Layout.jsx` | Wraps every page with Navbar + Footer |
+| `vercel.json` | Rewrites for SPA routing + toolbar disabled (see below) |
+
+## vercel.json Standard
+
+Every project ships with this exact `vercel.json` — no exceptions:
+
+```json
+{
+  "rewrites": [
+    { "source": "/((?!.*\\.).*)", "destination": "/index.html" }
+  ],
+  "toolbar": { "enabled": false }
+}
+```
+
+`toolbar: false` hides the Vercel feedback toolbar from preview deployments. Never ship without it — clients will see it and think it's part of the site.
 
 ## Style Conventions
 - All styles go in `src/styles.css` — avoid `<style>` blocks or inline styles

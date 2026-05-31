@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { XCircle, CheckCircle2, MessageCircle, ClipboardCheck, Smartphone, CalendarDays, Clock, BarChart2 } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import PackageCard from "../components/PackageCard.jsx";
 import { siteConfig } from "../siteConfig.js";
@@ -108,11 +109,11 @@ export default function Home() {
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               <div className="card" style={{ borderLeft: "3px solid rgba(239,68,68,0.50)" }}>
-                <p style={{ margin: 0, fontWeight: 600, fontSize: 15 }}>❌ Without AI Receptionist</p>
+                <p style={{ margin: 0, fontWeight: 600, fontSize: 15, display: "flex", alignItems: "center", gap: 8 }}><XCircle size={17} color="#ef4444" strokeWidth={2} />Without AI Receptionist</p>
                 <p className="p" style={{ margin: "8px 0 0", fontSize: 14 }}>Customer visits at 10pm. No one responds. They call your competitor. You wake up to nothing.</p>
               </div>
               <div className="card" style={{ borderLeft: "3px solid rgba(59,130,246,0.60)" }}>
-                <p style={{ margin: 0, fontWeight: 600, fontSize: 15 }}>✓ With AI Receptionist</p>
+                <p style={{ margin: 0, fontWeight: 600, fontSize: 15, display: "flex", alignItems: "center", gap: 8 }}><CheckCircle2 size={17} color="var(--accent)" strokeWidth={2} />With AI Receptionist</p>
                 <p className="p" style={{ margin: "8px 0 0", fontSize: 14 }}>Customer visits at 10pm. AI greets them, answers their questions, captures their info. You get a text: "New lead — Sarah, needs HVAC repair, Meridian."</p>
               </div>
             </div>
@@ -133,32 +134,32 @@ export default function Home() {
 
           <div className="grid cols-3">
             <div className="card">
-              <div style={{ fontSize: 28, marginBottom: 14 }}>💬</div>
+              <MessageCircle size={26} color="var(--accent)" strokeWidth={1.75} style={{ marginBottom: 14 }} />
               <h3 className="h3">Answers questions instantly</h3>
               <p className="p" style={{ marginBottom: 0 }}>Knows your services, pricing, service area, and hours. Handles the most common questions without you lifting a finger.</p>
             </div>
             <div className="card">
-              <div style={{ fontSize: 28, marginBottom: 14 }}>📋</div>
+              <ClipboardCheck size={26} color="var(--accent)" strokeWidth={1.75} style={{ marginBottom: 14 }} />
               <h3 className="h3">Qualifies and captures leads</h3>
               <p className="p" style={{ marginBottom: 0 }}>Asks the right questions — what do they need, where are they located, when do they need it. Saves it all so you have everything before you call back.</p>
             </div>
             <div className="card">
-              <div style={{ fontSize: 28, marginBottom: 14 }}>📱</div>
+              <Smartphone size={26} color="var(--accent)" strokeWidth={1.75} style={{ marginBottom: 14 }} />
               <h3 className="h3">Alerts you in real time</h3>
               <p className="p" style={{ marginBottom: 0 }}>The moment a lead comes in, you get a text. Name, contact info, what they need, and when. No checking dashboards, no missed emails.</p>
             </div>
             <div className="card">
-              <div style={{ fontSize: 28, marginBottom: 14 }}>📅</div>
+              <CalendarDays size={26} color="var(--accent)" strokeWidth={1.75} style={{ marginBottom: 14 }} />
               <h3 className="h3">Books appointments</h3>
               <p className="p" style={{ marginBottom: 0 }}>Connect your calendar and let customers book directly through the chat. No phone tag, no back-and-forth.</p>
             </div>
             <div className="card">
-              <div style={{ fontSize: 28, marginBottom: 14 }}>🕐</div>
+              <Clock size={26} color="var(--accent)" strokeWidth={1.75} style={{ marginBottom: 14 }} />
               <h3 className="h3">Never off the clock</h3>
               <p className="p" style={{ marginBottom: 0 }}>Works nights, weekends, and holidays. No sick days, no vacations, no missed calls when you're on a job.</p>
             </div>
             <div className="card">
-              <div style={{ fontSize: 28, marginBottom: 14 }}>📊</div>
+              <BarChart2 size={26} color="var(--accent)" strokeWidth={1.75} style={{ marginBottom: 14 }} />
               <h3 className="h3">Monthly performance reports</h3>
               <p className="p" style={{ marginBottom: 0 }}>See exactly how many visitors, conversations, and leads your site generated each month. Know your ROI.</p>
             </div>

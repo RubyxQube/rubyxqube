@@ -1,4 +1,5 @@
 import React from "react";
+import { CheckCircle2 } from "lucide-react";
 import { siteConfig } from "../siteConfig.js";
 
 const PACKAGES = [
@@ -284,7 +285,7 @@ export default function Contact() {
             {status === "sent" ? (
               <div className="card" style={{ marginTop: 8, background: "rgba(34,197,94,0.12)", border: "1px solid rgba(34,197,94,0.3)" }}>
                 <p className="p" style={{ marginBottom: 0, fontWeight: 600 }}>
-                  ✅ Request sent! I'll be in touch within 1 business day.
+                  <CheckCircle2 size={16} color="#22c55e" strokeWidth={2} style={{ display: "inline", verticalAlign: "middle", marginRight: 6 }} />Request sent! I'll be in touch within 1 business day.
                 </p>
               </div>
             ) : (

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { X, MessageCircle, ArrowUp, Check } from "lucide-react";
 import { chatConfig } from "../chatConfig.js";
 
 // ─── Styles (self-contained — safe to copy to any client site) ───────────
@@ -179,7 +180,7 @@ function LeadBanner() {
         textAlign: "center",
       }}
     >
-      ✓ Info sent — Boyd will be in touch soon
+      <Check size={13} strokeWidth={2.5} style={{ display: "inline", verticalAlign: "middle", marginRight: 5 }} />Info sent — Boyd will be in touch soon
     </div>
   );
 }
@@ -324,7 +325,7 @@ export default function ChatWidget() {
                 borderRadius: 6,
               }}
             >
-              ✕
+              <X size={16} strokeWidth={2} />
             </button>
           </div>
 
@@ -392,7 +393,7 @@ export default function ChatWidget() {
                 transition: "background 0.15s",
               }}
             >
-              ↑
+              <ArrowUp size={16} strokeWidth={2.5} />
             </button>
           </div>
 
@@ -414,7 +415,7 @@ export default function ChatWidget() {
         title={open ? "Close" : "Chat with us"}
       >
         {open ? (
-          <span style={{ fontSize: 22, display: "block", lineHeight: 1 }}>✕</span>
+          <X size={22} strokeWidth={2} />
         ) : chatConfig.buttonIcon ? (
           <img
             src={chatConfig.buttonIcon}
@@ -422,7 +423,7 @@ export default function ChatWidget() {
             style={{ width: 30, height: 30, objectFit: "contain", display: "block" }}
           />
         ) : (
-          <span style={{ fontSize: 22, display: "block", lineHeight: 1 }}>💬</span>
+          <MessageCircle size={22} strokeWidth={2} />
         )}
       </button>
     </>

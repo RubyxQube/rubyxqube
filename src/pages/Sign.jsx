@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { CheckCircle2, PenLine } from "lucide-react";
 import Logo from "../components/Logo.jsx";
 
 // ─── Contract text ─────────────────────────────────────────────────────────────
@@ -155,7 +156,7 @@ function ErrorState({ message }) {
 function AlreadySignedState({ contract }) {
   return (
     <div style={{ textAlign: "center", padding: "64px 24px" }}>
-      <div style={{ fontSize: 32, marginBottom: 16 }}>✅</div>
+      <div style={{ marginBottom: 16 }}><CheckCircle2 size={40} color="var(--accent)" strokeWidth={1.75} /></div>
       <h2 style={{ fontWeight: 700, marginBottom: 8 }}>Already signed</h2>
       <p style={{ color: "#6b7280", fontSize: 14 }}>
         This contract was signed by <strong>{contract.signedName || "the client"}</strong>.
@@ -171,7 +172,7 @@ function SuccessState({ signedName, signedAt }) {
   });
   return (
     <div style={{ textAlign: "center", padding: "64px 24px" }}>
-      <div style={{ fontSize: 40, marginBottom: 20 }}>✍️</div>
+      <div style={{ marginBottom: 20 }}><PenLine size={40} color="var(--accent)" strokeWidth={1.75} /></div>
       <h2 style={{ fontWeight: 800, fontSize: 24, marginBottom: 8 }}>You're all set.</h2>
       <p style={{ color: "#374151", marginBottom: 6 }}>
         Signed by <strong>{signedName}</strong>

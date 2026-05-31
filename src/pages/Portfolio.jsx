@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ExternalLink } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
 
@@ -126,7 +127,7 @@ export default function Portfolio() {
                         rel="noreferrer"
                         style={{ justifyContent: "center" }}
                       >
-                        {link.label} ↗
+                        {link.label} <ExternalLink size={13} style={{ marginLeft: 4, verticalAlign: "middle" }} />
                       </a>
                     ))}
                   </div>
@@ -164,7 +165,7 @@ export default function Portfolio() {
                 <div className="btnRow">
                   {project.links.map((link) => (
                     <a key={link.href} className="btn primary" href={link.href} target="_blank" rel="noreferrer">
-                      {link.label} ↗
+                      {link.label} <ExternalLink size={13} style={{ marginLeft: 4, verticalAlign: "middle" }} />
                     </a>
                   ))}
                   <Link className="btn" to="/quote">Build Something Similar</Link>
