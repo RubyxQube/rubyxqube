@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<!--
+  RubyxQube — Proposal Template
+  ==============================
+  STEP 1 — Set brand colors in :root below (--accent is the main one)
+  STEP 2 — Find/replace all {{TOKENS}} with client-specific values:
+
+    {{CLIENT_NAME}}       Full business name          e.g. "Phoenix Stoneworks"
+    {{CLIENT_SHORT}}      Short name or initials       e.g. "Phoenix Stoneworks" or "ServPro Boise"
+    {{CLIENT_LOCATION}}   City/region                  e.g. "Treasure Valley, ID"
+    {{CLIENT_OWNER}}      Owner's name                 e.g. "John Smith"
+    {{CLIENT_EMAIL}}      Owner's email (optional)
+    {{PROPOSAL_TYPE}}     Doc title word(s)            e.g. "B2B Platform Partnership"
+    {{PROPOSAL_SUBTITLE}} One-sentence cover sub-line
+    {{DATE_SHORT}}        Month + year                 e.g. "May 2026"
+    {{DATE_FULL}}         Full date                    e.g. "May 28, 2026"
+    {{VERSION}}           Draft version                e.g. "Draft v1.0"
+
+  STEP 3 — Customize every section inside the .body div.
+           Sections marked <!-- SECTION: ... --> describe what goes there.
+
+  SAVE TO: C:\Users\boydi\Documents\RubyxQube\Clients\[client-slug]\Proposals\
+  NAMING:  [SLUG]-Proposal-[YYYY-MM-DD].html
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{PROPOSAL_TYPE}} Proposal — {{CLIENT_NAME}} × RubyxQube</title>
+<style>
+  /* ── Brand tokens — change these per client ── */
+  :root {
+    --accent:        #e11d48;              /* CLIENT BRAND COLOR */
+    --accent-dim:    rgba(225,29,72,0.13);
+    --accent-border: rgba(225,29,72,0.35);
+    --accent-dark:   #b8102c;             /* darker shade for strong text */
+    --accent-bg:     #fff5f7;             /* very light tint for highlight boxes */
+    --cover-bg:      #080808;             /* cover/header dark background */
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Plus Jakarta Sans', Arial, sans-serif; background: #fff; color: #1a1a1a; font-size: 14px; line-height: 1.65; }
+
+  /* Cover */
+  .cover { background: var(--cover-bg); color: #fff; padding: 72px 64px 64px; min-height: 320px; display: flex; flex-direction: column; justify-content: space-between; }
+  .cover-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; }
+  .cover-brand { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+  .cover-brand span { color: var(--accent); }
+  .cover h1 { font-size: 36px; font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .cover h1 span { color: var(--accent); }
+  .cover-sub { font-size: 15px; color: rgba(255,255,255,0.58); margin-bottom: 40px; max-width: 520px; }
+  .cover-meta { display: grid; grid-template-columns: repeat(3, auto); gap: 40px; }
+  .cover-meta-item label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 4px; }
+  .cover-meta-item p { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.82); }
+  .accent-bar { width: 48px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 24px; }
+
+  /* Status pill */
+  .status-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: 20px; padding: 5px 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+  .status-pill::before { content: ""; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; display: inline-block; }
+
+  /* Body */
+  .body { padding: 56px 64px; max-width: 860px; margin: 0 auto; }
+  h2 { font-size: 22px; font-weight: 800; letter-spacing: -0.01em; color: #0a0601; margin: 48px 0 14px; padding-top: 48px; border-top: 1px solid #e8e4e0; }
+  h2:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+  h3 { font-size: 13px; font-weight: 700; color: var(--accent); margin: 24px 0 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+  p { margin-bottom: 12px; color: #3a3530; }
+  p:last-child { margin-bottom: 0; }
+  ul { margin: 10px 0 16px 0; padding-left: 20px; color: #3a3530; }
+  ul li { margin-bottom: 6px; }
+  ul li::marker { color: var(--accent); }
+  ol { padding-left: 20px; color: #3a3530; margin-bottom: 16px; }
+  ol li { margin-bottom: 8px; }
+
+  .highlight { background: var(--accent-bg); border-left: 3px solid var(--accent); padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 20px 0; color: #1a1a1a; }
+  .highlight strong { color: var(--accent-dark); }
+
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+  thead tr { background: var(--cover-bg); color: #fff; }
+  thead th { padding: 12px 16px; text-align: left; font-weight: 700; font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; }
+  tbody tr { border-bottom: 1px solid #f0ece8; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #faf8f6; }
+  tbody td { padding: 12px 16px; color: #3a3530; }
+  tbody td strong { color: #080501; font-weight: 700; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 20px 0; }
+  .col-card { background: #faf8f6; border: 1px solid #e8e4e0; border-radius: 10px; padding: 20px 22px; }
+  .col-card h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 12px; }
+  .col-card ul { margin: 0; padding-left: 16px; }
+  .col-card ul li { font-size: 13px; margin-bottom: 5px; }
+
+  /* Build option cards */
+  .option-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+  .option-card { border: 2px solid #e8e4e0; border-radius: 12px; padding: 24px; position: relative; }
+  .option-card.recommended { border-color: var(--accent); }
+  .option-badge { position: absolute; top: -12px; left: 20px; background: var(--accent); color: #fff; font-size: 10px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; }
+  .option-card h4 { font-size: 16px; font-weight: 800; color: #080501; margin-bottom: 4px; }
+  .option-card .price { font-size: 26px; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; margin: 10px 0 4px; }
+  .option-card .price span { font-size: 13px; font-weight: 500; color: #888; }
+  .option-card ul { padding-left: 16px; margin: 12px 0 0; }
+  .option-card ul li { font-size: 12px; color: #3a3530; margin-bottom: 5px; }
+  .option-card .note { font-size: 11px; color: #999; margin-top: 12px; font-style: italic; }
+
+  /* Revenue split visual */
+  .split-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 10px; overflow: hidden; margin: 16px 0; }
+  .split-client { background: var(--cover-bg); color: #fff; padding: 20px 24px; }
+  .split-rxq { background: var(--accent); color: #fff; padding: 20px 24px; }
+  .split-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.10em; opacity: 0.65; margin-bottom: 6px; }
+  .split-amount { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; }
+  .split-pct { font-size: 12px; opacity: 0.75; margin-top: 2px; }
+
+  /* Phases */
+  .phases { margin: 20px 0; }
+  .phase { display: grid; grid-template-columns: 120px 1fr; gap: 20px; padding: 16px 0; border-bottom: 1px solid #f0ece8; align-items: start; }
+  .phase:last-child { border-bottom: none; }
+  .phase-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); padding-top: 2px; }
+  .phase-label span { display: block; font-weight: 500; color: #888; font-size: 11px; letter-spacing: 0; text-transform: none; margin-top: 2px; }
+  .phase-desc strong { color: #080501; }
+  .phase-status { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 20px; margin-left: 6px; vertical-align: middle; }
+  .phase-status.ready { background: #e8f8ee; color: #22a855; }
+  .phase-status.next { background: var(--accent-dim); color: var(--accent-dark); }
+
+  /* Tech stack */
+  .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+  .tech-card { background: #faf8f6; border: 1px solid #e8e4e0; border-radius: 10px; padding: 16px 18px; display: flex; gap: 14px; align-items: flex-start; }
+  .tech-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--cover-bg); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; }
+  .tech-card-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent); margin-bottom: 3px; }
+  .tech-card-value { font-size: 13px; font-weight: 700; color: #080501; margin-bottom: 2px; }
+  .tech-card-note { font-size: 11px; color: #888; line-height: 1.45; }
+
+  /* Maintenance / existing plan block */
+  .plan-block { background: #F5F2EE; border: 1px solid #e0dbd5; border-radius: 10px; padding: 24px 28px; margin: 20px 0; }
+  .plan-block h4 { font-size: 13px; font-weight: 700; color: #080501; margin-bottom: 10px; }
+  del { color: #bbb; text-decoration: line-through; }
+  .waived { font-size: 11px; font-weight: 700; color: #22a855; background: #e8f8ee; padding: 2px 8px; border-radius: 20px; margin-left: 6px; }
+
+  /* Checklist */
+  .checklist { list-style: none; padding: 0; margin: 16px 0; }
+  .checklist li { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid #f0ece8; color: #3a3530; font-size: 13px; }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before { content: "☐"; color: var(--accent); font-size: 16px; flex-shrink: 0; line-height: 1.2; }
+
+  /* Footer */
+  .doc-footer { background: #faf8f6; border-top: 1px solid #e8e4e0; padding: 28px 64px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #999; }
+  .doc-footer strong { color: #3a3530; }
+
+  @media print {
+    body { font-size: 12px; }
+    .cover { padding: 48px; min-height: 260px; }
+    .body { padding: 40px 48px; }
+    h2 { font-size: 18px; margin: 36px 0 12px; padding-top: 36px; }
+    .tech-grid { gap: 10px; }
+    .tech-card { padding: 12px 14px; }
+    .doc-footer { padding: 20px 48px; }
+    @page { margin: 0; size: A4; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Cover -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-brand">RubyxQube <span>×</span> {{CLIENT_NAME}}</div>
+    <div class="cover-brand">Confidential · {{DATE_SHORT}}</div>
+  </div>
+  <div>
+    <div class="accent-bar"></div>
+    <!-- CUSTOMIZE: Title — bold the differentiating word with <span> -->
+    <h1>{{PROPOSAL_TYPE}} <span>Proposal</span></h1>
+    <p class="cover-sub">{{PROPOSAL_SUBTITLE}}</p>
+    <div class="cover-meta">
+      <div class="cover-meta-item"><label>Prepared by</label><p>Boyd Querubin<br>RubyxQube</p></div>
+      <div class="cover-meta-item"><label>Prepared for</label><p>{{CLIENT_NAME}}<br>{{CLIENT_LOCATION}}</p></div>
+      <div class="cover-meta-item"><label>Version</label><p>{{VERSION}}<br>{{DATE_FULL}}</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- Body -->
+<div class="body">
+
+  <!-- SECTION: The Opportunity — what problem does this solve? Why now? -->
+  <h2>The Opportunity</h2>
+  <p>{{OPPORTUNITY_INTRO}}</p>
+
+  <!-- CUSTOMIZE: Use .two-col + .col-card to show 2 target segments or partner types.
+       Remove this block if not applicable. -->
+  <div class="two-col">
+    <div class="col-card">
+      <h4>{{SEGMENT_1_TITLE}}</h4>
+      <ul>
+        <li>{{SEGMENT_1_ITEM_1}}</li>
+        <li>{{SEGMENT_1_ITEM_2}}</li>
+        <li>{{SEGMENT_1_ITEM_3}}</li>
+      </ul>
+      <p style="font-size:12px;color:#888;margin-top:10px;">{{SEGMENT_1_NOTE}}</p>
+    </div>
+    <div class="col-card">
+      <h4>{{SEGMENT_2_TITLE}}</h4>
+      <ul>
+        <li>{{SEGMENT_2_ITEM_1}}</li>
+        <li>{{SEGMENT_2_ITEM_2}}</li>
+        <li>{{SEGMENT_2_ITEM_3}}</li>
+      </ul>
+      <p style="font-size:12px;color:#888;margin-top:10px;">{{SEGMENT_2_NOTE}}</p>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <strong>The core insight:</strong> {{CORE_INSIGHT}}
+  </div>
+
+  <!-- SECTION: What It Does — describe the product/service from the end user's perspective.
+       Use numbered steps for workflows. Use h3 for each user type. -->
+  <h2>What {{PRODUCT_NAME}} Does</h2>
+
+  <h3>For {{USER_TYPE_1}}</h3>
+  <ol>
+    <li>{{STEP_1}}</li>
+    <li>{{STEP_2}}</li>
+    <li>{{STEP_3}}</li>
+  </ol>
+
+  <!-- CUSTOMIZE: Add more user types with <h3> + <ol> as needed. Remove if single user type. -->
+
+  <!-- SECTION: Build Options — two pricing tiers side by side.
+       Left card = recommended (no upfront + rev share). Right card = ownership ($10K+). -->
+  <h2>Build Options</h2>
+  <p>Two ways to move forward — choose what works best for {{CLIENT_SHORT}} right now.</p>
+
+  <div class="option-cards">
+    <div class="option-card recommended">
+      <div class="option-badge">Recommended</div>
+      <h4>Partnership Model</h4>
+      <p style="font-size:12px;color:#888;margin:6px 0 0;">No upfront build cost</p>
+      <div class="price">$0 <span>upfront</span></div>
+      <p style="font-size:13px;font-weight:700;color:#3a3530;margin:0 0 12px;">${{MONTHLY_FEE}}/mo + {{REV_SHARE_PCT}}% per completed job</p>
+      <ul>
+        <li>RubyxQube builds the app at no charge</li>
+        <li>RubyxQube maintains it — {{CLIENT_SHORT}} never touches code</li>
+        <li>App updates, bug fixes, and new features all included</li>
+        <li>{{PARTNER_ACCESS_NOTE}}</li>
+        <li>${{MONTHLY_FEE}}/mo covers hosting, database, and auth infrastructure</li>
+        <li>RubyxQube receives {{REV_SHARE_PCT}}% of each completed job value</li>
+      </ul>
+      <p class="note">The platform fee covers real infrastructure costs. RubyxQube's profit comes from the {{REV_SHARE_PCT}}% — we only earn when you earn.</p>
+    </div>
+    <div class="option-card">
+      <h4>One-Time Build</h4>
+      <p style="font-size:12px;color:#888;margin:6px 0 0;">You own it outright</p>
+      <div class="price">${{FLAT_FEE}} <span>flat fee</span></div>
+      <ul>
+        <li>Full app built and delivered to {{CLIENT_SHORT}}</li>
+        <li>All revenue kept 100% by {{CLIENT_SHORT}}</li>
+        <li>No per-job fee to RubyxQube</li>
+        <li>Ongoing maintenance billed separately at ${{MAINTENANCE_FEE}}/mo</li>
+        <li>Code changes and new features billed hourly</li>
+      </ul>
+      <p class="note">Without ongoing maintenance the app will fall behind platform updates over time.</p>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <strong>Why the Partnership Model makes more sense:</strong> {{PARTNERSHIP_RATIONALE}}
+  </div>
+
+  <!-- SECTION: Revenue Split — only include if using Partnership Model.
+       Remove this entire section for One-Time Build proposals. -->
+  <h2>How the Revenue Share Works</h2>
+
+  <p>RubyxQube receives <strong>{{REV_SHARE_PCT}}% of the actual completed job value</strong> — paid by {{CLIENT_SHORT}} only after a job is confirmed complete.</p>
+
+  <div class="split-visual">
+    <div class="split-client">
+      <div class="split-label">{{CLIENT_SHORT}} keeps</div>
+      <div class="split-amount">{{CLIENT_SHARE_PCT}}%</div>
+      <div class="split-pct">of every completed job value</div>
+    </div>
+    <div class="split-rxq">
+      <div class="split-label">RubyxQube receives</div>
+      <div class="split-amount">{{REV_SHARE_PCT}}%</div>
+      <div class="split-pct">of every completed job value</div>
+    </div>
+  </div>
+
+  <!-- CUSTOMIZE: Job value table — update with client's actual job types and typical values -->
+  <p style="font-size:13px;color:#3a3530;margin:20px 0 8px;"><strong>How it scales across different job sizes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Job Type</th>
+        <th>Job Value</th>
+        <th>{{CLIENT_SHORT}} ({{CLIENT_SHARE_PCT}}%)</th>
+        <th>RubyxQube ({{REV_SHARE_PCT}}%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- CUSTOMIZE: Replace rows with client's actual job types + typical prices -->
+      <tr><td>{{JOB_TYPE_1}}</td><td>${{VALUE_1}}</td><td><strong>${{CLIENT_CUT_1}}</strong></td><td>${{RXQ_CUT_1}}</td></tr>
+      <tr><td>{{JOB_TYPE_2}}</td><td>${{VALUE_2}}</td><td><strong>${{CLIENT_CUT_2}}</strong></td><td>${{RXQ_CUT_2}}</td></tr>
+      <tr><td>{{JOB_TYPE_3}}</td><td>${{VALUE_3}}</td><td><strong>${{CLIENT_CUT_3}}</strong></td><td>${{RXQ_CUT_3}}</td></tr>
+    </tbody>
+  </table>
+
+  <p style="font-size:12px;color:#888;">The {{REV_SHARE_PCT}}% fee applies only to jobs confirmed completed through the platform. Quotes, estimates, and leads that don't convert are not charged.</p>
+
+  <!-- SECTION: Build Timeline — phases with estimated weeks.
+       Add or remove .phase blocks as needed. -->
+  <h2>Build Timeline</h2>
+  <p>{{TIMELINE_INTRO}}</p>
+
+  <div class="phases">
+    <div class="phase">
+      <div class="phase-label">Phase 1<span>Weeks 1–2</span></div>
+      <div class="phase-desc">
+        <strong>{{PHASE_1_TITLE}} <span class="phase-status next">Up Next</span></strong>
+        <br><br>{{PHASE_1_DESC}}
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-label">Phase 2<span>Weeks 3–4</span></div>
+      <div class="phase-desc">
+        <strong>{{PHASE_2_TITLE}}</strong> — {{PHASE_2_DESC}}
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-label">Phase 3<span>TBD</span></div>
+      <div class="phase-desc">
+        <strong>{{PHASE_3_TITLE}}</strong> — {{PHASE_3_DESC}}
+      </div>
+    </div>
+  </div>
+
+  <p><strong>Target Phase 1 launch:</strong> {{LAUNCH_TARGET}}</p>
+
+  <!-- SECTION: Existing Plan (optional) — include if client is already on Momentum or another plan.
+       Remove this entire section if not applicable. -->
+  <h2>Existing Website — Momentum Plan</h2>
+  <p>Separate from the app, {{CLIENT_NAME}} is enrolled on RubyxQube's <strong>Momentum Plan</strong> — the full-service monthly growth package covering the marketing website, AI receptionist, and ongoing local SEO.</p>
+
+  <div class="plan-block">
+    <h4>Momentum Plan — What's Included</h4>
+    <ul style="margin:10px 0 14px 16px;">
+      <li>Full custom website — built, hosted, and maintained</li>
+      <li>Custom AI receptionist trained on {{CLIENT_SHORT}}'s services, pricing, and FAQs</li>
+      <li>24/7 lead capture — answers questions, qualifies prospects around the clock</li>
+      <li>Instant alert when a new lead comes in</li>
+      <li>Google Business Profile management</li>
+      <li>Local SEO monitoring &amp; updates</li>
+      <li>Priority same-day edits</li>
+      <li>Review response management</li>
+      <li>Monthly 20-minute strategy call</li>
+      <li>Monthly report: visits, chats, leads captured</li>
+    </ul>
+    <table style="margin:0;">
+      <thead>
+        <tr><th>Plan</th><th>Setup Fee</th><th>Monthly Rate</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Momentum</strong></td>
+          <!-- CUSTOMIZE: Use <del>$3,000</del> <span class="waived">Waived</span> if setup fee is waived -->
+          <td>{{MOMENTUM_SETUP}}</td>
+          <td><strong>$699/mo</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>The Momentum Plan is an independent ongoing engagement. The {{REV_SHARE_PCT}}% per-job fee does not offset or replace the Momentum Plan retainer.</p>
+
+  <!-- SECTION: Next Steps — checklist of decisions/actions needed to move forward -->
+  <h2>Next Steps</h2>
+  <p>To move forward, the following decisions are needed:</p>
+
+  <ul class="checklist">
+    <li>{{NEXT_STEP_1}}</li>
+    <li>{{NEXT_STEP_2}}</li>
+    <li>{{NEXT_STEP_3}}</li>
+    <li>{{NEXT_STEP_4}}</li>
+    <li>Sign a simple partnership agreement outlining platform ownership, per-job fee, and exit terms.</li>
+  </ul>
+
+  <!-- SECTION: Why This Works — close with the aligned incentives argument -->
+  <h2>Why This Works for Both Parties</h2>
+  <p>{{CLIENT_NAME}} brings {{CLIENT_BRINGS}}. RubyxQube brings the technology platform and ongoing maintenance. Neither party can fully build this alone.</p>
+
+  <div class="highlight">
+    {{CLIENT_SHORT}} does not need to invest capital upfront. A ${{MONTHLY_FEE}}/mo platform fee covers infrastructure, and RubyxQube's {{REV_SHARE_PCT}}% only kicks in when a job is completed. <strong>As {{CLIENT_SHORT}} grows its partner network, RubyxQube grows with it — our incentives are perfectly aligned.</strong>
+  </div>
+
+  <p style="margin-top:24px;font-size:13px;color:#888;">This proposal is a draft for discussion. All figures are negotiable and subject to a formal agreement. Prepared by Boyd Querubin, RubyxQube — boyd@rubyxqube.com</p>
+
+</div>
+
+<div class="doc-footer">
+  <span><strong>RubyxQube</strong> · boyd@rubyxqube.com</span>
+  <span>{{CLIENT_NAME}} {{PROPOSAL_TYPE}} Proposal · {{VERSION}} · {{DATE_FULL}}</span>
+  <span>Confidential</span>
+</div>
+
+</body>
+</html>

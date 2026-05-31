@@ -24,7 +24,7 @@ const coFounded = [
       "Enterprise-grade security without enterprise overhead",
     ],
     links: [
-      { label: "Marketing Site", href: "https://www.bastionmsp.com" },
+      { label: "Visit Site", href: "https://www.bastionmsp.com" },
     ],
   },
 ];
@@ -32,20 +32,22 @@ const coFounded = [
 const clientWork = [
   {
     id: "phoenix-stoneworks",
-    category: "Stoneworks · Treasure Valley",
+    category: "Stone Fabrication · Treasure Valley",
     name: "Phoenix Stoneworks",
     role: "Web Designer & Developer",
     description:
-      "Website built to help a local stoneworks company look professional online and make it easy for customers to request estimates.",
-    tech: "React · Vite · Custom CSS",
+      "Full Momentum plan client — custom website, AI receptionist, and ongoing local SEO for a Treasure Valley stone fabrication and countertop installation company.",
+    tech: "React · Vite · Custom CSS · Claude AI · Vercel",
     bullets: [
-      "Mobile-first responsive layout",
-      "Clear service positioning and calls to action",
-      "Quote and estimate request flow",
-      "Google Maps embed for local visibility",
+      "Custom 6-page mobile-first website built from scratch",
+      "AI receptionist trained on services, pricing, and FAQs — answers leads 24/7",
+      "Instant SMS + email alert when a new lead comes in",
+      "Quote request flow with automatic lead capture",
+      "Google Business Profile management and local SEO",
+      "Monthly performance reports: traffic, chats, leads",
     ],
     links: [
-      { label: "Visit Site", href: "https://phoenix-stoneworks.com" },
+      { label: "Visit Site", href: "https://phoenix-stoneworks.vercel.app/" },
     ],
   },
 ];
@@ -94,7 +96,7 @@ export default function Portfolio() {
                 </div>
 
                 {/* Right: role, tech, links */}
-                <div style={{ flex: "0 1 240px", display: "flex", flexDirection: "column", gap: 20 }}>
+                <div style={{ flex: "1 1 240px", display: "flex", flexDirection: "column", gap: 20 }}>
                   <div>
                     <p style={{ fontSize: 11, fontWeight: 700, color: "var(--muted)", letterSpacing: "0.10em", textTransform: "uppercase", marginBottom: 6 }}>Role</p>
                     <span className="badge">{project.role}</span>
@@ -113,7 +115,7 @@ export default function Portfolio() {
                         href={link.href}
                         target="_blank"
                         rel="noreferrer"
-                        style={{ justifyContent: "center" }}
+                        style={{ justifyContent: "center", width: "100%" }}
                       >
                         {link.label} <ExternalLink size={13} style={{ marginLeft: 4, verticalAlign: "middle" }} />
                       </a>

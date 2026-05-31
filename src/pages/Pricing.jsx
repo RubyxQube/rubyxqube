@@ -56,6 +56,7 @@ export default function Pricing() {
         "Review response management",
         "Monthly 20-min strategy call",
       ],
+      note: "Have a bigger idea? Ask about custom app development.",
     },
   ];
 

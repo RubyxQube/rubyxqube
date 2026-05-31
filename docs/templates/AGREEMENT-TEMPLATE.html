@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!--
+  RubyxQube — Platform Partnership Agreement Template
+  ====================================================
+  STEP 1 — Set brand colors in :root below (--accent is the main one)
+  STEP 2 — Find/replace all {{TOKENS}} with client-specific values:
+
+    {{CLIENT_NAME}}         Full legal business name     e.g. "Phoenix Stoneworks LLC"
+    {{CLIENT_SHORT}}        Short name                   e.g. "Phoenix Stoneworks"
+    {{CLIENT_OWNER}}        Owner's full legal name      e.g. "John Smith"
+    {{CLIENT_EMAIL}}        Owner's email
+    {{CLIENT_ADDRESS}}      Business address             e.g. "123 Main St, Boise, Idaho"
+    {{CLIENT_LOCATION}}     City/region                  e.g. "Treasure Valley, ID"
+    {{PLATFORM_NAME}}       What the app is called       e.g. "B2B Mobile Quoting Platform"
+    {{PLATFORM_DESC}}       One-sentence background      e.g. "enables partners to generate quotes..."
+    {{MONTHLY_FEE}}         Platform fee number          e.g. "99.00"
+    {{REV_SHARE_PCT}}       Revenue share percentage     e.g. "10"
+    {{COMPLETED_JOB_DEF}}   Legal definition of a completed job
+    {{DATE_FULL}}           Effective date               e.g. "June 1, 2026"
+    {{DATE_SHORT}}          Month + year                 e.g. "June 2026"
+
+  STEP 3 — Review all legal clauses and adjust for this deal's specifics.
+
+  SAVE TO: C:\Users\boydi\Documents\RubyxQube\Clients\[client-slug]\Proposals\
+  NAMING:  [SLUG]-Agreement-[YYYY-MM-DD].html
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Platform Partnership Agreement — {{CLIENT_NAME}} × RubyxQube</title>
+<style>
+  /* ── Brand tokens — change these per client ── */
+  :root {
+    --accent:        #e11d48;              /* CLIENT BRAND COLOR */
+    --accent-dim:    rgba(225,29,72,0.13);
+    --accent-border: rgba(225,29,72,0.35);
+    --accent-dark:   #b8102c;
+    --accent-bg:     #fff5f7;
+    --cover-bg:      #080808;             /* cover/header dark background */
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Plus Jakarta Sans', Arial, sans-serif; background: #fff; color: #1a1a1a; font-size: 13.5px; line-height: 1.70; }
+
+  /* Cover */
+  .cover { background: var(--cover-bg); color: #fff; padding: 72px 64px 64px; min-height: 300px; display: flex; flex-direction: column; justify-content: space-between; }
+  .cover-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; }
+  .cover-brand { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+  .cover-brand span { color: var(--accent); }
+  .accent-bar { width: 48px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 24px; }
+  .cover h1 { font-size: 32px; font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .cover h1 span { color: var(--accent); }
+  .cover-sub { font-size: 14px; color: rgba(255,255,255,0.50); margin-bottom: 40px; max-width: 480px; }
+  .cover-meta { display: grid; grid-template-columns: repeat(3, auto); gap: 40px; }
+  .cover-meta-item label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 4px; }
+  .cover-meta-item p { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.82); }
+
+  /* Disclaimer banner */
+  .disclaimer { background: var(--accent-bg); border-left: 3px solid var(--accent); padding: 14px 20px; font-size: 12px; color: #7a3a3a; }
+  .disclaimer strong { color: var(--accent-dark); }
+
+  /* Body */
+  .body { padding: 52px 64px; max-width: 860px; margin: 0 auto; }
+
+  /* Parties block */
+  .parties { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0 32px; }
+  .party-card { background: #faf8f6; border: 1px solid #e8e4e0; border-radius: 10px; padding: 20px 22px; }
+  .party-card .party-role { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.10em; color: var(--accent); margin-bottom: 8px; }
+  .party-card .party-name { font-size: 15px; font-weight: 800; color: #080501; margin-bottom: 4px; }
+  .party-card .party-detail { font-size: 12px; color: #888; line-height: 1.55; }
+
+  /* Section headings */
+  h2 { font-size: 11px; font-weight: 800; letter-spacing: 0.10em; text-transform: uppercase; color: var(--accent); margin: 36px 0 14px; padding-top: 36px; border-top: 1px solid #e8e4e0; }
+  h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+
+  /* Clauses */
+  p { color: #3a3530; margin-bottom: 10px; }
+  p:last-child { margin-bottom: 0; }
+
+  ol.clauses { list-style: none; padding: 0; counter-reset: clause-counter; }
+  ol.clauses > li { counter-increment: clause-counter; padding: 10px 0 10px 0; border-bottom: 1px solid #f0ece8; color: #3a3530; display: grid; grid-template-columns: 28px 1fr; gap: 8px; }
+  ol.clauses > li:last-child { border-bottom: none; }
+  ol.clauses > li::before { content: counter(clause-counter) "."; font-weight: 700; color: var(--accent); font-size: 12px; padding-top: 1px; }
+
+  ol.sub { list-style: none; padding: 8px 0 0 0; counter-reset: sub-counter; }
+  ol.sub li { counter-increment: sub-counter; display: grid; grid-template-columns: 36px 1fr; gap: 6px; padding: 5px 0; color: #3a3530; }
+  ol.sub li::before { content: "(" counter(sub-counter, lower-alpha) ")"; font-size: 12px; color: #888; font-weight: 600; padding-top: 1px; }
+
+  /* Highlight box */
+  .box { background: #faf8f6; border: 1px solid #e8e4e0; border-radius: 10px; padding: 18px 22px; margin: 16px 0; }
+  .box strong { color: #080501; }
+
+  /* Fee table */
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+  thead tr { background: var(--cover-bg); color: #fff; }
+  thead th { padding: 10px 16px; text-align: left; font-weight: 700; font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; }
+  tbody tr { border-bottom: 1px solid #f0ece8; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #faf8f6; }
+  tbody td { padding: 11px 16px; color: #3a3530; }
+  tbody td strong { color: #080501; font-weight: 700; }
+
+  /* Signature block */
+  .sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 16px; }
+  .sig-party { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.09em; color: var(--accent); margin-bottom: 10px; }
+  .sig-line { border-bottom: 1.5px solid #1a1a1a; margin-bottom: 6px; height: 36px; }
+  .sig-label { font-size: 11px; color: #888; }
+  .sig-label + .sig-label { margin-top: 20px; }
+  .sig-line + .sig-label { margin-top: 4px; }
+
+  /* Footer */
+  .doc-footer { background: #faf8f6; border-top: 1px solid #e8e4e0; padding: 24px 64px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #999; }
+  .doc-footer strong { color: #3a3530; }
+
+  @media print {
+    body { font-size: 12px; }
+    .cover { padding: 48px; }
+    .body { padding: 36px 48px; }
+    .doc-footer { padding: 18px 48px; }
+    @page { margin: 0; size: A4; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Cover -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-brand">RubyxQube <span>×</span> {{CLIENT_NAME}}</div>
+    <div class="cover-brand">Confidential</div>
+  </div>
+  <div>
+    <div class="accent-bar"></div>
+    <h1>Platform <span>Partnership</span><br>Agreement</h1>
+    <p class="cover-sub">{{PLATFORM_NAME}} — Terms of Partnership between Boyd Querubin d/b/a RubyxQube and {{CLIENT_NAME}}.</p>
+    <div class="cover-meta">
+      <div class="cover-meta-item"><label>Developer</label><p>Boyd Querubin<br>d/b/a RubyxQube</p></div>
+      <div class="cover-meta-item"><label>Client</label><p>{{CLIENT_NAME}}<br>{{CLIENT_LOCATION}}</p></div>
+      <div class="cover-meta-item"><label>Effective Date</label><p>{{DATE_FULL}}</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>Note:</strong> This is a working draft prepared by RubyxQube for discussion purposes. It is not legal advice. Both parties are encouraged to have this reviewed by a licensed attorney before signing.
+</div>
+
+<!-- Body -->
+<div class="body">
+
+  <h2>Parties</h2>
+
+  <div class="parties">
+    <div class="party-card">
+      <div class="party-role">Developer</div>
+      <div class="party-name">Boyd Querubin</div>
+      <div class="party-detail">d/b/a RubyxQube<br>boyd@rubyxqube.com<br>Boise, Idaho</div>
+    </div>
+    <div class="party-card">
+      <div class="party-role">Client</div>
+      <div class="party-name">{{CLIENT_NAME}}</div>
+      <div class="party-detail">{{CLIENT_OWNER}}<br>{{CLIENT_EMAIL}}<br>{{CLIENT_ADDRESS}}</div>
+    </div>
+  </div>
+
+  <p>This Platform Partnership Agreement (<strong>"Agreement"</strong>) is entered into as of the Effective Date above by and between the parties identified above. Together they are referred to as the <strong>"Parties."</strong></p>
+
+  <h2>Background</h2>
+
+  <p>Developer has built and operates a {{PLATFORM_NAME}} (the <strong>"Platform"</strong>) that {{PLATFORM_DESC}}.</p>
+
+  <p>The Parties wish to enter into a partnership whereby Developer makes the Platform available to Client and Client's commercial partners under the terms set forth in this Agreement.</p>
+
+  <h2>1 — Platform &amp; Services</h2>
+
+  <ol class="clauses">
+    <li>
+      <div>Developer will design, build, host, and maintain the Platform, including the mobile application (iOS and Android), backend API, database, and authentication infrastructure.</div>
+    </li>
+    <li>
+      <div>Developer will maintain the Platform in good working order, including applying updates required by iOS and Android operating system changes, fixing bugs, and ensuring reasonable uptime. Planned maintenance will be communicated to Client in advance where practical.</div>
+    </li>
+    <li>
+      <div>Developer will make the Platform available to Client's approved commercial partners (each an <strong>"Authorized Partner"</strong>) at no charge to those partners. Client is responsible for introducing and onboarding Authorized Partners.</div>
+    </li>
+    <li>
+      <div>Developer may add new features, update the user interface, or modify Platform functionality at its discretion, provided such changes do not materially degrade the core functionality without Client's prior written consent.</div>
+    </li>
+    <li>
+      <div>Developer is not responsible for delays, errors, or failures caused by third-party services including but not limited to Apple App Store, Google Play Store, Vercel, Supabase, or Stripe.</div>
+    </li>
+  </ol>
+
+  <h2>2 — Fees &amp; Payment</h2>
+
+  <div class="box">
+    <table style="margin:0;">
+      <thead><tr><th>Fee</th><th>Amount</th><th>When Due</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Platform Fee</strong></td><td>${{MONTHLY_FEE}} / month</td><td>Monthly, beginning on the Platform Launch Date</td></tr>
+        <tr><td><strong>Revenue Share</strong></td><td>{{REV_SHARE_PCT}}% of Completed Job Value</td><td>Within 30 days of each Completed Job</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ol class="clauses">
+    <li>
+      <div><strong>Platform Fee.</strong> Client shall pay Developer ${{MONTHLY_FEE}} per month (the <strong>"Platform Fee"</strong>) beginning on the date the Platform is launched and made available to Authorized Partners (the <strong>"Launch Date"</strong>). The Platform Fee is due on the same calendar day each month and covers Developer's infrastructure, hosting, database, and authentication costs.</div>
+    </li>
+    <li>
+      <div><strong>Revenue Share.</strong> Client shall pay Developer a revenue share equal to {{REV_SHARE_PCT}}% of the gross value of each Completed Job (the <strong>"Revenue Share"</strong>). Payment is due within thirty (30) days of Client confirming each job as complete.
+        <ol class="sub">
+          <li>A <strong>"Completed Job"</strong> means {{COMPLETED_JOB_DEF}}.</li>
+          <li>The Revenue Share applies only to jobs confirmed as complete. Leads, quotes, or estimates that do not result in a completed job are not subject to the Revenue Share.</li>
+          <li>Client agrees to notify Developer of each Completed Job within five (5) business days of completion and provide the confirmed job value.</li>
+          <li>Developer reserves the right to request supporting documentation (e.g., invoice or work order) to verify the reported job value. Client agrees to provide such documentation within ten (10) business days of request.</li>
+        </ol>
+      </div>
+    </li>
+    <li>
+      <div><strong>Late Payments.</strong> Amounts not paid within thirty (30) days of the due date will accrue interest at 1.5% per month until paid in full.</div>
+    </li>
+    <li>
+      <div><strong>Fee Adjustments.</strong> Developer may adjust the Platform Fee with sixty (60) days written notice. Revenue Share percentage may only be adjusted by written amendment signed by both Parties.</div>
+    </li>
+  </ol>
+
+  <h2>3 — Intellectual Property</h2>
+
+  <ol class="clauses">
+    <li>
+      <div><strong>Platform Ownership.</strong> Developer retains sole ownership of the Platform, including all source code, software, designs, algorithms, and documentation. This Agreement grants Client a non-exclusive, non-transferable right to use the Platform for the purposes described herein. Client receives no ownership interest in the Platform.</div>
+    </li>
+    <li>
+      <div><strong>Client Data.</strong> Client retains ownership of all business data generated through the Platform, including customer information, quotes, jobs, and partner records (<strong>"Client Data"</strong>). Developer will not sell, share, or use Client Data for any purpose other than operating the Platform.</div>
+    </li>
+    <li>
+      <div><strong>Data on Termination.</strong> Upon termination of this Agreement, Developer will provide Client with an export of Client Data in a standard format within thirty (30) days and will permanently delete Client Data from the Platform within sixty (60) days.</div>
+    </li>
+  </ol>
+
+  <h2>4 — Confidentiality</h2>
+
+  <ol class="clauses">
+    <li>
+      <div>Each Party agrees to keep the other Party's confidential business information — including pricing, partner relationships, technical architecture, and the terms of this Agreement — strictly confidential and not to disclose it to any third party without prior written consent.</div>
+    </li>
+    <li>
+      <div>This obligation does not apply to information that is (a) publicly available through no fault of the receiving Party, (b) already known to the receiving Party prior to disclosure, or (c) required to be disclosed by law or court order.</div>
+    </li>
+  </ol>
+
+  <h2>5 — Term &amp; Termination</h2>
+
+  <ol class="clauses">
+    <li>
+      <div><strong>Initial Term.</strong> This Agreement begins on the Effective Date and continues for twelve (12) months (the <strong>"Initial Term"</strong>).</div>
+    </li>
+    <li>
+      <div><strong>Renewal.</strong> After the Initial Term, this Agreement automatically renews for successive twelve (12)-month periods unless either Party provides written notice of non-renewal at least sixty (60) days before the end of the then-current term.</div>
+    </li>
+    <li>
+      <div><strong>Termination for Cause.</strong> Either Party may terminate this Agreement immediately upon written notice if the other Party materially breaches this Agreement and fails to cure such breach within thirty (30) days of receiving written notice describing the breach.</div>
+    </li>
+    <li>
+      <div><strong>Effect of Termination.</strong> Upon termination:
+        <ol class="sub">
+          <li>Client's access to the Platform and all Authorized Partner access will be deactivated.</li>
+          <li>All outstanding Platform Fees and Revenue Share amounts become immediately due and payable.</li>
+          <li>Developer will provide Client Data export per Section 3.3.</li>
+          <li>Each Party's confidentiality obligations survive termination.</li>
+        </ol>
+      </div>
+    </li>
+  </ol>
+
+  <h2>6 — Limitation of Liability</h2>
+
+  <ol class="clauses">
+    <li>
+      <div>Neither Party shall be liable to the other for any indirect, incidental, consequential, or punitive damages arising out of or related to this Agreement, even if advised of the possibility of such damages.</div>
+    </li>
+    <li>
+      <div>Developer's total liability to Client under this Agreement shall not exceed the total Platform Fees paid by Client in the three (3) months preceding the claim.</div>
+    </li>
+    <li>
+      <div>Developer does not warrant that the Platform will be error-free or uninterrupted. Developer will use commercially reasonable efforts to maintain availability but does not guarantee any specific uptime level.</div>
+    </li>
+  </ol>
+
+  <h2>7 — General Provisions</h2>
+
+  <ol class="clauses">
+    <li>
+      <div><strong>Governing Law.</strong> This Agreement is governed by the laws of the State of Idaho, without regard to its conflict of law principles.</div>
+    </li>
+    <li>
+      <div><strong>Dispute Resolution.</strong> The Parties agree to attempt to resolve any dispute through good-faith negotiation before pursuing any other remedy. If negotiation fails within thirty (30) days, disputes shall be resolved by binding arbitration in Ada County, Idaho under the rules of the American Arbitration Association.</div>
+    </li>
+    <li>
+      <div><strong>Independent Contractors.</strong> The Parties are independent contractors. Nothing in this Agreement creates an employment, agency, joint venture, or partnership relationship between the Parties.</div>
+    </li>
+    <li>
+      <div><strong>Entire Agreement.</strong> This Agreement constitutes the entire agreement between the Parties regarding the Platform and supersedes all prior discussions, proposals, and understandings relating to the same subject matter.</div>
+    </li>
+    <li>
+      <div><strong>Amendments.</strong> This Agreement may only be modified by a written document signed by both Parties.</div>
+    </li>
+    <li>
+      <div><strong>Severability.</strong> If any provision of this Agreement is found to be unenforceable, the remaining provisions will continue in full force and effect.</div>
+    </li>
+    <li>
+      <div><strong>Notices.</strong> Notices under this Agreement shall be sent by email to the addresses listed in the Parties section above and are effective upon confirmation of receipt.</div>
+    </li>
+  </ol>
+
+  <h2>Signatures</h2>
+
+  <p>By signing below, each Party agrees to be bound by the terms of this Agreement.</p>
+
+  <div class="sig-grid">
+    <div class="sig-block">
+      <div class="sig-party">Developer — RubyxQube</div>
+      <div class="sig-line"></div>
+      <div class="sig-label">Signature</div>
+      <div class="sig-line" style="margin-top:20px;"></div>
+      <div class="sig-label">Printed Name: Boyd Querubin</div>
+      <div class="sig-line" style="margin-top:20px;"></div>
+      <div class="sig-label">Date</div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-party">Client — {{CLIENT_NAME}}</div>
+      <div class="sig-line"></div>
+      <div class="sig-label">Signature</div>
+      <div class="sig-line" style="margin-top:20px;"></div>
+      <div class="sig-label">Printed Name &amp; Title</div>
+      <div class="sig-line" style="margin-top:20px;"></div>
+      <div class="sig-label">Date</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="doc-footer">
+  <span><strong>RubyxQube</strong> · boyd@rubyxqube.com</span>
+  <span>{{CLIENT_NAME}} Platform Partnership Agreement · {{DATE_FULL}}</span>
+  <span>Confidential</span>
+</div>
+
+</body>
+</html>

@@ -90,6 +90,16 @@ Add-ons: [any extras quoted]
 To proceed: sign this proposal + 50% deposit
 ```
 
+### Generated HTML/PDF proposals and agreements
+When Claude generates a proposal or agreement document, save to:
+```
+C:\Users\boydi\Projects\rubyxqube\clients\[client-slug]\Proposals\
+```
+File naming convention: `[SLUG]-[TYPE]-[DATE].html` / `.pdf`
+Example: `PSW-B2B-Proposal-2026-05-28.html`
+
+Do NOT save to Downloads — they get buried and lost.
+
 ### Contract & E-Signature
 **Current process (until signing page is built):**
 - Use the service agreement template (downloaded from Bonsai, customized for RubyxQube — see LEGAL.md)
@@ -127,16 +137,19 @@ Creates GitHub repo from template + Vercel project automatically. Until then, do
 - [ ] Create client page in Notion CRM (move stage to: **Active Build**)
 - [ ] Create GA4 property for client, share read access with their Google account
 
-### Google Drive folder structure
+### Local folder structure (gitignored, lives in the project)
 ```
-/Clients
-  /[BusinessName]
-    /Assets          ← logos, photos client provides
-    /Copy            ← content drafts, approved copy
-    /Credentials     ← stored in 1Password, NOT here
-    /Deliverables    ← final exports, screenshots
-    /Reports         ← monthly report PDFs
+rubyxqube/
+  clients/
+    [client-slug]/
+      Proposals/     ← generated HTML + PDF proposals and agreements
+      Assets/        ← logos, photos client provides
+      Copy/          ← content drafts, approved copy
+      Deliverables/  ← final exports, screenshots
+      Reports/       ← monthly report PDFs
+  legal/             ← LLC docs, trademark receipts, master templates
 ```
+All client and legal files are gitignored — they stay local, never pushed to GitHub.
 
 ### Notion client page should include
 - Business name, owner name, contact info

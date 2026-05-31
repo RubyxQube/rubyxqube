@@ -395,6 +395,7 @@ function LeadModal({ pickedStyle, pickedPalette, onClose }) {
           maxWidth: 440,
           width: "100%",
           boxShadow: "0 24px 64px rgba(0,0,0,0.6)",
+          color: "rgba(255,255,255,0.90)",
         }}
         onClick={e => e.stopPropagation()}
       >
@@ -402,8 +403,8 @@ function LeadModal({ pickedStyle, pickedPalette, onClose }) {
           <div style={{ textAlign: "center" }}>
             <div style={{ fontSize: 40, marginBottom: 16 }}>✓</div>
             <h3 className="h3" style={{ marginBottom: 8 }}>You're on the list</h3>
-            <p style={{ color: "var(--muted)", fontSize: 14, lineHeight: 1.6 }}>
-              Boyd will reach out within 1 business day to schedule your audit call — already knowing you picked <strong style={{ color: "var(--text)" }}>{pickedStyle?.name}</strong> + <strong style={{ color: "var(--text)" }}>{pickedPalette?.name}</strong>.
+            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: 14, lineHeight: 1.6 }}>
+              Boyd will reach out within 1 business day to schedule your audit call — already knowing you picked <strong style={{ color: "rgba(255,255,255,0.90)" }}>{pickedStyle?.name}</strong> + <strong style={{ color: "rgba(255,255,255,0.90)" }}>{pickedPalette?.name}</strong>.
             </p>
             <button
               onClick={onClose}
@@ -419,14 +420,14 @@ function LeadModal({ pickedStyle, pickedPalette, onClose }) {
               One last step
             </p>
             <h3 className="h3" style={{ marginBottom: 8 }}>Drop your info</h3>
-            <p style={{ color: "var(--muted)", fontSize: 14, marginBottom: 24, lineHeight: 1.6 }}>
-              Boyd will know you picked <strong style={{ color: "var(--text)" }}>{pickedStyle?.name}</strong> + <strong style={{ color: "var(--text)" }}>{pickedPalette?.name}</strong> before you even say hello.
+            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: 14, marginBottom: 24, lineHeight: 1.6 }}>
+              Boyd will know you picked <strong style={{ color: "rgba(255,255,255,0.90)" }}>{pickedStyle?.name}</strong> + <strong style={{ color: "rgba(255,255,255,0.90)" }}>{pickedPalette?.name}</strong> before you even say hello.
             </p>
 
             {/* Selection summary */}
             <div style={{
-              background: "rgba(225,29,72,0.06)",
-              border: "1px solid rgba(225,29,72,0.15)",
+              background: "rgba(225,29,72,0.10)",
+              border: "1px solid rgba(225,29,72,0.25)",
               borderRadius: 10,
               padding: "12px 16px",
               marginBottom: 24,
@@ -435,12 +436,12 @@ function LeadModal({ pickedStyle, pickedPalette, onClose }) {
               flexWrap: "wrap",
             }}>
               <div>
-                <div style={{ fontSize: 11, color: "var(--muted)", marginBottom: 2 }}>Layout</div>
-                <div style={{ fontSize: 14, fontWeight: 700 }}>{pickedStyle?.name}</div>
+                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", marginBottom: 2 }}>Layout</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "rgba(255,255,255,0.90)" }}>{pickedStyle?.name}</div>
               </div>
               <div>
-                <div style={{ fontSize: 11, color: "var(--muted)", marginBottom: 2 }}>Colors</div>
-                <div style={{ fontSize: 14, fontWeight: 700 }}>{pickedPalette?.name}</div>
+                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", marginBottom: 2 }}>Colors</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "rgba(255,255,255,0.90)" }}>{pickedPalette?.name}</div>
               </div>
             </div>
 
