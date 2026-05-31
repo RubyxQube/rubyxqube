@@ -6,6 +6,9 @@ const WIX_BULLETS = [
   "You design it yourself, on their schedule",
   "Template everyone else is also using",
   "Slow load times that hurt your Google ranking",
+  "No Google Analytics setup - you figure it out yourself",
+  "No Search Console - Google may not even find your site",
+  "No Google Business Profile help",
   "No AI, no lead capture, no SMS alerts",
   "You own nothing - they can change pricing anytime",
   "Support is a help article, not a person",
@@ -16,7 +19,9 @@ const RXQ_BULLETS = [
   "Built for you, around your business",
   "Custom design no one else has",
   "Fast, optimized, mobile-first",
-  "Google Analytics + Search Console included",
+  "Google Analytics 4 set up and verified on every build",
+  "Google Search Console verified + sitemap submitted",
+  "Google Business Profile management (Momentum plan)",
   "AI receptionist available as an add-on",
   "You own the site and the domain",
   "Direct line to Boyd - text, call, email",
@@ -57,7 +62,7 @@ function CondensedComparison() {
           Wix / Squarespace over 3 years
         </p>
         <p className="p" style={{ marginBottom: 0 }}>
-          $29-36/mo adds up to <strong style={{ color: "var(--text)" }}>$1,000+</strong> - for a template you built yourself, that you don't own, with no AI and no real support.
+          $29-36/mo adds up to <strong style={{ color: "var(--text)" }}>$1,000+</strong> - for a template you built yourself, with no analytics setup, no Search Console, no Google Business Profile help, and no real support.
         </p>
       </div>
       <div style={{ width: 1, background: "var(--line)", alignSelf: "stretch", flexShrink: 0 }} />
@@ -66,7 +71,7 @@ function CondensedComparison() {
           RubyxQube Launch
         </p>
         <p className="p" style={{ marginBottom: 12 }}>
-          <strong style={{ color: "var(--text)" }}>$2,500 once.</strong> Custom design, fast hosting, GA4 + Search Console included, and a direct line to Boyd - not a help article.
+          <strong style={{ color: "var(--text)" }}>$2,500 once.</strong> Custom design, Google Analytics and Search Console set up on day one, Google Business Profile managed for you, and a direct line to Boyd - not a help article.
         </p>
         <Link to="/pricing" style={{ color: "var(--accent)", fontWeight: 700, fontSize: 14 }}>
           See the full comparison
