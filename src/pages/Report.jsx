@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Check, BarChart2 } from "lucide-react";
 
@@ -95,6 +95,15 @@ function SectionHead({ label, title }) {
 
 // ── Page ───────────────────────────────────────────────────────────────────
 export default function Report() {
+  useEffect(() => {
+    const prev = document.documentElement.getAttribute("data-theme");
+    document.documentElement.setAttribute("data-theme", "light");
+    return () => {
+      if (prev) document.documentElement.setAttribute("data-theme", prev);
+      else document.documentElement.removeAttribute("data-theme");
+    };
+  }, []);
+
   return (
     <div className="pageMinHeight" style={{ background: "var(--bg)" }}>
 
