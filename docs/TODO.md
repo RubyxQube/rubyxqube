@@ -92,10 +92,46 @@ These are the last things standing between you and taking real client money.
 
 ## 🔲 Future / Backlog
 
-- [ ] Client portal (login, stats) — Supabase + Next.js, Phase 3
-- [ ] Automated monthly reporting (GA4 API + Puppeteer + Resend cron)
-- [ ] Referral/affiliate program ($200–500 per referred client)
-- [ ] Raise Autopilot to $499/mo at 5+ clients
+### Client Portal (Phase 3 — build at 5+ clients)
+
+Full spec, ready to execute when manually sending reports becomes painful.
+
+**Trigger:** 5+ active Autopilot/Momentum clients. Before that, use token-based report URLs (no auth needed).
+
+**Stack:**
+- Auth + database: Supabase (free tier, row-level security per client)
+- Frontend: New `/portal` route in the existing React app
+- PDF generation: Puppeteer (already in project) — screenshots report page → PDF
+- API: Vercel serverless functions (already there)
+- Email delivery: Resend (already there)
+
+**What clients see when they log in:**
+- Dashboard — current month snapshot (visitors, leads, chatbot activity, search impressions)
+- Report history — every monthly report, viewable + downloadable as PDF
+- Annual rollup — full year summary auto-generated on Jan 1
+- Lead log — all captured leads with date, name, contact, what they needed
+- Chatbot conversations — full transcript history
+- Site health — uptime status, last speed check score, any GSC errors flagged that month
+- Update requests — form to submit content change requests (replaces "text Boyd")
+- Invoice history — once Wave API is integrated
+
+**How it works technically:**
+1. Boyd creates a client account in Supabase after signing — triggers welcome email via Resend
+2. Row-level security: each client's `client_id` gates all their data
+3. Reports auto-save to Supabase on the 1st of each month (cron via Vercel)
+4. Puppeteer generates PDF from the `/report/[token]` page, stores in Supabase Storage
+5. Client gets email: "Your April report is ready — view it here"
+
+**Before the portal — token-based report URLs (do this first):**
+- `/report/[token]` — unique URL per client, no login needed
+- Token stored in Supabase or even just a `.env` var per client for now
+- Client bookmarks it, sees their real data, feels professional
+- Migrate to full portal auth later without breaking the URL
+
+**Other backlog items:**
+- [ ] Automated monthly reporting (GA4 API + Puppeteer + Resend cron) — prerequisite for portal
+- [ ] Referral/affiliate program ($200-500 per referred client)
+- [ ] Raise Momentum to $799/mo once Phoenix Stoneworks results are proven
 - [ ] "Website in a Week" productized offer — $1,500, 5-day turnaround
 - [ ] LinkedIn — 2 posts/month, case studies
 - [ ] Contract signing page → evaluate as standalone micro-SaaS product (COSTS.md)
