@@ -43,7 +43,7 @@ A traditional receptionist costs $2,500–4,000/month. A part-time answering ser
 | Plan | Monthly | What's Included |
 |------|---------|-----------------|
 | Autopilot | $399/mo | AI chatbot, 24/7 lead capture, monthly report, 60 min updates, weekly check-in |
-| Momentum | $699/mo | Everything in Autopilot + GBP management, local SEO, 2 social posts, review management, strategy call |
+| Momentum | $999/mo | Everything in Autopilot + GBP management, local SEO, 2 social posts, review management, strategy call |
 
 ### 3. Add-Ons (One-Time)
 | Add-On | Price |
@@ -85,7 +85,7 @@ A traditional receptionist costs $2,500–4,000/month. A part-time answering ser
 
 | Item | Cost |
 |------|------|
-| Revenue | $699/mo |
+| Revenue | $999/mo |
 | AI + SMS + hosting | ~$5–10/mo |
 | Time (care + report + social + strategy call) | ~3 hrs/mo (~$300) |
 | **Gross margin** | **~$389/mo** (~56%) |

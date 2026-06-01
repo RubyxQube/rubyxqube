@@ -53,7 +53,7 @@ RubyxQube agrees to design, develop, and deliver the following ("Project"):
 |-----------|--------|-----|
 | Deposit (non-refundable after work begins) | [50% OF SETUP FEE] | Upon signing |
 | Final payment | [50% OF SETUP FEE] | On launch day, before DNS cutover |
-| Monthly retainer (if applicable) | [$399 / $699 / mo] | 1st of each month, auto-invoiced |
+| Monthly retainer (if applicable) | [$399 / $999 / mo] | 1st of each month, auto-invoiced |
 
 **Accepted payment methods:** Bank transfer, Zelle, credit/debit card (via Wave — 2.9% + 30¢ fee applies to card payments)
 
@@ -115,7 +115,7 @@ The monthly retainer begins on the **launch date** and covers:
 - Weekly check-in text
 - Hosting, uptime monitoring, security updates
 
-**Momentum ($699/mo — everything above, plus):**
+**Momentum ($999/mo — everything above, plus):**
 - 2 social media posts/month (image + caption, client approves before posting)
 - Google Business Profile management
 - Responding to Google reviews on Client's behalf

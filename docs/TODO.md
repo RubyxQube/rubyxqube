@@ -11,7 +11,7 @@ These are the last things standing between you and taking real client money.
 
 - [x] **Get EIN** — received ✅
 - [ ] **Open business bank account (ICCU)** — blocked on SOSbiz certificate (Idaho SOS, pending). Bring LLC docs + EIN + SOSbiz cert when it arrives.
-- [ ] **Set up Wave** — wave.com, free. Connect bank account. Create invoice template (Launch $2,500 / Autopilot $399/mo / Momentum $699/mo).
+- [ ] **Set up Wave** — wave.com, free. Connect bank account. Create invoice template (Launch $2,500 / Autopilot $399/mo / Momentum $999/mo).
 - [ ] **Get boyd@rubyxqube.com** — Google Workspace $6/mo. Use this for ALL client communication from now on.
 - [ ] **Download service agreement template** — bonsai.io/templates (free, no account needed). Customize for RubyxQube. This is your contract until the signing page is built.
 

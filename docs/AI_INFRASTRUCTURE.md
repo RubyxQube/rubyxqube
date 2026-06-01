@@ -201,7 +201,7 @@ Owner: Boyd Querubin
 Services:
 - Launch: $2,500 one-time — professional 5–6 page website
 - Autopilot: $3,000 + $399/mo — website + Claude AI receptionist + monthly care
-- Momentum: $3,000 + $699/mo — Autopilot + local SEO + social + strategy
+- Momentum: $3,000 + $999/mo — Autopilot + local SEO + social + strategy
 
 Common questions:
 Q: How long does it take? → 2–3 weeks from kickoff call to live site.

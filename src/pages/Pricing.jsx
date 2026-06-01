@@ -45,7 +45,7 @@ export default function Pricing() {
       name: "Momentum",
       tagline: "Actively grow your local presence every month.",
       price: "$3,000",
-      billing: "+ $699/mo",
+      billing: "+ $999/mo",
       annualPrice: "$6,990",
       annualSaving: "2 months",
       bullets: [

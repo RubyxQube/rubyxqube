@@ -52,7 +52,7 @@
 | Launch Deposit | $1,250 | 50% of $2,500 |
 | Launch Final | $1,250 | 50% of $2,500 |
 | Autopilot Monthly | $399 | Recurring |
-| Momentum Monthly | $699 | Recurring |
+| Momentum Monthly | $999 | Recurring |
 
 **Recurring invoice setup (do for each retainer client at launch):**
 - Sales → Recurring Invoices → Create

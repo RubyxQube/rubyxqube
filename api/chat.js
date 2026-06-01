@@ -46,7 +46,7 @@ Service area: Treasure Valley — Boise, Meridian, Nampa, Caldwell, Eagle, Kuna 
 Services & pricing:
 - Launch: $2,500 one-time — 5–6 page professional website, mobile-first, SEO basics, 2 revisions
 - Autopilot: $3,000 + $399/mo — website + AI receptionist + monthly performance reports + 60 min/mo updates
-- Momentum: $3,000 + $699/mo — everything in Autopilot + Google Business Profile management, local SEO, 2 social posts/mo, monthly strategy call
+- Momentum: $3,000 + $999/mo — everything in Autopilot + Google Business Profile management, local SEO, 2 social posts/mo, monthly strategy call
 - AI Chatbot Only (for existing sites): $500 setup + $199/mo
 - Add-ons: Domain setup ($75), business email ($100), extra page ($250), copywriting ($500), logo & brand kit ($350), booking integration ($150)
 

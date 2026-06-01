@@ -60,7 +60,7 @@ Very lean. Essentially just the Twilio A2P campaign fee keeping the SMS infrastr
 
 ## Per-Client Costs (When You Onboard)
 
-For each **Autopilot ($399/mo)** or **Momentum ($699/mo)** client:
+For each **Autopilot ($399/mo)** or **Momentum ($999/mo)** client:
 
 | Item | Monthly Cost | Notes |
 |------|-------------|-------|
@@ -80,7 +80,7 @@ For each **Autopilot ($399/mo)** or **Momentum ($699/mo)** client:
 |---------|---------|------|-------------|--------|
 | Launch (one-time) | $2,500 | ~$0–10 (build time tools) | ~$2,490 | ~99% |
 | Autopilot | $399/mo | ~$3–7/mo | ~$392–396/mo | ~98% |
-| Momentum | $699/mo | ~$3–7/mo | ~$692–696/mo | ~99% |
+| Momentum | $999/mo | ~$3–7/mo | ~$692–696/mo | ~99% |
 
 > These margins assume your time has no cost yet (solo). Factor in your hourly rate for a truer picture.
 

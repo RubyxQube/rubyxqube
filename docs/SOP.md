@@ -345,7 +345,7 @@ Do this for every Autopilot and Momentum client on the 1st of each month.
 - [ ] Apply any content update requests (up to 60 min/month)
 - [ ] Check site speed (PageSpeed Insights) — flag if score drops below 80
 
-### Momentum ($699/mo, everything above plus)
+### Momentum ($999/mo, everything above plus)
 - [ ] Create 2 social posts (Instagram/Facebook — image + caption, client approves before posting)
 - [ ] Check Google Business Profile: new reviews? Questions? Update hours/info if needed
 - [ ] Respond to any Google reviews (on their behalf or send drafts)

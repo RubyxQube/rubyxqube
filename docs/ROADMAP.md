@@ -152,7 +152,7 @@
 | Revenue Type | Source | Notes |
 |---|---|---|
 | Setup fees | Launch ($2,500) / Autopilot ($3,000) / Momentum ($3,000) | One-time per client |
-| Monthly retainer | Autopilot ($399/mo) / Momentum ($699/mo) | Recurring — goal = 15+ clients |
+| Monthly retainer | Autopilot ($399/mo) / Momentum ($999/mo) | Recurring — goal = 15+ clients |
 | Add-ons | Chatbot, branding, booking, SEO | Upsell at launch or anytime |
 | Standalone chatbot | $500 + $199/mo | For businesses with existing sites |
 
