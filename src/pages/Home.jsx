@@ -45,7 +45,7 @@ export default function Home() {
       tagline: "Actively grow your local presence every month.",
       price: "$3,000",
       billing: "+ $999/mo",
-      annualPrice: "$6,990",
+      annualPrice: "$9,990",
       annualSaving: "2 months",
       bullets: [
         "Everything in Autopilot",
