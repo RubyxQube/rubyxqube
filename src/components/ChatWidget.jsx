@@ -166,7 +166,7 @@ function Typing() {
 }
 
 // ─── Lead captured banner ─────────────────────────────────────────────────
-function LeadBanner({ name }) {
+function LeadBanner() {
   return (
     <div
       style={{
@@ -180,7 +180,7 @@ function LeadBanner({ name }) {
         textAlign: "center",
       }}
     >
-      <Check size={13} strokeWidth={2.5} style={{ display: "inline", verticalAlign: "middle", marginRight: 5 }} />Info sent — {name || "someone from our team"} will be in touch soon
+      <Check size={13} strokeWidth={2.5} style={{ display: "inline", verticalAlign: "middle", marginRight: 5 }} />Info sent — someone from our team will be in touch soon
     </div>
   );
 }
@@ -334,7 +334,7 @@ export default function ChatWidget() {
             {messages.map((msg) => (
               <Bubble key={msg.id} msg={msg} accent={accent} />
             ))}
-            {leadCaptured && <LeadBanner name={cfg.contactName} />}
+            {leadCaptured && <LeadBanner />}
             {loading && <Typing />}
             <div ref={bottomRef} />
           </div>
