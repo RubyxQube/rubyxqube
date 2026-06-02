@@ -1,18 +1,19 @@
 /**
- * api/calendly-webhook.js
- * Receives Calendly webhook events and alerts Boyd when someone books or cancels.
+ * api/cal-webhook.js
+ * Receives Cal.com webhook events and alerts Boyd when someone books or cancels.
  *
- * Setup in Calendly:
- *   Integrations → Webhooks → New Webhook
- *   URL: https://rubyxqube.com/api/calendly-webhook
- *   Events: invitee.created (booking) + invitee.canceled (cancellation)
+ * Setup in Cal.com:
+ *   Settings → Developer → Webhooks → New Webhook
+ *   URL: https://rubyxqube.com/api/cal-webhook
+ *   Booking link: https://cal.com/boyd-querubin-rubyxqube/free-website-audit
+ *   Triggers: BOOKING_CREATED, BOOKING_CANCELLED
  *
  * Env vars:
  *   NTFY_TOPIC                    push notification to Boyd's phone (free)
  *   TEXTBELT_KEY                  SMS to Boyd's phone (~$0.01/text)
  *   ALERT_PHONE_NUMBER            Boyd's cell, E.164: +1XXXXXXXXXX
  *   RESEND_API_KEY + ALERT_EMAIL  email alert (free)
- *   CALENDLY_WEBHOOK_SIGNING_KEY  optional — verify requests are from Calendly
+ *   CAL_WEBHOOK_SECRET            optional — verify requests are from Cal.com
  */
 
 import crypto from "crypto";
@@ -21,29 +22,27 @@ export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
   // ── Optional signature verification ──────────────────────────────────────
-  const signingKey = process.env.CALENDLY_WEBHOOK_SIGNING_KEY;
-  if (signingKey) {
-    const signature = req.headers["calendly-webhook-signature"];
+  const secret = process.env.CAL_WEBHOOK_SECRET;
+  if (secret) {
+    const signature = req.headers["x-cal-signature-256"];
     if (!signature) return res.status(401).json({ error: "Missing signature" });
 
-    const parts     = Object.fromEntries(signature.split(",").map(p => p.split("=")));
-    const timestamp = parts.t;
-    const expected  = crypto
-      .createHmac("sha256", signingKey)
-      .update(`${timestamp}.${JSON.stringify(req.body)}`)
+    const expected = crypto
+      .createHmac("sha256", secret)
+      .update(JSON.stringify(req.body))
       .digest("hex");
 
-    if (expected !== parts.v1) return res.status(401).json({ error: "Invalid signature" });
+    if (expected !== signature) return res.status(401).json({ error: "Invalid signature" });
   }
 
-  const { event, payload } = req.body || {};
+  const { triggerEvent, payload } = req.body || {};
 
   // ── Parse booking details ─────────────────────────────────────────────────
-  const name      = payload?.invitee?.name                    || "Unknown";
-  const email     = payload?.invitee?.email                   || "No email";
-  const phone     = payload?.invitee?.text_reminder_number    || null;
-  const eventName = payload?.event_type?.name || payload?.event?.name || "Audit Call";
-  const startTime = payload?.event?.start_time || payload?.scheduled_event?.start_time;
+  const attendee  = payload?.attendees?.[0] || {};
+  const name      = attendee.name           || "Unknown";
+  const email     = attendee.email          || "No email";
+  const eventName = payload?.type           || "Audit Call";
+  const startTime = payload?.startTime;
 
   let when = "time TBD";
   if (startTime) {
@@ -58,17 +57,16 @@ export default async function handler(req, res) {
   // ── Build alert text ──────────────────────────────────────────────────────
   let alertText;
 
-  if (event === "invitee.created") {
+  if (triggerEvent === "BOOKING_CREATED") {
     alertText = [
       `New booking — ${eventName}`,
       ``,
       `Name:  ${name}`,
       `Email: ${email}`,
-      phone ? `Phone: ${phone}` : null,
       `When:  ${when} (Mountain Time)`,
-    ].filter(Boolean).join("\n");
-  } else if (event === "invitee.canceled") {
-    const reason = payload?.cancellation?.reason || "No reason given";
+    ].join("\n");
+  } else if (triggerEvent === "BOOKING_CANCELLED") {
+    const reason = payload?.cancellationReason || "No reason given";
     alertText = [
       `Booking canceled — ${eventName}`,
       ``,
@@ -78,11 +76,11 @@ export default async function handler(req, res) {
       `Reason: ${reason}`,
     ].join("\n");
   } else {
-    console.log("Unhandled Calendly event:", event);
+    console.log("Unhandled Cal.com event:", triggerEvent);
     return res.status(200).json({ ok: true });
   }
 
-  const isBooking  = event === "invitee.created";
+  const isBooking  = triggerEvent === "BOOKING_CREATED";
   const titleEmoji = isBooking ? "📅" : "❌";
 
   // ── ntfy.sh push ──────────────────────────────────────────────────────────

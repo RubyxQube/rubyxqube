@@ -6,6 +6,6 @@ export const siteConfig = {
   email: "boyd@rubyxqube.com",
   phoneDisplay: "(208) 970-8624",
   phoneE164: "+12089708624",
-  calendlyUrl: "https://calendly.com/boyd-rubyxqube/free-website-audit",
+  bookingUrl: "https://cal.com/boyd-querubin-rubyxqube/free-website-audit",
   googleReviewUrl: "https://g.page/r/CUHmU0rIL7VhEBM/review",
 };

@@ -483,7 +483,7 @@ function LeadModal({ pickedStyle, pickedPalette, onClose }) {
                 }}
               />
               {status === "error" && (
-                <p style={{ fontSize: 13, color: "#f87171" }}>Something went wrong — try again or book directly via Calendly.</p>
+                <p style={{ fontSize: 13, color: "#f87171" }}>Something went wrong — try again or book directly at cal.com/boyd-querubin-rubyxqube.</p>
               )}
               <button
                 type="submit"

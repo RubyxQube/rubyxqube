@@ -94,7 +94,7 @@ export default function Pricing() {
     {
       title: "Booking Integration",
       price: "$150",
-      desc: "Connect Calendly or a similar scheduler so customers can book directly from your site.",
+      desc: "Connect Cal.com or a similar scheduler so customers can book directly from your site.",
     },
     {
       title: "Site Migration",
