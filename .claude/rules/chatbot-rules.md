@@ -79,6 +79,9 @@ When building a chatbot for a new client, update these in the system prompt:
 - [ ] `RESEND_API_KEY` + `ALERT_EMAIL` in Vercel env vars (email alerts)
 - [ ] `NTFY_TOPIC` in Vercel env vars (Boyd's push notification)
 - [ ] `businessName` in chatConfig.js
+- [ ] `contactPhone` in chatConfig.js — shown in error messages
+- [ ] `contactEmail` in chatConfig.js — shown in connection error message
+- [ ] `contactName` in chatConfig.js — owner's first name shown in lead banner ("Manny will be in touch soon")
 
 ---
 
