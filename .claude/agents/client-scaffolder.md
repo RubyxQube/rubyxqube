@@ -52,6 +52,7 @@ Copy these from `c:\Users\boydi\Projects\rubyxqube\` to the new project:
 | `.claude/rules/technical-defaults.md` | `.claude/rules/technical-defaults.md` |
 | `.claude/rules/workflow.md` | `.claude/rules/workflow.md` |
 | `docs/CHATBOT_BUILD_GUIDE.md` | `docs/CHATBOT_BUILD_GUIDE.md` |
+| `public/brand/logo-mark-64.png` | `public/brand/logo-mark-64.png` |
 
 ## Step 4 — Create client-specific files
 
@@ -137,20 +138,15 @@ Text-only brand name (no Logo.jsx). Mobile hamburger. Theme toggle.
 ### `src/components/Footer.jsx`
 Uses siteConfig. Placeholder tagline. Include the RubyxQube footer credit by default:
 ```jsx
-<a
-  href="https://rubyxqube.com"
-  target="_blank"
-  rel="noreferrer"
-  style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 11, color: "rgba(255,255,255,0.45)", textDecoration: "none", transition: "color .2s" }}
-  onMouseEnter={e => e.currentTarget.style.color = "rgba(255,255,255,0.75)"}
-  onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.45)"}
->
-  <img src="https://rubyxqube.com/brand/logo-mark-64.png" alt="" width={12} height={12} style={{ display: "block", opacity: 0.8 }} />
-  Built and powered by RubyxQube
-</a>
+{siteConfig.credit && (
+  <span className="footer-credit">
+    <img src="/brand/logo-mark-64.png" alt="RubyxQube" width="16" height="16" style={{ width: 16, height: 16, display: "inline-block", verticalAlign: "middle", marginRight: 6 }} />
+    {siteConfig.credit}
+  </span>
+)}
 ```
-Logo is loaded from rubyxqube.com directly — no file copy needed per client.
-This is included by default. Clients can pay $150 to remove it. Note this in the project README.
+The logo mark is served locally from `public/brand/logo-mark-64.png` — copied from the template in Step 3.
+`siteConfig.credit` defaults to `"Built and powered by RubyxQube"`. Clients can pay $150 to remove it (set `credit: null` in siteConfig). Note this in the project README.
 
 ### `src/pages/Home.jsx`
 Hero section + 3-card services overview + CTA. All content as `# TODO:` placeholders populated with whatever the profile has.
