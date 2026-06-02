@@ -30,6 +30,11 @@ export const chatConfig = {
   // Set to null to fall back to the default 💬 emoji.
   buttonIcon: "/brand/logo-mark-192.png",
 
+  // ── Contact info — used in error + lead capture messages ──────────────────
+  contactPhone: "(208) 970-8624",
+  contactEmail: "boyd@rubyxqube.com",
+  contactName:  "Boyd",           // first name shown in lead banner
+
   // ── Footer disclosure ──────────────────────────────────────────────────────
   poweredBy: "Powered by Claude AI",
 

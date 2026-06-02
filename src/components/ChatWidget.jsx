@@ -166,7 +166,7 @@ function Typing() {
 }
 
 // ─── Lead captured banner ─────────────────────────────────────────────────
-function LeadBanner() {
+function LeadBanner({ name }) {
   return (
     <div
       style={{
@@ -180,7 +180,7 @@ function LeadBanner() {
         textAlign: "center",
       }}
     >
-      <Check size={13} strokeWidth={2.5} style={{ display: "inline", verticalAlign: "middle", marginRight: 5 }} />Info sent — Boyd will be in touch soon
+      <Check size={13} strokeWidth={2.5} style={{ display: "inline", verticalAlign: "middle", marginRight: 5 }} />Info sent — {name || "someone from our team"} will be in touch soon
     </div>
   );
 }
@@ -245,7 +245,7 @@ export default function ChatWidget() {
           role: "assistant",
           content:
             data.content ||
-            "Sorry, I had trouble with that. Please try again or contact us directly.",
+            `Sorry, I had trouble with that. Please try again or call us at ${cfg.contactPhone}.`,
           id: Date.now() + 1,
         },
       ]);
@@ -259,7 +259,7 @@ export default function ChatWidget() {
         {
           role: "assistant",
           content:
-            "I'm having connection trouble. Please reach out directly — boyd@rubyxqube.com or call (208) 970-8624.",
+            `I'm having connection trouble. Please reach out directly — ${cfg.contactEmail} or call ${cfg.contactPhone}.`,
           id: Date.now() + 1,
           error: true,
         },
@@ -334,7 +334,7 @@ export default function ChatWidget() {
             {messages.map((msg) => (
               <Bubble key={msg.id} msg={msg} accent={accent} />
             ))}
-            {leadCaptured && <LeadBanner />}
+            {leadCaptured && <LeadBanner name={cfg.contactName} />}
             {loading && <Typing />}
             <div ref={bottomRef} />
           </div>
