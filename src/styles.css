@@ -628,11 +628,11 @@ label{
 }
 
 [data-theme="light"] .cardHighlight{
-  background: rgba(225,29,72,0.06) !important;
+  background: #ffffff !important;
   box-shadow: 0 0 0 1px var(--accent-dim), 0 8px 32px rgba(0,0,0,0.08);
 }
 [data-theme="light"] .cardHighlight:hover{
-  background: rgba(225,29,72,0.10) !important;
+  background: #ffffff !important;
   box-shadow: 0 8px 32px rgba(0,0,0,0.10);
 }
 
