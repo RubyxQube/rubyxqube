@@ -12,6 +12,7 @@ import About from "./pages/About.jsx";
 import Audit from "./pages/Audit.jsx";
 import Report from "./pages/Report.jsx";
 import Designs from "./pages/Designs.jsx";
+import HowItWorks from "./pages/HowItWorks.jsx";
 import Sign from "./pages/Sign.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/audit" element={<Audit />} />
         <Route path="/designs" element={<Designs />} />
+        <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/report" element={<Report />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="*" element={<NotFound />} />
