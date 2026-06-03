@@ -96,7 +96,7 @@ export default function Portfolio() {
                   <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 8 }}>{project.category}</p>
                   <h2 className="h2" style={{ marginBottom: 8 }}>{project.name}</h2>
                   <p className="p" style={{ marginBottom: 16 }}>{project.hook}</p>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                  <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", gap: 6 }}>
                     {project.tags.map(t => <Tag key={t} label={t} />)}
                   </div>
                 </div>
@@ -144,7 +144,7 @@ export default function Portfolio() {
                   <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 8 }}>{project.category}</p>
                   <h3 className="h3" style={{ marginBottom: 8 }}>{project.name}</h3>
                   <p className="p" style={{ fontSize: 14, marginBottom: 16 }}>{project.hook}</p>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 20, flex: 1 }}>
+                  <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", gap: 6, marginBottom: 20, flex: 1 }}>
                     {project.tags.map(t => <Tag key={t} label={t} />)}
                   </div>
                   <p style={{ fontSize: 12, color: "var(--muted)", marginBottom: 16 }}>{project.tech}</p>
