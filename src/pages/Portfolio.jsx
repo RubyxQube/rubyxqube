@@ -9,8 +9,9 @@ import { siteConfig } from "../siteConfig.js";
 const coFounded = [
   {
     id: "bastion-msp",
+    preview: "/portfolio/bastionmsp-preview.webp",
     category: "Cybersecurity · MSSP",
-    name: "Bastion MSP",
+    name: "BastionMSP",
     role: "Co-Founder",
     description:
       "Co-founded and built a managed security service provider from the ground up. Designed the full brand identity and built both the public marketing site and a client-facing security portal — targeting SMBs in regulated industries.",
@@ -101,8 +102,20 @@ export default function Portfolio() {
           </p>
 
           {coFounded.map((project) => (
-            <div key={project.id} className="card cardHighlight" style={{ marginBottom: 24 }}>
-              <div style={{ display: "flex", gap: 48, flexWrap: "wrap", alignItems: "flex-start" }}>
+            <div key={project.id} className="card cardHighlight" style={{ marginBottom: 24, padding: 0, overflow: "hidden" }}>
+              {project.preview && (
+                <a href={project.links[0].href} target="_blank" rel="noreferrer">
+                  <img
+                    src={project.preview}
+                    alt={`${project.name} website screenshot`}
+                    width={1280}
+                    height={720}
+                    loading="lazy"
+                    style={{ width: "100%", height: "auto", display: "block", aspectRatio: "16/9" }}
+                  />
+                </a>
+              )}
+              <div style={{ padding: "24px", display: "flex", gap: 48, flexWrap: "wrap", alignItems: "flex-start" }}>
 
                 {/* Left: description + bullets */}
                 <div style={{ flex: "1 1 320px" }}>

@@ -29,7 +29,7 @@ export default function About() {
               <span className="badge">Background</span>
               <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>More than a web designer</h2>
               <p className="p">
-                Before launching {siteConfig.brand}, I co-founded Bastion MSP — a managed security service provider built from the ground up to bring enterprise-grade cybersecurity to small and mid-sized businesses. I handled the brand identity, full marketing site, and the client-facing security portal.
+                Before launching {siteConfig.brand}, I co-founded BastionMSP — a managed security service provider built from the ground up to bring enterprise-grade cybersecurity to small and mid-sized businesses. I handled the brand identity, full marketing site, and the client-facing security portal.
               </p>
               <p className="p">
                 That experience gave me a different perspective on what a business website actually needs to do — not just look good, but generate trust, capture leads, and work without you babysitting it.
@@ -38,7 +38,7 @@ export default function About() {
                 Now I apply that same thinking to local service businesses — based in the Treasure Valley, working with clients across the US. Contractors, tradespeople, and service providers who need a professional presence and the tools to compete.
               </p>
               <a className="btn" href="https://www.bastionmsp.com" target="_blank" rel="noreferrer" style={{ display: "inline-flex" }}>
-                View Bastion MSP ↗
+                View BastionMSP ↗
               </a>
             </div>
 
@@ -135,7 +135,7 @@ export default function About() {
               <h3 className="h3" style={{ marginBottom: 16 }}>Quick facts</h3>
               <ul className="list">
                 <li>Based in Boise, Idaho</li>
-                <li>Co-founder of Bastion MSP (cybersecurity)</li>
+                <li>Co-founder of BastionMSP (cybersecurity)</li>
                 <li>Serving the {siteConfig.serviceArea} and beyond</li>
                 <li>Websites launch in as little as 3 days</li>
                 <li>Flat-rate pricing, no hidden costs</li>
