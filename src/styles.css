@@ -616,7 +616,7 @@ label{
 }
 
 [data-theme="light"] .card{
-  background: rgba(255,255,255,0.50);
+  background: rgba(255,255,255,0.85);
   border-color: rgba(20,12,15,0.09);
   border-top-color: rgba(20,12,15,0.14);
   box-shadow: 0 1px 8px rgba(0,0,0,0.06);
