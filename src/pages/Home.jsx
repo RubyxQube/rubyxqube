@@ -31,7 +31,7 @@ export default function Home() {
       annualPrice: "$4,490",
       annualSaving: "2 months free",
       bullets: [
-        "No setup fee — 5–6 page custom site, built and launched",
+        "No setup fee — 5–10 page custom site, built and launched",
         "Analytics + Search Console setup included",
         "Custom AI receptionist — answers questions, captures leads 24/7",
         "Instant SMS alert on every new lead",
