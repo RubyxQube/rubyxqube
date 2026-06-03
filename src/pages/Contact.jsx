@@ -16,7 +16,8 @@ const PACKAGES = [
     label: "Autopilot — $449/mo",
     needValue: "Autopilot",
     priceLine: "$449/mo",
-    includes: "No setup fee. Custom site + AI receptionist, analytics setup, 24/7 lead capture, SMS alerts, monthly report, 60 min/mo site updates.",
+    highlight: "No setup fee.",
+    includes: "Custom site + AI receptionist, analytics setup, 24/7 lead capture, SMS alerts, monthly report, 60 min/mo site updates.",
   },
   {
     id: "momentum",
@@ -169,6 +170,11 @@ export default function Contact() {
               <div style={{ fontWeight: 700, marginBottom: 6 }}>
                 {selectedPackage.label}
               </div>
+              {selectedPackage.highlight && (
+                <div style={{ color: "var(--accent)", fontWeight: 700, fontSize: 13, marginBottom: 4 }}>
+                  {selectedPackage.highlight}
+                </div>
+              )}
               <div className="small">{selectedPackage.includes}</div>
             </div>
           </div>
