@@ -39,16 +39,11 @@ const clientWork = [
       "Full Momentum plan client — a complete web platform for a Treasure Valley stone fabrication company. Far beyond a brochure site: material catalogs, online quote calculators, an AI photo estimate tool, a wholesale partner portal, and a customer account system — all built from scratch.",
     tech: "React · Vite · Custom CSS · Claude AI · Supabase · Vercel",
     bullets: [
-      "20+ page mobile-first website with full navigation, gallery, and service sub-pages",
-      "AI receptionist trained on services, pricing, and FAQs — captures leads 24/7",
-      "AI Photo Estimate tool — customers upload a photo and get an instant rough quote",
-      "Retail quote calculator for homeowners; wholesale calculator for contractor partners",
-      "Protected partner portal: wholesale pricing, labour calculator, project dashboard",
-      "Full material catalog: Quartz, Granite, Sinks & Faucets with filterable browsing",
-      "Customer account system — login, dashboard, project tracking, password reset",
-      "Admin jobs portal for internal pipeline management",
-      "Lifetime warranty page, Our Process walkthrough, Let's Sketch It planning tool",
-      "Instant SMS + email alert on every new lead or quote request",
+      "20+ page platform: material catalogs, service sub-pages, gallery, and planning tools",
+      "AI Photo Estimate — customers upload a photo and get an instant rough quote",
+      "Quote calculators for homeowners + protected wholesale portal for contractor partners",
+      "Customer account system with project dashboard; admin pipeline portal for the team",
+      "AI receptionist for 24/7 lead capture with instant SMS + email alerts",
     ],
     links: [
       { label: "Visit Site", href: "https://pswboise.com/" },
@@ -186,22 +181,23 @@ export default function Portfolio() {
                 </div>
               </div>
             ))}
+          </div>
 
-            {/* Placeholder — grows as clients are added */}
-            <div className="card" style={{ display: "flex", flexDirection: "column", justifyContent: "center", border: "1px dashed rgba(59,130,246,0.25)", background: "rgba(59,130,246,0.04)" }}>
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
+          {/* Full-width prompt — grows as more client cards fill the grid */}
+          <div className="card" style={{ marginTop: 24, display: "flex", flexWrap: "wrap", alignItems: "center", gap: 24, border: "1px dashed rgba(59,130,246,0.25)", background: "rgba(59,130,246,0.04)" }}>
+            <div style={{ flex: "1 1 320px" }}>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 8 }}>
                 Your business · {siteConfig.serviceArea}
               </p>
-              <h2 className="h2" style={{ marginBottom: 10 }}>Want a site like this?</h2>
-              <p className="p" style={{ marginBottom: 24 }}>
+              <h2 className="h2" style={{ marginBottom: 8 }}>Want a site like this?</h2>
+              <p className="p" style={{ marginBottom: 0 }}>
                 If you're a service business in the {siteConfig.serviceArea}, I'll build you a clean, fast site that actually brings in leads — and an AI receptionist that never goes offline.
               </p>
-              <div className="btnRow">
-                <Link className="btn primary" to="/quote">Get a Quote</Link>
-                <Link className="btn" to="/pricing">See Pricing</Link>
-              </div>
             </div>
-
+            <div className="btnRow" style={{ flexShrink: 0 }}>
+              <Link className="btn primary" to="/quote">Get a Quote</Link>
+              <Link className="btn" to="/pricing">See Pricing</Link>
+            </div>
           </div>
         </div>
       </section>
