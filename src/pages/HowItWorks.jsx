@@ -159,7 +159,7 @@ export default function HowItWorks() {
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>From first call to live site in days.</h2>
           <p className="p" style={{ maxWidth: 480, marginBottom: 40 }}>Five steps. No guesswork.</p>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             {STEPS.map((step, i) => (
               <div key={step.number} className="card" style={{ display: "flex", gap: 24, alignItems: "flex-start", flexWrap: "wrap" }}>
                 <div style={{ flexShrink: 0, width: 48, height: 48, borderRadius: "50%", background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 800, color: "var(--accent)" }}>
@@ -189,11 +189,11 @@ export default function HowItWorks() {
               <div key={title} className="card">
                 <Icon size={24} color="var(--accent)" style={{ marginBottom: 14 }} />
                 <h3 className="h3" style={{ marginBottom: 16 }}>{title}</h3>
-                <ul className="list">
+                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
                   {items.map((item) => (
-                    <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: 8 }}>
-                      <CheckCircle2 size={14} color="rgba(34,197,94,0.85)" style={{ flexShrink: 0, marginTop: 4 }} />
-                      <span>{item}</span>
+                    <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: 9 }}>
+                      <CheckCircle2 size={14} color="rgba(34,197,94,0.85)" style={{ flexShrink: 0, marginTop: 3 }} />
+                      <span style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.5 }}>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -206,17 +206,17 @@ export default function HowItWorks() {
       {/* ── Momentum extras ── */}
       <section className="surface">
         <div className="section">
-          <div className="card cardHighlight" style={{ maxWidth: 680 }}>
+          <div className="card cardHighlight" style={{ maxWidth: 720, margin: "0 auto" }}>
             <span className="badge" style={{ marginBottom: 12, display: "inline-block" }}>Momentum only — $999/mo</span>
             <h2 className="h2" style={{ marginBottom: 8 }}>Everything in Autopilot, plus active growth.</h2>
             <p className="p" style={{ marginBottom: 20 }}>
               Momentum adds hands-on local SEO and Google Business Profile management — for businesses that want to actively grow their search presence, not just maintain it.
             </p>
-            <ul className="list">
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
               {MOMENTUM_EXTRAS.map((item) => (
-                <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: 8 }}>
-                  <CheckCircle2 size={14} color="rgba(34,197,94,0.85)" style={{ flexShrink: 0, marginTop: 4 }} />
-                  <span>{item}</span>
+                <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: 9 }}>
+                  <CheckCircle2 size={14} color="rgba(34,197,94,0.85)" style={{ flexShrink: 0, marginTop: 3 }} />
+                  <span style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.5 }}>{item}</span>
                 </li>
               ))}
             </ul>
@@ -234,7 +234,7 @@ export default function HowItWorks() {
           <span className="badge">FAQ</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 40 }}>Common questions.</h2>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 2, maxWidth: 760 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12, maxWidth: 760, margin: "0 auto" }}>
             {FAQS.map(({ q, a }) => (
               <div key={q} className="card">
                 <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
