@@ -2,28 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const WIX_BULLETS = [
-  "$29-36/mo forever - that's $1,000+ over 3 years",
-  "You design it yourself, on their schedule",
-  "Template everyone else is also using",
+  "$29–36/mo forever — that's $1,000+ over 3 years for a template",
   "Slow load times that hurt your Google ranking",
-  "No Google Analytics setup - you figure it out yourself",
-  "No Search Console - Google may not even find your site",
-  "No Google Business Profile help",
+  "No analytics setup, no Search Console — you're invisible to Google",
   "No AI, no lead capture, no SMS alerts",
-  "You own nothing - they can change pricing anytime",
   "Support is a help article, not a person",
 ];
 
 const RXQ_BULLETS = [
-  "$1,200 once - then it's yours, no monthly bill",
-  "Built for you, around your business",
-  "Custom design no one else has",
-  "Fast, optimized, mobile-first",
-  "Analytics + Search Console setup (Autopilot and above)",
-  "Google Business Profile management (Momentum plan)",
-  "AI receptionist that captures leads 24/7 (Autopilot and above)",
-  "You own the site and the domain",
-  "Direct line to Boyd - text, call, email",
+  "$1,200 once — then it's yours, no monthly bill",
+  "Custom-built for your business — fast, mobile-first, design no one else has",
+  "Analytics, Search Console, and AI receptionist included (Autopilot+)",
+  "You own the site and the domain — no platform lock-in",
+  "Direct line to Boyd — text, call, or email",
 ];
 
 function FullComparison() {
