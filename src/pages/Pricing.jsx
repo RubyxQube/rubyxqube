@@ -109,7 +109,7 @@ export default function Pricing() {
         <div className="section" style={{ paddingTop: 80, paddingBottom: 64 }}>
           <span className="badge">Transparent pricing</span>
           <h1 className="h1" style={{ marginTop: 16 }}>
-            Simple pricing. <span className="accentText">No surprises.</span>
+            Simple pricing.<span className="mobileBreak" /> <span className="accentText">No surprises.</span>
           </h1>
           <p className="p" style={{ maxWidth: 540, fontSize: 17 }}>
             No contracts, no hidden fees, no upsells. Every package starts with a professional website. Add AI and growth services if you want them.

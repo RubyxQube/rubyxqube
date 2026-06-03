@@ -571,6 +571,9 @@ label{
   .footerBrand p{ max-width: 100%; }
 }
 
+/* Mobile-only line break — hidden on desktop, shown on mobile */
+.mobileBreak{ display: none; }
+
 /* Feature rows — two-column flex layouts used on Services/About */
 .featureRow{
   display: flex;
@@ -603,6 +606,9 @@ label{
 
   /* Feature rows collapse gap on mobile */
   .featureRow{ gap: 28px; }
+
+  /* Mobile-only line break — use inside headlines to control wrapping */
+  .mobileBreak{ display: block; }
 
   /* Photo wrap centers full-width on mobile */
   .photoWrap{ width: 100%; }
