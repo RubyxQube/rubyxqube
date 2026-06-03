@@ -132,7 +132,7 @@ export default function About() {
             </div>
 
             <div style={{ flex: "1 1 260px" }}>
-              <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", gap: 8 }}>
+              <div className="pillList">
                 {INDUSTRIES.map(ind => (
                   <span key={ind} style={{
                     fontSize: 13, fontWeight: 500,

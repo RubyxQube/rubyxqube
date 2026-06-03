@@ -574,6 +574,9 @@ label{
 /* Mobile-only line break — hidden on desktop, shown on mobile */
 .mobileBreak{ display: none; }
 
+/* Pill list — wraps horizontally on desktop, stacks vertically on mobile */
+.pillList{ display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px; }
+
 /* Feature rows — two-column flex layouts used on Services/About */
 .featureRow{
   display: flex;
@@ -609,6 +612,9 @@ label{
 
   /* Mobile-only line break — use inside headlines to control wrapping */
   .mobileBreak{ display: block; }
+
+  /* Pill list stacks vertically on mobile */
+  .pillList{ flex-direction: column; align-items: stretch; }
 
   /* Photo wrap centers full-width on mobile */
   .photoWrap{ width: 100%; }
