@@ -9,7 +9,7 @@ export default function Pricing() {
     {
       name: "Launch",
       tagline: "Get your business online professionally.",
-      price: "$2,500",
+      price: "$1,200",
       billing: "one-time",
       bullets: [
         "5–6 page website (Home, About, Services, Gallery, Quote, Privacy)",
@@ -17,21 +17,22 @@ export default function Pricing() {
         "Contact form + click-to-call buttons",
         "Basic SEO (titles, descriptions, local structure)",
         "Google Maps embed",
-        "Google Analytics 4 setup — track traffic from day one",
-        "Google Search Console verified + sitemap submitted",
         "2 revision rounds included",
       ],
-      note: "Great starting point. Most clients move to Autopilot before launch once they see what's included.",
+      note: "Site is yours to keep. No monthly commitment, no ongoing support. A great fit if you already have someone to manage it — otherwise Autopilot is the better deal.",
     },
     {
       name: "Autopilot",
       tagline: "You handle the jobs. We handle everything else.",
-      price: "$3,000",
-      billing: "+ $399/mo",
-      annualPrice: "$3,990",
-      annualSaving: "2 months",
+      price: "$449",
+      billing: "/mo",
+      annualPrice: "$4,490",
+      annualSaving: "2 months free",
       bullets: [
-        "Everything in Launch",
+        "No setup fee — site included, get started immediately",
+        "5–6 page custom website built for your business",
+        "Google Analytics 4 setup — track traffic from day one",
+        "Google Search Console verified + sitemap submitted",
         "Custom AI receptionist trained on your business",
         "24/7 lead capture — answers questions, qualifies prospects",
         "Unlimited conversations — no per-chat fees",
@@ -44,10 +45,10 @@ export default function Pricing() {
     {
       name: "Momentum",
       tagline: "Actively grow your local presence every month.",
-      price: "$3,000",
-      billing: "+ $999/mo",
+      price: "$999",
+      billing: "/mo",
       annualPrice: "$9,990",
-      annualSaving: "2 months",
+      annualSaving: "2 months free",
       bullets: [
         "Everything in Autopilot",
         "Google Business Profile management",
@@ -139,7 +140,7 @@ export default function Pricing() {
         <div className="section">
           <span className="badge">The math</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>
-            What $399/mo actually buys you
+            What $449/mo actually buys you
           </h2>
           <p className="p" style={{ maxWidth: 540, marginBottom: 40 }}>
             Try piecing together what Autopilot includes on your own. You'll spend more and still not have someone who knows your site.
@@ -163,7 +164,7 @@ export default function Pricing() {
               </div>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ fontSize: 14, fontWeight: 700 }}>Total</span>
-                <span style={{ fontSize: 20, fontWeight: 800, color: "var(--accent)" }}>$399/mo</span>
+                <span style={{ fontSize: 20, fontWeight: 800, color: "var(--accent)" }}>$449/mo</span>
               </div>
             </div>
             <div className="card">
