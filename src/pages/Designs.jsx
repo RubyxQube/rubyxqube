@@ -483,7 +483,7 @@ function LeadModal({ pickedStyle, pickedPalette, onClose }) {
                 }}
               />
               {status === "error" && (
-                <p style={{ fontSize: 13, color: "#f87171" }}>Something went wrong — try again or book directly at cal.com/boyd-querubin-rubyxqube.</p>
+                <p style={{ fontSize: 13, color: "#f87171" }}>Something went wrong — try again or <a href={siteConfig.bookingUrl} target="_blank" rel="noreferrer" style={{ color: "#f87171", textDecoration: "underline" }}>book directly on Cal.com</a>.</p>
               )}
               <button
                 type="submit"

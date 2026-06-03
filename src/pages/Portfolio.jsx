@@ -47,7 +47,27 @@ const clientWork = [
       "Monthly performance reports: traffic, chats, leads",
     ],
     links: [
-      { label: "Visit Site", href: "https://phoenix-stoneworks.vercel.app/" },
+      { label: "Visit Site", href: "https://pswboise.com/" },
+    ],
+  },
+  {
+    id: "sudz-window-gutter",
+    category: "Window & Gutter Cleaning · Treasure Valley",
+    name: "Sudz Window and Gutter Cleaning",
+    role: "Web Designer & Developer",
+    description:
+      "Complete site rebuild for a locally trusted window and gutter cleaning company — replacing a slow Wix template with a fast, mobile-first site that surfaces Chase's real reputation and converts visitors into quote requests.",
+    tech: "React · Vite · Custom CSS · Claude AI · Vercel",
+    bullets: [
+      "Custom mobile-first website replacing a generic Wix template",
+      "5.0-star Google reviews and Nextdoor trust signals surfaced above the fold",
+      "AI receptionist for after-hours lead capture and FAQ answering",
+      "Quote request flow with instant SMS + email alert to Chase",
+      "Services: window cleaning, gutter cleaning, holiday lighting",
+      "Serving Boise, Meridian, Eagle, and Garden City",
+    ],
+    links: [
+      { label: "Visit Site", href: "https://sudz-boise.vercel.app/" },
     ],
   },
 ];

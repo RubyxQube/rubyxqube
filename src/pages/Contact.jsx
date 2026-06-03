@@ -140,6 +140,15 @@ export default function Contact() {
               <a className="btn primary" href={`tel:${siteConfig.phoneE164}`}>Call</a>
               <a className="btn" href={`mailto:${siteConfig.email}`}>Email</a>
             </div>
+            <a
+              className="btn"
+              href={siteConfig.bookingUrl}
+              target="_blank"
+              rel="noreferrer"
+              style={{ display: "block", textAlign: "center", marginTop: 8 }}
+            >
+              Schedule a Call Directly <ExternalLink size={13} style={{ marginLeft: 4, verticalAlign: "middle" }} />
+            </a>
             <div className="hr" />
             <p className="small" style={{ marginBottom: 0 }}>
               {siteConfig.brand} • {siteConfig.serviceArea}<br />
