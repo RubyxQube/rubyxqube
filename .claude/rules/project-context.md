@@ -27,6 +27,93 @@ Rules:
 - **Font:** Plus Jakarta Sans (Google Fonts, loaded in `index.html`)
 - **Assets:** Logos in `src/assets/`, favicon in `public/`
 
+## Image Best Practices (applies to every project)
+
+Every image used on any site — RubyxQube or client — must follow these rules. The builder agent should apply these automatically without being asked.
+
+**Format**
+- Always use WebP. Run `node scripts/optimize-images.mjs` to batch convert from jpg/png.
+- Exception: SVG for logos and icons, PNG only if transparency is needed and WebP doesn't support the use case.
+
+**Loading**
+- Hero image (above the fold, LCP candidate): `loading="eager" fetchpriority="high"`
+- Everything else: `loading="lazy"`
+- Never omit the `loading` attribute.
+
+**Dimensions**
+- Always set explicit `width` and `height` attributes — prevents layout shift (CLS).
+- Use `style={{ aspectRatio: "16/9" }}` or equivalent CSS to reserve space before the image loads.
+
+**Alt text**
+- Every `<img>` must have a descriptive `alt` attribute.
+- Decorative images (icons, backgrounds): `alt=""`
+- Content images: describe what's in the image concisely.
+
+**File size targets**
+- Hero / large feature image: < 200KB
+- Gallery / card images: < 100KB
+- Thumbnails: < 50KB
+- Videos: compress with ffmpeg (`-crf 28`) or HandBrake before placing in `public/videos/`
+
+**Responsive**
+- Never use fixed pixel widths on images — use `width: 100%` with a max-width container.
+- For art-directed images (different crop on mobile), use `<picture>` with `<source media="...">`.
+
+**Quick audit checklist before shipping any page:**
+- [ ] All images are WebP
+- [ ] Hero has `loading="eager" fetchpriority="high"`
+- [ ] All other images have `loading="lazy"`
+- [ ] All images have `width`, `height`, and `alt`
+- [ ] File sizes are within targets
+
+## Video Best Practices (applies to every project)
+
+**Format & compression**
+- MP4 (H.264) for universal support — this is the default output from ffmpeg and HandBrake
+- Compress before placing in `public/videos/`: `ffmpeg -i input.mp4 -vcodec libx264 -crf 28 -preset slow -movflags +faststart output.mp4`
+- `-movflags +faststart` is critical — moves metadata to the front so the video starts playing before fully downloaded
+- File size targets: background/hero video < 5MB, gallery/featured video < 20MB
+
+**Loading**
+- `preload="none"` on all videos below the fold — don't load until the user interacts
+- `preload="metadata"` on hero/featured videos — loads dimensions and duration only
+- Always set a `poster` attribute (WebP image) — prevents a blank black box on load
+- For gallery videos: load only when visible using IntersectionObserver, or use `preload="none"`
+
+**Autoplay rules**
+- Background/ambient video: `autoplay muted loop playsinline` — all four attributes required or browsers will block it
+- Never autoplay with sound — browsers block it and users hate it
+- Featured/gallery videos: user-initiated play only, with `controls`
+
+**Accessibility**
+- Always include `<track kind="captions">` for any video with speech (WCAG requirement)
+- For purely visual/ambient videos: `aria-hidden="true"` is sufficient
+
+**Quick audit checklist for videos:**
+- [ ] MP4 compressed with `-crf 28 -movflags +faststart`
+- [ ] File size within targets
+- [ ] `poster` attribute set (WebP)
+- [ ] `preload="none"` unless hero/featured
+- [ ] Autoplay only if `muted loop playsinline` are all present
+- [ ] `controls` on any user-facing video player
+- [ ] Captions for any video with speech
+
+## Audio Best Practices
+
+**Format:** MP3 for universal support. AAC (`.m4a`) for better compression if targeting modern browsers only.
+
+**Loading:** Always `preload="none"` — never load audio until the user explicitly requests it.
+
+**Autoplay:** Never. No exceptions. Browsers block it, users are startled by it, and it's an accessibility violation.
+
+**Controls:** Always provide visible controls or a custom UI. Never hide the fact that audio exists on a page.
+
+**Quick audit checklist for audio:**
+- [ ] `preload="none"` on all `<audio>` elements
+- [ ] No autoplay
+- [ ] Visible controls or custom UI
+- [ ] Text description of audio content for accessibility
+
 ## Dev Commands
 ```bash
 npm run dev      # Start dev server → http://localhost:5173

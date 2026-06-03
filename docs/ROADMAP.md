@@ -31,7 +31,7 @@
 - [ ] Service agreement template — download from Bonsai, customize
 - [ ] Notion CRM — Lead → Proposal → Active → Launched → Monthly Care → Churned
 - [ ] 1Password — credential management, one vault per client
-- [ ] Calendly — "Free Website Audit" 15-min event
+- [x] Cal.com — "Free Website Audit" 15-min event
 - [ ] UptimeRobot — monitor rubyxqube.com + each client site
 - [ ] Google Business Profile — "Web Designer" category
 - [ ] Phoenix Stoneworks — verify hosting model, screenshot, testimonial, case study
@@ -56,7 +56,7 @@
 2. **Founding client offer** — 50% off setup fee for first 3 clients in exchange for testimonial + case study + Google review
 3. **Cold outreach** — Google Maps → local service businesses with bad/no websites → personalized Loom audit video (see LEAD_GEN.md)
 4. **Facebook groups** — Treasure Valley small business groups. Post value, not ads.
-5. **Free audit CTA** — Calendly link in every email, on the site, in outreach
+5. **Free audit CTA** — Cal.com link in every email, on the site, in outreach
 
 ### Build During Phase 1
 - [ ] Contract signing page (`/sign/[token]`) — before 2nd client

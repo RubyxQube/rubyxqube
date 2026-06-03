@@ -18,9 +18,9 @@
 | Formspree | Contact forms (no backend) | ✅ Live |
 | GA4 | Analytics (one property per client) | ✅ Live |
 | Wave | Invoicing + bookkeeping | ⬜ Set up |
-| Notion | CRM + client pages | ⬜ Set up |
+| Notion | CRM + client pages | ✅ Live |
 | 1Password | Credentials + API keys | ⬜ Set up |
-| Calendly | Book audit calls | ⬜ Set up |
+| Cal.com | Book audit calls | ✅ Live |
 | UptimeRobot | Site uptime monitoring | ⬜ Set up |
 | Google Workspace | boyd@rubyxqube.com | ⬜ Set up |
 
@@ -40,7 +40,7 @@
    - What type of business do you run?
    - Do you currently have a website?
    - What's your main goal — get more leads, look more professional, both?
-3. If qualified → book a 15-min Free Audit call (Calendly)
+3. If qualified → book a 15-min Free Audit call (Cal.com)
 4. Add to Notion CRM board: **Stage: Lead**
 
 ### Disqualify if:
@@ -326,7 +326,7 @@ Run this before going live with every site.
 - [ ] Walk them through the chatbot SMS alerts (show them what it looks like)
 - [ ] Confirm monthly report date (1st of month)
 - [ ] Send invoice for final 50% payment
-- [ ] Confirm "Built and powered by RubyxQube" footer credit is live (removable for $150 one-time — note in project README if removed)
+- [ ] Confirm "Built and powered by RubyxQube" footer credit is live — stored in `siteConfig.credit`, rendered conditionally in Footer. Removable for $150 one-time (delete the `credit` field from siteConfig.js when paid)
 - [ ] Ask for a Google review at the bottom of the launch email — this is peak happiness. Use the template in `docs/templates/REVIEW-OUTREACH.md`. Review link: https://g.page/r/CUHmU0rIL7VhEBM/review
 
 ---
@@ -386,7 +386,7 @@ If a client cancels (30 days notice required):
 | Notion | CRM + client pages + SOPs | Free | ⬜ Set up |
 | 1Password | Credentials + API keys — one vault per client | ~$3/mo | ⬜ Set up |
 | Google Workspace | boyd@rubyxqube.com | $6/mo | ⬜ Set up |
-| Calendly | Book audit calls | Free | ⬜ Set up |
+| Cal.com | Book audit calls | Free | ✅ Live |
 | Custom signing page | Contract e-signature — legally binding, $0/mo | Free (build it) | ⬜ Build |
 | Google Drive | File storage per client | Free | ✅ Use now |
 

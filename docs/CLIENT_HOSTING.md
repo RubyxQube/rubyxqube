@@ -90,7 +90,7 @@ What we build is effectively static + serverless:
 
 **Future exceptions** (Phase 3+):
 - Client portal / login → Supabase (Postgres + auth)
-- Booking system → Calendly embed or Cal.com (their DB)
+- Booking system → Cal.com embed (their DB)
 - Blog with CMS → Contentful or Sanity headless CMS
 
 ---

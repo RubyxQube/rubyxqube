@@ -13,7 +13,7 @@ Attention → Interest → Audit → Proposal → Close
 
 - **Attention:** They see us (Google, referral, social, cold outreach)
 - **Interest:** They visit rubyxqube.com, chat with our bot, or respond to outreach
-- **Audit:** Free 15-min audit call (Calendly) — this is where deals are won
+- **Audit:** Free 15-min audit call (Cal.com) — this is where deals are won
 - **Proposal:** Send same day, follow up 24–48 hrs later
 - **Close:** Signed contract + 50% deposit = client
 

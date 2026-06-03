@@ -87,7 +87,7 @@ Client palette may use soft lavender (mental health), sage green (holistic), sky
 - Answer in plain language — demystifies the process
 
 ### 10. Booking / Contact CTA
-- Embedded Calendly or scheduling widget OR prominent "Call to Book" section
+- Embedded Cal.com or scheduling widget OR prominent "Call to Book" section
 - Hours listed clearly
 - Address + Google Maps embed
 
@@ -115,7 +115,7 @@ Client palette may use soft lavender (mental health), sage green (holistic), sky
 - [ ] Office hours and address
 - [ ] New patient process ("what to expect")
 - [ ] 3–5 patient testimonials (with permission)
-- [ ] Booking method (phone, Calendly, Jane App, etc.)
+- [ ] Booking method (phone, Cal.com, Jane App, etc.)
 - [ ] New patient specials if any
 
 ---

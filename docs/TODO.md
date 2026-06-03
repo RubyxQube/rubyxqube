@@ -22,7 +22,7 @@ These are the last things standing between you and taking real client money.
 ### Ops Setup
 - [ ] **Set up Notion** — CRM board (Lead → Proposal → Active Build → Launched → Monthly Care → Churned) + client page template (SOP.md §4)
 - [ ] **Set up 1Password** — one vault per client for credentials + API keys
-- [ ] **Set up Calendly** — free tier, one event: "Free Website Audit" (15 min). Connect to your calendar. This is your lead conversion tool.
+- [x] **Set up Cal.com** — free, one event: "Free Website Audit" (15 min). Webhook wired to rubyxqube.com/api/cal-webhook.
 - [ ] **Set up Loom** — free tier. Use for recording personalized audit videos to send cold prospects.
 - [ ] **Set up UptimeRobot** — uptimerobot.com, free. Add rubyxqube.com now. Add each client site at launch.
 - [ ] **Set up Wave recurring invoices** — configure auto-send + payment reminders for each retainer client at onboarding.

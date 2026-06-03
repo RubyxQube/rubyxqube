@@ -151,11 +151,11 @@ Create a template page inside the CRM database:
 
 ---
 
-## 4. Calendly — Free Audit Call Booking
+## 4. Cal.com — Free Audit Call Booking ✅ Done
 
 **Time:** ~10 min | **Cost:** Free
 
-1. Go to [calendly.com](https://calendly.com) → **Sign up** with `boyd@rubyxqube.com`
+1. Go to [cal.com](https://cal.com) → **Sign up** with `boyd@rubyxqube.com`
 2. Connect your Google Calendar (availability syncs automatically)
 3. Create event: **Free Website Audit**
    - Duration: **15 minutes**
@@ -163,12 +163,15 @@ Create a template page inside the CRM database:
    - Location: **Google Meet** (auto-generated link)
    - Availability: set your preferred hours (e.g., Mon–Fri, 9am–5pm)
    - Buffer time: 10 min after each event (prevents back-to-back)
-4. Copy your booking link: `calendly.com/boyd-rubyxqube/audit`
+4. Your booking link: `cal.com/boyd-querubin-rubyxqube/free-website-audit`
 5. Add this link everywhere:
    - rubyxqube.com `/audit` page CTA button
    - Email signature
    - Cold outreach emails
    - Facebook group bio
+6. Webhook: Settings → Developer → Webhooks → `https://rubyxqube.com/api/cal-webhook`
+   - Triggers: Booking created + Booking canceled
+   - Secret: stored in Vercel as `CAL_WEBHOOK_SECRET`
 
 ---
 
@@ -240,5 +243,5 @@ Do these in order — each one unlocks the next:
 2. ✅ **Wave** — needs your business email. Set up invoice templates.
 3. ✅ **1Password** — store every credential as you create it going forward.
 4. ✅ **Notion** — build CRM board. Add Phoenix Stoneworks as first card.
-5. ✅ **Calendly** — add link to site and outreach emails.
+5. ✅ **Cal.com** — add link to site and outreach emails.
 6. ✅ **UptimeRobot** — add rubyxqube.com monitor.

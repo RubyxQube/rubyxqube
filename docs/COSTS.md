@@ -47,7 +47,7 @@ Very lean. Essentially just the Twilio A2P campaign fee keeping the SMS infrastr
 |---------|------|-------------|----------|-------|
 | Google Workspace | Starter | $6/mo | 🔴 High | Gets boyd@rubyxqube.com — do this before first client |
 | Notion | Free | $0 | Now | Free tier is enough for Phase 1 |
-| Calendly | Free | $0 | Now | Free tier = 1 event type (enough for audit calls) |
+| Cal.com | Free | $0 | ✅ Live | Free tier, unlimited event types |
 | UptimeRobot | Free | $0 | At launch | Free = 50 monitors, 5-min checks |
 | Loom | Free | $0 | Now | Free = 25 videos (enough for audit recordings) |
 | Wave | Free | $0 | Now | Free invoicing + bookkeeping forever |
@@ -95,7 +95,7 @@ Trigger each upgrade only when the revenue justifies it.
 | Vercel Pro | Team features, faster builds | $20/mo | 6–10 client projects |
 | 1Password Teams | Share vaults with contractors | $19/mo | First hire / VA |
 | Formspree Starter | 1,000 submissions/mo, unlimited forms | $8/mo | 10+ active forms |
-| Calendly Standard | Multiple event types, workflows | $10/mo | 10+ calls/month |
+| Cal.com Teams | Team scheduling, round-robin | $12/mo | If you hire and need team routing |
 | Notion Plus | Unlimited blocks, version history | $8/mo | When free tier feels limiting |
 | DocuSeal Cloud | Contract signing API | $20/mo + $0.20/doc | Until custom signing page is built |
 | Google Workspace (extra seats) | For contractors | +$6/user/mo | First hire |
@@ -165,7 +165,7 @@ Know when you'll hit a wall:
 | Vercel Hobby | 100GB bandwidth/mo | Unlikely to hit for static sites |
 | GitHub Free | Unlimited private repos | Never an issue |
 | UptimeRobot Free | 50 monitors | 50 client sites (far away) |
-| Calendly Free | 1 event type | Fine until you need booking workflows |
+| Cal.com Free | Unlimited event types | Free forever for solo use |
 | Notion Free | Limited block storage | Fine for Phase 1 |
 
 ---
