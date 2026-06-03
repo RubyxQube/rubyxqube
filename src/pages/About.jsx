@@ -55,7 +55,7 @@ export default function About() {
         <div className="section">
           <div style={{ display: "flex", gap: 56, flexWrap: "wrap", alignItems: "center" }}>
 
-            <div style={{ flexShrink: 0 }}>
+            <div style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: 20 }}>
               <img
                 src={boydPhoto}
                 alt="Boyd Querubin — founder of RubyxQube"
@@ -65,16 +65,25 @@ export default function About() {
                 fetchpriority="high"
                 style={{ width: 220, height: 220, borderRadius: "50%", display: "block", objectFit: "cover", objectPosition: "center top" }}
               />
+              <div style={{ display: "flex", flexDirection: "column", gap: 6, width: "100%", maxWidth: 220 }}>
+                {[
+                  "10 years in marketing",
+                  "BA Communications — BYU-Idaho",
+                  "Web Dev Certificate — DevMountain",
+                ].map(c => (
+                  <div key={c} style={{ fontSize: 12, color: "var(--muted)", textAlign: "center", lineHeight: 1.4 }}>{c}</div>
+                ))}
+              </div>
             </div>
 
             <div style={{ flex: "1 1 300px" }}>
               <span className="badge" style={{ marginBottom: 16, display: "inline-block" }}>Background</span>
               <h2 className="h2" style={{ marginBottom: 16 }}>More than a web designer.</h2>
               <p className="p">
-                Before launching {siteConfig.brand}, I co-founded BastionMSP — a managed security service provider built from scratch to bring enterprise-grade cybersecurity to small businesses. I handled the brand identity, the full marketing site, and the client-facing security portal.
+                With 10 years in marketing and a web development background, I built {siteConfig.brand} around one idea: a website should bring in customers, not just exist. Before this, I co-founded BastionMSP — a managed security provider where I handled the full brand, marketing site, and client portal from scratch.
               </p>
               <p className="p" style={{ marginBottom: 24 }}>
-                That gave me a different lens on what a business website actually needs to do — not just look good, but generate trust, capture leads, and work without you babysitting it. Now I apply that same thinking to local service businesses across the Treasure Valley and beyond.
+                That experience shaped how I think about every site I build — the copy, the layout, the lead capture flow. Not just "does it look good" but "does it actually convert." Now I apply that to local service businesses across the Treasure Valley and beyond.
               </p>
               <a
                 className="btn"
