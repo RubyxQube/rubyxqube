@@ -15,14 +15,13 @@ const WIX_BULLETS = [
 ];
 
 const RXQ_BULLETS = [
-  "$2,500 once - then it's yours, no monthly bill",
+  "$1,200 once - then it's yours, no monthly bill",
   "Built for you, around your business",
   "Custom design no one else has",
   "Fast, optimized, mobile-first",
-  "Google Analytics 4 set up and verified on every build",
-  "Google Search Console verified + sitemap submitted",
+  "Analytics + Search Console setup (Autopilot and above)",
   "Google Business Profile management (Momentum plan)",
-  "AI receptionist available as an add-on",
+  "AI receptionist that captures leads 24/7 (Autopilot and above)",
   "You own the site and the domain",
   "Direct line to Boyd - text, call, email",
 ];
@@ -62,7 +61,7 @@ function CondensedComparison() {
           RubyxQube Launch
         </p>
         <p className="p" style={{ marginBottom: 12 }}>
-          <strong style={{ color: "var(--text)" }}>$2,500 once.</strong> Custom design, Google Analytics and Search Console set up on day one, Google Business Profile managed for you, and a direct line to Boyd - not a help article.
+          <strong style={{ color: "var(--text)" }}>$1,200 once.</strong> Custom design built around your business, you own the site and domain, and a direct line to Boyd — not a help article. Add AI and analytics with Autopilot.
         </p>
         <Link to="/pricing" style={{ color: "var(--accent)", fontWeight: 700, fontSize: 14 }}>
           See the full comparison

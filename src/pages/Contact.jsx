@@ -6,23 +6,23 @@ import reviewQR from "../assets/qr/RubyxQubeReviewQR.png";
 const PACKAGES = [
   {
     id: "launch",
-    label: "Launch — $2,500 (one-time)",
+    label: "Launch — $1,200 (one-time)",
     needValue: "Launch",
-    priceLine: "$2,500 (one-time)",
-    includes: "5–6 page website, mobile responsive, contact form + click-to-call, basic SEO, Google Maps embed, 2 revision rounds.",
+    priceLine: "$1,200 (one-time)",
+    includes: "5–6 page website, mobile responsive, contact form + click-to-call, basic SEO, Google Maps embed, 2 revision rounds. No ongoing support.",
   },
   {
     id: "autopilot",
-    label: "Autopilot — $3,000 + $399/mo",
+    label: "Autopilot — $449/mo",
     needValue: "Autopilot",
-    priceLine: "$3,000 + $399/mo",
-    includes: "Everything in Launch + custom AI receptionist, 24/7 lead capture, SMS alerts on new leads, monthly performance report, 60 min/mo site updates.",
+    priceLine: "$449/mo",
+    includes: "No setup fee. Custom site + AI receptionist, analytics setup, 24/7 lead capture, SMS alerts, monthly report, 60 min/mo site updates.",
   },
   {
     id: "momentum",
-    label: "Momentum — $3,000 + $999/mo",
+    label: "Momentum — $999/mo",
     needValue: "Momentum",
-    priceLine: "$3,000 + $999/mo",
+    priceLine: "$999/mo",
     includes: "Everything in Autopilot + Google Business Profile management, local SEO, priority same-day edits, review response management, monthly strategy call.",
   },
   {
