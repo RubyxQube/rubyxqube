@@ -26,7 +26,19 @@ export default function PackageCard({ name, tagline, bestFor, price, billing, ti
         </p>
       )}
       <ul className="list" style={{ flex: 1 }}>
-        {bullets.map((b) => <li key={b}>{b}</li>)}
+        {bullets.map((b) => {
+          const noSetupFee = b.startsWith("No setup fee");
+          if (noSetupFee) {
+            const [highlighted, rest] = b.split(/(?<=^No setup fee[^—]*—\s*)/);
+            return (
+              <li key={b}>
+                <strong style={{ color: "var(--accent)" }}>No setup fee</strong>
+                {rest ? ` — ${rest}` : ""}
+              </li>
+            );
+          }
+          return <li key={b}>{b}</li>;
+        })}
       </ul>
       {note && (
         <p style={{ fontSize: 12, color: "var(--muted)", fontStyle: "italic", marginTop: 14, marginBottom: 0, lineHeight: 1.5 }}>
