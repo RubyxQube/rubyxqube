@@ -108,7 +108,7 @@ export default function Pricing() {
       <section className="surface heroSurface">
         <div className="section" style={{ paddingTop: 80, paddingBottom: 64 }}>
           <span className="badge">Transparent pricing</span>
-          <h1 className="h1" style={{ marginTop: 16, maxWidth: "18ch" }}>
+          <h1 className="h1" style={{ marginTop: 16 }}>
             Simple pricing. <span className="accentText">No surprises.</span>
           </h1>
           <p className="p" style={{ maxWidth: 540, fontSize: 17 }}>
