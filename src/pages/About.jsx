@@ -53,9 +53,9 @@ export default function About() {
       {/* ── Story ── */}
       <section className="surface">
         <div className="section">
-          <div style={{ display: "flex", gap: 56, flexWrap: "wrap", alignItems: "center" }}>
+          <div className="featureRow" style={{ gap: 56 }}>
 
-            <div style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: 20 }}>
+            <div className="photoWrap">
               <img
                 src={boydPhoto}
                 alt="Boyd Querubin — founder of RubyxQube"
@@ -120,7 +120,7 @@ export default function About() {
       {/* ── Who I work with ── */}
       <section className="surface">
         <div className="section">
-          <div style={{ display: "flex", gap: 56, flexWrap: "wrap", alignItems: "flex-start" }}>
+          <div className="featureRow" style={{ alignItems: "flex-start" }}>
 
             <div style={{ flex: "1 1 300px" }}>
               <span className="badge" style={{ marginBottom: 16, display: "inline-block" }}>Who I work with</span>

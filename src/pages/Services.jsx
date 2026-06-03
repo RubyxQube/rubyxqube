@@ -65,7 +65,7 @@ export default function Services() {
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 40 }}>Two things that work together.</h2>
 
           {/* Website */}
-          <div className="card" style={{ display: "flex", gap: 48, flexWrap: "wrap", alignItems: "center", marginBottom: 24 }}>
+          <div className="card featureRow" style={{ marginBottom: 24 }}>
             <div style={{ flex: "1 1 300px" }}>
               <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Custom Website</p>
               <h3 className="h3" style={{ marginBottom: 12 }}>Built from scratch. Fast, mobile-first, built to convert.</h3>
@@ -101,7 +101,7 @@ export default function Services() {
           </div>
 
           {/* AI Receptionist */}
-          <div className="card" style={{ display: "flex", gap: 48, flexWrap: "wrap", alignItems: "center", flexDirection: "row-reverse" }}>
+          <div className="card featureRow featureRowReverse" style={{ flexDirection: "row-reverse" }}>
             <div style={{ flex: "1 1 300px" }}>
               <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>AI Receptionist</p>
               <h3 className="h3" style={{ marginBottom: 12 }}>Trained on your business. Answering leads while you sleep.</h3>
@@ -140,7 +140,7 @@ export default function Services() {
       {/* ── Monthly care ── */}
       <section className="surface">
         <div className="section">
-          <div style={{ display: "flex", gap: 48, flexWrap: "wrap", alignItems: "center" }}>
+          <div className="featureRow">
             <div style={{ flex: "1 1 300px" }}>
               <span className="badge">Every month</span>
               <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>Not a build-and-disappear agency.</h2>

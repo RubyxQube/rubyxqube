@@ -571,6 +571,23 @@ label{
   .footerBrand p{ max-width: 100%; }
 }
 
+/* Feature rows — two-column flex layouts used on Services/About */
+.featureRow{
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Photo wrap — About page headshot + credentials */
+.photoWrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
 @media (max-width: 720px){
   .section{ padding: 56px 22px; }
   .heroSection{ padding: 64px 22px 56px; }
@@ -583,6 +600,15 @@ label{
     width: 100%; min-height: 50px;
     border-radius: 10px; font-size: 15px; justify-content: center;
   }
+
+  /* Feature rows collapse gap on mobile */
+  .featureRow{ gap: 28px; }
+
+  /* Photo wrap centers full-width on mobile */
+  .photoWrap{ width: 100%; }
+
+  /* Reverse feature rows lose their reverse on mobile — text always first */
+  .featureRowReverse{ flex-direction: column; }
 }
 
 /* ─────────────────────────────────────────

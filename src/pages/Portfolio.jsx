@@ -115,7 +115,7 @@ export default function Portfolio() {
                   />
                 </a>
               )}
-              <div style={{ padding: "24px", display: "flex", gap: 48, flexWrap: "wrap", alignItems: "flex-start" }}>
+              <div className="featureRow" style={{ padding: "24px", alignItems: "flex-start" }}>
 
                 {/* Left: description + bullets */}
                 <div style={{ flex: "1 1 320px" }}>
