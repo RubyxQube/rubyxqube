@@ -140,7 +140,7 @@ export default function Services() {
       {/* ── Monthly care ── */}
       <section className="surface">
         <div className="section">
-          <div style={{ display: "flex", gap: 48, flexWrap: "wrap", alignItems: "flex-start" }}>
+          <div style={{ display: "flex", gap: 48, flexWrap: "wrap", alignItems: "center" }}>
             <div style={{ flex: "1 1 300px" }}>
               <span className="badge">Every month</span>
               <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>Not a build-and-disappear agency.</h2>
@@ -183,7 +183,9 @@ export default function Services() {
           <div className="grid cols-3">
             {PLANS.map(plan => (
               <div key={plan.name} className={`card${plan.highlight ? " cardHighlight" : ""}`} style={{ display: "flex", flexDirection: "column" }}>
-                {plan.highlight && <div className="badge" style={{ marginBottom: 12, alignSelf: "flex-start" }}>Most Popular</div>}
+                <div style={{ minHeight: 32, marginBottom: 8 }}>
+                  {plan.highlight && <div className="badge" style={{ alignSelf: "flex-start" }}>Most Popular</div>}
+                </div>
                 <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 8 }}>{plan.name}</p>
                 <div style={{ marginBottom: 12 }}>
                   <span style={{ fontSize: 28, fontWeight: 800 }}>{plan.price}</span>
