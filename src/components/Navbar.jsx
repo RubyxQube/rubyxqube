@@ -64,7 +64,7 @@ function DropdownMenu({ label, children, pathname }) {
   }, []);
 
   return (
-    <div ref={ref} className="navDropdown" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+    <div ref={ref} className="navDropdown">
       <button
         className="navDropdownTrigger"
         onClick={() => setOpen(o => !o)}
