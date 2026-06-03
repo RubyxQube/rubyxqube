@@ -1,62 +1,109 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Zap, MessageSquare, DollarSign, ExternalLink } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
+import boydPhoto from "../assets/boyd.webp";
+
+const VALUES = [
+  {
+    icon: Zap,
+    title: "Fast turnaround",
+    desc: "Most sites go live in 3–7 days from the kickoff call.",
+  },
+  {
+    icon: MessageSquare,
+    title: "Direct communication",
+    desc: "You work with me directly — not an account manager.",
+  },
+  {
+    icon: DollarSign,
+    title: "Transparent pricing",
+    desc: "Flat rates, no hidden fees. You know the number before work starts.",
+  },
+];
+
+const INDUSTRIES = [
+  "Contractors & home services",
+  "HVAC, plumbing & electrical",
+  "Landscaping & lawn care",
+  "Cleaning & janitorial",
+  "Stone, masonry & concrete",
+  "Window & gutter cleaning",
+  "Any local service business",
+];
 
 export default function About() {
   return (
     <div className="pageMinHeight">
 
-      {/* ── Header ── */}
+      {/* ── Hero ── */}
       <section className="surface heroSurface">
         <div className="section" style={{ paddingTop: 80, paddingBottom: 64 }}>
-          <span className="badge">About Qube Solutions</span>
-          <h1 className="h1" style={{ marginTop: 16, maxWidth: "20ch" }}>
-            Built by someone who <span className="accentText">gets it done</span>
+          <span className="badge">About Boyd</span>
+          <h1 className="h1" style={{ marginTop: 16, maxWidth: "22ch" }}>
+            Built by someone who <span className="accentText">gets it done.</span>
           </h1>
-          <p className="p" style={{ maxWidth: 560, fontSize: 17 }}>
-            I'm Boyd — the developer behind {siteConfig.brand}. I build websites for small service businesses that need a professional presence online, without the agency markup or months of back-and-forth.
+          <p className="p" style={{ maxWidth: 520, fontSize: 17 }}>
+            I build websites and AI receptionists for {siteConfig.serviceArea} service businesses — without the agency markup or the months of back-and-forth.
           </p>
         </div>
       </section>
 
-      {/* ── Background ── */}
+      {/* ── Story ── */}
       <section className="surface">
         <div className="section">
-          <div className="grid cols-2" style={{ gap: 48, alignItems: "start" }}>
+          <div style={{ display: "flex", gap: 56, flexWrap: "wrap", alignItems: "center" }}>
 
-            <div>
-              <span className="badge">Background</span>
-              <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>More than a web designer</h2>
+            <div style={{ flexShrink: 0 }}>
+              <img
+                src={boydPhoto}
+                alt="Boyd Querubin — founder of RubyxQube"
+                width={280}
+                height={280}
+                loading="eager"
+                fetchpriority="high"
+                style={{ width: 220, height: 220, borderRadius: "50%", display: "block", objectFit: "cover", objectPosition: "center top" }}
+              />
+            </div>
+
+            <div style={{ flex: "1 1 300px" }}>
+              <span className="badge" style={{ marginBottom: 16, display: "inline-block" }}>Background</span>
+              <h2 className="h2" style={{ marginBottom: 16 }}>More than a web designer.</h2>
               <p className="p">
-                Before launching {siteConfig.brand}, I co-founded BastionMSP — a managed security service provider built from the ground up to bring enterprise-grade cybersecurity to small and mid-sized businesses. I handled the brand identity, full marketing site, and the client-facing security portal.
+                Before launching {siteConfig.brand}, I co-founded BastionMSP — a managed security service provider built from scratch to bring enterprise-grade cybersecurity to small businesses. I handled the brand identity, the full marketing site, and the client-facing security portal.
               </p>
-              <p className="p">
-                That experience gave me a different perspective on what a business website actually needs to do — not just look good, but generate trust, capture leads, and work without you babysitting it.
+              <p className="p" style={{ marginBottom: 24 }}>
+                That gave me a different lens on what a business website actually needs to do — not just look good, but generate trust, capture leads, and work without you babysitting it. Now I apply that same thinking to local service businesses across the Treasure Valley and beyond.
               </p>
-              <p className="p" style={{ marginBottom: 20 }}>
-                Now I apply that same thinking to local service businesses — based in the Treasure Valley, working with clients across the US. Contractors, tradespeople, and service providers who need a professional presence and the tools to compete.
-              </p>
-              <a className="btn" href="https://www.bastionmsp.com" target="_blank" rel="noreferrer" style={{ display: "inline-flex" }}>
-                View BastionMSP ↗
+              <a
+                className="btn"
+                href="https://www.bastionmsp.com"
+                target="_blank"
+                rel="noreferrer"
+                style={{ display: "inline-flex", alignItems: "center" }}
+              >
+                View BastionMSP <ExternalLink size={13} style={{ marginLeft: 6, verticalAlign: "middle" }} />
               </a>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-              <div className="card">
-                <h3 className="h3">Fast turnaround</h3>
-                <p className="p" style={{ marginBottom: 0 }}>Most sites go live in as little as 3 days from the kickoff call. I keep the process tight so you're not waiting around.</p>
-              </div>
-              <div className="card">
-                <h3 className="h3">Direct communication</h3>
-                <p className="p" style={{ marginBottom: 0 }}>You work directly with me — not an account manager. Fast replies, clear updates, no runaround.</p>
-              </div>
-              <div className="card">
-                <h3 className="h3">Transparent pricing</h3>
-                <p className="p" style={{ marginBottom: 0 }}>Flat rates, no hidden fees. You know exactly what you're getting before any work starts.</p>
-              </div>
-            </div>
+          </div>
+        </div>
+      </section>
 
+      {/* ── Value props ── */}
+      <section className="surface">
+        <div className="section">
+          <div className="grid cols-3">
+            {VALUES.map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="card" style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
+                <Icon size={20} color="var(--accent)" style={{ flexShrink: 0, marginTop: 2 }} />
+                <div>
+                  <h3 className="h3" style={{ marginBottom: 6 }}>{title}</h3>
+                  <p className="p" style={{ marginBottom: 0, fontSize: 14 }}>{desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -64,84 +111,33 @@ export default function About() {
       {/* ── Who I work with ── */}
       <section className="surface">
         <div className="section">
-          <div className="grid cols-2" style={{ gap: 48, alignItems: "center" }}>
-            <div>
-              <span className="badge">Who I work with</span>
-              <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>Built for local service businesses</h2>
-              <p className="p">
-                Most of my clients are contractors, tradespeople, and local service providers — people who are great at what they do but don't have time to manage a website. I'm based in Boise but work with clients across the US.
-              </p>
-              <p className="p" style={{ marginBottom: 0 }}>
-                They need something that looks professional, works on phones, and makes it easy for customers to call or fill out a form. I keep things simple: one person, direct communication, fast turnaround. No project managers, no inflated timelines, no surprise invoices.
-              </p>
-            </div>
-            <div className="card">
-              <h3 className="h3" style={{ marginBottom: 16 }}>Industries I work with</h3>
-              <ul className="list" style={{ margin: 0 }}>
-                <li>Contractors & home services</li>
-                <li>HVAC, plumbing, electrical</li>
-                <li>Landscaping & lawn care</li>
-                <li>Cleaning & janitorial</li>
-                <li>Stoneworks, masonry & concrete</li>
-                <li>Any local service business that needs leads</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+          <div style={{ display: "flex", gap: 56, flexWrap: "wrap", alignItems: "flex-start" }}>
 
-      {/* ── Process ── */}
-      <section className="surface">
-        <div className="section">
-          <span className="badge">How it works</span>
-          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>Simple from start to finish</h2>
-          <p className="p" style={{ maxWidth: 480, marginBottom: 32 }}>Three steps from first conversation to a live website.</p>
-          <div className="grid cols-3">
-            <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 01</p>
-              <h3 className="h3">Kickoff call</h3>
-              <p className="p" style={{ marginBottom: 0 }}>15 minutes to understand your business, your goals, and what you want customers to do on your site.</p>
-            </div>
-            <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 02</p>
-              <h3 className="h3">Build + revise</h3>
-              <p className="p" style={{ marginBottom: 0 }}>I build the site and share a preview. Two rounds of revisions included — we refine until it's right.</p>
-            </div>
-            <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Step 03</p>
-              <h3 className="h3">Launch + support</h3>
-              <p className="p" style={{ marginBottom: 0 }}>Go live. Optionally add a monthly care plan and I'll keep your site updated so you never have to think about it.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Location ── */}
-      <section className="surface">
-        <div className="section">
-          <div className="grid cols-2">
-            <div>
-              <span className="badge" style={{ marginBottom: 16 }}>Location</span>
-              <h2 className="h2" style={{ marginTop: 16, marginBottom: 12 }}>Based in Boise. Available everywhere.</h2>
-              <p className="p">
-                I'm based in the {siteConfig.serviceArea} and do most of my work with local businesses — but I work remotely too. If you're outside the area and want a clean, professional site, reach out.
+            <div style={{ flex: "1 1 300px" }}>
+              <span className="badge" style={{ marginBottom: 16, display: "inline-block" }}>Who I work with</span>
+              <h2 className="h2" style={{ marginBottom: 16 }}>Local service businesses that need leads — not just a website.</h2>
+              <p className="p" style={{ marginBottom: 24 }}>
+                My clients are contractors, tradespeople, and service providers who are great at what they do but don't have time to manage a website. One person, direct communication, fast turnaround.
               </p>
-              <div className="btnRow" style={{ marginTop: 24 }}>
-                <Link className="btn primary" to="/quote">Start a Project</Link>
-                <Link className="btn" to="/pricing">See Pricing</Link>
+              <Link className="btn primary" to="/contact">Start a Project</Link>
+            </div>
+
+            <div style={{ flex: "1 1 260px" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                {INDUSTRIES.map(ind => (
+                  <span key={ind} style={{
+                    fontSize: 13, fontWeight: 500,
+                    padding: "6px 14px", borderRadius: 99,
+                    background: "var(--accent-dim)",
+                    border: "1px solid var(--accent-border)",
+                    color: "var(--text)",
+                  }}>
+                    {ind}
+                  </span>
+                ))}
               </div>
             </div>
-            <div className="card">
-              <h3 className="h3" style={{ marginBottom: 16 }}>Quick facts</h3>
-              <ul className="list">
-                <li>Based in Boise, Idaho</li>
-                <li>Co-founder of BastionMSP (cybersecurity)</li>
-                <li>Serving the {siteConfig.serviceArea} and beyond</li>
-                <li>Websites launch in as little as 3 days</li>
-                <li>Flat-rate pricing, no hidden costs</li>
-                <li>Direct communication — no middlemen</li>
-              </ul>
-            </div>
+
           </div>
         </div>
       </section>
