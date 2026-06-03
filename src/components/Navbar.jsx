@@ -4,8 +4,8 @@ import { ChevronDown } from "lucide-react";
 import Logo from "./Logo.jsx";
 
 const LINKS = [
-  { to: "/how-it-works", label: "How It Works" },
-  { to: "/pricing",      label: "Pricing"      },
+  { to: "/services", label: "Services" },
+  { to: "/pricing",  label: "Pricing"  },
   {
     label: "Work",
     children: [
@@ -16,9 +16,9 @@ const LINKS = [
   {
     label: "Company",
     children: [
-      { to: "/about",    label: "About Boyd" },
-      { to: "/services", label: "Services"   },
-      { to: "/audit",    label: "Free Audit" },
+      { to: "/about",        label: "About Boyd"   },
+      { to: "/how-it-works", label: "How It Works" },
+      { to: "/audit",        label: "Free Audit"   },
     ],
   },
 ];
