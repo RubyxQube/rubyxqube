@@ -32,6 +32,7 @@ const coFounded = [
 const clientWork = [
   {
     id: "phoenix-stoneworks",
+    preview: "/portfolio/psw-preview.webp",
     category: "Stone Fabrication · Treasure Valley",
     name: "Phoenix Stoneworks",
     role: "Web Designer & Developer",
@@ -51,6 +52,7 @@ const clientWork = [
   },
   {
     id: "sudz-window-gutter",
+    preview: "/portfolio/sudz-preview.webp",
     category: "Window & Gutter Cleaning · Treasure Valley",
     name: "Sudz Window and Gutter Cleaning",
     role: "Web Designer & Developer",
@@ -159,7 +161,20 @@ export default function Portfolio() {
 
           <div className="grid cols-2">
             {clientWork.map((project) => (
-              <div key={project.id} className="card" style={{ display: "flex", flexDirection: "column" }}>
+              <div key={project.id} className="card" style={{ display: "flex", flexDirection: "column", padding: 0, overflow: "hidden" }}>
+                {project.preview && (
+                  <a href={project.links[0].href} target="_blank" rel="noreferrer">
+                    <img
+                      src={project.preview}
+                      alt={`${project.name} website screenshot`}
+                      width={1280}
+                      height={720}
+                      loading="lazy"
+                      style={{ width: "100%", height: "auto", display: "block", aspectRatio: "16/9" }}
+                    />
+                  </a>
+                )}
+                <div style={{ padding: "24px", display: "flex", flexDirection: "column", flex: 1 }}>
                 <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
                   {project.category}
                 </p>
@@ -178,6 +193,7 @@ export default function Portfolio() {
                     </a>
                   ))}
                   <Link className="btn" to="/quote">Build Something Similar</Link>
+                </div>
                 </div>
               </div>
             ))}
