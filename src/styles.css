@@ -614,7 +614,7 @@ label{
   .mobileBreak{ display: block; }
 
   /* Pill list stacks vertically on mobile */
-  .pillList{ flex-direction: column; align-items: stretch; }
+  .pillList{ flex-direction: column; align-items: flex-start; }
 
   /* Photo wrap centers full-width on mobile */
   .photoWrap{ width: 100%; }
