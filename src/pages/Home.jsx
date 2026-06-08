@@ -50,9 +50,9 @@ export default function Home() {
       annualSaving: "2 months free",
       bullets: [
         "Everything in Autopilot",
-        "Developer on call, same-day turnaround",
+        "Developer on call, same-day prototypes, 2-day turnaround on bigger builds",
         "Unlimited edits, no monthly cap",
-        "Custom tools: calculators, estimators, intake forms",
+        "Custom tools: calculators, estimators, intake forms, and more",
         "Google Business Profile management",
         "Monthly AI receptionist tuning",
         "Weekly check-in call (30–60 min)",
