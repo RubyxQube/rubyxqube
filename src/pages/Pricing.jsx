@@ -49,12 +49,12 @@ export default function Pricing() {
       annualSaving: "2 months free",
       bullets: [
         "Everything in Autopilot",
-        "Your developer on call -- same-day prototypes, 2-day turnaround on bigger builds",
-        "Unlimited site edits and updates, no monthly cap",
-        "Custom tools built for your business -- calculators, estimators, intake forms, and more",
-        "Google Business Profile management -- posts, photos, Q&A",
-        "Monthly AI receptionist tuning -- optimized from real conversation logs",
-        "Weekly check-in call (30–60 min, as needed)",
+        "Developer on call, same-day turnaround",
+        "Unlimited edits, no monthly cap",
+        "Custom tools: calculators, estimators, intake forms",
+        "Google Business Profile management",
+        "Monthly AI receptionist tuning",
+        "Weekly check-in call (30–60 min)",
       ],
     },
   ];
