@@ -8,8 +8,8 @@
 | Plan | Price | What it is |
 |---|---|---|
 | **Launch** | $1,200 one-time | 5–6 page website, no ongoing support |
-| **Autopilot** | $449/mo | Site + AI receptionist + monthly report, 6-month minimum |
-| **Momentum** | $999/mo | Everything in Autopilot + GBP management, local SEO, strategy call |
+| **Autopilot** | $399/mo | Site + AI receptionist + monthly report, 6-month minimum |
+| **Momentum** | $999/mo | Everything in Autopilot + developer on call, custom tools, unlimited edits, weekly check-ins |
 | **AI Chatbot Only** | $500 + $199/mo | Add chatbot to an existing site |
 | **Extra Page** | $250 | Beyond the standard build |
 | **Copywriting** | $500 | Full site copy, conversion-focused |
@@ -29,8 +29,8 @@ No. Everything is flat-rate. Autopilot and Momentum are monthly retainers — yo
 ### "What are your fees? How do you charge to build a website?"
 Depends on what you need:
 - **Just a website:** $1,200 one-time (Launch). Done. No monthly fees.
-- **Website + AI receptionist + ongoing support:** $449/month (Autopilot). No setup fee — the site build is included. 6-month minimum commitment.
-- **All of the above + active Google presence growth:** $999/month (Momentum).
+- **Website + AI receptionist + ongoing support:** $399/month (Autopilot). No setup fee — the site build is included. 6-month minimum commitment.
+- **All of the above + developer on call, custom tools, unlimited edits:** $999/month (Momentum).
 
 Most clients who want to actually grow choose Autopilot or Momentum. The $1,200 Launch site gets built and handed off — nobody's watching it after that.
 
@@ -73,7 +73,7 @@ Yes — a plain-English service agreement that covers what's included, billing t
 Two revision rounds are included for all plans. Major direction changes beyond that are scoped and quoted. This almost never happens because we do an intake call first and align on the design before building.
 
 ### "Why not just use Wix or Squarespace?"
-Those are fine for a basic presence. The difference: our sites are custom-built and fast (Wix/Squarespace carry heavy bloat), include an AI receptionist that actively captures leads, and come with someone watching the site every month. A Wix site at $25/mo gets you a template and no support. Autopilot at $449/mo gets you a custom site, an AI that works while you sleep, and monthly reporting on what's actually happening.
+Those are fine for a basic presence. The difference: our sites are custom-built and fast (Wix/Squarespace carry heavy bloat), include an AI receptionist that actively captures leads, and come with someone watching the site every month. A Wix site at $25/mo gets you a template and no support. Autopilot at $399/mo gets you a custom site, an AI that works while you sleep, and monthly reporting on what's actually happening.
 
 ### "Can I add more pages later?"
 Yes — $250 per page, quoted per project.
@@ -83,7 +83,7 @@ Yes — $250 per page, quoted per project.
 ## OBJECTION HANDLING
 
 ### "That's too expensive."
-"Compared to what? A yellow pages ad was $300/mo and you had no idea if it worked. This is $449/mo for a custom site, an AI that captures leads at 2am, and a monthly report showing exactly what's happening. Most clients get ROI from the first booked job."
+"Compared to what? A yellow pages ad was $300/mo and you had no idea if it worked. This is $399/mo for a custom site, an AI that captures leads at 2am, and a monthly report showing exactly what's happening. Most clients get ROI from the first booked job."
 
 ### "I need to think about it / talk to my partner."
 "Totally fair. Can I ask — is it the price, the timing, or something about the service that you want to think through? I'd rather address a real question now than have you sit on it."
@@ -144,9 +144,11 @@ Yes — $250 per page, quoted per project.
 - [ ] Scaffold new Vercel project
 - [ ] Set up client Notion page
 - [ ] Build site, test on mobile
+- [ ] **SEO — every page:** unique title tag, meta description, Open Graph tags; LocalBusiness JSON-LD on Home
+- [ ] **Contact form tested** — real submission received at ALERT_EMAIL, reply-to set to visitor's address
 - [ ] Set up chatbot + all 3 alert channels (SMS, email, ntfy)
 - [ ] Test 10 chatbot conversations
-- [ ] Run pre-launch checklist (SOP.md)
+- [ ] Run pre-launch checklist (SOP.md) — SEO + contact form sections are non-negotiable
 - [ ] Collect final 50% payment
 - [ ] Launch + send launch email
 - [ ] Ask for Google review at peak happiness (launch day)
@@ -156,7 +158,7 @@ Yes — $250 per page, quoted per project.
 ## PRICING PHILOSOPHY
 
 - **Never negotiate down on price.** Offer to scope down instead ("We can start with Launch at $1,200 if you want to test it, then move to Autopilot after you see results").
-- **Don't apologize for pricing.** $449/mo is less than one booked job for most service businesses.
+- **Don't apologize for pricing.** $399/mo is less than one booked job for most service businesses.
 - **The free audit is the funnel.** Get them on the call. Once they see a specific problem with their current site, the sale is easier.
 - **Founding client discount** — 50% off setup fee for the first 3 clients in exchange for testimonial + case study + Google review. Only if they're a genuinely good fit.
 

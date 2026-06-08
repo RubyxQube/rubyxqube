@@ -199,9 +199,9 @@ agency based in Boise, Idaho serving the Treasure Valley area.
 
 Owner: Boyd Querubin
 Services:
-- Launch: $2,500 one-time — professional 5–6 page website
-- Autopilot: $3,000 + $399/mo — website + Claude AI receptionist + monthly care
-- Momentum: $3,000 + $999/mo — Autopilot + local SEO + social + strategy
+- Launch: $1,200 one-time — professional 5–6 page website, no ongoing support
+- Autopilot: $399/mo, no setup fee — website + Claude AI receptionist + monthly care
+- Momentum: $999/mo, no setup fee — Autopilot + developer on call + custom tools + unlimited edits + weekly check-ins
 
 Common questions:
 Q: How long does it take? → 2–3 weeks from kickoff call to live site.
@@ -249,6 +249,7 @@ Keep responses short and conversational. Don't be salesy.
 - Great upsell path to Autopilot if they later want a new site
 
 ### Future pricing evolution
-- Phase 2: Raise Autopilot to $449/mo (after 5+ clients validated)
-- Phase 3: Raise Autopilot to $499/mo, add a $249/mo "Essentials" tier (AI only, no updates)
+- Current: Autopilot $399/mo, Momentum $999/mo (dropped from $449 June 2026 to widen gap)
+- Phase 2: Raise Autopilot to $449/mo once 5+ clients validated and results proven
+- Phase 3: Add a $249/mo "Essentials" tier (AI only, no updates)
 - Premium: Custom AI with advanced features (appointment booking, CRM integration) at $799–999/mo

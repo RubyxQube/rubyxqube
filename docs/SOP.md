@@ -2,7 +2,11 @@
 
 > Reference this any time you're onboarding a client, building a site, or doing monthly care.  
 > Update it whenever you discover a better way to do something.  
-> Last updated: May 2026 — pre-first-client. Stack is live and tested.
+> Last updated: June 2026 — SEO and contact form standard locked in.
+
+> **Non-negotiables on every site we ship:**
+> 1. **Contact form must work** — `/api/contact.js` via Resend free tier. Never Formspree. Test a real submission before launch.
+> 2. **SEO must be set** — unique title + meta description on every page, LocalBusiness JSON-LD schema, Open Graph tags. This is literally what we sell. It cannot slip.
 
 ---
 
@@ -14,8 +18,7 @@
 | GitHub | Code storage (one private repo per client) | ✅ Live |
 | Anthropic API | AI chatbot (Claude Haiku) | ✅ Live |
 | Twilio | SMS lead alerts (A2P 10DLC registered) | ✅ Live |
-| Resend | Email alerts + client emails | ✅ Live |
-| Formspree | Contact forms (no backend) | ✅ Live |
+| Resend | Email alerts + **contact form submissions** + client emails | ✅ Live |
 | GA4 | Analytics (one property per client) | ✅ Live |
 | Wave | Invoicing + bookkeeping | ⬜ Set up |
 | Notion | CRM + client pages | ✅ Live |
@@ -29,7 +32,7 @@
 ## 1. Lead Intake
 
 ### Where leads come from
-- Website contact form (Contact.jsx → Formspree, live)
+- Website contact form (Contact.jsx → `/api/contact.js` via Resend, live)
 - Direct referral / warm intro
 - Cold outreach (you reaching out to them)
 - Google Business Profile
@@ -226,13 +229,20 @@ Send as Google Form or run through on the kickoff call.
 - [ ] Scaffold site (clone RubyxQube template or start fresh)
 - [ ] Write copy from onboarding notes (or send to client for review)
 - [ ] Build: Home, About, Services pages
+- [ ] **SEO — set on every page before touching Week 2:**
+  - Unique `<title>` tag (format: "Service | Business Name | City")
+  - Unique `<meta name="description">` (120–155 chars, local keyword + CTA)
+  - Open Graph tags (`og:title`, `og:description`, `og:image`, `og:url`)
+  - LocalBusiness JSON-LD schema on Home (name, address, phone, url, openingHours, serviceArea)
+  - All images have `alt` text
 - [ ] First internal review — mobile check, links work, forms work
 
 ### Week 2
 - [ ] Build: Gallery, Quote/Contact, Privacy pages
 - [ ] Integrate Google Maps embed
-- [ ] Set up contact form (Formspree or Basin — no backend needed)
+- [ ] **Set up contact form** — `/api/contact.js` serverless function using `RESEND_API_KEY`. Never Formspree. Test a real submission (check inbox). Form must send to `ALERT_EMAIL` and reply-to visitor's email.
 - [ ] Add Google Analytics 4
+- [ ] Verify SEO from Week 1 renders correctly in production preview (view-source, check title/meta/schema)
 - [ ] Deploy preview to Vercel (share preview URL with client)
 - [ ] Collect Revision Round 1 feedback
 
@@ -308,12 +318,23 @@ Run this before going live with every site.
 - [ ] 404 page exists and looks good
 - [ ] Vercel SPA rewrite rule in place (if React Router)
 
-**SEO**
-- [ ] Each page has a unique title tag and meta description
-- [ ] Google Analytics 4 installed and tracking
-- [ ] Google Search Console verified
+**SEO** ← this is what we sell. Every box must be checked.
+- [ ] Every page has a unique `<title>` tag ("Service | Business Name | City" format)
+- [ ] Every page has a unique `<meta name="description">` (120–155 chars)
+- [ ] Open Graph tags present (`og:title`, `og:description`, `og:image`, `og:url`)
+- [ ] LocalBusiness JSON-LD schema on Home page (name, address, phone, openingHours, serviceArea)
+- [ ] All images have descriptive `alt` text
+- [ ] Google Analytics 4 installed and tracking (verify a pageview fires)
+- [ ] Google Search Console verified and sitemap submitted
+- [ ] sitemap.xml accessible at /sitemap.xml
 - [ ] Google Business Profile updated with new website URL
-- [ ] sitemap.xml accessible at /sitemap.xml (if applicable)
+- [ ] Page speed ≥ 85 on PageSpeed Insights mobile (images WebP, no render-blocking scripts)
+
+**Contact Form** ← must work before launch, no exceptions
+- [ ] Contact form submits successfully (send a real test from your phone)
+- [ ] Boyd receives the email at `ALERT_EMAIL` within 60 seconds
+- [ ] Reply-to on the email is the visitor's address so you can reply directly
+- [ ] Form shows a success message (not a redirect to a Formspree URL)
 
 **AI Chatbot (if applicable)**
 - [ ] Chatbot loads on all pages
@@ -346,12 +367,16 @@ Do this for every Autopilot and Momentum client on the 1st of each month.
 - [ ] Check site speed (PageSpeed Insights) — flag if score drops below 80
 
 ### Momentum ($999/mo, everything above plus)
-- [ ] Create 2 social posts (Instagram/Facebook — image + caption, client approves before posting)
 - [ ] Check Google Business Profile: new reviews? Questions? Update hours/info if needed
-- [ ] Respond to any Google reviews (on their behalf or send drafts)
 - [ ] If client has fewer than 10 Google reviews, include a gentle review ask in the monthly report email — use template in `docs/templates/REVIEW-OUTREACH.md`
-- [ ] 20-min strategy call — review report + one growth idea for next month
-- [ ] Local SEO check: rank tracking for top 3 keywords via GSC Performance report
+- [ ] AI receptionist tuning: pull chatbot conversation logs from Vercel, look for fumbled questions, pricing confusion, or drop-offs, update system prompt with improvements
+- [ ] Note any custom tool requests or site ideas from the client — add to their backlog in Notion
+- [ ] Weekly check-in calls (30–60 min, as needed) — these happen throughout the month, not just on the 1st
+
+<!-- TODO: When you have 3+ Momentum clients, automate the AI tuning step above:
+     per-client agent pulls logs, summarizes patterns, drafts system prompt improvements for your review.
+     Lives in this repo under scripts/momentum-tuning/. -->
+
 
 ---
 
@@ -377,8 +402,7 @@ If a client cancels (30 days notice required):
 | GitHub | Code — one private repo per client | Free | ✅ Live |
 | Anthropic API | AI chatbot — Claude Haiku per client | ~$1–3/mo/client | ✅ Live |
 | Twilio | SMS lead alerts — A2P 10DLC registered | ~$1–2/mo/client | ✅ Live |
-| Resend | Email alerts + automated client emails | Free tier | ✅ Live |
-| Formspree | Contact forms (no backend needed) | Free (50/mo) | ✅ Live |
+| Resend | Email alerts + contact form submissions + automated client emails | Free (3,000/mo) | ✅ Live |
 | Google Analytics 4 | Site analytics — one property per client | Free | ✅ Live |
 | Google Search Console | SEO monitoring per client | Free | ✅ Live |
 | UptimeRobot | Uptime monitoring — all client sites | Free (50 monitors) | ⬜ Set up |

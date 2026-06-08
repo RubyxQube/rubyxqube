@@ -116,11 +116,12 @@ The monthly retainer begins on the **launch date** and covers:
 - Hosting, uptime monitoring, security updates
 
 **Momentum ($999/mo — everything above, plus):**
-- 2 social media posts/month (image + caption, client approves before posting)
+- Developer on call: same-day prototypes, 2-day turnaround on bigger builds
+- Unlimited site edits and updates, no monthly cap
+- Custom tools (calculators, estimators, intake forms, and more)
 - Google Business Profile management
-- Responding to Google reviews on Client's behalf
-- 20-minute monthly strategy call
-- Local SEO monitoring (top 3 keyword rankings)
+- Monthly AI receptionist tuning from real conversation logs
+- Weekly check-in call (30–60 min, as needed)
 
 **Change requests beyond included hours:** $75/hour, approved by Client before work begins.
 

@@ -30,22 +30,17 @@ A traditional receptionist costs $2,500–4,000/month. A part-time answering ser
 
 ## Revenue Streams
 
-### 1. Setup Fees (One-Time)
-| Package | Setup Fee | What's Included |
-|---------|-----------|-----------------|
-| Launch | $2,500 | 5–6 page site, mobile-first, SEO basics, 2 revisions |
-| Autopilot | $3,000 | Everything in Launch + AI chatbot setup + SMS alerts |
-| Momentum | $3,000 | Everything in Autopilot (monthly adds growth services) |
-
-> **Note:** Autopilot and Momentum have the same setup fee. The difference is in the monthly retainer.
-
-### 2. Monthly Retainers (Recurring)
+### 1. Monthly Retainers (Recurring — no setup fees)
 | Plan | Monthly | What's Included |
 |------|---------|-----------------|
-| Autopilot | $399/mo | AI chatbot, 24/7 lead capture, monthly report, 60 min updates, weekly check-in |
-| Momentum | $999/mo | Everything in Autopilot + GBP management, local SEO, 2 social posts, review management, strategy call |
+| Autopilot | $399/mo | Custom site, AI chatbot, 24/7 lead capture, monthly report, 60 min/mo updates |
+| Momentum | $999/mo | Everything in Autopilot + developer on call, unlimited edits, custom tools, GBP management, monthly AI tuning, weekly check-in call |
 
-### 3. Add-Ons (One-Time)
+> Setup fees ($3,000) were removed June 2026 — absorbed into monthly. No setup fees on any plan.
+
+### 2. One-Time Projects
+
+### 3. Launch (One-Time)
 | Add-On | Price |
 |--------|-------|
 | AI Chatbot Only (existing site retrofit) | $500 + $199/mo |
@@ -87,11 +82,11 @@ A traditional receptionist costs $2,500–4,000/month. A part-time answering ser
 |------|------|
 | Revenue | $999/mo |
 | AI + SMS + hosting | ~$5–10/mo |
-| Time (care + report + social + strategy call) | ~3 hrs/mo (~$300) |
+| Time (care + report + dev work + weekly calls) | ~3 hrs/mo (~$300) |
 | **Gross margin** | **~$389/mo** (~56%) |
 
-> Momentum clients are more time-intensive but the strategy call builds a sticky relationship.  
-> Churn rate on strategy call clients should be significantly lower.
+> Momentum clients are more time-intensive but the weekly check-in and dev work builds a sticky relationship.
+> Churn rate should be significantly lower — they depend on you for active development work.
 
 ### Setup Fee Margin
 
@@ -125,7 +120,7 @@ At 30 Autopilot clients + 5 Momentum: **$14,470/mo MRR** — this is the solo ce
 
 ### Who does the work?
 - **Phase 0–2:** Boyd does everything. Efficient because of SOP and templates.
-- **Phase 2–3:** Hire a part-time VA ($15–20/hr) for: content updates, social post creation, report compilation, client check-ins.
+- **Phase 2–3:** Hire a part-time VA ($15–20/hr) for: content updates, report compilation, client check-ins, GBP management.
 - **Phase 3+:** Hire a junior dev ($25–35/hr) for: new site builds, chatbot setup, technical work. Boyd moves to sales + strategy.
 
 ### Time per new client (Autopilot build)
@@ -143,9 +138,9 @@ At 30 Autopilot clients + 5 Momentum: **$14,470/mo MRR** — this is the solo ce
 |------|-----------|----------|
 | Monthly report | 30 min | 30 min |
 | Site updates | 30 min | 30 min |
-| Social posts | — | 45 min |
 | GBP management | — | 20 min |
-| Strategy call | — | 20 min |
+| AI receptionist tuning | — | 30 min |
+| Weekly check-in calls | — | varies |
 | Weekly check-ins (text) | 5 min | 5 min |
 | **Total** | **~1.25 hrs** | **~2.5 hrs** |
 
