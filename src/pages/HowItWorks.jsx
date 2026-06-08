@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { CheckCircle2, Zap, BarChart2, MessageSquare, Clock, RefreshCw, Shield, HelpCircle } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
@@ -81,11 +82,12 @@ const INCLUDED = [
 ];
 
 const MOMENTUM_EXTRAS = [
-  "Google Business Profile management — posts, photos, Q&A",
-  "Local SEO monitoring — track where you rank for your key search terms",
-  "Priority same-day edits (no waiting for the monthly window)",
-  "Review response management — we reply to new Google reviews in your voice",
-  "Monthly 30-minute strategy call with Boyd",
+  "Your developer on call -- same-day prototypes, 2-day turnaround on bigger builds",
+  "Unlimited site edits and updates, no monthly cap",
+  "Custom tools built for your business -- calculators, estimators, intake forms, and more",
+  "Google Business Profile management -- posts, photos, Q&A",
+  "Monthly AI receptionist tuning -- optimized from real conversation logs",
+  "Weekly check-in call (30–60 min, as needed)",
 ];
 
 const FAQS = [
@@ -127,13 +129,19 @@ const FAQS = [
   },
   {
     q: "Can I upgrade from Autopilot to Momentum?",
-    a: "Yes, at any time. Just let us know and we'll start the additional Momentum services (GBP management, local SEO, strategy calls) at your next billing date.",
+    a: "Yes, at any time. Just let us know and we'll start the additional Momentum services (developer on call, custom tools, GBP management, weekly calls) at your next billing date.",
   },
 ];
 
 export default function HowItWorks() {
   return (
     <div className="pageMinHeight">
+      <Helmet>
+        <title>How It Works — RubyxQube | Simple Web Design Process</title>
+        <meta name="description" content="See exactly how RubyxQube builds and manages your website - from first call to launch and beyond. Transparent process, no surprises." />
+        <meta property="og:title" content="How It Works — RubyxQube | Simple Web Design Process" />
+        <meta property="og:description" content="See exactly how RubyxQube builds and manages your website - from first call to launch and beyond. Transparent process, no surprises." />
+      </Helmet>
 
       {/* ── Hero ── */}
       <section className="surface heroSurface">
@@ -181,7 +189,7 @@ export default function HowItWorks() {
           <span className="badge">Autopilot &amp; Momentum</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>What's included in every plan.</h2>
           <p className="p" style={{ maxWidth: 480, marginBottom: 40 }}>
-            Autopilot ($449/mo) and Momentum ($999/mo) both include everything below. No nickel-and-diming.
+            Autopilot ($399/mo) and Momentum ($999/mo) both include everything below. No nickel-and-diming.
           </p>
 
           <div className="grid cols-2">
@@ -208,9 +216,9 @@ export default function HowItWorks() {
         <div className="section">
           <div className="card cardHighlight" style={{ maxWidth: 720, margin: "0 auto" }}>
             <span className="badge" style={{ marginBottom: 12, display: "inline-block" }}>Momentum only — $999/mo</span>
-            <h2 className="h2" style={{ marginBottom: 8 }}>Everything in Autopilot, plus active growth.</h2>
+            <h2 className="h2" style={{ marginBottom: 8 }}>Everything in Autopilot, plus a developer on your team.</h2>
             <p className="p" style={{ marginBottom: 20 }}>
-              Momentum adds hands-on local SEO and Google Business Profile management — for businesses that want to actively grow their search presence, not just maintain it.
+              Momentum is for business owners who have ideas they never have time to act on. Same-day turnaround, custom tools, and a direct line to Boyd every week.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
               {MOMENTUM_EXTRAS.map((item) => (

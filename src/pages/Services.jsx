@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
@@ -20,7 +21,7 @@ const PLANS = [
   },
   {
     name: "Autopilot",
-    price: "$449",
+    price: "$399",
     billing: "/mo",
     desc: "Site + AI receptionist + monthly care. No setup fee. 6-month minimum.",
     highlight: true,
@@ -29,13 +30,19 @@ const PLANS = [
     name: "Momentum",
     price: "$999",
     billing: "/mo",
-    desc: "Everything in Autopilot plus active Google Business Profile and local SEO management.",
+    desc: "A developer on your team -- same-day prototypes, custom tools, unlimited edits, and weekly check-ins.",
   },
 ];
 
 export default function Services() {
   return (
     <div className="pageMinHeight">
+      <Helmet>
+        <title>Web Design Services — RubyxQube | Treasure Valley</title>
+        <meta name="description" content="Custom websites, AI receptionist chatbots, Google Business Profile management, and local SEO for Treasure Valley small businesses." />
+        <meta property="og:title" content="Web Design Services — RubyxQube | Treasure Valley" />
+        <meta property="og:description" content="Custom websites, AI receptionist chatbots, Google Business Profile management, and local SEO for Treasure Valley small businesses." />
+      </Helmet>
 
       {/* ── Hero ── */}
       <section className="surface heroSurface">

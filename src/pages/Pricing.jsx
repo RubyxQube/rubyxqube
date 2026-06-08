@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { CheckCircle2, XCircle } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import PackageCard from "../components/PackageCard.jsx";
@@ -24,9 +25,9 @@ export default function Pricing() {
     {
       name: "Autopilot",
       tagline: "You handle the jobs. We handle everything else.",
-      price: "$449",
+      price: "$399",
       billing: "/mo",
-      annualPrice: "$4,490",
+      annualPrice: "$3,990",
       annualSaving: "2 months free",
       bullets: [
         "No setup fee — 5–10 page custom site, built and launched",
@@ -41,20 +42,20 @@ export default function Pricing() {
     },
     {
       name: "Momentum",
-      tagline: "Actively grow your local presence every month.",
+      tagline: "A developer on your team, without the payroll.",
       price: "$999",
       billing: "/mo",
       annualPrice: "$9,990",
       annualSaving: "2 months free",
       bullets: [
         "Everything in Autopilot",
-        "Google Business Profile management",
-        "Local SEO monitoring & updates",
-        "Priority same-day edits",
-        "Review response management",
-        "Monthly 20-min strategy call",
+        "Your developer on call -- same-day prototypes, 2-day turnaround on bigger builds",
+        "Unlimited site edits and updates, no monthly cap",
+        "Custom tools built for your business -- calculators, estimators, intake forms, and more",
+        "Google Business Profile management -- posts, photos, Q&A",
+        "Monthly AI receptionist tuning -- optimized from real conversation logs",
+        "Weekly check-in call (30–60 min, as needed)",
       ],
-      note: "Have a bigger idea? Ask about custom app development.",
     },
   ];
 
@@ -103,6 +104,12 @@ export default function Pricing() {
 
   return (
     <div className="pageMinHeight">
+      <Helmet>
+        <title>Pricing — RubyxQube | Treasure Valley Web Design</title>
+        <meta name="description" content="Transparent pricing for Treasure Valley small businesses. Launch from $1,200 one-time. Autopilot from $399/mo includes a custom site, AI receptionist, and monthly reports." />
+        <meta property="og:title" content="Pricing — RubyxQube | Treasure Valley Web Design" />
+        <meta property="og:description" content="Transparent pricing for Treasure Valley small businesses. Launch from $1,200 one-time. Autopilot from $399/mo includes a custom site, AI receptionist, and monthly reports." />
+      </Helmet>
 
       {/* ── Header ── */}
       <section className="surface heroSurface">
@@ -137,7 +144,7 @@ export default function Pricing() {
         <div className="section">
           <span className="badge">The math</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>
-            What $449/mo actually buys you
+            What $399/mo actually buys you
           </h2>
           <p className="p" style={{ maxWidth: 540, marginBottom: 40 }}>
             Try piecing together what Autopilot includes on your own. You'll spend more and still not have someone who knows your site.
@@ -161,7 +168,7 @@ export default function Pricing() {
               </div>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ fontSize: 14, fontWeight: 700 }}>Total</span>
-                <span style={{ fontSize: 20, fontWeight: 800, color: "var(--accent)" }}>$449/mo</span>
+                <span style={{ fontSize: 20, fontWeight: 800, color: "var(--accent)" }}>$399/mo</span>
               </div>
             </div>
             <div className="card">

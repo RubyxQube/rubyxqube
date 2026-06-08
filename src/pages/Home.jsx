@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { XCircle, CheckCircle2, MessageCircle, ClipboardCheck, Smartphone, Clock } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import PackageCard from "../components/PackageCard.jsx";
@@ -26,9 +27,9 @@ export default function Home() {
     {
       name: "Autopilot",
       tagline: "You handle the jobs. We handle everything else.",
-      price: "$449",
+      price: "$399",
       billing: "/mo",
-      annualPrice: "$4,490",
+      annualPrice: "$3,990",
       annualSaving: "2 months free",
       bullets: [
         "No setup fee — 5–10 page custom site, built and launched",
@@ -42,24 +43,31 @@ export default function Home() {
     },
     {
       name: "Momentum",
-      tagline: "Actively grow your local presence every month.",
+      tagline: "A developer on your team, without the payroll.",
       price: "$999",
       billing: "/mo",
       annualPrice: "$9,990",
       annualSaving: "2 months free",
       bullets: [
         "Everything in Autopilot",
-        "Google Business Profile management",
-        "Local SEO monitoring & updates",
-        "Priority same-day edits",
-        "Review response management",
-        "Monthly 20-min strategy call",
+        "Your developer on call -- same-day prototypes, 2-day turnaround on bigger builds",
+        "Unlimited site edits and updates, no monthly cap",
+        "Custom tools built for your business -- calculators, estimators, intake forms, and more",
+        "Google Business Profile management -- posts, photos, Q&A",
+        "Monthly AI receptionist tuning -- optimized from real conversation logs",
+        "Weekly check-in call (30–60 min, as needed)",
       ],
     },
   ];
 
   return (
     <div className="pageMinHeight">
+      <Helmet>
+        <title>RubyxQube — Web Design & AI Receptionists for Treasure Valley Businesses</title>
+        <meta name="description" content="Professional websites + AI chatbot receptionists for local service businesses in Boise, Nampa, Meridian, and the Treasure Valley. Starting at $399/mo." />
+        <meta property="og:title" content="RubyxQube — Web Design & AI Receptionists for Treasure Valley Businesses" />
+        <meta property="og:description" content="Professional websites + AI chatbot receptionists for local service businesses in Boise, Nampa, Meridian, and the Treasure Valley. Starting at $399/mo." />
+      </Helmet>
 
       {/* ── Hero ── */}
       <section className="surface heroSurface">

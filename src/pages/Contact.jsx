@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { CheckCircle2, ExternalLink } from "lucide-react";
 import { siteConfig } from "../siteConfig.js";
 import reviewQR from "../assets/qr/RubyxQubeReviewQR.png";
@@ -13,9 +14,9 @@ const PACKAGES = [
   },
   {
     id: "autopilot",
-    label: "Autopilot — $449/mo",
+    label: "Autopilot — $399/mo",
     needValue: "Autopilot",
-    priceLine: "$449/mo",
+    priceLine: "$399/mo",
     highlight: "No setup fee.",
     includes: "Custom site + AI receptionist, analytics setup, 24/7 lead capture, SMS alerts, monthly report, 60 min/mo site updates.",
   },
@@ -125,6 +126,12 @@ export default function Contact() {
 
   return (
     <div className="pageMinHeight">
+      <Helmet>
+        <title>Get a Free Quote — RubyxQube | Treasure Valley Web Design</title>
+        <meta name="description" content="Ready to get started? Tell us about your Treasure Valley business and we'll put together a free proposal for your new website." />
+        <meta property="og:title" content="Get a Free Quote — RubyxQube | Treasure Valley Web Design" />
+        <meta property="og:description" content="Ready to get started? Tell us about your Treasure Valley business and we'll put together a free proposal for your new website." />
+      </Helmet>
       <section className="surface heroSurface">
       <div className="section" style={{ paddingTop: 80, paddingBottom: 80 }}>
 
