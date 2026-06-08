@@ -25,7 +25,7 @@ const PACKAGES = [
     label: "Momentum — $999/mo",
     needValue: "Momentum",
     priceLine: "$999/mo",
-    includes: "Everything in Autopilot + Google Business Profile management, local SEO, priority same-day edits, review response management, monthly strategy call.",
+    includes: "Everything in Autopilot + developer on call, same-day prototypes, unlimited edits, custom tools, GBP management, monthly AI tuning, weekly check-in call.",
   },
   {
     id: "unsure",
