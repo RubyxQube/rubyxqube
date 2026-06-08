@@ -250,6 +250,53 @@ Note: `toolbar` was removed — Vercel CLI v54+ rejects it as an invalid propert
 - Use `siteConfig` for any brand/contact info — **never** hardcode phone or email in components
 - React Router `<Link>` for internal nav; plain `<a>` for external links, `tel:`, and `mailto:`
 
+## SEO — Non-Negotiable on Every Page
+
+**This is what we sell. Every client site must be set before launch.**
+
+For each page, set in the `<head>` (use React Helmet or a `<Helmet>` wrapper component):
+- `<title>` — unique per page. Format: "Service | Business Name | City, ST"
+- `<meta name="description">` — unique per page, 120–155 chars, local keyword + CTA
+- `<meta property="og:title">`, `og:description`, `og:image`, `og:url` — used by social/link previews
+- `<link rel="canonical">` — prevents duplicate content signals
+
+On the Home page only, add a LocalBusiness JSON-LD schema block:
+```jsx
+<script type="application/ld+json">{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": siteConfig.businessName,
+  "url": siteConfig.siteUrl,
+  "telephone": siteConfig.phone,
+  "address": { "@type": "PostalAddress", "addressLocality": "Boise", "addressRegion": "ID" },
+  "openingHours": "Mo-Fr 08:00-18:00",
+  "areaServed": siteConfig.serviceArea
+})}</script>
+```
+
+All images must have descriptive `alt` text. Decorative images: `alt=""`.
+
+Do not skip SEO for any page, even simple ones. The builder agent must set these before calling any build done.
+
+## Contact Form Standard (Resend — No Formspree)
+
+**Every site ships with a working contact form. Never use Formspree.**
+
+Contact form endpoint: `/api/contact.js` — a Vercel serverless function that sends via Resend.
+
+Required behavior:
+- POSTs to `/api/contact` from the React form component
+- Sends an email to `process.env.ALERT_EMAIL` via `RESEND_API_KEY`
+- Sets `reply_to` to the visitor's email address so Boyd can reply directly
+- Returns `{ ok: true }` on success, `{ ok: false, error }` on failure
+- Form shows an inline success message — no page redirect, no Formspree URL in the browser
+
+Env vars needed (same ones used for chatbot alerts — already set per client):
+- `RESEND_API_KEY`
+- `ALERT_EMAIL`
+
+The builder must send a real test submission and confirm the email arrives before marking any site as complete.
+
 ## What NOT to Change Without Asking
 - Pricing amounts (Pricing.jsx, Home.jsx)
 - Route paths in App.jsx (renaming breaks inbound links)

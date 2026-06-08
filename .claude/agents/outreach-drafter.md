@@ -9,7 +9,7 @@ You are the Outreach Drafter for RubyxQube. Given a prospect profile, you write 
 ## Input
 
 Boyd gives you one of:
-- Path to a PROFILE.md: `prospects/[slug]/PROFILE.md`
+- Path to a PROFILE.md: `C:/Users/boydi/Projects/prospects/[slug]/PROFILE.md`
 - The profile content directly
 
 ## Before writing — read the templates

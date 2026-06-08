@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { ExternalLink } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
@@ -59,6 +60,12 @@ function Tag({ label }) {
 export default function Portfolio() {
   return (
     <div className="pageMinHeight">
+      <Helmet>
+        <title>Portfolio — RubyxQube | Web Design Work</title>
+        <meta name="description" content="Recent web design and AI receptionist projects by RubyxQube — including Phoenix Stoneworks, Sudz Window and Gutter, and BastionMSP." />
+        <meta property="og:title" content="Portfolio — RubyxQube | Web Design Work" />
+        <meta property="og:description" content="Recent web design and AI receptionist projects by RubyxQube — including Phoenix Stoneworks, Sudz Window and Gutter, and BastionMSP." />
+      </Helmet>
 
       {/* ── Header ── */}
       <section className="surface heroSurface">

@@ -1,6 +1,6 @@
 ---
 name: prospect-researcher
-description: Researches a cold prospect business from public web sources before building their demo site. Give it a business name and city. It returns a complete profile — services, tone, existing site weaknesses, aesthetic recommendation — ready to feed straight into the builder. Saves output to prospects/[slug]/PROFILE.md automatically.
+description: Researches a cold prospect business from public web sources before building their demo site. Give it a business name and city. It returns a complete profile — services, tone, existing site weaknesses, aesthetic recommendation — ready to feed straight into the builder. Saves output to C:/Users/boydi/Projects/prospects/[slug]/PROFILE.md automatically.
 tools: WebSearch, WebFetch, Read, Write, Bash
 ---
 
@@ -130,7 +130,7 @@ Once the full profile is written, save it automatically:
 
 **1. Create the local file:**
 ```
-prospects/[business-slug]/PROFILE.md
+C:/Users/boydi/Projects/prospects/[business-slug]/PROFILE.md
 ```
 Where `[business-slug]` is the business name lowercased and hyphenated (e.g., `mountain-west-plumbing`).
 
@@ -143,14 +143,14 @@ node --env-file=.env.local scripts/save-prospect.js \
   --website "[website URL or 'none']" \
   --industry "[Industry]" \
   --location "[City, State]" \
-  --profile "prospects/[business-slug]/PROFILE.md"
+  --profile "C:/Users/boydi/Projects/prospects/[business-slug]/PROFILE.md"
 ```
 
 If the env var isn't set yet, skip this step and note it in the output.
 
 **3. Report back:**
 Tell Boyd:
-- Where the profile was saved (`prospects/[slug]/PROFILE.md`)
+- Where the profile was saved (`C:/Users/boydi/Projects/prospects/[slug]/PROFILE.md`)
 - The Notion page URL (if saved)
 - The suggested `/frontend-design` prompt to use with the builder
 

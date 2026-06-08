@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
 
@@ -539,6 +540,12 @@ export default function Designs() {
 
   return (
     <>
+      <Helmet>
+        <title>Pick Your Style — RubyxQube | Web Design Styles for Local Businesses</title>
+        <meta name="description" content="Browse web design styles and find the look that fits your business. RubyxQube builds custom sites for Treasure Valley service businesses." />
+        <meta property="og:title" content="Pick Your Style — RubyxQube | Web Design Styles for Local Businesses" />
+        <meta property="og:description" content="Browse web design styles and find the look that fits your business. RubyxQube builds custom sites for Treasure Valley service businesses." />
+      </Helmet>
       {/* Hero */}
       <section className="section heroSection" style={{ textAlign: "center", paddingBottom: 0 }}>
         <span className="badge" style={{ marginBottom: 16 }}>Design Styles</span>

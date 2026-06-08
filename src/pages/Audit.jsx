@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Search, MapPin, ClipboardList, Bot } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
@@ -38,6 +39,12 @@ const WHO_ITS_FOR = [
 export default function Audit() {
   return (
     <div className="pageMinHeight">
+      <Helmet>
+        <title>Free Website Audit — RubyxQube | Treasure Valley</title>
+        <meta name="description" content="Get a free website audit for your Treasure Valley business. We'll show you exactly what's holding your site back and how to fix it — no strings attached." />
+        <meta property="og:title" content="Free Website Audit — RubyxQube | Treasure Valley" />
+        <meta property="og:description" content="Get a free website audit for your Treasure Valley business. We'll show you exactly what's holding your site back and how to fix it — no strings attached." />
+      </Helmet>
 
       {/* ── Hero ── */}
       <section className="surface heroSurface">
