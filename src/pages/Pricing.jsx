@@ -50,7 +50,7 @@ export default function Pricing() {
       bullets: [
         "Everything in Autopilot",
         "Developer on call, same-day prototypes, 2-day turnaround on bigger builds",
-        "Unlimited edits, no monthly cap",
+        "Unlimited edits and new pages, no monthly cap",
         "Custom tools: calculators, estimators, intake forms, and more",
         "Google Business Profile management",
         "Monthly AI receptionist tuning",
