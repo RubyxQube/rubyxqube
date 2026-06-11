@@ -39,38 +39,37 @@ export default function BlogPost() {
         <link rel="canonical" href={`${siteConfig.siteUrl}/blog/${slug}`} />
       </Helmet>
 
-      {/* ── Back link ── */}
-      <section className="surface" style={{ paddingBottom: 0 }}>
-        <div className="section" style={{ paddingBottom: 0 }}>
+      {/* ── Article header ── */}
+      <section className="surface heroSurface">
+        <div className="heroSection" style={{ textAlign: "left", alignItems: "flex-start" }}>
           <Link
             to="/blog"
-            style={{ display: "inline-flex", alignItems: "center", gap: 6, color: "var(--muted)", fontSize: 13, fontWeight: 600, textDecoration: "none" }}
+            style={{ display: "inline-flex", alignItems: "center", gap: 6, color: "var(--muted)", fontSize: 13, fontWeight: 600, textDecoration: "none", marginBottom: 28 }}
             onMouseOver={e => e.currentTarget.style.color = "var(--text)"}
             onMouseOut={e => e.currentTarget.style.color = "var(--muted)"}
           >
-            <ArrowLeft size={14} />
-            Back to Blog
+            <ArrowLeft size={13} /> Back to Blog
           </Link>
-        </div>
-      </section>
-
-      {/* ── Header ── */}
-      <section className="surface heroSurface">
-        <div className="heroSection">
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center", marginBottom: 20 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center", marginBottom: 18 }}>
             <span className="badge">{category}</span>
-            <span style={{ fontSize: 12, color: "var(--muted)", alignSelf: "center" }}>{dateDisplay} · {readTime}</span>
+            <span style={{ fontSize: 13, color: "var(--muted)" }}>{dateDisplay} · {readTime}</span>
           </div>
-          <h1 className="h1 heroTitle" style={{ fontSize: "clamp(26px, 4vw, 42px)" }}>{title}</h1>
-          <p className="p" style={{ fontSize: 17, maxWidth: 600 }}>{description}</p>
-          <p style={{ fontSize: 13, color: "var(--muted)", marginTop: 8 }}>By Boyd Querubin · {siteConfig.brand}</p>
+          <h1 style={{ fontSize: "clamp(28px, 4.5vw, 52px)", fontWeight: 800, lineHeight: 1.08, letterSpacing: "-0.03em", margin: "0 0 20px", maxWidth: "22ch" }}>{title}</h1>
+          <p style={{ fontSize: 18, color: "var(--muted)", lineHeight: 1.65, maxWidth: 560, margin: "0 0 32px" }}>{description}</p>
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <div style={{ width: 36, height: 36, borderRadius: "50%", background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 14, color: "var(--accent)", flexShrink: 0 }}>B</div>
+            <div>
+              <p style={{ fontWeight: 700, fontSize: 14, margin: 0, color: "var(--text)" }}>Boyd Querubin</p>
+              <p style={{ fontSize: 12, color: "var(--muted)", margin: 0 }}>{siteConfig.brand} · Boise, ID</p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ── Article body ── */}
       <section className="surface">
         <div className="section">
-          <div style={{ maxWidth: 720, margin: "0 auto" }}>
+          <div className="prose" style={{ maxWidth: 700, margin: "0 auto" }}>
             <Component />
           </div>
         </div>

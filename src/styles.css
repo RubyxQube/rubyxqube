@@ -793,3 +793,77 @@ label{
   0%, 60%, 100% { opacity: 0.30; transform: translateY(0); }
   30%           { opacity: 1;    transform: translateY(-4px); }
 }
+
+/* ─────────────────────────────────────────
+   PROSE — blog article typography
+───────────────────────────────────────── */
+.prose { font-size: 16px; line-height: 1.75; }
+
+.prose p {
+  color: var(--muted);
+  margin: 0 0 22px;
+  line-height: 1.8;
+  font-size: 16px;
+}
+.prose h2 {
+  font-size: clamp(19px, 2.5vw, 23px);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--text);
+  margin: 52px 0 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.prose h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 36px 0 10px;
+}
+.prose ul,
+.prose ol {
+  padding: 0;
+  margin: 4px 0 24px;
+  list-style: none;
+}
+.prose ul li,
+.prose ol li {
+  position: relative;
+  padding: 5px 0 5px 20px;
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 15.5px;
+}
+.prose ul li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+.prose strong { color: var(--text); font-weight: 700; }
+.prose hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+.prose a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent-border); }
+.prose a:hover { text-decoration-color: var(--accent); }
+
+.prose blockquote {
+  border-left: 3px solid var(--accent);
+  background: var(--accent-dim);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 16px 20px;
+  margin: 32px 0;
+}
+.prose blockquote p { color: var(--text); font-weight: 500; margin: 0; }
+
+/* Comparison tables */
+.prose table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 0 0 24px; }
+.prose th {
+  text-align: left; padding: 10px 12px;
+  font-weight: 700; color: var(--muted); font-size: 11px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--line);
+}
+.prose td { padding: 10px 12px; color: var(--muted); border-bottom: 1px solid rgba(255,255,255,0.05); }
+.prose td:first-child { font-weight: 600; color: var(--text); }
+.prose td:last-child  { color: var(--text); }
