@@ -1,11 +1,115 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { XCircle, CheckCircle2, MessageCircle, ClipboardCheck, Smartphone, Clock } from "lucide-react";
+import { XCircle, CheckCircle2, MessageCircle, ClipboardCheck, Smartphone, Clock, Palette, ArrowRight } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import PackageCard from "../components/PackageCard.jsx";
 import ComparisonSection from "../components/ComparisonSection.jsx";
 import { siteConfig } from "../siteConfig.js";
+
+/* ── Inline bold renderer for chat demo ── */
+function renderBold(text) {
+  return text.split(/(\*\*[^*]+\*\*)/).map((part, i) =>
+    part.startsWith("**") && part.endsWith("**")
+      ? <strong key={i}>{part.slice(2, -2)}</strong>
+      : part
+  );
+}
+
+/* ── Animated chatbot demo ── */
+const DEMO = [
+  { from: "bot",  text: "Hey! I'm the AI receptionist for RubyxQube. How can I help you today?",                                                            delay: 600  },
+  { from: "user", text: "Do you guys have pricing info?",                                                                                                    delay: 2800 },
+  { from: "bot",  text: "Yes! **Autopilot** starts at $399/mo — no setup fee. Includes your custom site, AI receptionist, monthly reports, and updates.",   delay: 4100 },
+  { from: "user", text: "Nice. I run an HVAC company in Meridian.",                                                                                          delay: 6900 },
+  { from: "bot",  text: "Perfect fit — we build a lot of HVAC sites. Can I grab your name and a good number? I'll have Boyd reach out today.",               delay: 8400 },
+  { from: "user", text: "Mike Tanner, (208) 555-0194",                                                                                                       delay: 11000 },
+  { from: "lead", text: "Lead captured — Boyd notified by SMS",                                                                                              delay: 12500 },
+];
+
+function ChatDemo() {
+  const [shown, setShown]   = useState(0);
+  const [typing, setTyping] = useState(false);
+
+  useEffect(() => {
+    const handles = [];
+
+    function run() {
+      setShown(0);
+      setTyping(false);
+
+      DEMO.forEach((msg, i) => {
+        if (msg.from === "bot") {
+          handles.push(setTimeout(() => setTyping(true), msg.delay - 700));
+        }
+        handles.push(setTimeout(() => {
+          setTyping(false);
+          setShown(i + 1);
+        }, msg.delay));
+      });
+
+      handles.push(setTimeout(run, DEMO[DEMO.length - 1].delay + 3200));
+    }
+
+    run();
+    return () => handles.forEach(clearTimeout);
+  }, []);
+
+  return (
+    <div style={{
+      maxWidth: 360, margin: "0 auto",
+      border: "1px solid var(--line)", borderRadius: 20,
+      overflow: "hidden", background: "rgba(255,255,255,0.03)",
+      boxShadow: "0 8px 40px rgba(0,0,0,0.28)",
+    }}>
+      {/* Header */}
+      <div style={{ background: "var(--accent)", padding: "14px 18px", display: "flex", alignItems: "center", gap: 12 }}>
+        <div style={{ width: 36, height: 36, borderRadius: "50%", background: "rgba(255,255,255,0.18)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+          <MessageCircle size={18} color="white" strokeWidth={1.75} />
+        </div>
+        <div>
+          <p style={{ color: "white", fontWeight: 700, fontSize: 14, margin: 0 }}>RubyxQube AI</p>
+          <p style={{ color: "rgba(255,255,255,0.80)", fontSize: 12, margin: 0 }}>Online · replies instantly</p>
+        </div>
+      </div>
+
+      {/* Messages */}
+      <div style={{ padding: "16px 14px", minHeight: 300, display: "flex", flexDirection: "column", gap: 10 }}>
+        {DEMO.slice(0, shown).map((msg, i) => {
+          if (msg.from === "lead") {
+            return (
+              <div key={i} style={{ background: "rgba(34,197,94,0.10)", border: "1px solid rgba(34,197,94,0.22)", borderRadius: 10, padding: "10px 14px", textAlign: "center", fontSize: 13, color: "rgba(34,197,94,0.90)", fontWeight: 600 }}>
+                ✓ {msg.text}
+              </div>
+            );
+          }
+          const isUser = msg.from === "user";
+          return (
+            <div key={i} style={{
+              maxWidth: "82%", alignSelf: isUser ? "flex-end" : "flex-start",
+              background: isUser ? "var(--accent)" : "rgba(255,255,255,0.08)",
+              color: "var(--text)",
+              borderRadius: isUser ? "16px 16px 4px 16px" : "16px 16px 16px 4px",
+              padding: "9px 13px", fontSize: 13, lineHeight: 1.45,
+            }}>
+              {msg.from === "bot" ? renderBold(msg.text) : msg.text}
+            </div>
+          );
+        })}
+
+        {typing && (
+          <div style={{ alignSelf: "flex-start", background: "rgba(255,255,255,0.08)", borderRadius: "16px 16px 16px 4px", padding: "11px 14px" }}>
+            <div style={{ display: "flex", gap: 5, alignItems: "center" }}>
+              {[0, 1, 2].map((j) => (
+                <span key={j} style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--muted)", display: "inline-block", animation: `typingDot 1.2s ease-in-out ${j * 0.2}s infinite` }} />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   const packages = [
@@ -105,6 +209,32 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Client Trust Strip ── */}
+      <section className="surface">
+        <div className="section" style={{ paddingTop: 36, paddingBottom: 36 }}>
+          <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--muted)", marginBottom: 20, textAlign: "center" }}>
+            Trusted by Boise businesses
+          </p>
+          <div className="grid cols-3">
+            <div className="card" style={{ textAlign: "center", padding: "20px 16px" }}>
+              <p style={{ fontWeight: 700, fontSize: 15, margin: "0 0 6px" }}>BastionMSP</p>
+              <span className="badge" style={{ fontSize: 11 }}>Cybersecurity</span>
+              <p className="p" style={{ fontSize: 13, marginTop: 10, marginBottom: 0 }}>Brand identity, marketing site, and client portal</p>
+            </div>
+            <div className="card" style={{ textAlign: "center", padding: "20px 16px" }}>
+              <p style={{ fontWeight: 700, fontSize: 15, margin: "0 0 6px" }}>Phoenix Stoneworks</p>
+              <span className="badge" style={{ fontSize: 11 }}>Masonry & Stone</span>
+              <p className="p" style={{ fontSize: 13, marginTop: 10, marginBottom: 0 }}>AI photo estimate, quote calculator, AI receptionist</p>
+            </div>
+            <div className="card" style={{ textAlign: "center", padding: "20px 16px" }}>
+              <p style={{ fontWeight: 700, fontSize: 15, margin: "0 0 6px" }}>Sudz Window & Gutter</p>
+              <span className="badge" style={{ fontSize: 11 }}>Home Services</span>
+              <p className="p" style={{ fontSize: 13, marginTop: 10, marginBottom: 0 }}>Full rebuild from Wix, AI receptionist added</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── The Problem ── */}
       <section className="surface">
         <div className="section">
@@ -171,6 +301,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Live Demo ── */}
+      <section className="surface">
+        <div className="section">
+          <div className="grid cols-2" style={{ gap: 56, alignItems: "center" }}>
+            <div>
+              <span className="badge">See it in action</span>
+              <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>
+                This is a real AI conversation — happening on your site, right now.
+              </h2>
+              <p className="p">
+                Every {siteConfig.brand} site ships with an AI receptionist trained on your business. It answers questions, qualifies leads, and sends you a text the moment someone's ready to book.
+              </p>
+              <p className="p" style={{ marginBottom: 24 }}>
+                The bot you're talking to on this page? That's the exact product. Same tech, same lead alerts, same setup — just trained on your business instead of ours.
+              </p>
+              <div className="btnRow" style={{ justifyContent: "flex-start" }}>
+                <Link className="btn primary" to="/ai-receptionist">Learn how it works</Link>
+                <Link className="btn" to="/pricing">See pricing</Link>
+              </div>
+            </div>
+            <ChatDemo />
+          </div>
+        </div>
+      </section>
 
       <ComparisonSection condensed />
 
@@ -190,12 +344,12 @@ export default function Home() {
               <p style={{ fontSize: 12, fontWeight: 700, color: "var(--muted)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 }}>After Launch</p>
               <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
                 {[
-                  ["Site goes live. Boyd's job is done.", false],
-                  ["Need to update a service or price? New invoice from someone who doesn't know your setup.", false],
-                  ["Site goes down at midnight? You find out when a customer tells you.", false],
-                  ["Lead comes in at 9pm. No one answers. They call your competitor.", false],
-                  ["Want to know how your site is performing? Log in somewhere and figure it out.", false],
-                ].map(([text]) => (
+                  "Site goes live. Boyd's job is done.",
+                  "Need to update a service or price? New invoice from someone who doesn't know your setup.",
+                  "Site goes down at midnight? You find out when a customer tells you.",
+                  "Lead comes in at 9pm. No one answers. They call your competitor.",
+                  "Want to know how your site is performing? Log in somewhere and figure it out.",
+                ].map((text) => (
                   <div key={text} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
                     <XCircle size={16} color="var(--muted)" strokeWidth={2} style={{ flexShrink: 0, marginTop: 2 }} />
                     <p className="p" style={{ marginBottom: 0, fontSize: 14 }}>{text}</p>
@@ -220,6 +374,23 @@ export default function Home() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Designs Callout ── */}
+      <section className="surface">
+        <div className="section" style={{ paddingTop: 40, paddingBottom: 40 }}>
+          <div className="card cardHighlight" style={{ display: "flex", flexWrap: "wrap", gap: 28, alignItems: "center", justifyContent: "space-between" }}>
+            <div style={{ flex: "1 1 240px" }}>
+              <span className="badge" style={{ marginBottom: 14 }}>Not sure what you want?</span>
+              <h3 className="h3" style={{ marginBottom: 10 }}>Pick your style — see it before you commit.</h3>
+              <p className="p" style={{ marginBottom: 0 }}>Browse 12 design directions and 12 color palettes. Lock in your aesthetic and we'll send you a free preview mockup — no obligation.</p>
+            </div>
+            <Link className="btn primary" to="/designs" style={{ flexShrink: 0, display: "flex", alignItems: "center", gap: 8 }}>
+              <Palette size={16} />
+              Explore Design Styles
+            </Link>
           </div>
         </div>
       </section>

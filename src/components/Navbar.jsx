@@ -9,8 +9,9 @@ const LINKS = [
   {
     label: "Work",
     children: [
-      { to: "/portfolio", label: "Portfolio"       },
-      { to: "/designs",   label: "Pick Your Style" },
+      { to: "/portfolio",       label: "Portfolio"         },
+      { to: "/ai-receptionist", label: "AI Receptionist"   },
+      { to: "/designs",         label: "Pick Your Style"   },
     ],
   },
   {
@@ -18,6 +19,7 @@ const LINKS = [
     children: [
       { to: "/about",        label: "About Boyd"   },
       { to: "/how-it-works", label: "How It Works" },
+      { to: "/blog",         label: "Blog"         },
       { to: "/audit",        label: "Free Audit"   },
     ],
   },

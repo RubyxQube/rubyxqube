@@ -38,6 +38,7 @@ export default function Footer() {
           <h4>Services</h4>
           <nav className="footerLinks">
             <Link to="/services">What We Build</Link>
+            <Link to="/ai-receptionist">AI Receptionist</Link>
             <Link to="/pricing">Packages & Pricing</Link>
             <Link to="/audit">Free Website Audit</Link>
             <Link to="/portfolio">Portfolio</Link>
@@ -50,6 +51,7 @@ export default function Footer() {
           <nav className="footerLinks">
             <Link to="/about">About Boyd</Link>
             <Link to="/how-it-works">How It Works</Link>
+            <Link to="/blog">Blog</Link>
             <Link to="/contact">Get a Quote</Link>
             <Link to="/report">Sample Report</Link>
             <Link to="/privacy">Privacy Policy</Link>

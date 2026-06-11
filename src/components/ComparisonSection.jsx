@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const WIX_BULLETS = [
   "$29–36/mo forever — that's $1,000+ over 3 years for a template",
-  "Slow load times that hurt your Google ranking",
+  "Lighthouse performance scores of 50–70 — slow pages that hurt Google rankings",
   "No analytics setup, no Search Console — you're invisible to Google",
   "No AI, no lead capture, no SMS alerts",
   "Support is a help article, not a person",
@@ -11,7 +11,7 @@ const WIX_BULLETS = [
 
 const RXQ_BULLETS = [
   "$1,200 once — then it's yours, no monthly bill",
-  "Custom-built for your business — fast, mobile-first, design no one else has",
+  "Custom React build — 95+ Lighthouse score, loads fast on mobile and ranks higher",
   "Analytics, Search Console, and AI receptionist included (Autopilot+)",
   "You own the site and the domain — no platform lock-in",
   "Direct line to Boyd — text, call, or email",

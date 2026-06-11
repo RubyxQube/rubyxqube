@@ -787,3 +787,9 @@ label{
   border-color: rgba(20,12,15,0.09);
   border-top-color: rgba(20,12,15,0.14);
 }
+
+/* Chat demo typing indicator */
+@keyframes typingDot {
+  0%, 60%, 100% { opacity: 0.30; transform: translateY(0); }
+  30%           { opacity: 1;    transform: translateY(-4px); }
+}

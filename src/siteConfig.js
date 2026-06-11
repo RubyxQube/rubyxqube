@@ -2,6 +2,7 @@
 // Brand name is "RubyxQube" (working name — update once LLC is confirmed)
 export const siteConfig = {
   brand: "RubyxQube",
+  siteUrl: "https://rubyxqube.com",
   serviceArea: "Treasure Valley",
   email: "boyd@rubyxqube.com",
   phoneDisplay: "(208) 970-8624",

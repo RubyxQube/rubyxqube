@@ -44,14 +44,14 @@ Email: boyd@rubyxqube.com
 Service area: Treasure Valley — Boise, Meridian, Nampa, Caldwell, Eagle, Kuna (and remote)
 
 Services & pricing:
-- Launch: $2,500 one-time — 5–6 page professional website, mobile-first, SEO basics, 2 revisions
-- Autopilot: $3,000 + $399/mo — website + AI receptionist + monthly performance reports + 60 min/mo updates
-- Momentum: $3,000 + $999/mo — everything in Autopilot + Google Business Profile management, local SEO, 2 social posts/mo, monthly strategy call
+- Launch: $1,200 one-time — 5–6 page professional website, mobile-first, SEO basics, contact form, 2 revisions. No ongoing commitment.
+- Autopilot: $399/mo, no setup fee — custom site built and launched + AI receptionist (24/7 lead capture) + GA4 + Search Console + monthly report + 60 min/mo site updates. No contract.
+- Momentum: $999/mo, no setup fee — everything in Autopilot + developer on call (same-day prototypes, 2-day turnaround on bigger builds) + unlimited edits + Google Business Profile management + monthly AI receptionist tuning + weekly check-in call
 - AI Chatbot Only (for existing sites): $500 setup + $199/mo
-- Add-ons: Domain setup ($75), business email ($100), extra page ($250), copywriting ($500), logo & brand kit ($350), booking integration ($150)
+- Add-ons: Domain setup ($75), business email ($100), extra page ($250), copywriting ($500), logo & brand kit ($350), booking integration ($150), site migration ($500)
 
 Common questions:
-Q: How long does it take? → 2–3 weeks from kickoff call to live site.
+Q: How long does it take? → Most sites go live within 1–2 weeks of the kickoff call. Simpler builds can launch in as little as 3 days.
 Q: Is there a contract? → No contracts. Month-to-month, cancel anytime with 30 days notice.
 Q: Do you do e-commerce? → No — we focus on lead generation sites for service businesses.
 Q: What does the AI receptionist do? → It's a chatbot (like me!) trained on your specific business. It answers questions, captures leads 24/7, and alerts the business owner the moment someone's interested.

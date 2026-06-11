@@ -15,11 +15,22 @@ const titles = (brand) => ({
   "/portfolio": `Portfolio • ${brand}`,
   "/about": `About • ${brand}`,
   "/quote": `Get a Quote • ${brand}`,
-  "/contact": `Get a Quote • ${brand}`, // alias
+  "/contact": `Get a Quote • ${brand}`,
   "/audit": `Free Website Audit • ${brand}`,
   "/designs": `Design Styles • ${brand}`,
   "/report": `Sample Monthly Report • ${brand}`,
   "/privacy": `Privacy • ${brand}`,
+  "/ai-receptionist": `AI Receptionist • ${brand}`,
+  "/work/phoenix-stoneworks": `Phoenix Stoneworks Case Study • ${brand}`,
+  "/blog": `Blog • ${brand}`,
+  "/web-design-meridian": `Web Design Meridian, ID • ${brand}`,
+  "/web-design-nampa": `Web Design Nampa, ID • ${brand}`,
+  "/web-design-caldwell": `Web Design Caldwell, ID • ${brand}`,
+  "/web-design-eagle": `Web Design Eagle, ID • ${brand}`,
+  "/web-design-hvac": `HVAC Web Design • ${brand}`,
+  "/web-design-landscaping": `Landscaping Web Design • ${brand}`,
+  "/web-design-plumbing": `Plumbing Web Design • ${brand}`,
+  "/web-design-dental": `Dental Web Design • ${brand}`,
 });
 
 export default function Layout() {
