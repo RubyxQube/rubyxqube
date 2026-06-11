@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { CheckCircle2, MessageCircle, BarChart3, Wrench } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
 
@@ -40,6 +40,13 @@ export default function Caldwell() {
             <Link className="btn primary" to="/contact">Get a Free Audit</Link>
             <Link className="btn" to="/pricing">See Pricing</Link>
           </div>
+          <div className="hr" style={{ marginTop: 44 }} />
+          <div className="grid cols-4">
+            <div className="kpi"><strong>1–2 week launch</strong><span>From kickoff call to live site</span></div>
+            <div className="kpi"><strong>No setup fee</strong><span>Month-to-month, cancel anytime</span></div>
+            <div className="kpi"><strong>24/7 AI coverage</strong><span>Leads captured nights and weekends</span></div>
+            <div className="kpi"><strong>Ranks faster here</strong><span>Lower competition than Boise or Meridian</span></div>
+          </div>
         </div>
       </section>
 
@@ -70,18 +77,20 @@ export default function Caldwell() {
         </div>
       </section>
 
-      <section className="surface">
+      <section className="surface" style={{ background: "transparent" }}>
         <div className="section">
           <span className="badge">What we build</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 40 }}>Everything a Caldwell business needs to win local searches.</h2>
           <div className="grid cols-3">
             {[
-              { icon: <Wrench size={24} color="var(--accent)" strokeWidth={1.75} />, title: "Local search optimization", body: "Pages optimized for Caldwell, Canyon County, and surrounding areas. Fast load times, proper schema, and Google Search Console setup from day one." },
-              { icon: <MessageCircle size={24} color="var(--accent)" strokeWidth={1.75} />, title: "AI receptionist", body: "Handles questions and captures leads at any hour. Trained on your services, pricing, and service area — no missed opportunities, even on weekends." },
-              { icon: <BarChart3 size={24} color="var(--accent)" strokeWidth={1.75} />, title: "Monthly reporting", body: "Clear performance data every month — traffic, leads, top search terms. No dashboards to log into, no data to interpret yourself." },
-            ].map(({ icon, title, body }) => (
-              <div key={title} className="card">
-                <div style={{ marginBottom: 14 }}>{icon}</div>
+              { num: "01", title: "Local search optimization", body: "Pages optimized for Caldwell, Canyon County, and surrounding areas. Fast load times, proper schema, and Google Search Console setup from day one." },
+              { num: "02", title: "AI receptionist", body: "Handles questions and captures leads at any hour. Trained on your services, pricing, and service area — no missed opportunities, even on weekends." },
+              { num: "03", title: "Monthly reporting", body: "Clear performance data every month — traffic, leads, top search terms. No dashboards to log into, no data to interpret yourself." },
+            ].map(({ num, title, body }) => (
+              <div key={title} className="card" style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                <div style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 14, color: "var(--accent)", flexShrink: 0 }}>
+                  {num}
+                </div>
                 <h3 className="h3">{title}</h3>
                 <p className="p" style={{ marginBottom: 0 }}>{body}</p>
               </div>
@@ -106,7 +115,7 @@ export default function Caldwell() {
         </div>
       </section>
 
-      <section className="surface">
+      <section className="surface" style={{ background: "transparent" }}>
         <div className="section">
           <span className="badge">FAQ</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 32 }}>Questions from Caldwell businesses.</h2>

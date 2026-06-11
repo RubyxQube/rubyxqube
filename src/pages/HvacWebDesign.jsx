@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { CheckCircle2, MessageCircle, Clock, Smartphone } from "lucide-react";
+import { CheckCircle2, Clock, MessageCircle, Smartphone } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
 
@@ -40,6 +40,13 @@ export default function HvacWebDesign() {
             <Link className="btn primary" to="/contact">Get a Free Audit</Link>
             <Link className="btn" to="/pricing">See Pricing</Link>
           </div>
+          <div className="hr" style={{ marginTop: 44 }} />
+          <div className="grid cols-4">
+            <div className="kpi"><strong>1–2 week launch</strong><span>From kickoff call to live site</span></div>
+            <div className="kpi"><strong>No setup fee</strong><span>Month-to-month, cancel anytime</span></div>
+            <div className="kpi"><strong>24/7 AI coverage</strong><span>Leads captured nights and weekends</span></div>
+            <div className="kpi"><strong>Emergency-ready</strong><span>After-hours lead capture built in</span></div>
+          </div>
         </div>
       </section>
 
@@ -70,19 +77,22 @@ export default function HvacWebDesign() {
         </div>
       </section>
 
-      <section className="surface">
+      <section className="surface" style={{ background: "transparent" }}>
         <div className="section">
           <span className="badge">What we build for HVAC</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 40 }}>Everything your site needs to capture and convert Boise HVAC leads.</h2>
           <div className="grid cols-2" style={{ gap: 24 }}>
             {[
-              { icon: <Clock size={24} color="var(--accent)" strokeWidth={1.75} />, title: "After-hours AI receptionist", body: "Trained on your services, service area, and pricing. Captures leads 24/7, fires an SMS to you the moment someone's ready to book. Handles emergency triage naturally — 'We can't get to you tonight, but you're first on the list for tomorrow morning.'" },
-              { icon: <MessageCircle size={24} color="var(--accent)" strokeWidth={1.75} />, title: "HVAC-specific FAQ training", body: "Your AI knows the difference between a heat pump and a furnace, your seasonal service specials, financing options, and which zip codes you service. No generic answers." },
-              { icon: <Smartphone size={24} color="var(--accent)" strokeWidth={1.75} />, title: "Mobile-first design", body: "Most HVAC emergency searches happen on a phone at an uncomfortable temperature. Your site loads fast and the contact CTA is visible within seconds — not buried under three scrolls." },
-              { icon: <CheckCircle2 size={24} color="var(--accent)" strokeWidth={1.75} />, title: "Local SEO for Treasure Valley", body: "Optimized for 'HVAC Boise', 'air conditioning repair Meridian', 'furnace replacement Nampa' and similar high-intent searches. Search Console setup included from day one." },
-            ].map(({ icon, title, body }) => (
+              { num: "01", icon: <Clock size={22} color="var(--accent)" strokeWidth={1.75} />, title: "After-hours AI receptionist", body: "Trained on your services, service area, and pricing. Captures leads 24/7, fires an SMS to you the moment someone's ready to book. Handles emergency triage naturally — 'We can't get to you tonight, but you're first on the list for tomorrow morning.'" },
+              { num: "02", icon: <MessageCircle size={22} color="var(--accent)" strokeWidth={1.75} />, title: "HVAC-specific FAQ training", body: "Your AI knows the difference between a heat pump and a furnace, your seasonal service specials, financing options, and which zip codes you service. No generic answers." },
+              { num: "03", icon: <Smartphone size={22} color="var(--accent)" strokeWidth={1.75} />, title: "Mobile-first design", body: "Most HVAC emergency searches happen on a phone at an uncomfortable temperature. Your site loads fast and the contact CTA is visible within seconds — not buried under three scrolls." },
+              { num: "04", icon: <CheckCircle2 size={22} color="var(--accent)" strokeWidth={1.75} />, title: "Local SEO for Treasure Valley", body: "Optimized for 'HVAC Boise', 'air conditioning repair Meridian', 'furnace replacement Nampa' and similar high-intent searches. Search Console setup included from day one." },
+            ].map(({ num, icon, title, body }) => (
               <div key={title} className="card" style={{ display: "flex", gap: 18, alignItems: "flex-start" }}>
-                <div style={{ flexShrink: 0, marginTop: 2 }}>{icon}</div>
+                <div style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: 6, paddingTop: 2 }}>
+                  <span style={{ fontSize: 11, fontWeight: 800, color: "var(--accent)", letterSpacing: "0.06em", opacity: 0.75 }}>{num}</span>
+                  {icon}
+                </div>
                 <div>
                   <h3 className="h3" style={{ marginBottom: 8 }}>{title}</h3>
                   <p className="p" style={{ marginBottom: 0, fontSize: 14 }}>{body}</p>
@@ -109,7 +119,7 @@ export default function HvacWebDesign() {
         </div>
       </section>
 
-      <section className="surface">
+      <section className="surface" style={{ background: "transparent" }}>
         <div className="section">
           <span className="badge">FAQ</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 32 }}>HVAC web design questions.</h2>

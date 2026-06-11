@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { CheckCircle2, MessageCircle, BarChart3, Wrench } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
 
@@ -26,7 +26,6 @@ export default function Meridian() {
         <link rel="canonical" href={`${siteConfig.siteUrl}/web-design-meridian`} />
       </Helmet>
 
-      {/* ── Hero ── */}
       <section className="surface heroSurface">
         <div className="heroSection">
           <span className="badge" style={{ marginBottom: 20 }}>Serving Meridian, Idaho</span>
@@ -41,10 +40,16 @@ export default function Meridian() {
             <Link className="btn primary" to="/contact">Get a Free Audit</Link>
             <Link className="btn" to="/pricing">See Pricing</Link>
           </div>
+          <div className="hr" style={{ marginTop: 44 }} />
+          <div className="grid cols-4">
+            <div className="kpi"><strong>1–2 week launch</strong><span>From kickoff call to live site</span></div>
+            <div className="kpi"><strong>No setup fee</strong><span>Month-to-month, cancel anytime</span></div>
+            <div className="kpi"><strong>24/7 AI coverage</strong><span>Leads captured nights and weekends</span></div>
+            <div className="kpi"><strong>Local SEO built in</strong><span>Schema and Search Console from day one</span></div>
+          </div>
         </div>
       </section>
 
-      {/* ── Why Meridian ── */}
       <section className="surface">
         <div className="section">
           <div className="grid cols-2" style={{ gap: 48, alignItems: "center" }}>
@@ -72,19 +77,20 @@ export default function Meridian() {
         </div>
       </section>
 
-      {/* ── What we build ── */}
-      <section className="surface">
+      <section className="surface" style={{ background: "transparent" }}>
         <div className="section">
           <span className="badge">What we build</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 40 }}>A site that works as hard as you do — in Meridian and everywhere you serve.</h2>
           <div className="grid cols-3">
             {[
-              { icon: <Wrench size={24} color="var(--accent)" strokeWidth={1.75} />, title: "Built for local search", body: "Every page is optimized for Meridian, Ada County, and Treasure Valley searches. Fast load times, local schema, and Search Console setup from day one." },
-              { icon: <MessageCircle size={24} color="var(--accent)" strokeWidth={1.75} />, title: "AI receptionist, 24/7", body: "Captures leads nights, weekends, and holidays. Trained on your specific services and service area — answers questions, qualifies leads, and texts you instantly." },
-              { icon: <BarChart3 size={24} color="var(--accent)" strokeWidth={1.75} />, title: "Monthly performance reports", body: "Traffic, leads captured, top search terms. You'll know exactly what your site is doing — without logging into Google Analytics yourself." },
-            ].map(({ icon, title, body }) => (
-              <div key={title} className="card">
-                <div style={{ marginBottom: 14 }}>{icon}</div>
+              { num: "01", title: "Built for local search", body: "Every page is optimized for Meridian, Ada County, and Treasure Valley searches. Fast load times, local schema, and Search Console setup from day one." },
+              { num: "02", title: "AI receptionist, 24/7", body: "Captures leads nights, weekends, and holidays. Trained on your specific services and service area — answers questions, qualifies leads, and texts you instantly." },
+              { num: "03", title: "Monthly performance reports", body: "Traffic, leads captured, top search terms. You'll know exactly what your site is doing — without logging into Google Analytics yourself." },
+            ].map(({ num, title, body }) => (
+              <div key={title} className="card" style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                <div style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 14, color: "var(--accent)", flexShrink: 0 }}>
+                  {num}
+                </div>
                 <h3 className="h3">{title}</h3>
                 <p className="p" style={{ marginBottom: 0 }}>{body}</p>
               </div>
@@ -93,7 +99,6 @@ export default function Meridian() {
         </div>
       </section>
 
-      {/* ── Pricing callout ── */}
       <section className="surface">
         <div className="section" style={{ paddingTop: 40, paddingBottom: 40 }}>
           <div className="card cardHighlight" style={{ display: "flex", flexWrap: "wrap", gap: 28, alignItems: "center", justifyContent: "space-between" }}>
@@ -110,8 +115,7 @@ export default function Meridian() {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
-      <section className="surface">
+      <section className="surface" style={{ background: "transparent" }}>
         <div className="section">
           <span className="badge">FAQ</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 32 }}>Questions from Meridian businesses.</h2>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { CheckCircle2, MessageCircle, Clock, Zap } from "lucide-react";
+import { CheckCircle2, Clock, Zap, MessageCircle } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
 
@@ -40,6 +40,13 @@ export default function PlumbingWebDesign() {
             <Link className="btn primary" to="/contact">Get a Free Audit</Link>
             <Link className="btn" to="/pricing">See Pricing</Link>
           </div>
+          <div className="hr" style={{ marginTop: 44 }} />
+          <div className="grid cols-4">
+            <div className="kpi"><strong>1–2 week launch</strong><span>From kickoff call to live site</span></div>
+            <div className="kpi"><strong>No setup fee</strong><span>Month-to-month, cancel anytime</span></div>
+            <div className="kpi"><strong>24/7 AI coverage</strong><span>Leads captured nights and weekends</span></div>
+            <div className="kpi"><strong>Emergency-ready</strong><span>Click-to-call CTA above the fold</span></div>
+          </div>
         </div>
       </section>
 
@@ -70,19 +77,22 @@ export default function PlumbingWebDesign() {
         </div>
       </section>
 
-      <section className="surface">
+      <section className="surface" style={{ background: "transparent" }}>
         <div className="section">
           <span className="badge">What we build for plumbing</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 40 }}>Fast sites, prominent CTAs, and 24/7 coverage for every lead.</h2>
           <div className="grid cols-2" style={{ gap: 24 }}>
             {[
-              { icon: <Clock size={24} color="var(--accent)" strokeWidth={1.75} />, title: "24/7 emergency lead capture", body: "AI receptionist captures leads at any hour. Gets their name, contact, and the nature of the emergency — then texts you immediately. No lead falls through the cracks because you were asleep." },
-              { icon: <Zap size={24} color="var(--accent)" strokeWidth={1.75} />, title: "Emergency CTA above the fold", body: "Click-to-call phone number prominently placed on every page, especially on mobile. Emergency service contact is the first thing a panicking homeowner sees." },
-              { icon: <MessageCircle size={24} color="var(--accent)" strokeWidth={1.75} />, title: "Service-specific pages", body: "Dedicated pages for drain cleaning, water heater replacement, pipe repair, leak detection, and more. Each page targets specific search terms and converts better than a catch-all services page." },
-              { icon: <CheckCircle2 size={24} color="var(--accent)" strokeWidth={1.75} />, title: "Local search optimization", body: "Optimized for 'plumber Boise', 'emergency plumber Meridian', 'drain cleaning Nampa' and similar high-intent Treasure Valley searches. Search Console setup from day one." },
-            ].map(({ icon, title, body }) => (
+              { num: "01", icon: <Clock size={22} color="var(--accent)" strokeWidth={1.75} />, title: "24/7 emergency lead capture", body: "AI receptionist captures leads at any hour. Gets their name, contact, and the nature of the emergency — then texts you immediately. No lead falls through the cracks because you were asleep." },
+              { num: "02", icon: <Zap size={22} color="var(--accent)" strokeWidth={1.75} />, title: "Emergency CTA above the fold", body: "Click-to-call phone number prominently placed on every page, especially on mobile. Emergency service contact is the first thing a panicking homeowner sees." },
+              { num: "03", icon: <MessageCircle size={22} color="var(--accent)" strokeWidth={1.75} />, title: "Service-specific pages", body: "Dedicated pages for drain cleaning, water heater replacement, pipe repair, leak detection, and more. Each page targets specific search terms and converts better than a catch-all services page." },
+              { num: "04", icon: <CheckCircle2 size={22} color="var(--accent)" strokeWidth={1.75} />, title: "Local search optimization", body: "Optimized for 'plumber Boise', 'emergency plumber Meridian', 'drain cleaning Nampa' and similar high-intent Treasure Valley searches. Search Console setup from day one." },
+            ].map(({ num, icon, title, body }) => (
               <div key={title} className="card" style={{ display: "flex", gap: 18, alignItems: "flex-start" }}>
-                <div style={{ flexShrink: 0, marginTop: 2 }}>{icon}</div>
+                <div style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: 6, paddingTop: 2 }}>
+                  <span style={{ fontSize: 11, fontWeight: 800, color: "var(--accent)", letterSpacing: "0.06em", opacity: 0.75 }}>{num}</span>
+                  {icon}
+                </div>
                 <div>
                   <h3 className="h3" style={{ marginBottom: 8 }}>{title}</h3>
                   <p className="p" style={{ marginBottom: 0, fontSize: 14 }}>{body}</p>
@@ -109,7 +119,7 @@ export default function PlumbingWebDesign() {
         </div>
       </section>
 
-      <section className="surface">
+      <section className="surface" style={{ background: "transparent" }}>
         <div className="section">
           <span className="badge">FAQ</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 32 }}>Plumbing web design questions.</h2>

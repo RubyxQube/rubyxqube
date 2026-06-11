@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { CheckCircle2, MessageCircle, Camera, BarChart3 } from "lucide-react";
+import { CheckCircle2, Camera, MessageCircle, BarChart3 } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
 
@@ -40,6 +40,13 @@ export default function LandscapingWebDesign() {
             <Link className="btn primary" to="/contact">Get a Free Audit</Link>
             <Link className="btn" to="/pricing">See Pricing</Link>
           </div>
+          <div className="hr" style={{ marginTop: 44 }} />
+          <div className="grid cols-4">
+            <div className="kpi"><strong>1–2 week launch</strong><span>From kickoff call to live site</span></div>
+            <div className="kpi"><strong>No setup fee</strong><span>Month-to-month, cancel anytime</span></div>
+            <div className="kpi"><strong>24/7 AI coverage</strong><span>Leads captured nights and weekends</span></div>
+            <div className="kpi"><strong>Seasonal SEO</strong><span>Seasonal keywords built into every page</span></div>
+          </div>
         </div>
       </section>
 
@@ -70,19 +77,22 @@ export default function LandscapingWebDesign() {
         </div>
       </section>
 
-      <section className="surface">
+      <section className="surface" style={{ background: "transparent" }}>
         <div className="section">
           <span className="badge">What we build for landscaping</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 40 }}>Portfolio-forward design with the lead capture to back it up.</h2>
           <div className="grid cols-2" style={{ gap: 24 }}>
             {[
-              { icon: <Camera size={24} color="var(--accent)" strokeWidth={1.75} />, title: "Before/after portfolio galleries", body: "Image-optimized, fast-loading galleries that showcase your best work. Organized by project type — lawn care, hardscaping, irrigation, seasonal cleanup — so visitors find what they're looking for." },
-              { icon: <MessageCircle size={24} color="var(--accent)" strokeWidth={1.75} />, title: "AI receptionist trained on your services", body: "Handles 'do you do spring cleanup?' at 9pm on a Sunday. Captures leads with name, contact info, and what they need — and texts you immediately." },
-              { icon: <BarChart3 size={24} color="var(--accent)" strokeWidth={1.75} />, title: "Seasonal SEO", body: "Pages optimized for both year-round terms ('landscaping Boise') and seasonal high-intent searches ('spring yard cleanup Meridian', 'fall leaf removal Nampa'). Search Console setup from day one." },
-              { icon: <CheckCircle2 size={24} color="var(--accent)" strokeWidth={1.75} />, title: "Service packages and pricing pages", body: "Clear service tiers — weekly maintenance, monthly care, seasonal packages — that help customers self-select and reduce back-and-forth before the first call." },
-            ].map(({ icon, title, body }) => (
+              { num: "01", icon: <Camera size={22} color="var(--accent)" strokeWidth={1.75} />, title: "Before/after portfolio galleries", body: "Image-optimized, fast-loading galleries that showcase your best work. Organized by project type — lawn care, hardscaping, irrigation, seasonal cleanup — so visitors find what they're looking for." },
+              { num: "02", icon: <MessageCircle size={22} color="var(--accent)" strokeWidth={1.75} />, title: "AI receptionist trained on your services", body: "Handles 'do you do spring cleanup?' at 9pm on a Sunday. Captures leads with name, contact info, and what they need — and texts you immediately." },
+              { num: "03", icon: <BarChart3 size={22} color="var(--accent)" strokeWidth={1.75} />, title: "Seasonal SEO", body: "Pages optimized for both year-round terms ('landscaping Boise') and seasonal high-intent searches ('spring yard cleanup Meridian', 'fall leaf removal Nampa'). Search Console setup from day one." },
+              { num: "04", icon: <CheckCircle2 size={22} color="var(--accent)" strokeWidth={1.75} />, title: "Service packages and pricing pages", body: "Clear service tiers — weekly maintenance, monthly care, seasonal packages — that help customers self-select and reduce back-and-forth before the first call." },
+            ].map(({ num, icon, title, body }) => (
               <div key={title} className="card" style={{ display: "flex", gap: 18, alignItems: "flex-start" }}>
-                <div style={{ flexShrink: 0, marginTop: 2 }}>{icon}</div>
+                <div style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: 6, paddingTop: 2 }}>
+                  <span style={{ fontSize: 11, fontWeight: 800, color: "var(--accent)", letterSpacing: "0.06em", opacity: 0.75 }}>{num}</span>
+                  {icon}
+                </div>
                 <div>
                   <h3 className="h3" style={{ marginBottom: 8 }}>{title}</h3>
                   <p className="p" style={{ marginBottom: 0, fontSize: 14 }}>{body}</p>
@@ -109,7 +119,7 @@ export default function LandscapingWebDesign() {
         </div>
       </section>
 
-      <section className="surface">
+      <section className="surface" style={{ background: "transparent" }}>
         <div className="section">
           <span className="badge">FAQ</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 32 }}>Landscaping web design questions.</h2>

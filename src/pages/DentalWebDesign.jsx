@@ -40,6 +40,13 @@ export default function DentalWebDesign() {
             <Link className="btn primary" to="/contact">Get a Free Audit</Link>
             <Link className="btn" to="/pricing">See Pricing</Link>
           </div>
+          <div className="hr" style={{ marginTop: 44 }} />
+          <div className="grid cols-4">
+            <div className="kpi"><strong>1–2 week launch</strong><span>From kickoff call to live site</span></div>
+            <div className="kpi"><strong>No setup fee</strong><span>Month-to-month, cancel anytime</span></div>
+            <div className="kpi"><strong>24/7 AI coverage</strong><span>Insurance questions answered after hours</span></div>
+            <div className="kpi"><strong>HIPAA-aware</strong><span>Designed to stay on the right side</span></div>
+          </div>
         </div>
       </section>
 
@@ -70,19 +77,22 @@ export default function DentalWebDesign() {
         </div>
       </section>
 
-      <section className="surface">
+      <section className="surface" style={{ background: "transparent" }}>
         <div className="section">
           <span className="badge">What we build for dental practices</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 40 }}>Everything a new patient needs to see — and the AI to answer what they ask after hours.</h2>
           <div className="grid cols-2" style={{ gap: 24 }}>
             {[
-              { icon: <MessageCircle size={24} color="var(--accent)" strokeWidth={1.75} />, title: "AI receptionist for new patient questions", body: "Handles insurance questions, new patient intake, what to expect at a first visit, and how to schedule — at any hour. Captures lead info and texts you immediately when someone's ready to book." },
-              { icon: <Calendar size={24} color="var(--accent)" strokeWidth={1.75} />, title: "Appointment booking integration", body: "Direct patients to your booking system from the site and the AI. We integrate with Cal.com or your existing scheduling tool. Custom booking systems are available under Momentum." },
-              { icon: <ShieldCheck size={24} color="var(--accent)" strokeWidth={1.75} />, title: "Insurance and trust content", body: "A clear insurance acceptance page, provider credentials, patient reviews, and new patient onboarding information — the trust signals new patients look for before choosing a practice." },
-              { icon: <CheckCircle2 size={24} color="var(--accent)" strokeWidth={1.75} />, title: "Local SEO for Treasure Valley dental searches", body: "Optimized for 'dentist Boise', 'family dentist Meridian', 'dental office accepting new patients Eagle' and similar searches. Search Console setup and monthly reporting included." },
-            ].map(({ icon, title, body }) => (
+              { num: "01", icon: <MessageCircle size={22} color="var(--accent)" strokeWidth={1.75} />, title: "AI receptionist for new patient questions", body: "Handles insurance questions, new patient intake, what to expect at a first visit, and how to schedule — at any hour. Captures lead info and texts you immediately when someone's ready to book." },
+              { num: "02", icon: <Calendar size={22} color="var(--accent)" strokeWidth={1.75} />, title: "Appointment booking integration", body: "Direct patients to your booking system from the site and the AI. We integrate with Cal.com or your existing scheduling tool. Custom booking systems are available under Momentum." },
+              { num: "03", icon: <ShieldCheck size={22} color="var(--accent)" strokeWidth={1.75} />, title: "Insurance and trust content", body: "A clear insurance acceptance page, provider credentials, patient reviews, and new patient onboarding information — the trust signals new patients look for before choosing a practice." },
+              { num: "04", icon: <CheckCircle2 size={22} color="var(--accent)" strokeWidth={1.75} />, title: "Local SEO for Treasure Valley dental searches", body: "Optimized for 'dentist Boise', 'family dentist Meridian', 'dental office accepting new patients Eagle' and similar searches. Search Console setup and monthly reporting included." },
+            ].map(({ num, icon, title, body }) => (
               <div key={title} className="card" style={{ display: "flex", gap: 18, alignItems: "flex-start" }}>
-                <div style={{ flexShrink: 0, marginTop: 2 }}>{icon}</div>
+                <div style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: 6, paddingTop: 2 }}>
+                  <span style={{ fontSize: 11, fontWeight: 800, color: "var(--accent)", letterSpacing: "0.06em", opacity: 0.75 }}>{num}</span>
+                  {icon}
+                </div>
                 <div>
                   <h3 className="h3" style={{ marginBottom: 8 }}>{title}</h3>
                   <p className="p" style={{ marginBottom: 0, fontSize: 14 }}>{body}</p>
@@ -109,7 +119,7 @@ export default function DentalWebDesign() {
         </div>
       </section>
 
-      <section className="surface">
+      <section className="surface" style={{ background: "transparent" }}>
         <div className="section">
           <span className="badge">FAQ</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 32 }}>Dental web design questions.</h2>
