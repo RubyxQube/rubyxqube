@@ -6,6 +6,14 @@ import { posts } from "../blog/posts.js";
 import { siteConfig } from "../siteConfig.js";
 import CTA from "../components/CTA.jsx";
 
+const CATEGORY_GRADIENT = {
+  "Web Design":      "linear-gradient(135deg, #1a0a10 0%, #3d0a1a 40%, #7a1030 100%)",
+  "AI Tools":        "linear-gradient(135deg, #08101a 0%, #0a2040 40%, #0d3a6e 100%)",
+  "Lead Generation": "linear-gradient(135deg, #0a100a 0%, #143a14 40%, #1a5c1a 100%)",
+  "Case Study":      "linear-gradient(135deg, #100d00 0%, #3a2800 40%, #6b4a00 100%)",
+  default:           "linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%)",
+};
+
 export default function BlogPost() {
   const { slug } = useParams();
   const idx  = posts.findIndex((p) => p.slug === slug);
@@ -25,7 +33,7 @@ export default function BlogPost() {
     );
   }
 
-  const { Component, title, description, dateDisplay, readTime, category } = post;
+  const { Component, title, description, dateDisplay, readTime, category, coverImage, coverAlt } = post;
   const prev = posts[idx + 1];
   const next = posts[idx - 1];
 
@@ -66,10 +74,38 @@ export default function BlogPost() {
         </div>
       </section>
 
+      {/* ── Cover image / gradient banner ── */}
+      <section className="surface" style={{ paddingTop: 0, paddingBottom: 0 }}>
+        <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px" }}>
+          {coverImage ? (
+            <img
+              src={coverImage}
+              alt={coverAlt || title}
+              loading="lazy"
+              style={{ width: "100%", borderRadius: "var(--radius)", display: "block", maxHeight: 420, objectFit: "cover", aspectRatio: "21/9" }}
+            />
+          ) : (
+            <div style={{
+              width: "100%",
+              borderRadius: "var(--radius)",
+              aspectRatio: "21/9",
+              background: CATEGORY_GRADIENT[category] || CATEGORY_GRADIENT.default,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              overflow: "hidden",
+              position: "relative",
+            }}>
+              <span style={{ fontSize: "clamp(13px, 2vw, 15px)", fontWeight: 700, color: "rgba(255,255,255,0.5)", letterSpacing: "0.12em", textTransform: "uppercase" }}>{category}</span>
+            </div>
+          )}
+        </div>
+      </section>
+
       {/* ── Article body ── */}
       <section className="surface">
         <div className="section">
-          <div className="prose" style={{ maxWidth: 700, margin: "0 auto" }}>
+          <div className="prose" style={{ maxWidth: 740, margin: "0 auto" }}>
             <Component />
           </div>
         </div>

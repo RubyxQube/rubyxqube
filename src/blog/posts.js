@@ -12,6 +12,8 @@ export const posts = [
     dateDisplay: "June 11, 2026",
     readTime: "7 min read",
     category: "Web Design",
+    coverImage: "/blog/web-design-cost.webp",
+    coverAlt: "Web design pricing breakdown for Boise, Idaho businesses",
     Component: BoiseWebsiteCost,
   },
   {
@@ -22,6 +24,8 @@ export const posts = [
     dateDisplay: "June 11, 2026",
     readTime: "6 min read",
     category: "AI Tools",
+    coverImage: "/blog/ai-chatbot-answering.webp",
+    coverAlt: "AI chatbot versus live answering service comparison for contractors",
     Component: AiChatbotVsAnswering,
   },
   {
@@ -32,6 +36,8 @@ export const posts = [
     dateDisplay: "June 11, 2026",
     readTime: "5 min read",
     category: "Lead Generation",
+    coverImage: "/blog/hvac-leads.webp",
+    coverAlt: "HVAC technician responding to an after-hours call in Boise",
     Component: HvacLeadCapture,
   },
   {
@@ -42,6 +48,8 @@ export const posts = [
     dateDisplay: "June 11, 2026",
     readTime: "5 min read",
     category: "Case Study",
+    coverImage: "/blog/wix-to-custom.webp",
+    coverAlt: "Before and after comparison of Sudz Window Cleaning website redesign",
     Component: WixRebuildSudz,
   },
 ];
