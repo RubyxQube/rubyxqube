@@ -68,8 +68,7 @@ export default function About() {
                 alt="Boyd Querubin — founder of RubyxQube"
                 width={280}
                 height={280}
-                loading="eager"
-                fetchpriority="high"
+                loading="lazy"
                 style={{ width: 220, height: 220, borderRadius: "50%", display: "block", objectFit: "cover", objectPosition: "center top" }}
               />
               <div style={{ display: "flex", flexDirection: "column", gap: 6, width: "100%", maxWidth: 220 }}>
