@@ -65,7 +65,7 @@ export default function BlogPost() {
           <h1 style={{ fontSize: "clamp(28px, 4.5vw, 52px)", fontWeight: 800, lineHeight: 1.08, letterSpacing: "-0.03em", margin: "0 0 20px", maxWidth: "22ch" }}>{title}</h1>
           <p style={{ fontSize: 18, color: "var(--muted)", lineHeight: 1.65, maxWidth: 560, margin: "0 0 32px" }}>{description}</p>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <div style={{ width: 36, height: 36, borderRadius: "50%", background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 14, color: "var(--accent)", flexShrink: 0 }}>B</div>
+            <img src="/boyd_cu.webp" alt="Boyd Querubin" loading="lazy" width="36" height="36" style={{ width: 36, height: 36, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
             <div>
               <p style={{ fontWeight: 700, fontSize: 14, margin: 0, color: "var(--text)" }}>Boyd Querubin</p>
               <p style={{ fontSize: 12, color: "var(--muted)", margin: 0 }}>{siteConfig.brand} · Boise, ID</p>
