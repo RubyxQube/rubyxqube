@@ -75,7 +75,7 @@ export default function BlogPost() {
       </section>
 
       {/* ── Cover image / gradient banner ── */}
-      <section className="surface" style={{ paddingTop: 0, paddingBottom: 0 }}>
+      <section className="surface proseSection" style={{ paddingTop: 0, paddingBottom: 0 }}>
         <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px" }}>
           {coverImage ? (
             <img
