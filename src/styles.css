@@ -867,3 +867,5 @@ label{
 .prose td { padding: 10px 12px; color: var(--muted); border-bottom: 1px solid rgba(255,255,255,0.05); }
 .prose td:first-child { font-weight: 600; color: var(--text); }
 .prose td:last-child  { color: var(--text); }
+
+[data-theme="light"] .proseSection { background: #ffffff; }

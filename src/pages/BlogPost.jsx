@@ -103,7 +103,7 @@ export default function BlogPost() {
       </section>
 
       {/* ── Article body ── */}
-      <section className="surface">
+      <section className="surface proseSection">
         <div className="section">
           <div className="prose" style={{ maxWidth: 740, margin: "0 auto" }}>
             <Component />
