@@ -44,6 +44,8 @@ export default function BlogPost() {
         <meta name="description" content={description} />
         <meta property="og:title" content={`${title} — RubyxQube`} />
         <meta property="og:description" content={description} />
+        {coverImage && <meta property="og:image" content={`${siteConfig.siteUrl}${coverImage}`} />}
+        <meta property="og:url" content={`${siteConfig.siteUrl}/blog/${slug}`} />
         <link rel="canonical" href={`${siteConfig.siteUrl}/blog/${slug}`} />
       </Helmet>
 
@@ -75,7 +77,7 @@ export default function BlogPost() {
       </section>
 
       {/* ── Cover image / gradient banner ── */}
-      <section className="surface proseSection" style={{ paddingTop: 0, paddingBottom: 0 }}>
+      <section className="surface proseSection" style={{ paddingTop: 32, paddingBottom: 0 }}>
         <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px" }}>
           {coverImage ? (
             <img
