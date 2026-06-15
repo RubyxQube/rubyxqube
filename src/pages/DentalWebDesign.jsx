@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { CheckCircle2, MessageCircle, Calendar, ShieldCheck } from "lucide-react";
@@ -23,6 +23,8 @@ export default function DentalWebDesign() {
         <meta name="description" content="Custom websites for dental practices in Boise and the Treasure Valley. New patient conversion, AI receptionist, insurance FAQ, appointment booking. Starting at $399/mo." />
         <meta property="og:title" content="Dental Web Design Boise Idaho — RubyxQube" />
         <meta property="og:description" content="Custom dental websites with AI lead capture, insurance FAQ, and new patient conversion. Treasure Valley dental practices." />
+        <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
+        <meta property="og:url" content="https://rubyxqube.com/web-design-dental" />
         <link rel="canonical" href={`${siteConfig.siteUrl}/web-design-dental`} />
       </Helmet>
 
@@ -141,3 +143,4 @@ export default function DentalWebDesign() {
     </div>
   );
 }
+

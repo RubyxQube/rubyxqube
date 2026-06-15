@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { CheckCircle2, ArrowRight } from "lucide-react";
@@ -42,6 +42,9 @@ export default function Services() {
         <meta name="description" content="Custom websites, AI receptionist chatbots, Google Business Profile management, and local SEO for Treasure Valley small businesses." />
         <meta property="og:title" content="Web Design Services — RubyxQube | Treasure Valley" />
         <meta property="og:description" content="Custom websites, AI receptionist chatbots, Google Business Profile management, and local SEO for Treasure Valley small businesses." />
+        <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
+        <meta property="og:url" content="https://rubyxqube.com/services" />
+        <link rel="canonical" href="https://rubyxqube.com/services" />
       </Helmet>
 
       {/* ── Hero ── */}
@@ -210,3 +213,4 @@ export default function Services() {
     </div>
   );
 }
+

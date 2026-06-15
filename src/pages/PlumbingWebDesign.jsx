@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { CheckCircle2, Clock, Zap, MessageCircle } from "lucide-react";
@@ -23,6 +23,8 @@ export default function PlumbingWebDesign() {
         <meta name="description" content="Custom websites for plumbing companies in Boise and the Treasure Valley. Emergency lead capture, 24/7 AI receptionist, local SEO. Starting at $399/mo, no setup fee." />
         <meta property="og:title" content="Plumbing Web Design Boise Idaho — RubyxQube" />
         <meta property="og:description" content="Custom websites with 24/7 AI lead capture for Treasure Valley plumbing companies. No setup fee, no contract." />
+        <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
+        <meta property="og:url" content="https://rubyxqube.com/web-design-plumbing" />
         <link rel="canonical" href={`${siteConfig.siteUrl}/web-design-plumbing`} />
       </Helmet>
 
@@ -141,3 +143,4 @@ export default function PlumbingWebDesign() {
     </div>
   );
 }
+

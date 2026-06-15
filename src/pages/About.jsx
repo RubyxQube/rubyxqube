@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Zap, MessageSquare, DollarSign, ExternalLink } from "lucide-react";
@@ -42,6 +42,9 @@ export default function About() {
         <meta name="description" content="Boyd Querubin builds websites and AI receptionists for small businesses in the Treasure Valley. Based in Nampa, Idaho." />
         <meta property="og:title" content="About Boyd — RubyxQube | Treasure Valley Web Designer" />
         <meta property="og:description" content="Boyd Querubin builds websites and AI receptionists for small businesses in the Treasure Valley. Based in Nampa, Idaho." />
+        <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
+        <meta property="og:url" content="https://rubyxqube.com/about" />
+        <link rel="canonical" href="https://rubyxqube.com/about" />
       </Helmet>
 
       {/* ── Hero ── */}
@@ -161,3 +164,4 @@ export default function About() {
     </div>
   );
 }
+

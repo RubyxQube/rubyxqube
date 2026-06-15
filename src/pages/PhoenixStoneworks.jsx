@@ -50,9 +50,12 @@ export default function PhoenixStoneworks() {
     <div className="pageMinHeight">
       <Helmet>
         <title>Phoenix Stoneworks Case Study — RubyxQube | AI Web Platform for Boise Masonry</title>
-        <meta name="description" content="How RubyxQube built a full AI-powered web platform for Phoenix Stoneworks in Boise — including an AI photo estimate tool, quote calculator, wholesale portal, and 24/7 AI receptionist." />
+        <meta name="description" content="How RubyxQube built an AI-powered web platform for Phoenix Stoneworks — AI photo estimates, quote calculator, wholesale portal, and 24/7 AI receptionist." />
         <meta property="og:title" content="Phoenix Stoneworks Case Study — RubyxQube" />
         <meta property="og:description" content="Full AI-powered web platform for a Boise masonry company — AI photo estimate, quote calculator, wholesale portal, AI receptionist." />
+        <meta property="og:image" content="https://rubyxqube.com/portfolio/psw-preview.webp" />
+        <meta property="og:url" content="https://rubyxqube.com/work/phoenix-stoneworks" />
+        <link rel="canonical" href="https://rubyxqube.com/work/phoenix-stoneworks" />
       </Helmet>
 
       {/* ── Back link ── */}

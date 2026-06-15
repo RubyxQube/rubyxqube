@@ -420,7 +420,7 @@ export default function ChatWidget() {
           <img
             src={chatConfig.buttonIcon}
             alt="Chat"
-            style={{ width: 30, height: 30, objectFit: "contain", display: "block" }}
+            style={{ width: 30, height: 30, objectFit: "contain", display: "block", filter: "brightness(0) invert(1)" }}
           />
         ) : (
           <MessageCircle size={22} strokeWidth={2} />

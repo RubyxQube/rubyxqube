@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { CheckCircle2 } from "lucide-react";
@@ -23,6 +23,8 @@ export default function Nampa() {
         <meta name="description" content="Custom websites and AI receptionists for Nampa, Idaho small businesses. Canyon County's growing market needs sites that capture leads 24/7. Starting at $399/mo, no setup fee." />
         <meta property="og:title" content="Web Design for Nampa, Idaho Businesses — RubyxQube" />
         <meta property="og:description" content="Custom websites with AI lead capture for Nampa, ID service businesses. No setup fee, month-to-month." />
+        <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
+        <meta property="og:url" content="https://rubyxqube.com/web-design-nampa" />
         <link rel="canonical" href={`${siteConfig.siteUrl}/web-design-nampa`} />
       </Helmet>
 
@@ -137,3 +139,4 @@ export default function Nampa() {
     </div>
   );
 }
+

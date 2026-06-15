@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { CheckCircle2 } from "lucide-react";
@@ -23,6 +23,8 @@ export default function Caldwell() {
         <meta name="description" content="Custom websites and AI receptionists for Caldwell, Idaho small businesses. Canyon County web design with 24/7 AI lead capture. Starting at $399/mo, no setup fee." />
         <meta property="og:title" content="Web Design for Caldwell, Idaho Businesses — RubyxQube" />
         <meta property="og:description" content="Custom websites with AI lead capture for Caldwell, ID businesses. No setup fee, month-to-month." />
+        <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
+        <meta property="og:url" content="https://rubyxqube.com/web-design-caldwell" />
         <link rel="canonical" href={`${siteConfig.siteUrl}/web-design-caldwell`} />
       </Helmet>
 
@@ -137,3 +139,4 @@ export default function Caldwell() {
     </div>
   );
 }
+

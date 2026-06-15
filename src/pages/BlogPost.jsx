@@ -42,10 +42,14 @@ export default function BlogPost() {
       <Helmet>
         <title>{title} — RubyxQube Blog</title>
         <meta name="description" content={description} />
+        <meta property="og:type" content="article" />
         <meta property="og:title" content={`${title} — RubyxQube`} />
         <meta property="og:description" content={description} />
-        {coverImage && <meta property="og:image" content={`${siteConfig.siteUrl}${coverImage}`} />}
+        <meta property="og:image" content={coverImage ? `${siteConfig.siteUrl}${coverImage}` : `${siteConfig.siteUrl}/og-default.png`} />
         <meta property="og:url" content={`${siteConfig.siteUrl}/blog/${slug}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={coverImage ? `${siteConfig.siteUrl}${coverImage}` : `${siteConfig.siteUrl}/og-default.png`} />
+        <meta property="article:published_time" content={post.date} />
         <link rel="canonical" href={`${siteConfig.siteUrl}/blog/${slug}`} />
       </Helmet>
 

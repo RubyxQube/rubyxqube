@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { MeshGradient } from "@paper-design/shaders-react";
 import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
@@ -44,6 +45,10 @@ export default function Layout() {
 
   return (
     <div className="appShell">
+      <Helmet>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={`${siteConfig.siteUrl}/og-default.png`} />
+      </Helmet>
       {/* Animated ambient background — adapts colors per theme */}
       <MeshGradient
         colors={

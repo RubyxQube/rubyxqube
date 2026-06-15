@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { CheckCircle2 } from "lucide-react";
@@ -23,6 +23,8 @@ export default function Meridian() {
         <meta name="description" content="Custom websites and AI receptionists for Meridian, Idaho small businesses. Idaho's fastest-growing city deserves a site that captures leads 24/7. Starting at $399/mo, no setup fee." />
         <meta property="og:title" content="Web Design for Meridian, Idaho Businesses — RubyxQube" />
         <meta property="og:description" content="Custom websites with AI lead capture for Meridian, ID service businesses. No setup fee, month-to-month." />
+        <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
+        <meta property="og:url" content="https://rubyxqube.com/web-design-meridian" />
         <link rel="canonical" href={`${siteConfig.siteUrl}/web-design-meridian`} />
       </Helmet>
 
@@ -137,3 +139,4 @@ export default function Meridian() {
     </div>
   );
 }
+

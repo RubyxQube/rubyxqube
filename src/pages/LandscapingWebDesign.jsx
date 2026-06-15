@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { CheckCircle2, Camera, MessageCircle, BarChart3 } from "lucide-react";
@@ -23,6 +23,8 @@ export default function LandscapingWebDesign() {
         <meta name="description" content="Custom websites for landscaping companies in Boise and the Treasure Valley. Portfolio galleries, AI lead capture, seasonal SEO. Starting at $399/mo, no setup fee." />
         <meta property="og:title" content="Landscaping Web Design Boise Idaho — RubyxQube" />
         <meta property="og:description" content="Custom websites with portfolio galleries and AI lead capture for Treasure Valley landscaping companies." />
+        <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
+        <meta property="og:url" content="https://rubyxqube.com/web-design-landscaping" />
         <link rel="canonical" href={`${siteConfig.siteUrl}/web-design-landscaping`} />
       </Helmet>
 
@@ -141,3 +143,4 @@ export default function LandscapingWebDesign() {
     </div>
   );
 }
+
