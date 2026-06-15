@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Helmet } from "react-helmet-async";
 import { CheckCircle2, XCircle } from "lucide-react";
 import CTA from "../components/CTA.jsx";
@@ -54,6 +54,7 @@ export default function Pricing() {
         "Custom tools: calculators, estimators, intake forms, and more",
         "Google Business Profile management",
         "Monthly AI receptionist tuning",
+        "4 blog posts/month — written, approved, and published for you",
         "Weekly check-in call (30–60 min)",
       ],
     },
@@ -109,6 +110,9 @@ export default function Pricing() {
         <meta name="description" content="Transparent pricing for Treasure Valley small businesses. Launch from $1,200 one-time. Autopilot from $399/mo includes a custom site, AI receptionist, and monthly reports." />
         <meta property="og:title" content="Pricing — RubyxQube | Treasure Valley Web Design" />
         <meta property="og:description" content="Transparent pricing for Treasure Valley small businesses. Launch from $1,200 one-time. Autopilot from $399/mo includes a custom site, AI receptionist, and monthly reports." />
+        <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
+        <meta property="og:url" content="https://rubyxqube.com/pricing" />
+        <link rel="canonical" href="https://rubyxqube.com/pricing" />
       </Helmet>
 
       {/* ── Header ── */}
@@ -226,3 +230,4 @@ export default function Pricing() {
     </div>
   );
 }
+

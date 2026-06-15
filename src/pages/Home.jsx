@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { XCircle, CheckCircle2, MessageCircle, ClipboardCheck, Smartphone, Clock, Palette, ArrowRight } from "lucide-react";
@@ -69,7 +69,7 @@ function ChatDemo() {
         </div>
         <div>
           <p style={{ color: "white", fontWeight: 700, fontSize: 14, margin: 0 }}>RubyxQube AI</p>
-          <p style={{ color: "rgba(255,255,255,0.80)", fontSize: 12, margin: 0 }}>Online · replies instantly</p>
+          <p style={{ color: "rgba(255,255,255,0.80)", fontSize: 12, margin: 0 }}>Online Â· replies instantly</p>
         </div>
       </div>
 
@@ -159,6 +159,7 @@ export default function Home() {
         "Custom tools: calculators, estimators, intake forms, and more",
         "Google Business Profile management",
         "Monthly AI receptionist tuning",
+        "4 blog posts/month — written, approved, and published for you",
         "Weekly check-in call (30–60 min)",
       ],
     },
@@ -171,6 +172,20 @@ export default function Home() {
         <meta name="description" content="Professional websites + AI chatbot receptionists for local service businesses in Boise, Nampa, Meridian, and the Treasure Valley. Starting at $399/mo." />
         <meta property="og:title" content="RubyxQube — Web Design & AI Receptionists for Treasure Valley Businesses" />
         <meta property="og:description" content="Professional websites + AI chatbot receptionists for local service businesses in Boise, Nampa, Meridian, and the Treasure Valley. Starting at $399/mo." />
+        <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
+        <meta property="og:url" content="https://rubyxqube.com/" />
+        <link rel="canonical" href="https://rubyxqube.com/" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": siteConfig.brand,
+          "url": siteConfig.siteUrl,
+          "telephone": siteConfig.phoneDisplay,
+          "email": siteConfig.email,
+          "address": { "@type": "PostalAddress", "addressLocality": "Nampa", "addressRegion": "ID", "addressCountry": "US" },
+          "openingHours": "Mo-Fr 08:00-18:00",
+          "areaServed": siteConfig.serviceArea
+        })}</script>
       </Helmet>
 
       {/* ── Hero ── */}
@@ -416,3 +431,4 @@ export default function Home() {
     </div>
   );
 }
+
