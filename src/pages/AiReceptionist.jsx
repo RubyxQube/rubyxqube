@@ -101,7 +101,7 @@ function ChatDemo() {
         </div>
         <div>
           <p style={{ color: "white", fontWeight: 700, fontSize: 14, margin: 0 }}>Sudz AI Receptionist</p>
-          <p style={{ color: "rgba(255,255,255,0.80)", fontSize: 12, margin: 0 }}>Powered by RubyxQube Â· replies instantly</p>
+          <p style={{ color: "rgba(255,255,255,0.80)", fontSize: 12, margin: 0 }}>Powered by RubyxQube · replies instantly</p>
         </div>
       </div>
       <div style={{ padding: "16px 14px", minHeight: 300, display: "flex", flexDirection: "column", gap: 10 }}>

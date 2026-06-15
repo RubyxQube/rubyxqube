@@ -38,7 +38,7 @@ export default function BlogList() {
             <div className="card cardHighlight" style={{ padding: "32px 36px" }}>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center", marginBottom: 16 }}>
                 <span className="badge">{featured.category}</span>
-                <span style={{ fontSize: 12, color: "var(--muted)" }}>{featured.dateDisplay} Â· {featured.readTime}</span>
+                <span style={{ fontSize: 12, color: "var(--muted)" }}>{featured.dateDisplay} · {featured.readTime}</span>
                 <span style={{ fontSize: 11, fontWeight: 700, color: "var(--accent)", letterSpacing: "0.06em", textTransform: "uppercase" }}>Featured</span>
               </div>
               <h2 style={{ fontSize: "clamp(20px, 3vw, 26px)", fontWeight: 800, margin: "0 0 14px", color: "var(--text)", lineHeight: 1.2, letterSpacing: "-0.02em" }}>{featured.title}</h2>
@@ -56,7 +56,7 @@ export default function BlogList() {
                 <div className="card" style={{ display: "flex", flexDirection: "column", gap: 12, height: "100%" }}>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center" }}>
                     <span className="badge" style={{ fontSize: 11 }}>{post.category}</span>
-                    <span style={{ fontSize: 12, color: "var(--muted)" }}>{post.dateDisplay} Â· {post.readTime}</span>
+                    <span style={{ fontSize: 12, color: "var(--muted)" }}>{post.dateDisplay} · {post.readTime}</span>
                   </div>
                   <h2 style={{ fontSize: 18, fontWeight: 700, margin: 0, color: "var(--text)", lineHeight: 1.3, flex: 1 }}>{post.title}</h2>
                   <p className="p" style={{ marginBottom: 0, fontSize: 13 }}>{post.description}</p>

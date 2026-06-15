@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+﻿import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import CTA from "../components/CTA.jsx";
@@ -545,6 +545,9 @@ export default function Designs() {
         <meta name="description" content="Browse web design styles and find the look that fits your business. RubyxQube builds custom sites for Treasure Valley service businesses." />
         <meta property="og:title" content="Pick Your Style — RubyxQube | Web Design Styles for Local Businesses" />
         <meta property="og:description" content="Browse web design styles and find the look that fits your business. RubyxQube builds custom sites for Treasure Valley service businesses." />
+        <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
+        <meta property="og:url" content="https://rubyxqube.com/designs" />
+        <link rel="canonical" href="https://rubyxqube.com/designs" />
       </Helmet>
       {/* Hero */}
       <section className="section heroSection" style={{ textAlign: "center", paddingBottom: 0 }}>
@@ -690,3 +693,4 @@ export default function Designs() {
     </>
   );
 }
+

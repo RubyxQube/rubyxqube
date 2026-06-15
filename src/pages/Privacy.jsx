@@ -1,9 +1,19 @@
-import React from "react";
+﻿import React from "react";
+import { Helmet } from "react-helmet-async";
 import { siteConfig } from "../siteConfig.js";
 
 export default function Privacy() {
   return (
     <div className="pageMinHeight">
+      <Helmet>
+        <title>Privacy Policy — RubyxQube | Web Design & AI Services</title>
+        <meta name="description" content="RubyxQube's privacy policy. Learn how we collect, use, and protect your information when you use our web design and AI receptionist services." />
+        <meta property="og:title" content="Privacy Policy — RubyxQube" />
+        <meta property="og:description" content="RubyxQube's privacy policy. Learn how we collect, use, and protect your information when you use our web design and AI receptionist services." />
+        <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
+        <meta property="og:url" content="https://rubyxqube.com/privacy" />
+        <link rel="canonical" href="https://rubyxqube.com/privacy" />
+      </Helmet>
       <section className="surface heroSurface">
         <div className="section" style={{ paddingTop: 80, paddingBottom: 48 }}>
           <span className="badge">Legal</span>
@@ -134,3 +144,4 @@ export default function Privacy() {
     </div>
   );
 }
+

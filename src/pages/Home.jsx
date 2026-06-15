@@ -69,7 +69,7 @@ function ChatDemo() {
         </div>
         <div>
           <p style={{ color: "white", fontWeight: 700, fontSize: 14, margin: 0 }}>RubyxQube AI</p>
-          <p style={{ color: "rgba(255,255,255,0.80)", fontSize: 12, margin: 0 }}>Online Â· replies instantly</p>
+          <p style={{ color: "rgba(255,255,255,0.80)", fontSize: 12, margin: 0 }}>Online · replies instantly</p>
         </div>
       </div>
 
