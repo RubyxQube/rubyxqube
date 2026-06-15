@@ -158,7 +158,6 @@ export default function Home() {
         "Unlimited edits and new pages, no monthly cap",
         "Custom tools: calculators, estimators, intake forms, and more",
         "Google Business Profile management",
-        "Monthly AI receptionist tuning",
         "4 blog posts/month — written, approved, and published for you",
         "Weekly check-in call (30–60 min)",
       ],
