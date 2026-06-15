@@ -65,6 +65,9 @@ export default function Portfolio() {
         <meta name="description" content="Recent web design and AI receptionist projects by RubyxQube — including Phoenix Stoneworks, Sudz Window and Gutter, and BastionMSP." />
         <meta property="og:title" content="Portfolio — RubyxQube | Web Design Work" />
         <meta property="og:description" content="Recent web design and AI receptionist projects by RubyxQube — including Phoenix Stoneworks, Sudz Window and Gutter, and BastionMSP." />
+        <meta property="og:image" content="https://rubyxqube.com/portfolio/psw-preview.webp" />
+        <meta property="og:url" content="https://rubyxqube.com/portfolio" />
+        <link rel="canonical" href="https://rubyxqube.com/portfolio" />
       </Helmet>
 
       {/* ── Header ── */}
@@ -80,59 +83,11 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* ── Co-Founded ── */}
-      <section className="surface">
-        <div className="section">
-          <span className="badge">Co-Founded</span>
-          <h2 className="h2" style={{ marginTop: 16, marginBottom: 36 }}>Companies I helped build</h2>
-
-          {coFounded.map((project) => (
-            <div key={project.id} className="card cardHighlight" style={{ padding: 0, overflow: "hidden", marginBottom: 24 }}>
-              {project.preview && (
-                <a href={project.links[0].href} target="_blank" rel="noreferrer">
-                  <img
-                    src={project.preview}
-                    alt={`${project.name} website screenshot`}
-                    width={1280} height={720} loading="lazy"
-                    style={{ width: "100%", height: "auto", display: "block", aspectRatio: "16/9" }}
-                  />
-                </a>
-              )}
-              <div className="featureRow" style={{ padding: 24, alignItems: "flex-start" }}>
-                <div style={{ flex: "1 1 320px" }}>
-                  <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 8 }}>{project.category}</p>
-                  <h2 className="h2" style={{ marginBottom: 8 }}>{project.name}</h2>
-                  <p className="p" style={{ marginBottom: 16 }}>{project.hook}</p>
-                  <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", gap: 6 }}>
-                    {project.tags.map(t => <Tag key={t} label={t} />)}
-                  </div>
-                </div>
-                <div style={{ flex: "1 1 200px", display: "flex", flexDirection: "column", gap: 16 }}>
-                  <div>
-                    <p style={{ fontSize: 11, fontWeight: 700, color: "var(--muted)", letterSpacing: "0.10em", textTransform: "uppercase", marginBottom: 6 }}>Role</p>
-                    <span className="badge">{project.role}</span>
-                  </div>
-                  <div>
-                    <p style={{ fontSize: 11, fontWeight: 700, color: "var(--muted)", letterSpacing: "0.10em", textTransform: "uppercase", marginBottom: 6 }}>Built with</p>
-                    <p style={{ fontSize: 13, color: "var(--muted)", margin: 0 }}>{project.tech}</p>
-                  </div>
-                  {project.links.map((link) => (
-                    <a key={link.href} className="btn primary" href={link.href} target="_blank" rel="noreferrer" style={{ justifyContent: "center" }}>
-                      {link.label} <ExternalLink size={13} style={{ marginLeft: 4, verticalAlign: "middle" }} />
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* ── Client Work ── */}
       <section className="surface">
         <div className="section">
           <span className="badge">Client work</span>
-          <h2 className="h2" style={{ marginTop: 16, marginBottom: 36 }}>Websites built for local businesses</h2>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 36 }}>Websites built and developed for local businesses</h2>
 
           <div className="grid cols-2">
             {clientWork.map((project) => (
@@ -185,6 +140,51 @@ export default function Portfolio() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* ── Co-Founded ── */}
+      <section className="surface">
+        <div className="section">
+          <span className="badge">Co-Founded</span>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 36 }}>Companies I helped build</h2>
+
+          <div className="grid cols-2">
+            {coFounded.map((project) => (
+              <div key={project.id} className="card" style={{ display: "flex", flexDirection: "column", padding: 0, overflow: "hidden" }}>
+                {project.preview && (
+                  <a href={project.links[0].href} target="_blank" rel="noreferrer">
+                    <img
+                      src={project.preview}
+                      alt={`${project.name} website screenshot`}
+                      width={1280} height={720} loading="lazy"
+                      style={{ width: "100%", height: "auto", display: "block", aspectRatio: "16/9" }}
+                    />
+                  </a>
+                )}
+                <div style={{ padding: 24, display: "flex", flexDirection: "column", flex: 1 }}>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 8 }}>{project.category}</p>
+                  <h3 className="h3" style={{ marginBottom: 8 }}>{project.name}</h3>
+                  <p className="p" style={{ fontSize: 14, marginBottom: 16 }}>{project.hook}</p>
+                  <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", gap: 6, marginBottom: 20, flex: 1 }}>
+                    {project.tags.map(t => <Tag key={t} label={t} />)}
+                  </div>
+                  <p style={{ fontSize: 12, color: "var(--muted)", marginBottom: 16 }}>{project.tech}</p>
+                  <div>
+                    <p style={{ fontSize: 11, fontWeight: 700, color: "var(--muted)", letterSpacing: "0.10em", textTransform: "uppercase", marginBottom: 6 }}>Role</p>
+                    <span className="badge" style={{ marginBottom: 16, display: "inline-block" }}>{project.role}</span>
+                  </div>
+                  <div className="btnRow">
+                    {project.links.map((link) => (
+                      <a key={link.href} className="btn primary" href={link.href} target="_blank" rel="noreferrer">
+                        {link.label} <ExternalLink size={13} style={{ marginLeft: 4, verticalAlign: "middle" }} />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
