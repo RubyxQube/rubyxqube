@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { MessageCircle, Smartphone, Bell, Wrench, CheckCircle2, Zap, ShieldCheck, BarChart3 } from "lucide-react";
@@ -101,7 +101,7 @@ function ChatDemo() {
         </div>
         <div>
           <p style={{ color: "white", fontWeight: 700, fontSize: 14, margin: 0 }}>Sudz AI Receptionist</p>
-          <p style={{ color: "rgba(255,255,255,0.80)", fontSize: 12, margin: 0 }}>Powered by RubyxQube · replies instantly</p>
+          <p style={{ color: "rgba(255,255,255,0.80)", fontSize: 12, margin: 0 }}>Powered by RubyxQube Â· replies instantly</p>
         </div>
       </div>
       <div style={{ padding: "16px 14px", minHeight: 300, display: "flex", flexDirection: "column", gap: 10 }}>
@@ -139,9 +139,12 @@ export default function AiReceptionist() {
     <div className="pageMinHeight">
       <Helmet>
         <title>AI Receptionist for Small Businesses — RubyxQube | Boise, ID</title>
-        <meta name="description" content="24/7 AI receptionist for Treasure Valley service businesses. Captures leads, answers questions, sends instant SMS alerts. Powered by Claude (Anthropic). Included in Autopilot from $399/mo." />
+        <meta name="description" content="24/7 AI receptionist for Treasure Valley businesses. Captures leads, answers questions, and sends instant alerts. Powered by Claude. Included in Autopilot from $399/mo." />
         <meta property="og:title" content="AI Receptionist for Small Businesses — RubyxQube" />
         <meta property="og:description" content="24/7 AI receptionist that captures leads, answers questions, and sends instant SMS alerts. Included in every Autopilot & Momentum plan." />
+        <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
+        <meta property="og:url" content="https://rubyxqube.com/ai-receptionist" />
+        <link rel="canonical" href="https://rubyxqube.com/ai-receptionist" />
       </Helmet>
 
       {/* ── Hero ── */}
@@ -149,8 +152,7 @@ export default function AiReceptionist() {
         <div className="heroSection">
           <span className="badge" style={{ textAlign: "center", marginBottom: 20 }}>Included in Autopilot & Momentum</span>
           <h1 className="h1 heroTitle">
-            The AI that works your<br />
-            <span className="accentText">front desk while you're in the field.</span>
+            The AI that works your <span className="accentText">front desk while you're in the field.</span>
           </h1>
           <p className="p" style={{ fontSize: 17, maxWidth: 560, marginBottom: 32 }}>
             A custom-trained AI receptionist built into your site from day one. It answers questions, qualifies leads, and texts you the moment someone's ready to book — 24/7, with no monthly fees beyond your plan.
@@ -378,3 +380,4 @@ export default function AiReceptionist() {
     </div>
   );
 }
+
