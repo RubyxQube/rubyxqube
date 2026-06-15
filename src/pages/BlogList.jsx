@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowRight } from "lucide-react";
@@ -16,13 +16,15 @@ export default function BlogList() {
         <meta name="description" content="Web design advice, AI tools, and lead generation insights for Treasure Valley small businesses. Written by RubyxQube — Boise's AI-first web agency." />
         <meta property="og:title" content="Blog — RubyxQube | Boise Web Design & AI Insights" />
         <meta property="og:description" content="Web design advice, AI tools, and lead generation insights for Treasure Valley small businesses." />
+        <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
+        <meta property="og:url" content="https://rubyxqube.com/blog" />
         <link rel="canonical" href={`${siteConfig.siteUrl}/blog`} />
       </Helmet>
 
       <section className="surface heroSurface">
         <div className="heroSection">
           <span className="badge" style={{ marginBottom: 20 }}>From the RubyxQube team</span>
-          <h1 className="h1 heroTitle">Web design and AI insights for {siteConfig.serviceArea} businesses.</h1>
+          <h1 className="h1 heroTitle"><span className="accentText">Web design</span> and AI insights for {siteConfig.serviceArea} businesses.</h1>
           <p className="p" style={{ fontSize: 17, maxWidth: 520 }}>
             Honest advice on websites, lead generation, and AI tools — written for local service businesses, not tech companies.
           </p>
@@ -36,7 +38,7 @@ export default function BlogList() {
             <div className="card cardHighlight" style={{ padding: "32px 36px" }}>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center", marginBottom: 16 }}>
                 <span className="badge">{featured.category}</span>
-                <span style={{ fontSize: 12, color: "var(--muted)" }}>{featured.dateDisplay} · {featured.readTime}</span>
+                <span style={{ fontSize: 12, color: "var(--muted)" }}>{featured.dateDisplay} Â· {featured.readTime}</span>
                 <span style={{ fontSize: 11, fontWeight: 700, color: "var(--accent)", letterSpacing: "0.06em", textTransform: "uppercase" }}>Featured</span>
               </div>
               <h2 style={{ fontSize: "clamp(20px, 3vw, 26px)", fontWeight: 800, margin: "0 0 14px", color: "var(--text)", lineHeight: 1.2, letterSpacing: "-0.02em" }}>{featured.title}</h2>
@@ -54,7 +56,7 @@ export default function BlogList() {
                 <div className="card" style={{ display: "flex", flexDirection: "column", gap: 12, height: "100%" }}>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center" }}>
                     <span className="badge" style={{ fontSize: 11 }}>{post.category}</span>
-                    <span style={{ fontSize: 12, color: "var(--muted)" }}>{post.dateDisplay} · {post.readTime}</span>
+                    <span style={{ fontSize: 12, color: "var(--muted)" }}>{post.dateDisplay} Â· {post.readTime}</span>
                   </div>
                   <h2 style={{ fontSize: 18, fontWeight: 700, margin: 0, color: "var(--text)", lineHeight: 1.3, flex: 1 }}>{post.title}</h2>
                   <p className="p" style={{ marginBottom: 0, fontSize: 13 }}>{post.description}</p>
@@ -82,3 +84,4 @@ export default function BlogList() {
     </div>
   );
 }
+
