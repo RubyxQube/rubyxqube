@@ -139,6 +139,7 @@ export default function Home() {
         "No setup fee — 5–10 page custom site, built and launched",
         "Analytics + Search Console setup included",
         "Custom AI receptionist — answers questions, captures leads 24/7",
+        "Unlimited conversations, no per-chat fees",
         "Instant SMS alert on every new lead",
         "Monthly report: traffic, chats, leads captured",
         "60 min/month of site updates",
