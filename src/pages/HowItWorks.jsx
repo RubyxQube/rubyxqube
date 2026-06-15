@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { CheckCircle2, Zap, BarChart2, MessageSquare, Clock, RefreshCw, Shield, HelpCircle } from "lucide-react";
@@ -141,6 +141,9 @@ export default function HowItWorks() {
         <meta name="description" content="See exactly how RubyxQube builds and manages your website - from first call to launch and beyond. Transparent process, no surprises." />
         <meta property="og:title" content="How It Works — RubyxQube | Simple Web Design Process" />
         <meta property="og:description" content="See exactly how RubyxQube builds and manages your website - from first call to launch and beyond. Transparent process, no surprises." />
+        <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
+        <meta property="og:url" content="https://rubyxqube.com/how-it-works" />
+        <link rel="canonical" href="https://rubyxqube.com/how-it-works" />
       </Helmet>
 
       {/* ── Hero ── */}
@@ -148,7 +151,7 @@ export default function HowItWorks() {
         <div className="section" style={{ paddingTop: 80, paddingBottom: 64 }}>
           <span className="badge">For clients and prospects</span>
           <h1 className="h1" style={{ marginTop: 16, maxWidth: "22ch" }}>
-            What you get — and <span className="accentText">exactly how it works.</span>
+            What you get, and <span className="accentText">exactly how it works.</span>
           </h1>
           <p className="p" style={{ maxWidth: 560, fontSize: 17 }}>
             No vague "web presence solutions." Here's precisely what's included, how the process works, and what happens month to month.
@@ -265,3 +268,4 @@ export default function HowItWorks() {
     </div>
   );
 }
+
