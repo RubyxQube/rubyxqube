@@ -6,8 +6,10 @@ import { posts } from "../blog/posts.js";
 import { siteConfig } from "../siteConfig.js";
 
 export default function BlogList() {
-  const featured = posts[0];
-  const rest = posts.slice(1);
+  const today = new Date();
+  const published = posts.filter(p => new Date(p.date + "T09:00:00") <= today);
+  const featured = published[0];
+  const rest = published.slice(1);
 
   return (
     <div className="pageMinHeight">

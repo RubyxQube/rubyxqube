@@ -2,8 +2,39 @@ import BoiseWebsiteCost from "./posts/boise-website-cost.jsx";
 import AiChatbotVsAnswering from "./posts/ai-chatbot-vs-answering.jsx";
 import HvacLeadCapture from "./posts/hvac-lead-capture.jsx";
 import WixRebuildSudz from "./posts/wix-rebuild-sudz.jsx";
+import BoisePlumbingWebsiteMobile from "./posts/boise-plumbing-website-mobile.jsx";
+import GoogleBusinessProfileTreasureValley from "./posts/google-business-profile-treasure-valley.jsx";
+import LocalSeoBoise from "./posts/local-seo-boise-service-businesses.jsx";
+import LandscapingNampaGoogle from "./posts/landscaping-nampa-google.jsx";
+import BoiseRoofingWebsiteMistakes from "./posts/boise-roofing-website-mistakes.jsx";
+import AfterHoursLeadCapture from "./posts/after-hours-lead-capture.jsx";
+import GoogleReviewsTreasureValley from "./posts/google-reviews-treasure-valley.jsx";
+import ServiceAreaPagesSeo from "./posts/service-area-pages-seo.jsx";
+import PressureWashingWebsiteBoise from "./posts/pressure-washing-website-boise.jsx";
+import PestControlLeadCapture from "./posts/pest-control-lead-capture.jsx";
+import GoogleAnalyticsSearchConsole from "./posts/google-analytics-search-console.jsx";
+import TreeServiceWebsite from "./posts/tree-service-website-treasure-valley.jsx";
+import MobileFirstWebsiteNampa from "./posts/mobile-first-website-nampa.jsx";
+import EagleIdahoLocalSearch from "./posts/eagle-idaho-local-search.jsx";
+import ElectriciansBoisWebsite from "./posts/electricians-boise-website.jsx";
+import GarageDoorBoiseLeads from "./posts/garage-door-boise-leads.jsx";
+import WebsiteHostingBoise from "./posts/website-hosting-boise-businesses.jsx";
+import RespondToNegativeReviews from "./posts/respond-to-negative-reviews.jsx";
+import StoneMasonryWebsiteBoise from "./posts/stone-masonry-website-boise.jsx";
+import CarpetCleaningMeridianLeads from "./posts/carpet-cleaning-meridian-leads.jsx";
+import CaldwellIdahoLocalSeo from "./posts/caldwell-idaho-local-seo.jsx";
+import GoogleAdsVsSeoBoise from "./posts/google-ads-vs-seo-boise.jsx";
+import WindowCleaningBoiseGoogle from "./posts/window-cleaning-boise-google.jsx";
+import HomepageConvertsVisitors from "./posts/homepage-converts-visitors.jsx";
+import IsYourWebsiteBringingLeads from "./posts/is-your-website-bringing-leads.jsx";
+import HandymanWebsiteTreasureValley from "./posts/handyman-website-treasure-valley.jsx";
+import ServicePagesSeo from "./posts/service-pages-seo-boise.jsx";
+import PaintingContractorsBoise from "./posts/painting-contractors-boise.jsx";
+import AiReceptionistVsContactForm from "./posts/ai-receptionist-vs-contact-form.jsx";
+import WebsiteThatGetsCalls from "./posts/website-that-gets-calls.jsx";
 
 export const posts = [
+  // ── Live now ──
   {
     slug: "how-much-does-a-website-cost-boise-idaho",
     title: "How Much Does a Website Cost in Boise, Idaho? (2026 Guide)",
@@ -51,5 +82,307 @@ export const posts = [
     coverImage: "/blog/wix-to-custom.webp",
     coverAlt: "Before and after comparison of Sudz Window Cleaning website redesign",
     Component: WixRebuildSudz,
+  },
+
+  // ── Scheduled — one per Monday ──
+  {
+    slug: "boise-plumbing-website-mobile",
+    title: "Does Your Boise Plumbing Website Work on a Phone? Here's How to Check",
+    description: "More than half of local service searches happen on a phone. If your plumbing site is slow, hard to tap, or unreadable without zooming, you're losing calls every day. Here's how to find out.",
+    date: "2026-06-22",
+    dateDisplay: "June 22, 2026",
+    readTime: "4 min read",
+    category: "Web Design",
+    Component: BoisePlumbingWebsiteMobile,
+  },
+  {
+    slug: "google-business-profile-treasure-valley-contractors",
+    title: "How Google Business Profile Works for Treasure Valley Contractors",
+    description: "The local map pack drives a large share of service business calls. Here's what Google Business Profile actually does, why it matters, and how to set it up correctly.",
+    date: "2026-06-29",
+    dateDisplay: "June 29, 2026",
+    readTime: "5 min read",
+    category: "Lead Generation",
+    Component: GoogleBusinessProfileTreasureValley,
+  },
+  {
+    slug: "local-seo-boise-service-businesses",
+    title: "Local SEO for Service Businesses: What Actually Moves the Needle in Boise",
+    description: "Local SEO for service businesses is different from general SEO. Here's what Google actually uses to rank local contractors, and what you can do today to improve your position.",
+    date: "2026-07-06",
+    dateDisplay: "July 6, 2026",
+    readTime: "5 min read",
+    category: "Web Design",
+    Component: LocalSeoBoise,
+  },
+  {
+    slug: "landscaping-nampa-google",
+    title: "Why Landscaping Companies in Nampa Are Invisible on Google",
+    description: "Landscaping searches in Nampa are high-intent and underserved. Here's why most local landscaping companies don't rank, and the specific fixes that change that.",
+    date: "2026-07-13",
+    dateDisplay: "July 13, 2026",
+    readTime: "4 min read",
+    category: "Lead Generation",
+    Component: LandscapingNampaGoogle,
+  },
+  {
+    slug: "boise-roofing-website-mistakes",
+    title: "5 Things Boise Roofing Websites Get Wrong",
+    description: "Roofing is one of the most competitive local search categories in Boise. These five mistakes are costing roofing companies leads every week, and all of them are fixable.",
+    date: "2026-07-20",
+    dateDisplay: "July 20, 2026",
+    readTime: "4 min read",
+    category: "Web Design",
+    Component: BoiseRoofingWebsiteMistakes,
+  },
+  {
+    slug: "after-hours-lead-capture-service-businesses",
+    title: "What Happens When a Customer Finds Your Site at 11pm",
+    description: "Most local service searches happen outside business hours. The company that captures that inquiry first wins the job. Here's what that looks like in practice.",
+    date: "2026-07-27",
+    dateDisplay: "July 27, 2026",
+    readTime: "4 min read",
+    category: "Lead Generation",
+    Component: AfterHoursLeadCapture,
+  },
+  {
+    slug: "google-reviews-treasure-valley-businesses",
+    title: "How to Get More Google Reviews for Your Treasure Valley Business",
+    description: "Reviews are a direct local search ranking signal and one of the biggest trust factors for new customers. Here's a practical system for building review volume consistently.",
+    date: "2026-08-03",
+    dateDisplay: "August 3, 2026",
+    readTime: "4 min read",
+    category: "Lead Generation",
+    Component: GoogleReviewsTreasureValley,
+  },
+  {
+    slug: "service-area-pages-local-seo-boise",
+    title: "What Makes a Service Area Page Actually Rank on Google",
+    description: "If you serve multiple cities in the Treasure Valley, a single service area list won't rank. Here's what dedicated location pages need to do to show up in city-specific searches.",
+    date: "2026-08-10",
+    dateDisplay: "August 10, 2026",
+    readTime: "4 min read",
+    category: "Web Design",
+    Component: ServiceAreaPagesSeo,
+  },
+  {
+    slug: "pressure-washing-website-boise",
+    title: "Pressure Washing Business Website Mistakes Boise Owners Make",
+    description: "Pressure washing is visual, seasonal, and highly local. Here's what most Boise pressure washing sites are missing and how to fix it to capture more warm-weather leads.",
+    date: "2026-08-17",
+    dateDisplay: "August 17, 2026",
+    readTime: "4 min read",
+    category: "Web Design",
+    Component: PressureWashingWebsiteBoise,
+  },
+  {
+    slug: "pest-control-lead-capture-treasure-valley",
+    title: "Why Pest Control Companies Lose Leads After Hours",
+    description: "Pest problems don't happen on a schedule. If your pest control website can't capture inquiries at 9pm on a Saturday, you're losing those jobs to competitors who can.",
+    date: "2026-08-24",
+    dateDisplay: "August 24, 2026",
+    readTime: "4 min read",
+    category: "Lead Generation",
+    Component: PestControlLeadCapture,
+  },
+  {
+    slug: "google-analytics-search-console-boise",
+    title: "Google Analytics vs. Search Console: What Each One Tells Your Boise Business",
+    description: "These two free tools show completely different things about your website's performance. Here's what each one does and how to use them together to improve your results.",
+    date: "2026-08-31",
+    dateDisplay: "August 31, 2026",
+    readTime: "5 min read",
+    category: "Web Design",
+    Component: GoogleAnalyticsSearchConsole,
+  },
+  {
+    slug: "tree-service-website-treasure-valley",
+    title: "Is Your Treasure Valley Tree Service Website Helping or Hurting?",
+    description: "Tree service is high-trust and high-ticket. Here's what a tree service website needs to show to build that trust quickly and capture emergency and planned service leads.",
+    date: "2026-09-07",
+    dateDisplay: "September 7, 2026",
+    readTime: "4 min read",
+    category: "Web Design",
+    Component: TreeServiceWebsite,
+  },
+  {
+    slug: "mobile-first-website-nampa-service-business",
+    title: "What a Mobile-First Website Actually Means for a Nampa Service Business",
+    description: "Mobile-first isn't just a design trend — it's how Google indexes and ranks your site. Here's what it means technically and what it looks like for a local service business.",
+    date: "2026-09-14",
+    dateDisplay: "September 14, 2026",
+    readTime: "4 min read",
+    category: "Web Design",
+    Component: MobileFirstWebsiteNampa,
+  },
+  {
+    slug: "eagle-idaho-local-search-ranking",
+    title: "How Eagle, Idaho Businesses Can Rank Higher in Local Search",
+    description: "Eagle is one of the fastest-growing cities in Idaho and an underserved local search market. Here's a focused approach to ranking for Eagle-specific service searches.",
+    date: "2026-09-21",
+    dateDisplay: "September 21, 2026",
+    readTime: "4 min read",
+    category: "Lead Generation",
+    Component: EagleIdahoLocalSearch,
+  },
+  {
+    slug: "electricians-boise-need-real-website",
+    title: "Why Electricians in Boise Need More Than a Facebook Page",
+    description: "Facebook doesn't rank in Google search. If your electrical business runs primarily on a Facebook page, here's what you're missing and what a real website would change.",
+    date: "2026-09-28",
+    dateDisplay: "September 28, 2026",
+    readTime: "4 min read",
+    category: "Web Design",
+    Component: ElectriciansBoisWebsite,
+  },
+  {
+    slug: "garage-door-boise-website-leads",
+    title: "How Garage Door Companies Lose Jobs to Competitors With Better Websites",
+    description: "Garage door calls are often urgent and decided in seconds. Here's what separates the Boise garage door companies that win those calls from the ones that don't.",
+    date: "2026-10-05",
+    dateDisplay: "October 5, 2026",
+    readTime: "4 min read",
+    category: "Lead Generation",
+    Component: GarageDoorBoiseLeads,
+  },
+  {
+    slug: "website-hosting-explained-boise-businesses",
+    title: "What Is Website Hosting and Why It Matters for Your Boise Business",
+    description: "Cheap hosting quietly hurts your search rankings and drives visitors away. Here's a plain-language explanation of what hosting does and what to look for.",
+    date: "2026-10-12",
+    dateDisplay: "October 12, 2026",
+    readTime: "4 min read",
+    category: "Web Design",
+    Component: WebsiteHostingBoise,
+  },
+  {
+    slug: "respond-to-negative-google-reviews",
+    title: "How to Respond to Negative Google Reviews Without Making It Worse",
+    description: "Every service business gets a bad review eventually. How you respond to it matters more than most owners realize. Here's a straightforward approach that builds trust.",
+    date: "2026-10-19",
+    dateDisplay: "October 19, 2026",
+    readTime: "4 min read",
+    category: "Lead Generation",
+    Component: RespondToNegativeReviews,
+  },
+  {
+    slug: "stone-masonry-website-boise",
+    title: "Stone and Masonry Businesses in Boise: What Your Website Should Show",
+    description: "Masonry work sells itself visually. Here's what a stone and masonry website needs to show potential customers, and how to structure it to rank for the searches that matter.",
+    date: "2026-10-26",
+    dateDisplay: "October 26, 2026",
+    readTime: "4 min read",
+    category: "Web Design",
+    Component: StoneMasonryWebsiteBoise,
+  },
+  {
+    slug: "carpet-cleaning-meridian-lead-capture",
+    title: "Why Carpet Cleaning Companies in Meridian Need 24/7 Lead Capture",
+    description: "Carpet cleaning decisions often happen in the evening after a mess or before guests arrive. Here's how Meridian carpet cleaning companies can capture those after-hours inquiries.",
+    date: "2026-11-02",
+    dateDisplay: "November 2, 2026",
+    readTime: "4 min read",
+    category: "Lead Generation",
+    Component: CarpetCleaningMeridianLeads,
+  },
+  {
+    slug: "caldwell-idaho-local-seo",
+    title: "What Caldwell, Idaho Businesses Should Know About Local Search",
+    description: "Caldwell is growing fast and underserved in local search. Service businesses willing to target it specifically can rank well with focused effort most competitors aren't making.",
+    date: "2026-11-09",
+    dateDisplay: "November 9, 2026",
+    readTime: "4 min read",
+    category: "Lead Generation",
+    Component: CaldwellIdahoLocalSeo,
+  },
+  {
+    slug: "google-ads-vs-seo-boise-contractors",
+    title: "Google Ads vs. SEO: A Straight Answer for Boise Contractors",
+    description: "Should you run Google Ads or focus on SEO? The honest answer depends on where your business is and what you need. Here's a clear breakdown without the agency spin.",
+    date: "2026-11-16",
+    dateDisplay: "November 16, 2026",
+    readTime: "5 min read",
+    category: "Web Design",
+    Component: GoogleAdsVsSeoBoise,
+  },
+  {
+    slug: "window-cleaning-boise-found-on-google",
+    title: "How Window Cleaning Companies in Boise Get Found on Google",
+    description: "Window cleaning is recurring, relationship-based, and highly local. Here's what it takes to show up when Boise homeowners search for it, including seasonal timing that most sites miss.",
+    date: "2026-11-23",
+    dateDisplay: "November 23, 2026",
+    readTime: "4 min read",
+    category: "Lead Generation",
+    Component: WindowCleaningBoiseGoogle,
+  },
+  {
+    slug: "homepage-converts-visitors-to-calls",
+    title: "What Makes a Homepage Actually Convert Visitors Into Calls",
+    description: "A homepage that looks good and a homepage that generates calls are not the same thing. Here's what the difference comes down to for service businesses in the Treasure Valley.",
+    date: "2026-11-30",
+    dateDisplay: "November 30, 2026",
+    readTime: "4 min read",
+    category: "Web Design",
+    Component: HomepageConvertsVisitors,
+  },
+  {
+    slug: "is-your-website-bringing-in-leads",
+    title: "How to Know If Your Website Is Actually Bringing In Leads",
+    description: "Most service business owners don't have clear data on whether their site is generating leads. Here's how to find out using free tools, and what to do with what you find.",
+    date: "2026-12-07",
+    dateDisplay: "December 7, 2026",
+    readTime: "4 min read",
+    category: "Web Design",
+    Component: IsYourWebsiteBringingLeads,
+  },
+  {
+    slug: "handyman-business-website-treasure-valley",
+    title: "Why Handyman Businesses in the Treasure Valley Need a Real Website",
+    description: "Most handyman operators rely on referrals alone. Here's why building a simple web presence opens a consistent inbound lead channel that referrals can't match.",
+    date: "2026-12-14",
+    dateDisplay: "December 14, 2026",
+    readTime: "4 min read",
+    category: "Web Design",
+    Component: HandymanWebsiteTreasureValley,
+  },
+  {
+    slug: "service-pages-seo-boise",
+    title: "What to Put on Your Service Pages to Rank in Boise",
+    description: "Service pages are what actually rank for the searches that produce calls. Here's what each service page needs to do its job in local search.",
+    date: "2026-12-21",
+    dateDisplay: "December 21, 2026",
+    readTime: "4 min read",
+    category: "Web Design",
+    Component: ServicePagesSeo,
+  },
+  {
+    slug: "painting-contractors-boise-online",
+    title: "How Painting Contractors in Boise Can Stand Out Online",
+    description: "Painting is competitive in the Treasure Valley. Here's how to use your website to build the visual proof and local visibility that brings in more bids.",
+    date: "2026-12-28",
+    dateDisplay: "December 28, 2026",
+    readTime: "4 min read",
+    category: "Web Design",
+    Component: PaintingContractorsBoise,
+  },
+  {
+    slug: "ai-receptionist-vs-contact-form",
+    title: "AI Receptionist vs. Contact Form: What Actually Captures More Leads",
+    description: "Both sit on your website and collect customer information, but they produce very different results. Here's a direct comparison for Treasure Valley service businesses.",
+    date: "2027-01-05",
+    dateDisplay: "January 5, 2027",
+    readTime: "5 min read",
+    category: "AI Tools",
+    Component: AiReceptionistVsContactForm,
+  },
+  {
+    slug: "website-that-gets-calls-boise",
+    title: "The Difference Between a Website That Looks Good and One That Gets Calls",
+    description: "Many Boise service businesses have professional-looking sites that don't ring the phone. Here's what separates a site that looks good from one that actually generates calls.",
+    date: "2027-01-12",
+    dateDisplay: "January 12, 2027",
+    readTime: "4 min read",
+    category: "Web Design",
+    Component: WebsiteThatGetsCalls,
   },
 ];
