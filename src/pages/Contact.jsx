@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Helmet } from "react-helmet-async";
 import { CheckCircle2, ExternalLink } from "lucide-react";
 import { siteConfig } from "../siteConfig.js";
@@ -131,6 +131,9 @@ export default function Contact() {
         <meta name="description" content="Ready to get started? Tell us about your Treasure Valley business and we'll put together a free proposal for your new website." />
         <meta property="og:title" content="Get a Free Quote — RubyxQube | Treasure Valley Web Design" />
         <meta property="og:description" content="Ready to get started? Tell us about your Treasure Valley business and we'll put together a free proposal for your new website." />
+        <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
+        <meta property="og:url" content="https://rubyxqube.com/contact" />
+        <link rel="canonical" href="https://rubyxqube.com/contact" />
       </Helmet>
       <section className="surface heroSurface">
       <div className="section" style={{ paddingTop: 80, paddingBottom: 80 }}>
@@ -153,9 +156,9 @@ export default function Contact() {
               href={siteConfig.bookingUrl}
               target="_blank"
               rel="noreferrer"
-              style={{ display: "block", textAlign: "center", marginTop: 8 }}
+              style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, marginTop: 8 }}
             >
-              Schedule a Call Directly <ExternalLink size={13} style={{ marginLeft: 4, verticalAlign: "middle" }} />
+              Schedule a Call Directly <ExternalLink size={13} />
             </a>
             <div className="hr" />
             <p className="small" style={{ marginBottom: 0 }}>
@@ -418,3 +421,4 @@ export default function Contact() {
     </div>
   );
 }
+
