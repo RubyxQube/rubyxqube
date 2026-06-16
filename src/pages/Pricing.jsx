@@ -131,7 +131,13 @@ export default function Pricing() {
       <section className="surface">
         <div className="section">
           <div className="grid cols-3">
-            {packages.map((p) => <PackageCard key={p.name} {...p} />)}
+            {packages.map((p) => (
+              <PackageCard
+                key={p.name}
+                {...p}
+                checkoutPlan={p.name === "Autopilot" ? "autopilot" : p.name === "Momentum" ? "momentum" : undefined}
+              />
+            ))}
           </div>
           <p className="p" style={{ marginTop: 28, textAlign: "center", marginBottom: 0 }}>
             Need something outside these packages?{" "}
