@@ -14,6 +14,7 @@ import Report from "./pages/Report.jsx";
 import Designs from "./pages/Designs.jsx";
 import HowItWorks from "./pages/HowItWorks.jsx";
 import Sign from "./pages/Sign.jsx";
+import PaymentSuccess from "./pages/PaymentSuccess.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
 // Feature pages
@@ -39,7 +40,7 @@ import DentalWebDesign from "./pages/DentalWebDesign.jsx";
 export default function App() {
   return (
     <Routes>
-      {/* Contract signing — standalone page, no navbar/footer */}
+      {/* Standalone pages — no navbar/footer */}
       <Route path="/sign/:token" element={<Sign />} />
 
       <Route element={<Layout />}>
@@ -57,6 +58,7 @@ export default function App() {
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/report" element={<Report />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/payment-success" element={<PaymentSuccess />} />
 
         {/* Feature pages */}
         <Route path="/ai-receptionist" element={<AiReceptionist />} />

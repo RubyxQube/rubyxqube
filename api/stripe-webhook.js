@@ -59,6 +59,89 @@ async function notify({ title, body, priority = "default", tags = "bell" }) {
   ]);
 }
 
+// ─── Client-facing emails ─────────────────────────────────────────────────────
+
+async function sendClientPaymentConfirmation(invoice, amountFormatted) {
+  const { RESEND_API_KEY } = process.env;
+  if (!RESEND_API_KEY) return;
+  const period = invoice.lines?.data?.[0]?.description || "this month";
+  const html = `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#f5f0ea;font-family:Arial,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f0ea;padding:40px 20px;">
+<tr><td align="center"><table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
+<tr><td style="background:#080808;border-radius:12px 12px 0 0;padding:28px 40px;">
+  <span style="font-size:22px;font-weight:800;color:#fff;">RubyxQube</span>
+  <span style="font-size:11px;font-weight:700;color:#e11d48;letter-spacing:0.12em;text-transform:uppercase;display:block;margin-top:4px;">LLC</span>
+</td></tr>
+<tr><td style="background:#fff;padding:36px 40px;">
+  <h1 style="font-size:22px;font-weight:800;color:#111827;margin:0 0 16px;">Payment received — thank you.</h1>
+  <p style="font-size:15px;color:#374151;line-height:1.7;margin:0 0 16px;">
+    We received your payment of <strong>${amountFormatted}</strong> for <strong>${period}</strong>. Your subscription is active and nothing else is needed from you.
+  </p>
+  <p style="font-size:14px;color:#6b7280;line-height:1.7;margin:0 0 24px;">
+    You'll receive a detailed receipt from Stripe separately. Questions about your invoice? Just reply to this email.
+  </p>
+  <p style="font-size:14px;color:#6b7280;">Invoice: ${invoice.number || invoice.id}</p>
+</td></tr>
+<tr><td style="background:#080808;border-radius:0 0 12px 12px;padding:20px 40px;">
+  <div style="font-size:12px;color:rgba(255,255,255,0.5);">Boyd Querubin · RubyxQube LLC · boyd@rubyxqube.com · rubyxqube.com</div>
+</td></tr>
+</table></td></tr></table>
+</body></html>`;
+  await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      from: "Boyd Querubin <boyd@rubyxqube.com>",
+      to: [invoice.customer_email],
+      reply_to: "boyd@rubyxqube.com",
+      subject: `Payment received — ${amountFormatted} — RubyxQube`,
+      html,
+    }),
+  }).catch(err => console.error("Resend client payment email error:", err.message));
+}
+
+async function sendClientPaymentFailed(invoice, amountFormatted) {
+  const { RESEND_API_KEY } = process.env;
+  if (!RESEND_API_KEY) return;
+  const html = `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#f5f0ea;font-family:Arial,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f0ea;padding:40px 20px;">
+<tr><td align="center"><table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
+<tr><td style="background:#080808;border-radius:12px 12px 0 0;padding:28px 40px;">
+  <span style="font-size:22px;font-weight:800;color:#fff;">RubyxQube</span>
+  <span style="font-size:11px;font-weight:700;color:#e11d48;letter-spacing:0.12em;text-transform:uppercase;display:block;margin-top:4px;">LLC</span>
+</td></tr>
+<tr><td style="background:#fff;padding:36px 40px;">
+  <h1 style="font-size:22px;font-weight:800;color:#111827;margin:0 0 16px;">Action needed — payment unsuccessful.</h1>
+  <p style="font-size:15px;color:#374151;line-height:1.7;margin:0 0 16px;">
+    We were unable to process your payment of <strong>${amountFormatted}</strong>. This is usually caused by an expired card or insufficient funds.
+  </p>
+  <p style="font-size:14px;color:#6b7280;line-height:1.7;margin:0 0 24px;">
+    Stripe will automatically retry. To update your payment method, reply to this email and Boyd will send you a secure link — it takes less than 2 minutes.
+  </p>
+  <p style="font-size:14px;color:#6b7280;">
+    If you have questions, reply here or call <a href="tel:+12089708624" style="color:#e11d48;">(208) 970-8624</a>.
+  </p>
+</td></tr>
+<tr><td style="background:#080808;border-radius:0 0 12px 12px;padding:20px 40px;">
+  <div style="font-size:12px;color:rgba(255,255,255,0.5);">Boyd Querubin · RubyxQube LLC · boyd@rubyxqube.com · rubyxqube.com</div>
+</td></tr>
+</table></td></tr></table>
+</body></html>`;
+  await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      from: "Boyd Querubin <boyd@rubyxqube.com>",
+      to: [invoice.customer_email],
+      reply_to: "boyd@rubyxqube.com",
+      subject: "Action needed — payment unsuccessful — RubyxQube",
+      html,
+    }),
+  }).catch(err => console.error("Resend payment failed email error:", err.message));
+}
+
 // ─── Handler ──────────────────────────────────────────────────────────────────
 
 export default async function handler(req, res) {
@@ -113,6 +196,7 @@ export default async function handler(req, res) {
         priority: "high",
         tags: "white_check_mark,moneybag",
       });
+      if (data.customer_email) await sendClientPaymentConfirmation(data, amount);
       break;
     }
 
@@ -125,6 +209,7 @@ export default async function handler(req, res) {
         priority: "urgent",
         tags: "rotating_light,x",
       });
+      if (data.customer_email) await sendClientPaymentFailed(data, amount);
       break;
     }
 
