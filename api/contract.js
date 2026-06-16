@@ -125,6 +125,68 @@ async function sendSigningAlerts(contract, signedName) {
   }
 }
 
+// ─── Welcome email to client ──────────────────────────────────────────────────
+
+async function sendClientWelcomeEmail(contract, signedName) {
+  const { RESEND_API_KEY } = process.env;
+  if (!RESEND_API_KEY || !contract.clientEmail) return;
+
+  const firstName = signedName.split(" ")[0];
+
+  const html = `<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#f5f0ea;font-family:'Plus Jakarta Sans',Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f0ea;padding:40px 20px;">
+    <tr><td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
+        <tr><td style="background:#080808;border-radius:12px 12px 0 0;padding:28px 40px;">
+          <span style="font-size:22px;font-weight:800;color:#ffffff;">RubyxQube</span>
+          <span style="font-size:11px;font-weight:700;color:#e11d48;letter-spacing:0.12em;text-transform:uppercase;display:block;margin-top:4px;">LLC</span>
+        </td></tr>
+        <tr><td style="background:#ffffff;padding:36px 40px;">
+          <h1 style="font-size:24px;font-weight:800;color:#111827;margin:0 0 16px;">You're in, ${firstName}.</h1>
+          <p style="font-size:15px;color:#374151;line-height:1.7;margin:0 0 16px;">
+            Your <strong>${contract.package} agreement</strong> is signed and on file. I'll be in touch within 24 hours to kick things off.
+          </p>
+          <p style="font-size:14px;color:#6b7280;line-height:1.7;margin:0 0 24px;">
+            In the meantime, it helps to have these ready:
+          </p>
+          <ul style="padding-left:20px;margin:0 0 24px;">
+            <li style="font-size:14px;color:#374151;margin-bottom:8px;">Your logo files (PNG or SVG, any size)</li>
+            <li style="font-size:14px;color:#374151;margin-bottom:8px;">5–10 photos of your work or business</li>
+            <li style="font-size:14px;color:#374151;margin-bottom:8px;">Your services list with rough pricing</li>
+            <li style="font-size:14px;color:#374151;margin-bottom:8px;">The cities or zip codes you serve</li>
+            <li style="font-size:14px;color:#374151;margin-bottom:8px;">Your hours of operation</li>
+          </ul>
+          <p style="font-size:14px;color:#6b7280;line-height:1.7;margin:0;">
+            Questions before then? Reply to this email or text me at (208) 970-8624.
+          </p>
+        </td></tr>
+        <tr><td style="background:#080808;border-radius:0 0 12px 12px;padding:20px 40px;">
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);">
+            Boyd Querubin · RubyxQube LLC · boyd@rubyxqube.com · rubyxqube.com
+          </div>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`;
+
+  await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      from: "Boyd Querubin <boyd@rubyxqube.com>",
+      to: [contract.clientEmail],
+      reply_to: "boyd@rubyxqube.com",
+      subject: `You're signed — ${contract.package} with RubyxQube`,
+      html,
+    }),
+  });
+}
+
 // ─── Handler ──────────────────────────────────────────────────────────────────
 
 export default async function handler(req, res) {
@@ -169,6 +231,7 @@ export default async function handler(req, res) {
 
     await markSigned(page.id, signedName.trim());
     sendSigningAlerts(contract, signedName.trim()).catch(() => {});
+    sendClientWelcomeEmail(contract, signedName.trim()).catch(() => {});
 
     return res.status(200).json({ success: true, signedAt: new Date().toISOString() });
   }
