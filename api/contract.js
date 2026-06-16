@@ -140,9 +140,8 @@ async function sendClientWelcomeEmail(contract, signedName) {
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f0ea;padding:40px 20px;">
     <tr><td align="center">
       <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
-        <tr><td style="background:#080808;border-radius:12px 12px 0 0;padding:28px 40px;">
-          <span style="font-size:22px;font-weight:800;color:#ffffff;">RubyxQube</span>
-          <span style="font-size:11px;font-weight:700;color:#e11d48;letter-spacing:0.12em;text-transform:uppercase;display:block;margin-top:4px;">LLC</span>
+        <tr><td style="background:#080808;border-radius:12px 12px 0 0;padding:24px 40px;">
+          <img src="https://rubyxqube.com/brand/logo-horizontal-clean-dark.png" alt="RubyxQube" width="160" style="display:block;width:160px;height:auto;">
         </td></tr>
         <tr><td style="background:#ffffff;padding:36px 40px;">
           <h1 style="font-size:24px;font-weight:800;color:#111827;margin:0 0 16px;">You're in, ${firstName}.</h1>

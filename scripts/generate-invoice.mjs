@@ -68,9 +68,8 @@ function buildInvoiceEmail({ invoiceNumber, clientName, plan, amount, month, due
       <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
 
         <!-- Header -->
-        <tr><td style="background:#080808;border-radius:12px 12px 0 0;padding:28px 40px;text-align:left;">
-          <span style="font-size:22px;font-weight:800;color:#ffffff;letter-spacing:-0.02em;">RubyxQube</span>
-          <span style="font-size:11px;font-weight:700;color:#e11d48;letter-spacing:0.12em;text-transform:uppercase;display:block;margin-top:4px;">LLC</span>
+        <tr><td style="background:#080808;border-radius:12px 12px 0 0;padding:24px 40px;text-align:left;">
+          <img src="https://rubyxqube.com/brand/logo-horizontal-clean-dark.png" alt="RubyxQube" width="160" style="display:block;width:160px;height:auto;">
         </td></tr>
 
         <!-- Invoice meta -->
