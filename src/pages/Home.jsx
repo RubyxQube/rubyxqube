@@ -182,7 +182,7 @@ export default function Home() {
           "url": siteConfig.siteUrl,
           "telephone": siteConfig.phoneDisplay,
           "email": siteConfig.email,
-          "address": { "@type": "PostalAddress", "addressLocality": "Nampa", "addressRegion": "ID", "addressCountry": "US" },
+          "address": { "@type": "PostalAddress", "addressLocality": "Boise", "addressRegion": "ID", "addressCountry": "US" },
           "openingHours": "Mo-Fr 08:00-18:00",
           "areaServed": siteConfig.serviceArea
         })}</script>

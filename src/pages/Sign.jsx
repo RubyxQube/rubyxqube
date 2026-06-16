@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { CheckCircle2, PenLine } from "lucide-react";
 import Logo from "../components/Logo.jsx";
 
@@ -242,6 +243,10 @@ export default function Sign() {
       fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
       color: "#111827",
     }}>
+      <Helmet>
+        <title>Sign Agreement — RubyxQube</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       {/* Header */}
       <div style={{
         background: "#ffffff",
