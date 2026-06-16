@@ -70,7 +70,7 @@ async function sendClientPaymentConfirmation(invoice, amountFormatted) {
 <table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f0ea;padding:40px 20px;">
 <tr><td align="center"><table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
 <tr><td style="background:#080808;border-radius:12px 12px 0 0;padding:24px 40px;">
-  <img src="https://rubyxqube.com/brand/logo-horizontal-clean-dark.png" alt="RubyxQube" width="160" style="display:block;width:160px;height:auto;">
+  <img src="https://rubyxqube.com/brand/logo-h-white.png" alt="RubyxQube" width="160" style="display:block;width:160px;height:auto;">
 </td></tr>
 <tr><td style="background:#fff;padding:36px 40px;">
   <h1 style="font-size:22px;font-weight:800;color:#111827;margin:0 0 16px;">Payment received — thank you.</h1>
@@ -108,7 +108,7 @@ async function sendClientPaymentFailed(invoice, amountFormatted) {
 <table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f0ea;padding:40px 20px;">
 <tr><td align="center"><table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
 <tr><td style="background:#080808;border-radius:12px 12px 0 0;padding:24px 40px;">
-  <img src="https://rubyxqube.com/brand/logo-horizontal-clean-dark.png" alt="RubyxQube" width="160" style="display:block;width:160px;height:auto;">
+  <img src="https://rubyxqube.com/brand/logo-h-white.png" alt="RubyxQube" width="160" style="display:block;width:160px;height:auto;">
 </td></tr>
 <tr><td style="background:#fff;padding:36px 40px;">
   <h1 style="font-size:22px;font-weight:800;color:#111827;margin:0 0 16px;">Action needed — payment unsuccessful.</h1>

@@ -69,7 +69,7 @@ function buildInvoiceEmail({ invoiceNumber, clientName, plan, amount, month, due
 
         <!-- Header -->
         <tr><td style="background:#080808;border-radius:12px 12px 0 0;padding:24px 40px;text-align:left;">
-          <img src="https://rubyxqube.com/brand/logo-horizontal-clean-dark.png" alt="RubyxQube" width="160" style="display:block;width:160px;height:auto;">
+          <img src="https://rubyxqube.com/brand/logo-h-white.png" alt="RubyxQube" width="160" style="display:block;width:160px;height:auto;">
         </td></tr>
 
         <!-- Invoice meta -->
@@ -205,7 +205,9 @@ async function main() {
 
   const today      = new Date();
   const invoiceDate = today.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
-  const due         = new Date(today); due.setDate(due.getDate() + 5);
+  // Always due on the 25th — same month if sent before the 25th, next month otherwise
+  const due = new Date(today.getFullYear(), today.getMonth(), 25);
+  if (today.getDate() >= 25) due.setMonth(due.getMonth() + 1);
   const dueDate     = due.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
   const invoiceNumber = generateInvoiceNumber(month);
   const slug          = slugify(name);
