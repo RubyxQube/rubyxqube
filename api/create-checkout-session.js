@@ -7,8 +7,8 @@
  *
  * Env vars required:
  *   STRIPE_SECRET_KEY
- *   STRIPE_PRICE_AUTOPILOT   — Stripe price ID for the Autopilot plan
- *   STRIPE_PRICE_MOMENTUM    — Stripe price ID for the Momentum plan
+ *   STRIPE_AUTOPILOT_PRICE_ID — Stripe price ID for the Autopilot plan
+ *   STRIPE_MOMENTUM_PRICE_ID  — Stripe price ID for the Momentum plan
  */
 
 import Stripe from "stripe";
@@ -21,8 +21,8 @@ export default async function handler(req, res) {
   const { plan } = req.body || {};
 
   const PRICE_IDS = {
-    autopilot: process.env.STRIPE_PRICE_AUTOPILOT,
-    momentum:  process.env.STRIPE_PRICE_MOMENTUM,
+    autopilot: process.env.STRIPE_AUTOPILOT_PRICE_ID,
+    momentum:  process.env.STRIPE_MOMENTUM_PRICE_ID,
   };
 
   const priceId = PRICE_IDS[plan];
