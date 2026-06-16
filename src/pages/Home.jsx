@@ -1,7 +1,7 @@
 ﻿import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { XCircle, CheckCircle2, MessageCircle, ClipboardCheck, Smartphone, Clock, Palette, ArrowRight } from "lucide-react";
+import { XCircle, CheckCircle2, MessageCircle, ClipboardCheck, Smartphone, Clock, Palette, ArrowRight, ShieldCheck, Layers, Droplets } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import PackageCard from "../components/PackageCard.jsx";
 import ComparisonSection from "../components/ComparisonSection.jsx";
@@ -227,117 +227,104 @@ export default function Home() {
       {/* ── Client Trust Strip ── */}
       <section className="surface">
         <div className="section" style={{ paddingTop: 36, paddingBottom: 36 }}>
-          <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--muted)", marginBottom: 20, textAlign: "center" }}>
+          <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--muted)", marginBottom: 24, textAlign: "center" }}>
             Trusted by Boise businesses
           </p>
-          <div className="grid cols-3">
-            <div className="card" style={{ textAlign: "center", padding: "20px 16px" }}>
-              <p style={{ fontWeight: 700, fontSize: 15, margin: "0 0 6px" }}>BastionMSP</p>
-              <span className="badge" style={{ fontSize: 11 }}>Cybersecurity</span>
-              <p className="p" style={{ fontSize: 13, marginTop: 10, marginBottom: 0 }}>Brand identity, marketing site, and client portal</p>
-            </div>
-            <div className="card" style={{ textAlign: "center", padding: "20px 16px" }}>
-              <p style={{ fontWeight: 700, fontSize: 15, margin: "0 0 6px" }}>Phoenix Stoneworks</p>
-              <span className="badge" style={{ fontSize: 11 }}>Masonry & Stone</span>
-              <p className="p" style={{ fontSize: 13, marginTop: 10, marginBottom: 0 }}>AI photo estimate, quote calculator, AI receptionist</p>
-            </div>
-            <div className="card" style={{ textAlign: "center", padding: "20px 16px" }}>
-              <p style={{ fontWeight: 700, fontSize: 15, margin: "0 0 6px" }}>Sudz Window & Gutter</p>
-              <span className="badge" style={{ fontSize: 11 }}>Home Services</span>
-              <p className="p" style={{ fontSize: 13, marginTop: 10, marginBottom: 0 }}>Full rebuild from Wix, AI receptionist added</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── The Problem ── */}
-      <section className="surface">
-        <div className="section">
-          <div className="grid cols-2" style={{ gap: 48, alignItems: "center" }}>
-            <div>
-              <span className="badge">The problem</span>
-              <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>
-                You're losing jobs to businesses that respond faster.
-              </h2>
-              <p className="p">
-                Most service businesses miss leads every single day. A customer searches for a plumber at 9pm, finds your site, fills out a form — and you don't see it until tomorrow morning. By then they've already called someone else.
-              </p>
-              <p className="p" style={{ marginBottom: 0 }}>
-                The businesses winning local search aren't necessarily better at their trade. They're just faster to respond. An AI receptionist changes that overnight.
-              </p>
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-              <div className="card" style={{ borderLeft: "3px solid rgba(239,68,68,0.50)" }}>
-                <p style={{ margin: 0, fontWeight: 600, fontSize: 15, display: "flex", alignItems: "center", gap: 8 }}><XCircle size={17} color="#ef4444" strokeWidth={2} />Without AI Receptionist</p>
-                <p className="p" style={{ margin: "8px 0 0", fontSize: 14 }}>Customer visits at 10pm. No one responds. They call your competitor. You wake up to nothing.</p>
+          <div style={{ maxWidth: 780, margin: "0 auto" }}>
+            <div className="grid cols-3">
+              <div className="card" style={{ textAlign: "center", padding: "24px 16px" }}>
+                <ShieldCheck size={28} color="var(--accent)" strokeWidth={1.5} style={{ display: "block", margin: "0 auto 12px" }} />
+                <p style={{ fontWeight: 700, fontSize: 15, margin: "0 0 8px" }}>BastionMSP</p>
+                <span className="badge" style={{ fontSize: 11 }}>Cybersecurity</span>
+                <p className="p" style={{ fontSize: 13, marginTop: 10, marginBottom: 0 }}>Brand identity, marketing site, and client portal</p>
               </div>
-              <div className="card" style={{ borderLeft: "3px solid rgba(59,130,246,0.60)" }}>
-                <p style={{ margin: 0, fontWeight: 600, fontSize: 15, display: "flex", alignItems: "center", gap: 8 }}><CheckCircle2 size={17} color="var(--accent)" strokeWidth={2} />With AI Receptionist</p>
-                <p className="p" style={{ margin: "8px 0 0", fontSize: 14 }}>Customer visits at 10pm. AI greets them, answers their questions, captures their info. You get a text: "New lead — Sarah, needs HVAC repair, Meridian."</p>
+              <div className="card" style={{ textAlign: "center", padding: "24px 16px" }}>
+                <Layers size={28} color="var(--accent)" strokeWidth={1.5} style={{ display: "block", margin: "0 auto 12px" }} />
+                <p style={{ fontWeight: 700, fontSize: 15, margin: "0 0 8px" }}>Phoenix Stoneworks</p>
+                <span className="badge" style={{ fontSize: 11 }}>Masonry & Stone</span>
+                <p className="p" style={{ fontSize: 13, marginTop: 10, marginBottom: 0 }}>AI photo estimate, quote calculator, AI receptionist</p>
+              </div>
+              <div className="card" style={{ textAlign: "center", padding: "24px 16px" }}>
+                <Droplets size={28} color="var(--accent)" strokeWidth={1.5} style={{ display: "block", margin: "0 auto 12px" }} />
+                <p style={{ fontWeight: 700, fontSize: 15, margin: "0 0 8px" }}>Sudz Window & Gutter</p>
+                <span className="badge" style={{ fontSize: 11 }}>Home Services</span>
+                <p className="p" style={{ fontSize: 13, marginTop: 10, marginBottom: 0 }}>Full rebuild from Wix, AI receptionist added</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── AI Receptionist Feature ── */}
+      {/* ── Problem + AI Receptionist + Demo (combined) ── */}
       <section className="surface">
         <div className="section">
-          <span className="badge">AI Receptionist</span>
-          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>
-            Meet your new <span className="accentText">24/7 employee.</span>
-          </h2>
-          <p className="p" style={{ maxWidth: 520, marginBottom: 40 }}>
-            Built with AI and trained on your specific business — your services, pricing, service area, and FAQs. It handles the front desk so you can focus on the work.
-          </p>
 
-          <div className="grid cols-3">
-            <div className="card">
-              <MessageCircle size={26} color="var(--accent)" strokeWidth={1.75} style={{ display: "block", marginBottom: 14 }} />
-              <h3 className="h3">Answers questions instantly</h3>
-              <p className="p" style={{ marginBottom: 0 }}>Knows your services, pricing, service area, and hours. Handles the most common questions without you lifting a finger.</p>
-            </div>
-            <div className="card">
-              <ClipboardCheck size={26} color="var(--accent)" strokeWidth={1.75} style={{ display: "block", marginBottom: 14 }} />
-              <h3 className="h3">Qualifies and captures leads</h3>
-              <p className="p" style={{ marginBottom: 0 }}>Asks the right questions — what do they need, where are they located, when do they need it. Saves it all so you have everything before you call back.</p>
-            </div>
-            <div className="card">
-              <Smartphone size={26} color="var(--accent)" strokeWidth={1.75} style={{ display: "block", marginBottom: 14 }} />
-              <h3 className="h3">Alerts you in real time</h3>
-              <p className="p" style={{ marginBottom: 0 }}>The moment a lead comes in, you get a text. Name, contact info, what they need, and when. No checking dashboards, no missed emails.</p>
-            </div>
-            <div className="card">
-              <Clock size={26} color="var(--accent)" strokeWidth={1.75} style={{ display: "block", marginBottom: 14 }} />
-              <h3 className="h3">Never off the clock</h3>
-              <p className="p" style={{ marginBottom: 0 }}>Works nights, weekends, and holidays. No sick days, no vacations, no missed calls when you're on a job.</p>
+          {/* Intro — centered */}
+          <div style={{ textAlign: "center", maxWidth: 600, margin: "0 auto 44px" }}>
+            <span className="badge">The problem</span>
+            <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>
+              You're losing jobs to businesses that <span className="accentText">respond faster.</span>
+            </h2>
+            <p className="p" style={{ marginBottom: 12 }}>
+              Most service businesses miss leads every single day. A customer searches for a plumber at 9pm, finds your site, fills out a form — and you don't see it until tomorrow morning. By then they've already called someone else.
+            </p>
+            <p className="p" style={{ marginBottom: 28 }}>
+              The businesses winning local search aren't necessarily better at their trade. They're just faster to respond. An AI receptionist changes that overnight.
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.20)", borderRadius: 10, padding: "9px 14px", fontSize: 13 }}>
+                <XCircle size={14} color="#ef4444" strokeWidth={2} />
+                <span>Without AI: lead bounces, calls your competitor</span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.20)", borderRadius: 10, padding: "9px 14px", fontSize: 13 }}>
+                <CheckCircle2 size={14} color="rgba(34,197,94,0.85)" strokeWidth={2} />
+                <span>With AI: captured at 10pm, you get a text instantly</span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* ── Live Demo ── */}
-      <section className="surface">
-        <div className="section">
-          <div className="grid cols-2" style={{ gap: 56, alignItems: "center" }}>
-            <div>
-              <span className="badge">See it in action</span>
-              <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>
-                This is a real AI conversation — happening on your site, right now.
-              </h2>
-              <p className="p">
-                Every {siteConfig.brand} site ships with an AI receptionist trained on your business. It answers questions, qualifies leads, and sends you a text the moment someone's ready to book.
+          {/* Chat Demo — spotlight centerpiece */}
+          <div style={{ textAlign: "center", marginBottom: 56 }}>
+            <div style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(225,29,72,0.07) 0%, transparent 65%)", padding: "40px 20px", borderRadius: 24 }}>
+              <span className="badge" style={{ display: "inline-block", marginBottom: 12 }}>AI Receptionist · live demo</span>
+              <h3 className="h3" style={{ maxWidth: 440, margin: "0 auto 24px" }}>
+                Meet your new 24/7 employee — see it in action.
+              </h3>
+              <ChatDemo />
+              <p className="p" style={{ fontSize: 13, maxWidth: 400, margin: "16px auto 20px" }}>
+                Every {siteConfig.brand} site ships with an AI receptionist trained on your business. The bot on this page? That's the exact product.
               </p>
-              <p className="p" style={{ marginBottom: 24 }}>
-                The bot you're talking to on this page? That's the exact product. Same tech, same lead alerts, same setup — just trained on your business instead of ours.
-              </p>
-              <div className="btnRow" style={{ justifyContent: "flex-start" }}>
+              <div className="btnRow" style={{ justifyContent: "center" }}>
                 <Link className="btn primary" to="/ai-receptionist">Learn how it works</Link>
                 <Link className="btn" to="/pricing">See pricing</Link>
               </div>
             </div>
-            <ChatDemo />
           </div>
+
+          {/* Feature cards — 2×2 below */}
+          <div className="grid cols-2" style={{ gap: 20 }}>
+            <div className="card">
+              <MessageCircle size={24} color="var(--accent)" strokeWidth={1.75} style={{ display: "block", marginBottom: 12 }} />
+              <h3 className="h3">Answers questions instantly</h3>
+              <p className="p" style={{ marginBottom: 0 }}>Knows your services, pricing, service area, and hours. Handles the most common questions without you lifting a finger.</p>
+            </div>
+            <div className="card">
+              <ClipboardCheck size={24} color="var(--accent)" strokeWidth={1.75} style={{ display: "block", marginBottom: 12 }} />
+              <h3 className="h3">Qualifies and captures leads</h3>
+              <p className="p" style={{ marginBottom: 0 }}>Asks the right questions — what do they need, where are they located, when do they need it. Saves it all so you have everything before you call back.</p>
+            </div>
+            <div className="card">
+              <Smartphone size={24} color="var(--accent)" strokeWidth={1.75} style={{ display: "block", marginBottom: 12 }} />
+              <h3 className="h3">Alerts you in real time</h3>
+              <p className="p" style={{ marginBottom: 0 }}>The moment a lead comes in, you get a text. Name, contact info, what they need, and when. No checking dashboards, no missed emails.</p>
+            </div>
+            <div className="card">
+              <Clock size={24} color="var(--accent)" strokeWidth={1.75} style={{ display: "block", marginBottom: 12 }} />
+              <h3 className="h3">Never off the clock</h3>
+              <p className="p" style={{ marginBottom: 0 }}>Works nights, weekends, and holidays. No sick days, no vacations, no missed calls when you're on a job.</p>
+            </div>
+          </div>
+
         </div>
       </section>
 
