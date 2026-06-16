@@ -19,7 +19,10 @@
 export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
-  const { name, business, city, package: pkg, timeline, contact_method, contact_value, notes, website } = req.body || {};
+  const { name, business, city, package: pkg, timeline, contact_method, contact_value, notes, website, _hp } = req.body || {};
+
+  // Honeypot: bots fill hidden fields; real users never touch them
+  if (_hp) return res.status(200).json({ ok: true });
 
   if (!name || !city) return res.status(400).json({ error: "name and city required" });
 
@@ -84,10 +87,13 @@ export default async function handler(req, res) {
         "Content-Type":  "application/json",
       },
       body: JSON.stringify({
-        from:    FROM_EMAIL || "onboarding@resend.dev",
-        to:      [ALERT_EMAIL],
-        subject: `New audit request — ${name}`,
-        text:    alertText,
+        // FROM_EMAIL must be a Resend-verified domain address (e.g. alerts@rubyxqube.com).
+        // If unset, falls back to Resend's shared sender — set this in Vercel env vars.
+        from:     FROM_EMAIL || "onboarding@resend.dev",
+        to:       [ALERT_EMAIL],
+        subject:  `New audit request — ${name}`,
+        text:     alertText,
+        ...(contact_method === "Email" && contact_value ? { reply_to: contact_value } : {}),
       }),
     }).catch(err => console.error("Resend error:", err.message));
   }

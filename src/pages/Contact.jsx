@@ -57,6 +57,7 @@ export default function Contact() {
     contactMethod: "Call",
     contactValue: "",
     notes: "",
+    _hp: "",
   });
 
   React.useEffect(() => {
@@ -115,6 +116,7 @@ export default function Contact() {
           contact_method: form.contactMethod,
           contact_value:  form.contactValue,
           notes:          form.notes || "",
+          _hp:            form._hp,
         }),
       });
       if (!res.ok) throw new Error("Server error");
@@ -298,6 +300,18 @@ export default function Contact() {
                 />
               </div>
             </div>
+
+            {/* Honeypot — hidden from real users, bots fill it */}
+            <input
+              type="text"
+              name="_hp"
+              value={form._hp}
+              onChange={onChange}
+              tabIndex={-1}
+              aria-hidden="true"
+              autoComplete="off"
+              style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+            />
 
             <label>Notes</label>
             <textarea
