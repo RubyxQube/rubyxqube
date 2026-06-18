@@ -16,9 +16,12 @@
  *   NTFY_TOPIC               random string, e.g. "rxq-alerts-a7x9k3"
  *                            Subscribe at https://ntfy.sh/<NTFY_TOPIC>
  *
- * ── Optional: TextBelt SMS (client's phone — ~$0.01/text) ────────────────────
- *   TEXTBELT_KEY             buy credits at textbelt.com (no subscription)
- *   ALERT_PHONE_NUMBER       client's cell, E.164 format: +1XXXXXXXXXX
+ * ── Optional: SignalWire SMS (client's phone — ~$0.008/text) ────────────────────
+ *   SIGNALWIRE_SPACE_URL     e.g. yourspace.signalwire.com
+ *   SIGNALWIRE_PROJECT_ID    project UUID from the dashboard
+ *   SIGNALWIRE_API_TOKEN     API token from API Credentials
+ *   SIGNALWIRE_FROM_NUMBER   purchased number in E.164 format: +1XXXXXXXXXX
+ *   ALERT_PHONE_NUMBER       recipient's cell, E.164 format: +1XXXXXXXXXX
  *
  * ── Optional: Resend email (free tier) ────────────────────────────────────────
  *   RESEND_API_KEY           resend.com dashboard
@@ -116,30 +119,38 @@ async function sendNtfyAlert(lead, businessName) {
   }
 }
 
-// ─── TextBelt SMS — client's phone (~$0.01/text, no A2P required) ─────────────
+// ─── SignalWire SMS — client's phone (~$0.008/text) ───────────────────────────
 async function sendSMSAlert(lead, businessName) {
-  if (!process.env.TEXTBELT_KEY || !process.env.ALERT_PHONE_NUMBER) return;
+  const { SIGNALWIRE_SPACE_URL, SIGNALWIRE_PROJECT_ID, SIGNALWIRE_API_TOKEN, SIGNALWIRE_FROM_NUMBER, ALERT_PHONE_NUMBER } = process.env;
+  if (!SIGNALWIRE_SPACE_URL || !SIGNALWIRE_PROJECT_ID || !SIGNALWIRE_API_TOKEN || !SIGNALWIRE_FROM_NUMBER || !ALERT_PHONE_NUMBER) return;
   try {
+    const auth = Buffer.from(`${SIGNALWIRE_PROJECT_ID}:${SIGNALWIRE_API_TOKEN}`).toString("base64");
     const params = new URLSearchParams({
-      phone:   process.env.ALERT_PHONE_NUMBER,
-      message:
+      From: SIGNALWIRE_FROM_NUMBER,
+      To:   ALERT_PHONE_NUMBER,
+      Body:
         `New lead — ${businessName || "RubyxQube"}\n` +
         `Name: ${lead.name}\n` +
         `Contact: ${lead.contact}\n` +
         `Needs: ${lead.service_needed}` +
         (lead.notes ? `\nNotes: ${lead.notes}` : ""),
-      key: process.env.TEXTBELT_KEY,
     });
-    const res  = await fetch("https://textbelt.com/text", {
-      method:  "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body:    params.toString(),
-    });
+    const res = await fetch(
+      `https://${SIGNALWIRE_SPACE_URL}/api/laml/2010-04-01/Accounts/${SIGNALWIRE_PROJECT_ID}/Messages`,
+      {
+        method:  "POST",
+        headers: {
+          "Authorization": `Basic ${auth}`,
+          "Content-Type":  "application/x-www-form-urlencoded",
+        },
+        body: params.toString(),
+      }
+    );
     const data = await res.json();
-    if (!data.success) throw new Error(data.error || "TextBelt failed");
-    console.log("SMS sent for lead:", lead.name, "| quota remaining:", data.quotaRemaining);
+    if (!res.ok) throw new Error(data.message || JSON.stringify(data));
+    console.log("SMS sent via SignalWire for lead:", lead.name, "| SID:", data.sid);
   } catch (err) {
-    console.error("TextBelt error:", err.message);
+    console.error("SignalWire SMS error:", err.message);
   }
 }
 
