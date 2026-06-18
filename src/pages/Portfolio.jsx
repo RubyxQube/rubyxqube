@@ -74,10 +74,10 @@ export default function Portfolio() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Portfolio — RubyxQube | Web Design Work</title>
-        <meta name="description" content="Recent web design and AI receptionist projects by RubyxQube — including Phoenix Stoneworks, Sudz Window and Gutter, and BastionMSP." />
-        <meta property="og:title" content="Portfolio — RubyxQube | Web Design Work" />
-        <meta property="og:description" content="Recent web design and AI receptionist projects by RubyxQube — including Phoenix Stoneworks, Sudz Window and Gutter, and BastionMSP." />
+        <title>Portfolio — RubyxQube | Web Design for Trade Businesses</title>
+        <meta name="description" content="Web design and AI receptionists built for Treasure Valley trade businesses — HVAC, cleaning, stone fabrication, and more. Real sites, built from scratch." />
+        <meta property="og:title" content="Portfolio — RubyxQube | Web Design for Trade Businesses" />
+        <meta property="og:description" content="Web design and AI receptionists built for Treasure Valley trade businesses — HVAC, cleaning, stone fabrication, and more. Real sites, built from scratch." />
         <meta property="og:image" content="https://rubyxqube.com/portfolio/psw-preview.webp" />
         <meta property="og:url" content="https://rubyxqube.com/portfolio" />
         <link rel="canonical" href="https://rubyxqube.com/portfolio" />
