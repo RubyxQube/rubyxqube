@@ -14,7 +14,7 @@ const STEPS = [
   {
     number: "02",
     title: "We build your site",
-    desc: "After a short intake questionnaire, we design and build your site from scratch. Most sites launch within 3–7 business days. You review it, we refine it, then we go live.",
+    desc: "After a short intake questionnaire, we design and build your site from scratch. Most sites launch within 3–7 business days. You review it, we refine it, then we go live. Not happy with the first draft? You don't owe us anything.",
   },
   {
     number: "03",

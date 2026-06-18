@@ -375,6 +375,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Process teaser ── */}
+      <section className="surface">
+        <div className="section">
+          <span className="badge">How it works</span>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>Live in days. No tech headaches.</h2>
+          <p className="p" style={{ maxWidth: 480, marginBottom: 40 }}>Three steps from first call to leads hitting your phone.</p>
+
+          <div className="grid cols-3">
+            {[
+              { number: "01", title: "Free 15-min audit", desc: "We look at your online presence and tell you exactly what's costing you leads. No pitch, just honest feedback." },
+              { number: "02", title: "We build your site", desc: "After a short intake form, your site is live in 3–7 days. You review it, we refine it. Not happy with the first draft? You don't owe us anything." },
+              { number: "03", title: "Leads start coming in", desc: "Your AI receptionist goes live — answering questions, capturing leads, and texting you instantly. 24/7." },
+            ].map((step) => (
+              <div key={step.number} className="card" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                <div style={{ width: 44, height: 44, borderRadius: "50%", background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 800, color: "var(--accent)", flexShrink: 0 }}>
+                  {step.number}
+                </div>
+                <div>
+                  <h3 className="h3" style={{ marginBottom: 6 }}>{step.title}</h3>
+                  <p className="p" style={{ marginBottom: 0, fontSize: 14 }}>{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ marginTop: 28, textAlign: "center" }}>
+            <Link className="btn" to="/how-it-works" style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
+              See the full process <ArrowRight size={15} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── Designs Callout ── */}
       <section className="surface">
         <div className="section" style={{ paddingTop: 40, paddingBottom: 40 }}>

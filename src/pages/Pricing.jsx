@@ -1,6 +1,6 @@
 ﻿import React from "react";
 import { Helmet } from "react-helmet-async";
-import { CheckCircle2, XCircle } from "lucide-react";
+import { CheckCircle2, XCircle, ShieldCheck } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import PackageCard from "../components/PackageCard.jsx";
 import ComparisonSection from "../components/ComparisonSection.jsx";
@@ -124,6 +124,10 @@ export default function Pricing() {
           <p className="p" style={{ maxWidth: 540, fontSize: 17 }}>
             No contracts, no hidden fees, no upsells. Every package starts with a professional website. Add AI and growth services if you want them.
           </p>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 18 }}>
+            <ShieldCheck size={16} color="rgba(34,197,94,0.85)" />
+            <span style={{ fontSize: 14, color: "var(--muted)" }}>Not happy with the first design draft? You don't owe us anything.</span>
+          </div>
         </div>
       </section>
 

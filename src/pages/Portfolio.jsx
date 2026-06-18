@@ -1,9 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, CheckCircle2 } from "lucide-react";
 import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
+
+const INDUSTRIES = [
+  { name: "HVAC & Heating" },
+  { name: "Plumbing" },
+  { name: "Roofing" },
+  { name: "Landscaping" },
+  { name: "Window & Gutter Cleaning", built: true },
+  { name: "Stone & Tile Fabrication", built: true },
+  { name: "Cleaning Services" },
+  { name: "Barbershop & Salon" },
+  { name: "Auto Detailing" },
+  { name: "Pest Control" },
+];
 
 const coFounded = [
   {
@@ -25,7 +38,7 @@ const clientWork = [
     preview: "/portfolio/psw-preview.webp",
     category: "Stone Fabrication · Treasure Valley",
     name: "Phoenix Stoneworks",
-    hook: "Full web platform — far beyond a brochure site.",
+    hook: "AI photo estimate, quote calculator, and wholesale portal — built for a custom fabrication shop.",
     tags: ["AI Photo Estimate", "Quote Calculator", "Wholesale Portal", "Account System", "AI Receptionist"],
     tech: "React · Vite · Claude AI · Supabase · Vercel",
     links: [{ label: "Visit Site", href: "https://pswboise.com/" }],
@@ -35,7 +48,7 @@ const clientWork = [
     preview: "/portfolio/sudz-preview.webp",
     category: "Window & Gutter Cleaning · Treasure Valley",
     name: "Sudz Window and Gutter Cleaning",
-    hook: "Full site rebuild replacing a slow Wix template.",
+    hook: "Fast, mobile-first site replacing a slow Wix build — with an AI receptionist that captures leads 24/7.",
     tags: ["AI Receptionist", "Lead Capture", "SMS Alerts", "5.0-Star Reviews"],
     tech: "React · Vite · Claude AI · Vercel",
     links: [{ label: "Visit Site", href: "https://sudz-boise.vercel.app/" }],
@@ -79,6 +92,35 @@ export default function Portfolio() {
           </h1>
           <p className="p" style={{ maxWidth: 540, fontSize: 17 }}>
             Every project here is live, real, and built from scratch.
+          </p>
+        </div>
+      </section>
+
+      {/* ── Industries ── */}
+      <section className="surface">
+        <div className="section" style={{ paddingTop: 40, paddingBottom: 40 }}>
+          <span className="badge">Industries we serve</span>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>We build for the trades.</h2>
+          <p className="p" style={{ maxWidth: 480, marginBottom: 28 }}>
+            Local service businesses are our specialty — we know how you get leads, how customers find you, and what your site actually needs to do.
+          </p>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+            {INDUSTRIES.map(({ name, built }) => (
+              <span key={name} style={{
+                display: "inline-flex", alignItems: "center", gap: 6,
+                fontSize: 13, fontWeight: 500,
+                padding: "7px 14px", borderRadius: 99,
+                background: built ? "var(--accent-dim)" : "rgba(255,255,255,0.04)",
+                border: built ? "1px solid var(--accent-border)" : "1px solid var(--line)",
+                color: built ? "var(--text)" : "var(--muted)",
+              }}>
+                {built && <CheckCircle2 size={12} color="var(--accent)" />}
+                {name}
+              </span>
+            ))}
+          </div>
+          <p style={{ fontSize: 12, color: "var(--muted)", marginTop: 16, marginBottom: 0 }}>
+            Highlighted = live portfolio entry
           </p>
         </div>
       </section>
