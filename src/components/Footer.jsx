@@ -1,7 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "./Logo.jsx";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
 import { siteConfig } from "../siteConfig.js";
+
+const NextdoorIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12 2L2 9.5V22h7v-6h6v6h7V9.5L12 2zm0 2.8l7 5.25V20h-3v-6H8v6H5V10.05L12 4.8z"/>
+  </svg>
+);
+
+const socialLinks = [
+  { href: siteConfig.social.facebook, label: "Facebook", Icon: Facebook },
+  { href: siteConfig.social.instagram, label: "Instagram", Icon: Instagram },
+  { href: siteConfig.social.linkedin, label: "LinkedIn", Icon: Linkedin },
+  { href: siteConfig.social.nextdoor, label: "Nextdoor", Icon: NextdoorIcon },
+];
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -31,6 +45,22 @@ export default function Footer() {
           >
             {siteConfig.email}
           </a>
+          <div style={{ display: "flex", gap: 12, marginTop: 8 }}>
+            {socialLinks.map(({ href, label, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={label}
+                style={{ color: "rgba(255,255,255,0.45)", transition: "color .15s" }}
+                onMouseOver={e => e.currentTarget.style.color = "rgba(255,255,255,0.90)"}
+                onMouseOut={e => e.currentTarget.style.color = "rgba(255,255,255,0.45)"}
+              >
+                <Icon size={18} />
+              </a>
+            ))}
+          </div>
         </div>
 
         {/* Services col */}

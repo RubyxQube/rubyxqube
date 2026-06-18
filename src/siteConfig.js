@@ -9,4 +9,10 @@ export const siteConfig = {
   phoneE164: "+12089708624",
   bookingUrl: "https://cal.com/boyd-querubin-rubyxqube/free-website-audit",
   googleReviewUrl: "https://g.page/r/CUHmU0rIL7VhEBM/review",
+  social: {
+    facebook: "https://www.facebook.com/rubyxqubellc",
+    instagram: "https://www.instagram.com/rubyxqubellc/",
+    linkedin: "https://www.linkedin.com/in/boydisaacquerubin/",
+    nextdoor: "https://nextdoor.com/page/rubyxqube-meridian-id/",
+  },
 };

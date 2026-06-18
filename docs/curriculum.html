@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RubyxQube — Operator Curriculum</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F5F0EA;
+      --bg-sidebar: #EDE7DF;
+      --text: rgba(20,12,15,0.90);
+      --muted: rgba(20,12,15,0.55);
+      --accent: #e11d48;
+      --accent-hover: #c0112f;
+      --line: rgba(20,12,15,0.12);
+      --shadow: rgba(20,12,15,0.08);
+      --sidebar-width: 272px;
+      --content-max: 720px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0;
+      width: var(--sidebar-width);
+      height: 100vh;
+      background: var(--bg-sidebar);
+      border-right: 1px solid var(--line);
+      overflow-y: auto;
+      padding: 36px 0 48px;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-brand {
+      padding: 0 24px 28px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 24px;
+    }
+
+    .sidebar-brand .wordmark {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: var(--text);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .sidebar-brand .wordmark span {
+      color: var(--accent);
+    }
+
+    .sidebar-brand .doc-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+    }
+
+    .sidebar nav {
+      padding: 0 16px;
+      flex: 1;
+    }
+
+    .nav-chapter {
+      margin-bottom: 6px;
+    }
+
+    .nav-chapter-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 10px;
+      border-radius: 7px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .nav-chapter-link:hover {
+      background: rgba(20,12,15,0.07);
+      color: var(--accent);
+    }
+
+    .nav-chapter-link .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 5px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .nav-chapter-link .num.intro {
+      background: rgba(20,12,15,0.15);
+      color: var(--text);
+    }
+
+    .nav-sections {
+      margin: 2px 0 8px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .nav-section-link {
+      display: block;
+      padding: 4px 10px;
+      border-radius: 5px;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+      transition: background 0.15s, color 0.15s;
+      border-left: 2px solid transparent;
+    }
+
+    .nav-section-link:hover {
+      color: var(--accent);
+      border-left-color: var(--accent);
+      background: rgba(225,29,72,0.06);
+    }
+
+    .sidebar-footer {
+      padding: 16px 24px 0;
+      border-top: 1px solid var(--line);
+      margin: 0 0 0;
+    }
+
+    .sidebar-footer p {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .sidebar-footer strong {
+      color: var(--text);
+    }
+
+    /* ── Main Content ── */
+    .main {
+      margin-left: var(--sidebar-width);
+      min-height: 100vh;
+      padding: 64px 48px 120px;
+    }
+
+    .content {
+      max-width: var(--content-max);
+      margin: 0 auto;
+    }
+
+    /* ── Cover ── */
+    .cover {
+      padding: 48px 0 64px;
+      border-bottom: 2px solid var(--line);
+      margin-bottom: 64px;
+    }
+
+    .cover .overline {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .cover h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .cover .subtitle {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+
+    .cover-meta {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .cover-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .cover-meta-item .label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--muted);
+    }
+
+    .cover-meta-item .value {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* ── Chapters ── */
+    .chapter {
+      margin-bottom: 80px;
+      padding-bottom: 80px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .chapter:last-child {
+      border-bottom: none;
+    }
+
+    .chapter-header {
+      margin-bottom: 40px;
+    }
+
+    .chapter-number {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .chapter h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .chapter-intro {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    /* ── Sections ── */
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section h3::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 18px;
+      background: var(--accent);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .section p {
+      color: var(--text);
+      margin-bottom: 14px;
+      line-height: 1.75;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    /* ── Lists ── */
+    ul.list, ol.list {
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    ul.list li {
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.65;
+      font-size: 0.95rem;
+    }
+
+    ul.list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    ol.list {
+      counter-reset: item;
+    }
+
+    ol.list li {
+      padding-left: 28px;
+      position: relative;
+      line-height: 1.65;
+      font-size: 0.95rem;
+      counter-increment: item;
+    }
+
+    ol.list li::before {
+      content: counter(item);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    /* ── Callout Box ── */
+    .callout {
+      background: rgba(225,29,72,0.07);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+
+    .callout .callout-label {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .callout p {
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ── Info Cards ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .info-card {
+      background: rgba(20,12,15,0.05);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+
+    .info-card .card-title {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .info-card p {
+      font-size: 0.875rem;
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── Resource Links ── */
+    .resource-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .resource-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 18px;
+      background: rgba(20,12,15,0.04);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      text-decoration: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .resource-item:hover {
+      border-color: var(--accent);
+      background: rgba(225,29,72,0.05);
+    }
+
+    .resource-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .resource-body .resource-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .resource-body .resource-desc {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── Glossary ── */
+    .glossary-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .glossary-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 20px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: baseline;
+    }
+
+    .glossary-item:last-child { border-bottom: none; }
+
+    .glossary-term {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .glossary-def {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* ── Checklist ── */
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 16px 0;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .checklist-item .check {
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--line);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── Links ── */
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    /* ── Table ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 16px 0;
+    }
+
+    thead th {
+      text-align: left;
+      padding: 10px 14px;
+      background: rgba(20,12,15,0.06);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+    }
+
+    tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+
+    tbody td:first-child {
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    /* ── Badge ── */
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      background: rgba(225,29,72,0.12);
+      color: var(--accent);
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .badge.green {
+      background: rgba(16,185,129,0.12);
+      color: #059669;
+    }
+
+    .badge.amber {
+      background: rgba(245,158,11,0.12);
+      color: #b45309;
+    }
+
+    /* ── Print ── */
+    @media print {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 32px; }
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 32px 24px 80px; }
+      .glossary-item { grid-template-columns: 1fr; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ────────────────────────── Sidebar ────────────────────────── -->
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <span class="wordmark">Ruby<span>x</span>Qube</span>
+    <span class="doc-label">Operator Curriculum</span>
+  </div>
+
+  <nav>
+    <div class="nav-chapter">
+      <a href="#intro" class="nav-chapter-link">
+        <span class="num intro">~</span>
+        Introduction
+      </a>
+    </div>
+
+    <div class="nav-chapter">
+      <a href="#ch1" class="nav-chapter-link">
+        <span class="num">1</span>
+        Local SEO Fundamentals
+      </a>
+      <div class="nav-sections">
+        <a href="#ch1-how" class="nav-section-link">How local search works</a>
+        <a href="#ch1-nap" class="nav-section-link">NAP consistency</a>
+        <a href="#ch1-local-pack" class="nav-section-link">The Local Pack</a>
+        <a href="#ch1-ranking" class="nav-section-link">Ranking factors</a>
+      </div>
+    </div>
+
+    <div class="nav-chapter">
+      <a href="#ch2" class="nav-chapter-link">
+        <span class="num">2</span>
+        Google Business Profile
+      </a>
+      <div class="nav-sections">
+        <a href="#ch2-categories" class="nav-section-link">Categories</a>
+        <a href="#ch2-posts" class="nav-section-link">Posts</a>
+        <a href="#ch2-photos" class="nav-section-link">Photos</a>
+        <a href="#ch2-qa" class="nav-section-link">Q&A</a>
+        <a href="#ch2-audit" class="nav-section-link">Monthly audit checklist</a>
+      </div>
+    </div>
+
+    <div class="nav-chapter">
+      <a href="#ch3" class="nav-chapter-link">
+        <span class="num">3</span>
+        Citations
+      </a>
+      <div class="nav-sections">
+        <a href="#ch3-what" class="nav-section-link">What citations are</a>
+        <a href="#ch3-where" class="nav-section-link">Where to build them</a>
+        <a href="#ch3-audit" class="nav-section-link">Auditing & fixing</a>
+      </div>
+    </div>
+
+    <div class="nav-chapter">
+      <a href="#ch4" class="nav-chapter-link">
+        <span class="num">4</span>
+        Reviews
+      </a>
+      <div class="nav-sections">
+        <a href="#ch4-why" class="nav-section-link">Why they matter</a>
+        <a href="#ch4-getting" class="nav-section-link">Getting reviews</a>
+        <a href="#ch4-responding" class="nav-section-link">Responding</a>
+      </div>
+    </div>
+
+    <div class="nav-chapter">
+      <a href="#ch5" class="nav-chapter-link">
+        <span class="num">5</span>
+        On-Page Local SEO
+      </a>
+      <div class="nav-sections">
+        <a href="#ch5-titles" class="nav-section-link">Title tags & meta</a>
+        <a href="#ch5-schema" class="nav-section-link">Schema markup</a>
+        <a href="#ch5-location" class="nav-section-link">Location pages</a>
+      </div>
+    </div>
+
+    <div class="nav-chapter">
+      <a href="#ch6" class="nav-chapter-link">
+        <span class="num">6</span>
+        Client Reporting
+      </a>
+      <div class="nav-sections">
+        <a href="#ch6-metrics" class="nav-section-link">What to measure</a>
+        <a href="#ch6-tools" class="nav-section-link">Tools</a>
+        <a href="#ch6-cadence" class="nav-section-link">Monthly cadence</a>
+      </div>
+    </div>
+
+    <div class="nav-chapter">
+      <a href="#ch7" class="nav-chapter-link">
+        <span class="num">7</span>
+        Sales & Positioning
+      </a>
+      <div class="nav-sections">
+        <a href="#ch7-objections" class="nav-section-link">Common objections</a>
+        <a href="#ch7-expectations" class="nav-section-link">Setting expectations</a>
+        <a href="#ch7-upsell" class="nav-section-link">Upsell triggers</a>
+      </div>
+    </div>
+
+    <div class="nav-chapter">
+      <a href="#resources" class="nav-chapter-link">
+        <span class="num">8</span>
+        Resources
+      </a>
+    </div>
+
+    <div class="nav-chapter">
+      <a href="#glossary" class="nav-chapter-link">
+        <span class="num intro">A</span>
+        Glossary
+      </a>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer" style="margin-top: 24px;">
+    <p><strong>Living document.</strong><br/>Add chapters as you grow. Last updated June 2026.</p>
+  </div>
+</aside>
+
+<!-- ────────────────────────── Main ────────────────────────── -->
+<main class="main">
+  <div class="content">
+
+    <!-- Cover -->
+    <div class="cover">
+      <div class="overline">RubyxQube — Internal</div>
+      <h1>Operator<br/>Curriculum</h1>
+      <p class="subtitle">A living reference for running RubyxQube's core service stack — local SEO, GBP management, client reporting, and sales. Built to grow with the business.</p>
+      <div class="cover-meta">
+        <div class="cover-meta-item">
+          <span class="label">Author</span>
+          <span class="value">Boyd Querubin</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="label">Started</span>
+          <span class="value">June 2026</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="label">Status</span>
+          <span class="value">Living Document</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="label">Audience</span>
+          <span class="value">Boyd (+ future team)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Intro -->
+    <div id="intro" class="chapter">
+      <div class="chapter-header">
+        <div class="chapter-number">Introduction</div>
+        <h2>Why This Exists</h2>
+        <p class="chapter-intro">You're selling local visibility, lead capture, and AI-powered web presence. To sell it confidently — and deliver it well — you need to own the knowledge behind it.</p>
+      </div>
+
+      <div class="section">
+        <p>This curriculum exists so you never have to say "let me look that up" in a client conversation. It starts with what you need right now and grows with you. Every chapter covers one domain: what it is, why it matters, and what you actually do with it.</p>
+        <p>Add a chapter when you hit a problem you don't fully understand. Update existing sections when you learn something was wrong or incomplete. The goal isn't a perfect textbook — it's a tool that makes you sharper every month.</p>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">How to use this</div>
+        <p>Read sequentially once to build the mental model. Then use the sidebar to jump to whatever's relevant in the moment — before a sales call, a client audit, or a GBP session.</p>
+      </div>
+    </div>
+
+    <!-- Chapter 1 -->
+    <div id="ch1" class="chapter">
+      <div class="chapter-header">
+        <div class="chapter-number">Chapter 1</div>
+        <h2>Local SEO Fundamentals</h2>
+        <p class="chapter-intro">Local SEO is how a small business shows up when someone nearby searches for what they do. It's different from general SEO — proximity and trust signals matter more than domain authority.</p>
+      </div>
+
+      <div id="ch1-how" class="section">
+        <h3>How Local Search Works</h3>
+        <p>When someone searches "concrete contractor Nampa" or "window cleaner near me," Google serves two distinct result types: the <strong>Local Pack</strong> (map results) and <strong>organic blue links</strong>. These are ranked by completely different algorithms.</p>
+        <p>The Local Pack is powered by Google Business Profile data. Organic results are powered by the website's authority and relevance. Most local service businesses should prioritize the Local Pack first — it sits above organic results and gets a disproportionate share of clicks.</p>
+      </div>
+
+      <div id="ch1-nap" class="section">
+        <h3>NAP Consistency</h3>
+        <p><strong>NAP = Name, Address, Phone.</strong> These three fields must be identical everywhere your client appears online — GBP, Yelp, BBB, Angi, their website footer, Facebook, everywhere.</p>
+        <p>Google cross-references NAP data across the web to confirm a business is real and located where it claims. Inconsistencies — "St." vs "Street," an old phone number, a slightly different business name — create conflicting signals that suppress rankings.</p>
+
+        <div class="callout">
+          <div class="callout-label">Common NAP mistakes</div>
+          <p>"Phoenix Stoneworks" vs "Phoenix Stoneworks LLC" — Google may treat these as different entities. Pick one exact form and use it everywhere.</p>
+        </div>
+
+        <ul class="list">
+          <li>Use the exact legal business name consistently — no abbreviations unless they're in the legal name</li>
+          <li>Use a local phone number, not a toll-free number</li>
+          <li>If the business moves or changes its number, update every directory immediately</li>
+          <li>The address on GBP must match the address on the website verbatim</li>
+        </ul>
+      </div>
+
+      <div id="ch1-local-pack" class="section">
+        <h3>The Local Pack</h3>
+        <p>The map pack — three business listings shown below the map widget — is the highest-value placement for local service businesses. It appears for nearly every service + city search and gets 30–50% of all clicks on the page.</p>
+        <p>Getting into the pack requires strong GBP signals (Chapter 2), consistent citations (Chapter 3), and a steady review velocity (Chapter 4). There is no shortcut — but for small businesses, it's genuinely achievable in 3–6 months with consistent work.</p>
+      </div>
+
+      <div id="ch1-ranking" class="section">
+        <h3>Local Pack Ranking Factors</h3>
+        <p>Google uses three core factors, in roughly this order of importance:</p>
+
+        <div class="card-grid">
+          <div class="info-card">
+            <div class="card-title">Relevance</div>
+            <p>Does your GBP category and profile match what the searcher is looking for? This is the most controllable factor.</p>
+          </div>
+          <div class="info-card">
+            <div class="card-title">Proximity</div>
+            <p>How close is the searcher to the business? You can't change geography, but service area setup matters.</p>
+          </div>
+          <div class="info-card">
+            <div class="card-title">Prominence</div>
+            <p>How well-known and trusted is the business? Driven by reviews, citations, backlinks, and GBP activity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 2 -->
+    <div id="ch2" class="chapter">
+      <div class="chapter-header">
+        <div class="chapter-number">Chapter 2</div>
+        <h2>Google Business Profile</h2>
+        <p class="chapter-intro">GBP is the single highest-leverage channel for local clients. It's free real estate that most small businesses leave half-built. Your job is to build and maintain it properly.</p>
+      </div>
+
+      <div id="ch2-categories" class="section">
+        <h3>Categories</h3>
+        <p>The primary category is the most important field on the entire GBP. Google uses it to decide which searches your profile is eligible to appear for. Choose too broadly ("Contractor") and you compete for nothing. Choose precisely ("Concrete Contractor") and you rank for exactly what your client does.</p>
+        <ul class="list">
+          <li>Use Google's existing category list — don't invent your own</li>
+          <li>Add secondary categories for each additional service (masonry, stamped concrete, etc.)</li>
+          <li>Review the category list annually — Google adds and renames them</li>
+        </ul>
+      </div>
+
+      <div id="ch2-posts" class="section">
+        <h3>GBP Posts</h3>
+        <p>Posts are treated as fresh content signals. An active profile outranks an identical but dormant one. For Momentum clients, this is part of your monthly deliverable.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Post Type</th>
+              <th>When to Use</th>
+              <th>Frequency</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Update</td>
+              <td>News, team updates, service changes</td>
+              <td>Weekly</td>
+            </tr>
+            <tr>
+              <td>Offer</td>
+              <td>Seasonal promotions, discounts</td>
+              <td>Monthly</td>
+            </tr>
+            <tr>
+              <td>Event</td>
+              <td>Trade shows, open houses, seasonal pushes</td>
+              <td>As needed</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Posts expire after 7 days for Update/Offer types. You need to post consistently — not just once.</p>
+      </div>
+
+      <div id="ch2-photos" class="section">
+        <h3>Photos</h3>
+        <p>Real job photos outperform stock photos by a wide margin. Google tracks photo engagement and profiles with active photo uploads rank higher. For trade clients (concrete, masonry, cleaning), before/after shots are gold.</p>
+        <ul class="list">
+          <li>Upload at least 5 photos at onboarding — exterior, team, completed jobs</li>
+          <li>Add 2–4 photos per month as part of Momentum delivery</li>
+          <li>Geotag photos when possible — it adds a location signal</li>
+          <li>Never upload screenshots or watermarked stock images</li>
+        </ul>
+      </div>
+
+      <div id="ch2-qa" class="section">
+        <h3>Q&amp;A</h3>
+        <p>The Q&A section on GBP is user-generated by default — anyone can post a question, and anyone can answer it. Seed your own questions before someone else does and gives a wrong answer.</p>
+        <ul class="list">
+          <li>Write 5–8 questions covering price range, service area, hours, booking process</li>
+          <li>Answer them yourself from the owner's account — "Hi, this is [Name]..."</li>
+          <li>Monitor monthly and respond to any new user questions promptly</li>
+        </ul>
+      </div>
+
+      <div id="ch2-audit" class="section">
+        <h3>Monthly GBP Audit Checklist</h3>
+        <p>Run this for every Momentum client each month before writing posts.</p>
+
+        <div class="checklist">
+          <div class="checklist-item"><div class="check"></div><span>Business name, address, phone still accurate</span></div>
+          <div class="checklist-item"><div class="check"></div><span>Hours up to date (including holiday hours)</span></div>
+          <div class="checklist-item"><div class="check"></div><span>All services listed with descriptions</span></div>
+          <div class="checklist-item"><div class="check"></div><span>Website URL pointing to current site</span></div>
+          <div class="checklist-item"><div class="check"></div><span>At least 1 new photo uploaded this month</span></div>
+          <div class="checklist-item"><div class="check"></div><span>At least 2 new posts published this month</span></div>
+          <div class="checklist-item"><div class="check"></div><span>All new reviews have responses</span></div>
+          <div class="checklist-item"><div class="check"></div><span>No unanswered Q&amp;A questions</span></div>
+          <div class="checklist-item"><div class="check"></div><span>No Google-suggested edits pending review</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 3 -->
+    <div id="ch3" class="chapter">
+      <div class="chapter-header">
+        <div class="chapter-number">Chapter 3</div>
+        <h2>Citations</h2>
+        <p class="chapter-intro">Citations are any online mention of a business's NAP data — directory listings, social profiles, industry sites. They're not as powerful as they used to be, but they still matter for local pack rankings and they catch errors that hurt you.</p>
+      </div>
+
+      <div id="ch3-what" class="section">
+        <h3>What Citations Are</h3>
+        <p>A citation doesn't have to be a link — it's any place on the web where the business name, address, and phone appear together. Google aggregates these signals to confirm the business is legitimate and located where it claims.</p>
+        <p>Think of citations as a vote of existence. More votes from credible sources = more trust. Contradictory votes (wrong address on an old listing) = confusion and suppressed rankings.</p>
+      </div>
+
+      <div id="ch3-where" class="section">
+        <h3>Where to Build Citations</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Directory</th>
+              <th>Priority</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Google Business Profile</td>
+              <td><span class="badge">Critical</span></td>
+              <td>Chapter 2 — the foundation</td>
+            </tr>
+            <tr>
+              <td>Apple Maps</td>
+              <td><span class="badge">Critical</span></td>
+              <td>Powers Siri + Maps on iOS</td>
+            </tr>
+            <tr>
+              <td>Bing Places</td>
+              <td><span class="badge">Critical</span></td>
+              <td>Free, takes 5 minutes</td>
+            </tr>
+            <tr>
+              <td>Yelp</td>
+              <td><span class="badge amber">High</span></td>
+              <td>Never pay for ads — just maintain the free listing</td>
+            </tr>
+            <tr>
+              <td>BBB</td>
+              <td><span class="badge amber">High</span></td>
+              <td>Free listing, paid accreditation not necessary</td>
+            </tr>
+            <tr>
+              <td>Facebook Business</td>
+              <td><span class="badge amber">High</span></td>
+              <td>Also a social proof signal</td>
+            </tr>
+            <tr>
+              <td>Angi / HomeAdvisor</td>
+              <td><span class="badge green">Medium</span></td>
+              <td>Industry-specific — great for contractors</td>
+            </tr>
+            <tr>
+              <td>Houzz</td>
+              <td><span class="badge green">Medium</span></td>
+              <td>Good for home improvement / masonry</td>
+            </tr>
+            <tr>
+              <td>Nextdoor</td>
+              <td><span class="badge green">Medium</span></td>
+              <td>Neighborhood-level trust signal</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="ch3-audit" class="section">
+        <h3>Auditing &amp; Fixing Citations</h3>
+        <p>Use <a href="https://whitespark.ca/local-citation-finder/" target="_blank">Whitespark's Citation Finder</a> or <a href="https://www.brightlocal.com/citation-audit/" target="_blank">BrightLocal's Citation Audit</a> to find where a client is listed and catch inconsistencies.</p>
+        <p>For a new client at onboarding, manually check the top 5 directories (GBP, Apple, Bing, Yelp, Facebook) and fix any NAP mismatches before doing anything else. The rest can wait.</p>
+
+        <div class="callout">
+          <div class="callout-label">Prioritize fixes over new listings</div>
+          <p>A wrong phone number on 3 major directories does more damage than missing 20 minor ones. Fix first, build second.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 4 -->
+    <div id="ch4" class="chapter">
+      <div class="chapter-header">
+        <div class="chapter-number">Chapter 4</div>
+        <h2>Reviews</h2>
+        <p class="chapter-intro">Reviews are the most visible trust signal for local businesses — and one of the top ranking factors for the Local Pack. Quantity, recency, and response rate all matter.</p>
+      </div>
+
+      <div id="ch4-why" class="section">
+        <h3>Why They Matter</h3>
+        <p>Google weights reviews across three dimensions:</p>
+        <ul class="list">
+          <li><strong>Quantity</strong> — more reviews than competitors help you rank above them</li>
+          <li><strong>Recency</strong> — reviews in the last 90 days are weighted more heavily than older ones; a business that stopped getting reviews in 2023 looks inactive</li>
+          <li><strong>Diversity</strong> — reviews that mention different services tell Google what the business does</li>
+        </ul>
+        <p>Conversion-wise: 88% of consumers trust online reviews as much as personal recommendations. A business with 4.8 stars and 40 reviews almost always beats one with 4.9 and 6 reviews.</p>
+      </div>
+
+      <div id="ch4-getting" class="section">
+        <h3>Getting Reviews</h3>
+        <p>The best time to ask is immediately after a job is completed and the client is happy. Text outperforms email by 3–4x for response rate.</p>
+
+        <div class="callout">
+          <div class="callout-label">Template: Post-job review ask (SMS)</div>
+          <p>"Hi [name], it was great working with you on [project]. If you have 2 minutes, a Google review means the world to a small business like ours: [short link]. Thank you!"</p>
+        </div>
+
+        <ul class="list">
+          <li>Create a short review link in GBP under "Get more reviews" — share this, not the full URL</li>
+          <li>Never incentivize reviews — Google's policies prohibit it and it can get the profile suspended</li>
+          <li>Don't ask for 5 stars — ask for "honest feedback"</li>
+          <li>Set a goal of 2–3 new reviews per month at minimum</li>
+        </ul>
+      </div>
+
+      <div id="ch4-responding" class="section">
+        <h3>Responding to Reviews</h3>
+        <p>Every review needs a response — positive and negative. Google treats response rate as a signal of engagement. Unanswered reviews look like an abandoned business.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Review Type</th>
+              <th>Response Goal</th>
+              <th>Tone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>5-star, no comment</td>
+              <td>Thank them, mention a service</td>
+              <td>Warm, brief</td>
+            </tr>
+            <tr>
+              <td>5-star, detailed</td>
+              <td>Thank them personally, reflect their words</td>
+              <td>Genuine, specific</td>
+            </tr>
+            <tr>
+              <td>3–4 star</td>
+              <td>Acknowledge, take offline</td>
+              <td>Calm, professional</td>
+            </tr>
+            <tr>
+              <td>1–2 star</td>
+              <td>De-escalate, offer resolution, keep it brief</td>
+              <td>Empathetic, never defensive</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout">
+          <div class="callout-label">Negative review rule</div>
+          <p>Never argue publicly. One sentence acknowledging the experience + one sentence offering to make it right + contact info. That's it. Future readers will judge your response more than the complaint.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 5 -->
+    <div id="ch5" class="chapter">
+      <div class="chapter-header">
+        <div class="chapter-number">Chapter 5</div>
+        <h2>On-Page Local SEO</h2>
+        <p class="chapter-intro">What's on the website itself matters for organic rankings and reinforces GBP signals. Most of this is set once at launch — then it's maintenance and expansion.</p>
+      </div>
+
+      <div id="ch5-titles" class="section">
+        <h3>Title Tags &amp; Meta Descriptions</h3>
+        <p>Title tags are the single most important on-page ranking signal. Every page needs a unique one. Meta descriptions don't directly affect rankings but drive click-through rate.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Page</th>
+              <th>Title Format</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Home</td>
+              <td>[Business Name] | [Primary Service] | [City, ST]</td>
+            </tr>
+            <tr>
+              <td>Service Page</td>
+              <td>[Service] in [City] | [Business Name]</td>
+            </tr>
+            <tr>
+              <td>About</td>
+              <td>About [Business Name] | [City] [Service]</td>
+            </tr>
+            <tr>
+              <td>Contact</td>
+              <td>Contact [Business Name] | [City, ST]</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <ul class="list">
+          <li>Keep titles under 60 characters — anything longer gets truncated in search results</li>
+          <li>Meta descriptions: 120–155 characters, include a call to action</li>
+          <li>Every page needs a unique title and description — no duplicates</li>
+        </ul>
+      </div>
+
+      <div id="ch5-schema" class="section">
+        <h3>Schema Markup</h3>
+        <p>Schema is structured data in the page's HTML that tells Google explicitly what the business is, where it's located, and what it does. We ship a <code>LocalBusiness</code> JSON-LD block on every client homepage.</p>
+        <p>Key fields: <code>name</code>, <code>telephone</code>, <code>address</code>, <code>openingHours</code>, <code>areaServed</code>, <code>url</code>. If a client has a specific niche (e.g., masonry), use the most specific schema type available — <code>HomeAndConstructionBusiness</code> beats generic <code>LocalBusiness</code>.</p>
+        <p>Validate with <a href="https://validator.schema.org/" target="_blank">Google's Rich Results Test</a> after every launch.</p>
+      </div>
+
+      <div id="ch5-location" class="section">
+        <h3>Location Pages</h3>
+        <p>When a client serves multiple cities, create a dedicated page for each one. Each page targets "<service> in <city>" and includes local landmarks, neighborhoods, or testimonials from that area.</p>
+
+        <div class="callout">
+          <div class="callout-label">Don't build thin location pages</div>
+          <p>A page that just swaps the city name into a template is worse than nothing — Google may penalize it as duplicate content. Each location page needs at least 200 unique words of genuine local content.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 6 -->
+    <div id="ch6" class="chapter">
+      <div class="chapter-header">
+        <div class="chapter-number">Chapter 6</div>
+        <h2>Client Reporting</h2>
+        <p class="chapter-intro">Monthly reports are how clients see your value. If they can't see results, they cancel — even when results are real. Learn to tell the story the data is telling.</p>
+      </div>
+
+      <div id="ch6-metrics" class="section">
+        <h3>What to Measure</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Source</th>
+              <th>Why It Matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GBP Views</td>
+              <td>Google Business Profile Insights</td>
+              <td>Shows discovery trend — are more people finding them?</td>
+            </tr>
+            <tr>
+              <td>GBP Calls &amp; Direction Requests</td>
+              <td>GBP Insights</td>
+              <td>Direct intent signals — someone took action</td>
+            </tr>
+            <tr>
+              <td>Website Sessions</td>
+              <td>GA4</td>
+              <td>Traffic trend, organic vs direct vs referral</td>
+            </tr>
+            <tr>
+              <td>Organic Clicks</td>
+              <td>Google Search Console</td>
+              <td>How many people clicked from Google search</td>
+            </tr>
+            <tr>
+              <td>Chatbot Leads</td>
+              <td>Notion CRM / ntfy.sh</td>
+              <td>The most direct ROI metric — leads captured</td>
+            </tr>
+            <tr>
+              <td>Review Count &amp; Rating</td>
+              <td>GBP</td>
+              <td>Trust momentum — are reviews growing?</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="ch6-tools" class="section">
+        <h3>Tools</h3>
+        <ul class="list">
+          <li><strong>GA4</strong> — Google Analytics 4. Free. Install on every site at launch via a script tag or the Measurement ID.</li>
+          <li><strong>Google Search Console</strong> — free, shows keyword impressions and clicks. Verify every site on launch.</li>
+          <li><strong>GBP Insights</strong> — built into Google Business Profile dashboard. No setup required.</li>
+          <li><strong>Notion</strong> — our CRM where chatbot leads land. Already configured.</li>
+        </ul>
+      </div>
+
+      <div id="ch6-cadence" class="section">
+        <h3>Monthly Cadence</h3>
+        <ol class="list">
+          <li>Pull GBP Insights for the month (screenshot or export)</li>
+          <li>Pull GA4 sessions and traffic source breakdown</li>
+          <li>Pull GSC organic clicks and top queries</li>
+          <li>Count chatbot leads from Notion for the month</li>
+          <li>Run <code>report-writer</code> agent with raw data — it formats the report</li>
+          <li>Send by the 5th of the following month</li>
+        </ol>
+
+        <div class="callout">
+          <div class="callout-label">Frame results, not raw numbers</div>
+          <p>"Your GBP got 847 views last month — up 23% from October" lands better than "847 views." Always compare to the prior month and note the trend direction.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 7 -->
+    <div id="ch7" class="chapter">
+      <div class="chapter-header">
+        <div class="chapter-number">Chapter 7</div>
+        <h2>Sales &amp; Positioning</h2>
+        <p class="chapter-intro">Knowing the product is half the job. Knowing how to talk about it — especially when a prospect pushes back — is the other half.</p>
+      </div>
+
+      <div id="ch7-objections" class="section">
+        <h3>Common Objections</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Objection</th>
+              <th>Response</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>"I already have a website."</td>
+              <td>Ask when it was last updated and whether it has a chatbot. If no to either, you have a clear gap to fill.</td>
+            </tr>
+            <tr>
+              <td>"How long until I see results?"</td>
+              <td>Be honest: chatbot works day one. GBP rankings take 60–90 days of consistent work. Set this expectation early.</td>
+            </tr>
+            <tr>
+              <td>"Can't I just run ads?"</td>
+              <td>Ads stop the moment you stop paying. A well-ranked GBP and site keep working. Both together is ideal — not either/or.</td>
+            </tr>
+            <tr>
+              <td>"That's too expensive."</td>
+              <td>One captured job that would've bounced (missed call, after-hours inquiry) typically pays for 1–2 months. Ask what one average job is worth to them.</td>
+            </tr>
+            <tr>
+              <td>"I get most of my work from referrals."</td>
+              <td>Referrals Google the business before calling. If the site looks bad or doesn't exist, the referral converts less often. The site protects the referral flywheel.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="ch7-expectations" class="section">
+        <h3>Setting Expectations at Onboarding</h3>
+        <p>Most client relationships that sour do so because expectations weren't set clearly at the start. Say these things in writing at onboarding:</p>
+        <ul class="list">
+          <li><strong>Timeline:</strong> "The chatbot works immediately. GBP rankings take 60–90 days. Organic search can take 3–6 months. We'll show you progress in your monthly report."</li>
+          <li><strong>Your role:</strong> "We need job photos from you monthly and access to ask customers for reviews."</li>
+          <li><strong>What we don't control:</strong> "We can't guarantee ranking positions — no one honestly can. We control the work that moves the needle."</li>
+        </ul>
+      </div>
+
+      <div id="ch7-upsell" class="section">
+        <h3>Upsell Triggers</h3>
+        <p>Watch for these signals that a client is ready to move up a tier or add a service:</p>
+        <ul class="list">
+          <li>They're getting leads from the chatbot but saying "I need more" — add a location page or content push</li>
+          <li>They're on Autopilot and asking about social media or GBP posts — offer Momentum</li>
+          <li>They mention a competitor "showing up everywhere" — audit that competitor's GBP and citations, then show the gap</li>
+          <li>They ask about Google Ads — refer out, take a referral fee, keep the relationship</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Chapter 8: Resources -->
+    <div id="resources" class="chapter">
+      <div class="chapter-header">
+        <div class="chapter-number">Chapter 8</div>
+        <h2>Resources</h2>
+        <p class="chapter-intro">The people and tools worth following. Everything here is free or has a meaningful free tier.</p>
+      </div>
+
+      <div class="section">
+        <h3>Learning</h3>
+        <div class="resource-list">
+          <a href="https://whitespark.ca/local-search-ranking-factors/" target="_blank" class="resource-item">
+            <div class="resource-icon">W</div>
+            <div class="resource-body">
+              <span class="resource-name">Whitespark — Local Search Ranking Factors</span>
+              <span class="resource-desc">Annual survey of what actually moves local rankings, rated by top practitioners. Bookmark and read it every year.</span>
+            </div>
+          </a>
+          <a href="https://www.brightlocal.com/academy/" target="_blank" class="resource-item">
+            <div class="resource-icon">B</div>
+            <div class="resource-body">
+              <span class="resource-name">BrightLocal Academy</span>
+              <span class="resource-desc">Free courses on local SEO, citations, and GBP. Practical and not theoretical — the right depth for operators.</span>
+            </div>
+          </a>
+          <a href="https://sterlingsky.ca/blog/" target="_blank" class="resource-item">
+            <div class="resource-icon">S</div>
+            <div class="resource-body">
+              <span class="resource-name">Sterling Sky Blog (Joy Hawkins)</span>
+              <span class="resource-desc">The sharpest GBP practitioner writing publicly. Read anything by Joy Hawkins — she does the actual experiments.</span>
+            </div>
+          </a>
+          <a href="https://moz.com/learn/seo/local" target="_blank" class="resource-item">
+            <div class="resource-icon">M</div>
+            <div class="resource-body">
+              <span class="resource-name">Moz — Local SEO Learning Center</span>
+              <span class="resource-desc">Good foundational reference. Slightly broad but thorough for concepts and terminology.</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Tools</h3>
+        <div class="resource-list">
+          <a href="https://search.google.com/search-console" target="_blank" class="resource-item">
+            <div class="resource-icon">G</div>
+            <div class="resource-body">
+              <span class="resource-name">Google Search Console</span>
+              <span class="resource-desc">Free. Shows keywords, clicks, impressions, and index coverage. Verify every client site on launch.</span>
+            </div>
+          </a>
+          <a href="https://analytics.google.com/" target="_blank" class="resource-item">
+            <div class="resource-icon">G</div>
+            <div class="resource-body">
+              <span class="resource-name">Google Analytics 4 (GA4)</span>
+              <span class="resource-desc">Free. Traffic, sessions, and behavior data. Install on every site at launch via Measurement ID.</span>
+            </div>
+          </a>
+          <a href="https://validator.schema.org/" target="_blank" class="resource-item">
+            <div class="resource-icon">S</div>
+            <div class="resource-body">
+              <span class="resource-name">Google Rich Results Test</span>
+              <span class="resource-desc">Validate LocalBusiness schema markup after every launch. Free, instant.</span>
+            </div>
+          </a>
+          <a href="https://whitespark.ca/local-citation-finder/" target="_blank" class="resource-item">
+            <div class="resource-icon">W</div>
+            <div class="resource-body">
+              <span class="resource-name">Whitespark Citation Finder</span>
+              <span class="resource-desc">Find where competitors are listed and where your client is missing. Paid tool but worth occasional use.</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Glossary -->
+    <div id="glossary" class="chapter">
+      <div class="chapter-header">
+        <div class="chapter-number">Appendix</div>
+        <h2>Glossary</h2>
+        <p class="chapter-intro">Definitions for terms used throughout this curriculum and in day-to-day client conversations.</p>
+      </div>
+
+      <div class="glossary-grid">
+        <div class="glossary-item">
+          <div class="glossary-term">Citation</div>
+          <div class="glossary-def">Any online mention of a business's NAP data — directory listings, social profiles, or any site that references the business name, address, and phone together.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">CTA</div>
+          <div class="glossary-def">Call To Action. The action you want a visitor to take — call now, fill out a form, start a chat. Every page should have one clear CTA.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">GBP</div>
+          <div class="glossary-def">Google Business Profile. The free Google tool that powers a business's presence in the map pack and on Google Maps. Formerly called Google My Business (GMB).</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">Impressions</div>
+          <div class="glossary-def">The number of times a search result appeared on screen. Not the same as a click — the user saw it but may not have clicked. Tracked in Google Search Console.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">JSON-LD</div>
+          <div class="glossary-def">A format for adding schema markup to a web page. It sits in a &lt;script&gt; tag in the page's &lt;head&gt; and is invisible to users but readable by Google.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">Local Pack</div>
+          <div class="glossary-def">The map widget + three business listings that appear near the top of Google search results for local queries. Also called the Map Pack or 3-Pack. High-value placement.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">NAP</div>
+          <div class="glossary-def">Name, Address, Phone. These three fields must be identical everywhere a business appears online. Inconsistencies suppress local rankings.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">Organic</div>
+          <div class="glossary-def">Non-paid search results. Organic rankings are earned through SEO, not bought through ads. Organic traffic doesn't stop when you stop paying.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">Schema / Structured Data</div>
+          <div class="glossary-def">Code added to a webpage that tells search engines explicitly what the page is about. LocalBusiness schema tells Google the business name, address, phone, hours, and service area.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">SERP</div>
+          <div class="glossary-def">Search Engine Results Page. The page Google shows after a search. The Local Pack appears near the top of the SERP for local queries, above organic results.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">Title Tag</div>
+          <div class="glossary-def">The text shown as the headline of a search result. Also appears in the browser tab. The most important on-page SEO field — every page needs a unique one.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+</main>
+
+</body>
+</html>

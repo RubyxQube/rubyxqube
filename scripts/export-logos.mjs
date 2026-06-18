@@ -332,6 +332,52 @@ function stackedCleanDarkR(id, h) {
 </div>`;
 }
 
+// ── Cover photo variants ──────────────────────────────────────────────────────
+// 540×180 CSS px → 1620×540 output at deviceScaleFactor: 3
+// Sharp then crops to platform-specific sizes
+
+function cover(id) {
+  // 568×210 CSS px → 1704×630 at dSF:3 ≈ 2× retina of Facebook's 851×315 spec
+  const cubeH = 90, cubeW = cubeH * 0.78;
+  return `<div id="${id}" style="width:568px;height:210px;background:#080808;background-image:radial-gradient(rgba(255,255,255,0.035) 1px,transparent 1px);background-size:18px 18px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;">
+  <div style="position:absolute;left:145px;top:50%;transform:translateY(-50%);width:210px;height:210px;background:radial-gradient(ellipse at center,rgba(225,29,72,0.18) 0%,transparent 65%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:28px;position:relative;z-index:1;">
+    ${cubeSVG(id + "mk", cubeW, cubeH)}
+    <div style="width:1px;height:66px;background:rgba(255,255,255,0.10);flex-shrink:0;"></div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font-weight:800;font-size:32px;letter-spacing:-0.03em;color:rgba(255,255,255,0.93);white-space:nowrap;line-height:1;">Ruby<span style="color:#e11d48;">x</span>Qube</span>
+      <span style="font-weight:400;font-size:9.5px;letter-spacing:0.2em;color:rgba(255,255,255,0.38);text-transform:uppercase;white-space:nowrap;">Fast Sites. Smart Chatbots. Built to Convert.</span>
+    </div>
+  </div>
+</div>`;
+}
+
+// ── Social media variants ─────────────────────────────────────────────────────
+// 360×360 CSS px → 1080×1080 output at deviceScaleFactor: 3
+
+function socialProfile(id) {
+  // Profile photo: cube mark only, white background, 1:1 square
+  const cubeH = 200, cubeW = cubeH * 0.78;
+  return `<div id="${id}" style="width:360px;height:360px;display:flex;align-items:center;justify-content:center;background:#ffffff;">
+  ${cubeSVG(id + "mk", cubeW, cubeH)}
+</div>`;
+}
+
+function socialPost(id) {
+  // Post graphic: stacked wordmark, white background, x precisely centered under cube
+  // Centering trick: flex row with flex:1 on Ruby/Qube spans forces x to sit at exactly 50% of container
+  const cubeH = 130, cubeW = cubeH * 0.78;
+  const fs = 42, gap = 14, ww = 310;
+  return `<div id="${id}" style="width:360px;height:360px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:${gap}px;background:#ffffff;">
+  ${cubeSVG(id + "mk", cubeW, cubeH)}
+  <div style="width:${ww}px;display:flex;align-items:baseline;">
+    <span style="flex:1;text-align:right;font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;font-weight:800;font-size:${fs}px;letter-spacing:-0.03em;color:rgba(10,8,9,0.93);white-space:nowrap;">Ruby</span>
+    <span style="flex:0 0 auto;font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;font-weight:800;font-size:${fs}px;letter-spacing:-0.03em;color:#e11d48;">x</span>
+    <span style="flex:1;text-align:left;font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;font-weight:800;font-size:${fs}px;letter-spacing:-0.03em;color:rgba(10,8,9,0.93);white-space:nowrap;">Qube</span>
+  </div>
+</div>`;
+}
+
 function buildHTML() {
   return `<!DOCTYPE html>
 <html>
@@ -346,31 +392,10 @@ function buildHTML() {
 </style>
 </head>
 <body>
-${horizontal(        "logo-h",          72)}
-${stacked(           "logo-v",          100)}
-${horizontalClean(   "logo-h-clean",    72)}
-${stackedClean(      "logo-v-clean",    100)}
-${horizontalTM(      "logo-h-tm",       72)}
-${stackedTM(         "logo-v-tm",       100)}
-${horizontalCleanTM( "logo-h-clean-tm", 72)}
-${stackedCleanTM(    "logo-v-clean-tm", 100)}
-${horizontalR(       "logo-h-r",        72)}
-${stackedR(          "logo-v-r",        100)}
-${horizontalCleanR(  "logo-h-clean-r",      72)}
-${stackedCleanR(     "logo-v-clean-r",      100)}
-${horizontalDark(        "logo-h-dark",         72)}
-${stackedDark(           "logo-v-dark",         100)}
-${horizontalCleanDark(   "logo-h-clean-dark",   72)}
-${stackedCleanDark(      "logo-v-clean-dark",   100)}
-${horizontalDarkTM(      "logo-h-dark-tm",      72)}
-${stackedDarkTM(         "logo-v-dark-tm",      100)}
-${horizontalCleanDarkTM( "logo-h-clean-dark-tm",72)}
-${stackedCleanDarkTM(    "logo-v-clean-dark-tm",100)}
-${horizontalDarkR(       "logo-h-dark-r",       72)}
-${stackedDarkR(          "logo-v-dark-r",       100)}
-${horizontalCleanDarkR(  "logo-h-clean-dark-r", 72)}
-${stackedCleanDarkR(     "logo-v-clean-dark-r", 100)}
-${markDiv(               "logo-mark",           300)}
+${markDiv(       "logo-mark",           300)}
+${socialProfile( "logo-social-profile")}
+${socialPost(    "logo-social-post")}
+${cover(         "logo-cover")}
 </body>
 </html>`;
 }
@@ -402,120 +427,36 @@ async function main() {
     return buf;
   }
 
-  const [
-    hBuf, vBuf, hCleanBuf, vCleanBuf,
-    hTMBuf, vTMBuf, hCleanTMBuf, vCleanTMBuf,
-    hRBuf, vRBuf, hCleanRBuf, vCleanRBuf,
-    hDarkBuf, vDarkBuf, hCleanDarkBuf, vCleanDarkBuf,
-    hDarkTMBuf, vDarkTMBuf, hCleanDarkTMBuf, vCleanDarkTMBuf,
-    hDarkRBuf, vDarkRBuf, hCleanDarkRBuf, vCleanDarkRBuf,
-    mBuf,
-  ] = await Promise.all([
-    capture("logo-h"),
-    capture("logo-v"),
-    capture("logo-h-clean"),
-    capture("logo-v-clean"),
-    capture("logo-h-tm"),
-    capture("logo-v-tm"),
-    capture("logo-h-clean-tm"),
-    capture("logo-v-clean-tm"),
-    capture("logo-h-r"),
-    capture("logo-v-r"),
-    capture("logo-h-clean-r"),
-    capture("logo-v-clean-r"),
-    capture("logo-h-dark"),
-    capture("logo-v-dark"),
-    capture("logo-h-clean-dark"),
-    capture("logo-v-clean-dark"),
-    capture("logo-h-dark-tm"),
-    capture("logo-v-dark-tm"),
-    capture("logo-h-clean-dark-tm"),
-    capture("logo-v-clean-dark-tm"),
-    capture("logo-h-dark-r"),
-    capture("logo-v-dark-r"),
-    capture("logo-h-clean-dark-r"),
-    capture("logo-v-clean-dark-r"),
+  const [mBuf, socialProfileBuf, socialPostBuf, coverBuf] = await Promise.all([
     capture("logo-mark"),
+    capture("logo-social-profile"),
+    capture("logo-social-post"),
+    capture("logo-cover"),
   ]);
 
   await browser.close();
   console.log("🔒 Browser closed.\n");
 
-  // ── No TM ────────────────────────────────────────────────────────────
-  await writeFile(resolve(BRAND, "logo-horizontal.png"), hBuf);
-  console.log("✓ public/brand/logo-horizontal.png");
+  // ── Social media variants (1080×1080 white bg) ──
+  await writeFile(resolve(BRAND, "logo-social-profile.png"), socialProfileBuf);
+  console.log("✓ public/brand/logo-social-profile.png  (1080×1080 — profile photo)");
 
-  await writeFile(resolve(BRAND, "logo-horizontal-clean.png"), hCleanBuf);
-  console.log("✓ public/brand/logo-horizontal-clean.png");
+  await writeFile(resolve(BRAND, "logo-social-post.png"), socialPostBuf);
+  console.log("✓ public/brand/logo-social-post.png     (1080×1080 — post graphic)");
 
-  await writeFile(resolve(BRAND, "logo-stacked.png"), vBuf);
-  console.log("✓ public/brand/logo-stacked.png");
+  // Cover: 1704×630 native → platform crops
+  // Facebook spec: 851×315 (fastest load), 2× retina = 1702×630 — we output 1704×630 (within 2px)
+  await sharp(coverBuf)
+    .resize(1702, 630, { fit: "cover", position: "center" })
+    .png()
+    .toFile(resolve(BRAND, "logo-cover-facebook.png"));
+  console.log("✓ public/brand/logo-cover-facebook.png  (1702×630 — Facebook 2× retina of 851×315)");
 
-  await writeFile(resolve(BRAND, "logo-stacked-clean.png"), vCleanBuf);
-  console.log("✓ public/brand/logo-stacked-clean.png");
-
-  // ── TM variants ───────────────────────────────────────────────────────
-  await writeFile(resolve(BRAND, "logo-horizontal-tm.png"), hTMBuf);
-  console.log("✓ public/brand/logo-horizontal-tm.png");
-
-  await writeFile(resolve(BRAND, "logo-horizontal-clean-tm.png"), hCleanTMBuf);
-  console.log("✓ public/brand/logo-horizontal-clean-tm.png");
-
-  await writeFile(resolve(BRAND, "logo-stacked-tm.png"), vTMBuf);
-  console.log("✓ public/brand/logo-stacked-tm.png");
-
-  await writeFile(resolve(BRAND, "logo-stacked-clean-tm.png"), vCleanTMBuf);
-  console.log("✓ public/brand/logo-stacked-clean-tm.png");
-
-  // ── ® variants (use after USPTO approval) ────────────────────────────
-  await writeFile(resolve(BRAND, "logo-horizontal-r.png"), hRBuf);
-  console.log("✓ public/brand/logo-horizontal-r.png");
-
-  await writeFile(resolve(BRAND, "logo-horizontal-clean-r.png"), hCleanRBuf);
-  console.log("✓ public/brand/logo-horizontal-clean-r.png");
-
-  await writeFile(resolve(BRAND, "logo-stacked-r.png"), vRBuf);
-  console.log("✓ public/brand/logo-stacked-r.png");
-
-  await writeFile(resolve(BRAND, "logo-stacked-clean-r.png"), vCleanRBuf);
-  console.log("✓ public/brand/logo-stacked-clean-r.png");
-
-  // ── Dark variants (dark text on transparent — for light/white backgrounds) ──
-  await writeFile(resolve(BRAND, "logo-horizontal-dark.png"), hDarkBuf);
-  console.log("✓ public/brand/logo-horizontal-dark.png");
-
-  await writeFile(resolve(BRAND, "logo-horizontal-clean-dark.png"), hCleanDarkBuf);
-  console.log("✓ public/brand/logo-horizontal-clean-dark.png");
-
-  await writeFile(resolve(BRAND, "logo-stacked-dark.png"), vDarkBuf);
-  console.log("✓ public/brand/logo-stacked-dark.png");
-
-  await writeFile(resolve(BRAND, "logo-stacked-clean-dark.png"), vCleanDarkBuf);
-  console.log("✓ public/brand/logo-stacked-clean-dark.png");
-
-  await writeFile(resolve(BRAND, "logo-horizontal-dark-tm.png"), hDarkTMBuf);
-  console.log("✓ public/brand/logo-horizontal-dark-tm.png");
-
-  await writeFile(resolve(BRAND, "logo-horizontal-clean-dark-tm.png"), hCleanDarkTMBuf);
-  console.log("✓ public/brand/logo-horizontal-clean-dark-tm.png");
-
-  await writeFile(resolve(BRAND, "logo-stacked-dark-tm.png"), vDarkTMBuf);
-  console.log("✓ public/brand/logo-stacked-dark-tm.png");
-
-  await writeFile(resolve(BRAND, "logo-stacked-clean-dark-tm.png"), vCleanDarkTMBuf);
-  console.log("✓ public/brand/logo-stacked-clean-dark-tm.png");
-
-  await writeFile(resolve(BRAND, "logo-horizontal-dark-r.png"), hDarkRBuf);
-  console.log("✓ public/brand/logo-horizontal-dark-r.png");
-
-  await writeFile(resolve(BRAND, "logo-horizontal-clean-dark-r.png"), hCleanDarkRBuf);
-  console.log("✓ public/brand/logo-horizontal-clean-dark-r.png");
-
-  await writeFile(resolve(BRAND, "logo-stacked-dark-r.png"), vDarkRBuf);
-  console.log("✓ public/brand/logo-stacked-dark-r.png");
-
-  await writeFile(resolve(BRAND, "logo-stacked-clean-dark-r.png"), vCleanDarkRBuf);
-  console.log("✓ public/brand/logo-stacked-clean-dark-r.png");
+  await sharp(coverBuf)
+    .resize(1584, 396, { fit: "cover", position: "center" })
+    .png()
+    .toFile(resolve(BRAND, "logo-cover-linkedin.png"));
+  console.log("✓ public/brand/logo-cover-linkedin.png  (1584×396 — LinkedIn)");
 
   // ── Mark 512 (transparent, square padded) ──
   await sharp(mBuf)
@@ -562,7 +503,7 @@ async function main() {
   console.log("✓ public/favicon.ico");
 
   console.log("\n🎉 All brand assets exported!");
-  console.log(`   public/brand/  — ${["logo-horizontal.png","logo-stacked.png","logo-mark-512.png","logo-mark-192.png","logo-mark-64.png"].join(", ")}`);
+  console.log("   public/brand/  — logo-social-profile.png, logo-social-post.png, logo-cover-facebook.png, logo-cover-linkedin.png, logo-mark-512/192/64.png");
   console.log("   public/        — favicon.ico, apple-touch-icon.png");
 }
 

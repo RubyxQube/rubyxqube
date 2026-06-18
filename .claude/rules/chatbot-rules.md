@@ -58,7 +58,7 @@ FORMATTING RULES — this is a chat widget:
 - API: Anthropic API via Vercel Serverless Function (`/api/chat`)
 - API key: One `ANTHROPIC_API_KEY` per client Vercel project (never shared)
 - Push alerts (Boyd): ntfy.sh — free, no registration, install the app once (`NTFY_TOPIC`)
-- SMS alerts (client): TextBelt — ~$0.01/text, no A2P registration, pay-as-you-go (`TEXTBELT_KEY` + `ALERT_PHONE_NUMBER`)
+- SMS alerts (client): SignalWire — ~$0.008/text, local 208 number, A2P 10DLC registered (`SIGNALWIRE_SPACE_URL` + `SIGNALWIRE_PROJECT_ID` + `SIGNALWIRE_API_TOKEN` + `SIGNALWIRE_FROM_NUMBER` + `ALERT_PHONE_NUMBER`)
 - Email alerts: Resend — free tier, works immediately (`RESEND_API_KEY` + `ALERT_EMAIL`)
 
 All three alert channels are optional and degrade gracefully — app works with any combination.
@@ -74,8 +74,8 @@ When building a chatbot for a new client, update these in the system prompt:
 - [ ] Hours of operation
 - [ ] 5–10 FAQ pairs from their onboarding questionnaire
 - [ ] CTA: what should the bot encourage? (call, fill form, book)
-- [ ] `ALERT_PHONE_NUMBER` in Vercel env vars (client's cell for TextBelt SMS)
-- [ ] `TEXTBELT_KEY` in Vercel env vars (buy credits at textbelt.com)
+- [ ] `ALERT_PHONE_NUMBER` in Vercel env vars (client's cell)
+- [ ] `SIGNALWIRE_SPACE_URL`, `SIGNALWIRE_PROJECT_ID`, `SIGNALWIRE_API_TOKEN`, `SIGNALWIRE_FROM_NUMBER` in Vercel env vars (same values across all client projects — see sms-provider memory)
 - [ ] `RESEND_API_KEY` + `ALERT_EMAIL` in Vercel env vars (email alerts)
 - [ ] `NTFY_TOPIC` in Vercel env vars (Boyd's push notification)
 - [ ] `businessName` in chatConfig.js
@@ -91,7 +91,7 @@ When building a chatbot for a new client, update these in the system prompt:
 2. Update `chatConfig.js` with client's business name, accent color, greeting, system prompt
 3. Update `DEFAULT_SYSTEM_PROMPT` in `api/chat.js` with client's services, FAQs, hours, contact
 4. Add `ANTHROPIC_API_KEY` (new key per client) to Vercel env vars
-5. Add `TEXTBELT_KEY` + `ALERT_PHONE_NUMBER` for SMS alerts (client's phone)
+5. Add `SIGNALWIRE_SPACE_URL` + `SIGNALWIRE_PROJECT_ID` + `SIGNALWIRE_API_TOKEN` + `SIGNALWIRE_FROM_NUMBER` + `ALERT_PHONE_NUMBER` for SMS alerts (client's phone)
 6. Add `RESEND_API_KEY` + `ALERT_EMAIL` for email alerts
 7. Add `NTFY_TOPIC` for Boyd's push notification
 8. Test 10 conversations before going live
