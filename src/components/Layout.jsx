@@ -53,11 +53,11 @@ export default function Layout() {
       <MeshGradient
         colors={
           theme === "dark"
-            ? ["#0a0809", "#110407", "#160308", "#0a0809"]
+            ? ["#060606", "#1e0610", "#06020e", "#180409"]
             : ["#F5F0EA", "#F0DDE4", "#EAD9CC", "#F5EDE8"]
         }
-        speed={0.20}
-        backgroundColor={theme === "dark" ? "#0a0809" : "#F5F0EA"}
+        speed={0.28}
+        backgroundColor={theme === "dark" ? "#060606" : "#F5F0EA"}
         style={{
           position: "fixed",
           inset: 0,
