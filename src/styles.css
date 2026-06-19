@@ -412,8 +412,14 @@ label{
   background: var(--accent-dim);
   font-weight: 600;
 }
+.navLinks .navClientLogin{
+  padding: 8px 14px;
+  font-size: 13.5px;
+  border-radius: 8px;
+  color: rgba(255,255,255,0.75);
+}
 .navLinks .navCta{
-  margin-left: 8px;
+  margin-left: 4px;
   padding: 8px 18px;
   font-size: 13.5px;
   border-radius: 8px;

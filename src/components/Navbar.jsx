@@ -151,6 +151,7 @@ export default function Navbar({ theme = "dark", onToggle }) {
             <button className="themeToggle" onClick={onToggle} aria-label={toggleLabel}>
               <ToggleIcon />
             </button>
+            <a className="btn navClientLogin" href="https://app.rubyxqube.com/login">Client Login</a>
             <NavLink className="btn primary navCta" to="/contact">Free Audit</NavLink>
           </nav>
 
@@ -194,7 +195,14 @@ export default function Navbar({ theme = "dark", onToggle }) {
             ))}
           </nav>
 
-          <div style={{ paddingTop: 12 }}>
+          <div style={{ paddingTop: 12, display: "flex", flexDirection: "column", gap: 8 }}>
+            <a
+              href="https://app.rubyxqube.com/login"
+              className="btn"
+              style={{ display: "flex", justifyContent: "center", width: "100%", padding: "14px" }}
+            >
+              Client Login
+            </a>
             <Link
               to="/contact"
               className="btn primary"
