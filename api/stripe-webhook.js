@@ -20,6 +20,24 @@ import Stripe from "stripe";
 
 export const config = { api: { bodyParser: false } };
 
+async function syncClientStatus(stripeCustomerId, subscriptionStatus) {
+  const { SUPABASE_URL, SUPABASE_SERVICE_KEY } = process.env;
+  if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY || !stripeCustomerId) return;
+  await fetch(
+    `${SUPABASE_URL}/rest/v1/clients?stripe_customer_id=eq.${encodeURIComponent(stripeCustomerId)}`,
+    {
+      method: "PATCH",
+      headers: {
+        "Content-Type":  "application/json",
+        "apikey":        SUPABASE_SERVICE_KEY,
+        "Authorization": `Bearer ${SUPABASE_SERVICE_KEY}`,
+        "Prefer":        "return=minimal",
+      },
+      body: JSON.stringify({ subscription_status: subscriptionStatus }),
+    }
+  ).catch(err => console.error("Supabase syncClientStatus error:", err.message));
+}
+
 function getRawBody(req) {
   return new Promise((resolve, reject) => {
     let data = "";
@@ -164,6 +182,7 @@ export default async function handler(req, res) {
     case "customer.subscription.created": {
       const plan = data.items?.data?.[0]?.price?.nickname || data.items?.data?.[0]?.price?.id || "Unknown plan";
       const amount = ((data.items?.data?.[0]?.price?.unit_amount || 0) / 100).toLocaleString("en-US", { style: "currency", currency: "USD" });
+      syncClientStatus(data.customer, "active").catch(() => {});
       await notify({
         title: "New Subscription — Client Card on File",
         body: `Plan: ${plan}\nAmount: ${amount}/mo\nCustomer: ${data.customer}\nStatus: ${data.status}`,
@@ -175,6 +194,7 @@ export default async function handler(req, res) {
 
     case "customer.subscription.deleted": {
       const plan = data.items?.data?.[0]?.price?.nickname || "Unknown plan";
+      syncClientStatus(data.customer, "cancelled").catch(() => {});
       await notify({
         title: "Subscription Cancelled",
         body: `Plan: ${plan}\nCustomer: ${data.customer}\nEnded: ${new Date(data.ended_at * 1000).toLocaleDateString()}`,
@@ -201,6 +221,7 @@ export default async function handler(req, res) {
     case "invoice.payment_failed": {
       const amount = (data.amount_due / 100).toLocaleString("en-US", { style: "currency", currency: "USD" });
       const customerEmail = data.customer_email || "unknown";
+      syncClientStatus(data.customer, "paused").catch(() => {});
       await notify({
         title: "PAYMENT FAILED — Follow Up Now",
         body: `Customer: ${customerEmail}\nAmount due: ${amount}\nAttempt: ${data.attempt_count}\nNext retry: ${data.next_payment_attempt ? new Date(data.next_payment_attempt * 1000).toLocaleDateString() : "none"}`,

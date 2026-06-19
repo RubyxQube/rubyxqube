@@ -18,6 +18,27 @@
 
 import crypto from "crypto";
 
+async function saveCalBookingLead({ name, email, eventName, when }) {
+  const { SUPABASE_URL, SUPABASE_SERVICE_KEY } = process.env;
+  if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) return;
+  await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+    method: "POST",
+    headers: {
+      "Content-Type":  "application/json",
+      "apikey":        SUPABASE_SERVICE_KEY,
+      "Authorization": `Bearer ${SUPABASE_SERVICE_KEY}`,
+      "Prefer":        "return=minimal",
+    },
+    body: JSON.stringify({
+      name,
+      email:          email !== "No email" ? email : null,
+      service_needed: eventName,
+      notes:          `Booked for: ${when} MT`,
+      source:         "cal_booking",
+    }),
+  }).catch(err => console.error("Supabase cal booking error:", err.message));
+}
+
 export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
@@ -58,6 +79,7 @@ export default async function handler(req, res) {
   let alertText;
 
   if (triggerEvent === "BOOKING_CREATED") {
+    saveCalBookingLead({ name, email, eventName, when }).catch(() => {});
     alertText = [
       `New booking — ${eventName}`,
       ``,
