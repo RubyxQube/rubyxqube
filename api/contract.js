@@ -5,74 +5,47 @@
  * POST /api/contract             — record a signature
  *
  * Environment variables (set in Vercel dashboard):
- *   NOTION_TOKEN                  required
- *   NOTION_CONTRACTS_DATABASE_ID  required — separate from CRM database
+ *   SUPABASE_URL              required
+ *   SUPABASE_SERVICE_KEY      required
  *   NTFY_TOPIC                    optional — push alert to Boyd on signing (free)
  *   TEXTBELT_KEY                  optional — SMS alert to Boyd on signing (~$0.01)
  *   ALERT_PHONE_NUMBER            optional — Boyd's cell, E.164: +1XXXXXXXXXX
  *   RESEND_API_KEY + ALERT_EMAIL  optional — email alert on signing
  */
 
-const NOTION_VERSION = "2022-06-28";
+const SUPABASE_URL = process.env.SUPABASE_URL
+const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY
 
-// ─── Notion helpers ───────────────────────────────────────────────────────────
+function supabaseHeaders() {
+  return {
+    'Content-Type': 'application/json',
+    'apikey': SUPABASE_SERVICE_KEY,
+    'Authorization': `Bearer ${SUPABASE_SERVICE_KEY}`
+  }
+}
 
 async function findContractByToken(token) {
   const res = await fetch(
-    `https://api.notion.com/v1/databases/${process.env.NOTION_CONTRACTS_DATABASE_ID}/query`,
+    `${SUPABASE_URL}/rest/v1/contract_proposals?token=eq.${encodeURIComponent(token)}&select=*&limit=1`,
+    { headers: supabaseHeaders() }
+  )
+  const data = await res.json()
+  return Array.isArray(data) ? data[0] || null : null
+}
+
+async function markSigned(id, signedName) {
+  await fetch(
+    `${SUPABASE_URL}/rest/v1/contract_proposals?id=eq.${id}`,
     {
-      method: "POST",
-      headers: {
-        Authorization:    `Bearer ${process.env.NOTION_TOKEN}`,
-        "Content-Type":   "application/json",
-        "Notion-Version": NOTION_VERSION,
-      },
+      method: 'PATCH',
+      headers: { ...supabaseHeaders(), 'Prefer': 'return=minimal' },
       body: JSON.stringify({
-        filter: { property: "Token", rich_text: { equals: token } },
-      }),
+        status: 'signed',
+        signed_name: signedName,
+        signed_at: new Date().toISOString()
+      })
     }
-  );
-  const data = await res.json();
-  return data.results?.[0] || null;
-}
-
-function extractText(prop) {
-  return prop?.rich_text?.[0]?.plain_text || "";
-}
-
-function parseContract(page) {
-  const p = page.properties;
-  return {
-    id:                 page.id,
-    clientName:         extractText(p["Client Name"]),
-    clientEmail:        p["Client Email"]?.email        || "",
-    clientPhone:        p["Phone"]?.phone_number        || "",
-    package:            p["Package"]?.select?.name      || "",
-    amount:             p["Amount"]?.number             || 0,
-    paymentTerms:       extractText(p["Payment Terms"]),
-    projectDescription: extractText(p["Project Description"]),
-    status:             p["Status"]?.select?.name       || "Pending",
-    signedName:         extractText(p["Signed Name"]),
-    createdDate:        page.created_time?.split("T")[0] || "",
-  };
-}
-
-async function markSigned(pageId, signedName) {
-  await fetch(`https://api.notion.com/v1/pages/${pageId}`, {
-    method: "PATCH",
-    headers: {
-      Authorization:    `Bearer ${process.env.NOTION_TOKEN}`,
-      "Content-Type":   "application/json",
-      "Notion-Version": NOTION_VERSION,
-    },
-    body: JSON.stringify({
-      properties: {
-        Status:        { select:    { name: "Signed" } },
-        "Signed Name": { rich_text: [{ text: { content: signedName } }] },
-        "Signed At":   { date:      { start: new Date().toISOString() } },
-      },
-    }),
-  });
+  )
 }
 
 // ─── Alert helpers ────────────────────────────────────────────────────────────
@@ -195,8 +168,8 @@ export default async function handler(req, res) {
 
   if (req.method === "OPTIONS") return res.status(200).end();
 
-  if (!process.env.NOTION_TOKEN || !process.env.NOTION_CONTRACTS_DATABASE_ID) {
-    return res.status(500).json({ error: "Server not configured." });
+  if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
+    return res.status(500).json({ error: 'Server not configured.' })
   }
 
   // ── GET: fetch contract by token ──────────────────────────────────────────
@@ -204,14 +177,11 @@ export default async function handler(req, res) {
     const { token } = req.query;
     if (!token) return res.status(400).json({ error: "Missing token." });
 
-    const page = await findContractByToken(token);
-    if (!page) return res.status(404).json({ error: "Contract not found." });
-
-    const contract = parseContract(page);
-    if (contract.status === "Signed")  return res.status(200).json({ ...contract, alreadySigned: true });
-    if (contract.status === "Voided")  return res.status(410).json({ error: "This contract has been voided. Contact boyd@rubyxqube.com." });
-
-    return res.status(200).json(contract);
+    const row = await findContractByToken(token);
+    if (!row) return res.status(404).json({ error: 'Contract not found.' })
+    if (row.status === 'signed') return res.status(200).json({ ...row, alreadySigned: true })
+    if (row.status === 'voided') return res.status(410).json({ error: 'This contract has been voided. Contact boyd@rubyxqube.com.' })
+    return res.status(200).json(row)
   }
 
   // ── POST: record signature ────────────────────────────────────────────────
@@ -221,18 +191,24 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Missing token or signature." });
     }
 
-    const page = await findContractByToken(token);
-    if (!page) return res.status(404).json({ error: "Contract not found." });
+    const row = await findContractByToken(token);
+    if (!row) return res.status(404).json({ error: 'Contract not found.' })
+    if (row.status === 'signed') return res.status(409).json({ error: 'Already signed.', alreadySigned: true })
+    if (row.status === 'voided') return res.status(410).json({ error: 'Contract has been voided.' })
 
-    const contract = parseContract(page);
-    if (contract.status === "Signed") return res.status(409).json({ error: "Already signed.", alreadySigned: true });
-    if (contract.status === "Voided") return res.status(410).json({ error: "Contract has been voided." });
+    await markSigned(row.id, signedName.trim())
 
-    await markSigned(page.id, signedName.trim());
-    sendSigningAlerts(contract, signedName.trim()).catch(() => {});
-    sendClientWelcomeEmail(contract, signedName.trim()).catch(() => {});
+    const contract = {
+      package: row.package,
+      amount: row.amount_cents / 100,
+      clientEmail: row.client_email,
+      clientPhone: row.client_phone,
+    }
 
-    return res.status(200).json({ success: true, signedAt: new Date().toISOString() });
+    sendSigningAlerts(contract, signedName.trim()).catch(() => {})
+    sendClientWelcomeEmail(contract, signedName.trim()).catch(() => {})
+
+    return res.status(200).json({ success: true, signedAt: new Date().toISOString() })
   }
 
   return res.status(405).json({ error: "Method not allowed." });

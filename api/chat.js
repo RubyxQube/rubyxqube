@@ -28,9 +28,6 @@
  *   ALERT_EMAIL              where to send lead emails
  *   FROM_EMAIL               verified sender — omit to use onboarding@resend.dev
  *
- * ── Optional: Notion CRM ─────────────────────────────────────────────────────
- *   NOTION_TOKEN             Notion integration token
- *   NOTION_DATABASE_ID       Client Pipeline database ID
  */
 
 import Anthropic from "@anthropic-ai/sdk";
@@ -184,44 +181,40 @@ async function sendEmailAlert(lead, businessName) {
   }
 }
 
-// ─── Notion CRM card (optional) ───────────────────────────────────────────────
-async function createNotionLead(lead, businessName) {
-  if (!process.env.NOTION_TOKEN || !process.env.NOTION_DATABASE_ID) return;
+// ─── Supabase lead save (optional) ───────────────────────────────────────────
+async function saveLeadToSupabase(lead) {
+  const { SUPABASE_URL, SUPABASE_SERVICE_KEY } = process.env
+  if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) return
+  const contact = lead.contact || ''
+  const isEmail = contact.includes('@')
   try {
-    const isEmail   = lead.contact.includes("@");
-    const notesText =
-      `Needs: ${lead.service_needed}` +
-      (lead.notes ? `\n${lead.notes}` : "") +
-      `\nSource: ${businessName || "RubyxQube"} chatbot`;
-
-    const properties = {
-      Name:          { title:     [{ text: { content: `Lead — ${lead.name}` } }] },
-      Status:        { status:    { name: "🔍 Prospect" } },
-      Owner:         { rich_text: [{ text: { content: lead.name } }] },
-      Source:        { select:    { name: "Inbound" } },
-      Notes:         { rich_text: [{ text: { content: notesText } }] },
-      "Next Action": { rich_text: [{ text: { content: "Follow up call" } }] },
-    };
-    if (isEmail) properties["Email"] = { email: lead.contact };
-    else         properties["Phone"] = { phone_number: lead.contact };
-
-    const res = await fetch("https://api.notion.com/v1/pages", {
-      method:  "POST",
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+      method: 'POST',
       headers: {
-        Authorization:    `Bearer ${process.env.NOTION_TOKEN}`,
-        "Content-Type":   "application/json",
-        "Notion-Version": "2022-06-28",
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_SERVICE_KEY,
+        'Authorization': `Bearer ${SUPABASE_SERVICE_KEY}`,
+        'Prefer': 'return=minimal'
       },
       body: JSON.stringify({
-        parent:     { database_id: process.env.NOTION_DATABASE_ID },
-        properties,
-      }),
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(JSON.stringify(data));
-    console.log("Notion lead card created:", lead.name);
+        client_id: null,
+        name: lead.name || 'Unknown',
+        phone: isEmail ? null : contact || null,
+        email: isEmail ? contact : null,
+        service_needed: lead.service_needed || null,
+        source: 'chatbot',
+        status: 'new',
+        notes: lead.notes || null
+      })
+    })
+    if (!res.ok) {
+      const text = await res.text().catch(() => '')
+      console.error('[saveLeadToSupabase] HTTP', res.status, text)
+    } else {
+      console.log('[saveLeadToSupabase] lead saved:', lead.name)
+    }
   } catch (err) {
-    console.error("Notion error:", err.message);
+    console.error('[saveLeadToSupabase] error:', err.message)
   }
 }
 
@@ -263,7 +256,7 @@ export default async function handler(req, res) {
       sendNtfyAlert(toolUse.input, businessName).catch(() => {});
       sendSMSAlert(toolUse.input, businessName).catch(() => {});
       sendEmailAlert(toolUse.input, businessName).catch(() => {});
-      createNotionLead(toolUse.input, businessName).catch(() => {});
+      saveLeadToSupabase(toolUse.input).catch(() => {});
 
       // Second call so Claude can respond naturally after tool result
       const response2 = await client.messages.create({
