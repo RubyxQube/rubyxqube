@@ -776,6 +776,19 @@ label{
   background: rgba(20,12,15,0.05);
   border-color: rgba(20,12,15,0.16);
 }
+/* Navbar is always dark — keep Client Login white in light mode */
+[data-theme="light"] .navLinks .navClientLogin{
+  color: rgba(255,255,255,0.52);
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+[data-theme="light"] .navLinks .navClientLogin:hover{
+  color: rgba(255,255,255,0.90);
+  background: rgba(255,255,255,0.06);
+  border-color: transparent;
+  box-shadow: none;
+}
 [data-theme="light"] .btn:not(.primary):hover{
   background: rgba(20,12,15,0.09);
   border-color: rgba(20,12,15,0.24);
