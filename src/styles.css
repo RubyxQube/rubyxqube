@@ -420,6 +420,7 @@ label{
   border-color: rgba(255,255,255,0.12);
   background: rgba(255,255,255,0.08);
   box-shadow: none;
+  margin-left: 8px;
 }
 .navLinks .navClientLogin:hover{
   background: rgba(255,255,255,0.14);
@@ -429,7 +430,7 @@ label{
   transform: none;
 }
 .navLinks .navCta{
-  margin-left: 4px;
+  margin-left: 8px;
   padding: 8px 18px;
   font-size: 13.5px;
   border-radius: 8px;
