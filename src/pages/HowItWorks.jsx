@@ -87,6 +87,8 @@ const MOMENTUM_EXTRAS = [
   "Custom tools: calculators, estimators, intake forms, and more",
   "Google Business Profile management",
   "Monthly AI receptionist tuning",
+  "4 AI-assisted blog posts/month — written in your client portal, reviewed and published for you. More posts = more Google visibility.",
+  "Client portal — update your chatbot, services, hours, and FAQs without contacting us",
   "Weekly check-in call (30–60 min)",
 ];
 
@@ -97,7 +99,7 @@ const FAQS = [
   },
   {
     q: "Do I own my website?",
-    a: "Yes. After the 6-month minimum commitment, the source files are yours on request. Your domain is always yours regardless. If you ever need to leave early, a $800 site buyout gets you the files immediately.",
+    a: "Yes. On Autopilot and Momentum, the source files are yours after the 6-month minimum — or immediately for $800 if you need to leave early. Launch plan customers own the files from day one. Your domain is always yours regardless.",
   },
   {
     q: "What does '60 minutes of updates' actually mean?",
@@ -113,7 +115,7 @@ const FAQS = [
   },
   {
     q: "What happens to my site if I cancel?",
-    a: "After the 6-month minimum: give 30 days written notice, pay any outstanding balance, done. On Autopilot/Momentum, you can take the site files for $800 or simply let it go offline. Your domain is always released back to you within 5 business days.",
+    a: "On Autopilot and Momentum: after the 6-month minimum, give 30 days written notice, pay any outstanding balance, done. You can take the site files for $800 or let it go offline. Your domain is always released back to you within 5 business days. Launch plan has no ongoing contract.",
   },
   {
     q: "Is there a long-term contract?",
@@ -157,7 +159,7 @@ export default function HowItWorks() {
             No vague "web presence solutions." Here's precisely what's included, how the process works, and what happens month to month.
           </p>
           <div className="btnRow" style={{ marginTop: 28 }}>
-            <Link className="btn primary" to="/contact">Book a Free Audit</Link>
+            <Link className="btn primary" to="/contact">Get a Free Audit</Link>
             <Link className="btn" to="/pricing">See Pricing</Link>
           </div>
         </div>
@@ -220,8 +222,11 @@ export default function HowItWorks() {
           <div className="card cardHighlight" style={{ maxWidth: 720, margin: "0 auto" }}>
             <span className="badge" style={{ marginBottom: 12, display: "inline-block" }}>Momentum only — $999/mo</span>
             <h2 className="h2" style={{ marginBottom: 8 }}>Everything in Autopilot, plus a developer on your team.</h2>
-            <p className="p" style={{ marginBottom: 20 }}>
+            <p className="p" style={{ marginBottom: 16 }}>
               Momentum is for business owners who have ideas they never have time to act on. Same-day turnaround, custom tools, and a direct line to Boyd every week.
+            </p>
+            <p className="p" style={{ marginBottom: 20 }}>
+              The four blog posts a month aren't filler — they're how you get found. Every post is a new page Google can index, a new search term you can rank for. Local businesses that publish consistently show up when customers are actively searching, before they ever see a competitor's ad. Over 12 months, that's 48 indexed pages compounding in your favor while you're out on jobs.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
               {MOMENTUM_EXTRAS.map((item) => (

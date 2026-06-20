@@ -89,7 +89,7 @@ export default function About() {
               <span className="badge" style={{ marginBottom: 16, display: "inline-block" }}>Background</span>
               <h2 className="h2" style={{ marginBottom: 16 }}>More than a web designer.</h2>
               <p className="p">
-                With 8 years in marketing and a web development background, I built {siteConfig.brand} around one idea: a website should bring in customers, not just exist. Before this, I co-founded BastionMSP — a managed security provider where I handled the full brand, marketing site, and client portal from scratch.
+                With 8 years in marketing and a web development background, I built {siteConfig.brand} around one idea: a website should bring in customers, not just exist. Before this, I co-founded BastionMSP — a managed security provider where I handled the full brand, marketing site, and client portal from scratch. Phoenix Stoneworks (pswboise.com) is a live example — a full website, AI receptionist, and blog pipeline, all running under one Momentum plan.
               </p>
               <p className="p" style={{ marginBottom: 24 }}>
                 That experience shaped how I think about every site I build — the copy, the layout, the lead capture flow. Not just "does it look good" but "does it actually convert." Now I apply that to local service businesses across the Treasure Valley and beyond.

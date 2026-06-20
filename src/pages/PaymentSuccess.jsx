@@ -57,7 +57,7 @@ export default function PaymentSuccess() {
               ))}
             </div>
             <p style={{ fontSize: 14, color: "var(--muted)", marginTop: 32 }}>
-              Questions before Boyd reaches out? Email <a href={`mailto:${siteConfig.email}`} style={{ color: "var(--accent)" }}>{siteConfig.email}</a> or call <a href={`tel:${siteConfig.phone}`} style={{ color: "var(--accent)" }}>{siteConfig.phone}</a>.
+              Questions before Boyd reaches out? Email <a href={`mailto:${siteConfig.email}`} style={{ color: "var(--accent)" }}>{siteConfig.email}</a> or call <a href={`tel:${siteConfig.phoneE164}`} style={{ color: "var(--accent)" }}>{siteConfig.phoneDisplay}</a>.
             </p>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Camera, Calculator, Users, User, MessageCircle, CheckCircle2, ArrowLeft, ExternalLink } from "lucide-react";
 import CTA from "../components/CTA.jsx";
+import TestimonialCard from "../components/TestimonialCard.jsx";
 import { siteConfig } from "../siteConfig.js";
 
 const TECH_STACK = [
@@ -211,6 +212,22 @@ export default function PhoenixStoneworks() {
                 <p className="p" style={{ marginBottom: 0, fontSize: 14 }}>{body}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Client testimonial */}
+      <section className="surface">
+        <div className="section">
+          <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--muted)", marginBottom: 20 }}>
+            From the client
+          </p>
+          <div style={{ maxWidth: 600 }}>
+            <TestimonialCard
+              quote="Boyd has been wonderful to work with. His expertise in his field, and ability to bring ideas to life has been a game changer for me and my business! He's quick to reply, and incredibly easy to work with. He approaches things with a problem solving perspective."
+              name="Manny Araujo"
+              role="Owner, Phoenix Stoneworks"
+            />
           </div>
         </div>
       </section>

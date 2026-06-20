@@ -23,7 +23,7 @@ const PLANS = [
     name: "Autopilot",
     price: "$399",
     billing: "/mo",
-    desc: "Site + AI receptionist + monthly care. No setup fee. 6-month minimum.",
+    desc: "Site + AI receptionist + monthly care. No setup fee.",
     highlight: true,
   },
   {
@@ -62,7 +62,7 @@ export default function Services() {
             The chat button in the bottom-right corner is the exact product. Try it.
           </p>
           <div className="btnRow" style={{ marginTop: 28 }}>
-            <Link className="btn primary" to="/contact">Book a Free Audit</Link>
+            <Link className="btn primary" to="/contact">Get a Free Audit</Link>
             <Link className="btn" to="/how-it-works">See How It Works</Link>
           </div>
         </div>
@@ -72,7 +72,7 @@ export default function Services() {
       <section className="surface">
         <div className="section">
           <span className="badge">What you get</span>
-          <h2 className="h2" style={{ marginTop: 16, marginBottom: 40 }}>Two things that work together.</h2>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 40 }}>Three things that work together.</h2>
 
           {/* Website */}
           <div className="card featureRow" style={{ marginBottom: 24 }}>
@@ -144,6 +144,34 @@ export default function Services() {
             </div>
           </div>
 
+          {/* Client Portal */}
+          <div className="card featureRow" style={{ marginTop: 24 }}>
+            <div style={{ flex: "1 1 300px" }}>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Client Portal</p>
+              <h3 className="h3" style={{ marginBottom: 12 }}>Your own login at {siteConfig.appUrl.replace("https://", "")}.</h3>
+              <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px", display: "flex", flexDirection: "column", gap: 10 }}>
+                {[
+                  "Update your hours, services, FAQs, and chatbot greeting yourself",
+                  "AI-assisted blog editor, built into your dashboard: draft a post, review it, we publish it",
+                  "No waiting on us for basic content changes",
+                  "Included free with every Autopilot and Momentum plan",
+                ].map(item => (
+                  <li key={item} style={{ display: "flex", gap: 9, alignItems: "flex-start" }}>
+                    <CheckCircle2 size={14} color="rgba(34,197,94,0.85)" style={{ flexShrink: 0, marginTop: 3 }} />
+                    <span style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.5 }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div style={{ flex: "1 1 260px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <img
+                src="/portfolio/dashboard-preview.png"
+                alt="RubyxQube client portal — business info dashboard"
+                style={{ width: "100%", maxWidth: 420, height: "auto", borderRadius: 10, boxShadow: "0 4px 24px rgba(0,0,0,0.12)", display: "block" }}
+              />
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -172,7 +200,7 @@ export default function Services() {
             <div style={{ flex: "1 1 300px" }}>
               <img
                 src="/portfolio/sudz-preview.webp"
-                alt="Sudz Window and Gutter Cleaning website — built by RubyxQube"
+                alt="Client website maintained by RubyxQube"
                 width={1280}
                 height={720}
                 loading="lazy"

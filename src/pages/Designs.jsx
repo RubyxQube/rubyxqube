@@ -4,6 +4,34 @@ import { Helmet } from "react-helmet-async";
 import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
 
+// ─── Live examples ────────────────────────────────────────────────────────────
+const LIVE_EXAMPLES = [
+  {
+    img: "/designs/apex-electric.png",
+    trade: "Electrical Contractor",
+    style: "Industrial Dark",
+    desc: "High-contrast, phone-first, built to convert late-night emergency calls.",
+  },
+  {
+    img: "/designs/valley-plumbing.png",
+    trade: "Plumbing Company",
+    style: "Bold Authority",
+    desc: "Master plumber credibility up front — trust established before they scroll.",
+  },
+  {
+    img: "/designs/summit-electric.png",
+    trade: "Electrical Contractor",
+    style: "Premium Dark",
+    desc: "Gold accents on deep navy — positions the business as the premium option in the market.",
+  },
+  {
+    img: "/designs/clear-air-hvac.png",
+    trade: "HVAC Company",
+    style: "Industrial Bold",
+    desc: "5-star reviews front and center, gritty and direct — built for owner-operators.",
+  },
+];
+
 // ─── Design catalogue ────────────────────────────────────────────────────────
 const DESIGNS = [
   {
@@ -559,6 +587,33 @@ export default function Designs() {
         <p style={{ fontSize: 14, color: "var(--muted)", maxWidth: 480, margin: "0 auto 48px", opacity: 0.7 }}>
           Every site is custom-built for your business. These are starting points, not templates.
         </p>
+      </section>
+
+      {/* Live Examples */}
+      <section className="section">
+        <div style={{ marginBottom: 32 }}>
+          <span className="badge" style={{ marginBottom: 12 }}>Live Examples</span>
+          <h2 className="h2" style={{ marginBottom: 8 }}>Real sites, built for real trades.</h2>
+          <p style={{ color: "var(--muted)", maxWidth: 520 }}>
+            Every site is built from scratch — not a template. These are real demos built for Treasure Valley trade businesses.
+          </p>
+        </div>
+        <div className="grid cols-2" style={{ gap: 20 }}>
+          {LIVE_EXAMPLES.map(ex => (
+            <div key={ex.img} className="card" style={{ padding: 0, overflow: "hidden" }}>
+              <img
+                src={ex.img}
+                alt={`${ex.trade} website built by RubyxQube`}
+                style={{ width: "100%", display: "block", aspectRatio: "16/9", objectFit: "cover", objectPosition: "top" }}
+              />
+              <div style={{ padding: "16px 20px" }}>
+                <p style={{ fontSize: 11, fontWeight: 700, color: "var(--accent)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 4 }}>{ex.trade}</p>
+                <p style={{ fontWeight: 700, marginBottom: 6 }}>{ex.style}</p>
+                <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.5 }}>{ex.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Step 1 — Layout style */}

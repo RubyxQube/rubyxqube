@@ -1,9 +1,8 @@
-﻿import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { XCircle, CheckCircle2, MessageCircle, ClipboardCheck, Smartphone, Clock, Palette, ArrowRight, ShieldCheck, Layers, Droplets } from "lucide-react";
+import { XCircle, CheckCircle2, ArrowRight, Palette, Star, Layers, Droplets } from "lucide-react";
 import CTA from "../components/CTA.jsx";
-import PackageCard from "../components/PackageCard.jsx";
 import ComparisonSection from "../components/ComparisonSection.jsx";
 import { siteConfig } from "../siteConfig.js";
 
@@ -57,19 +56,22 @@ function ChatDemo() {
 
   return (
     <div style={{
-      maxWidth: 360, margin: "0 auto",
+      maxWidth: 360, width: "100%",
       border: "1px solid var(--line)", borderRadius: 20,
       overflow: "hidden", background: "rgba(255,255,255,0.03)",
       boxShadow: "0 8px 40px rgba(0,0,0,0.28)",
     }}>
       {/* Header */}
       <div style={{ background: "var(--accent)", padding: "14px 18px", display: "flex", alignItems: "center", gap: 12 }}>
-        <div style={{ width: 36, height: 36, borderRadius: "50%", background: "rgba(255,255,255,0.18)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-          <MessageCircle size={18} color="white" strokeWidth={1.75} />
+        <div style={{ width: 36, height: 36, borderRadius: "50%", background: "rgba(255,255,255,0.18)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, overflow: "hidden" }}>
+          <img src="/brand/logo-mark-64.png" alt="RubyxQube" style={{ width: 24, height: 24, objectFit: "contain" }} />
         </div>
         <div>
-          <p style={{ color: "white", fontWeight: 700, fontSize: 14, margin: 0 }}>RubyxQube AI</p>
-          <p style={{ color: "rgba(255,255,255,0.80)", fontSize: 12, margin: 0 }}>Online · replies instantly</p>
+          <p style={{ color: "white", fontWeight: 700, fontSize: 14, margin: 0 }}>RubyxQube</p>
+          <div style={{ display: "flex", alignItems: "center", gap: 5, marginTop: 2 }}>
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#22c55e", display: "inline-block", boxShadow: "0 0 6px #22c55e" }} />
+            <span style={{ fontSize: 11, color: "rgba(255,255,255,0.70)" }}>AI receptionist · online</span>
+          </div>
         </div>
       </div>
 
@@ -111,60 +113,14 @@ function ChatDemo() {
   );
 }
 
-export default function Home() {
-  const packages = [
-    {
-      name: "Launch",
-      tagline: "Get your business online professionally.",
-      price: "$1,200",
-      billing: "one-time",
-      bullets: [
-        "5–6 page website (Home, About, Services, Gallery, Quote, Privacy)",
-        "Mobile responsive — looks great on every device",
-        "Contact form + click-to-call buttons",
-        "Basic SEO (titles, descriptions, local structure)",
-        "Google Maps embed",
-        "2 revision rounds included",
-      ],
-      note: "Site is yours to keep. No monthly commitment, no ongoing support. A great fit if you already have someone to manage it — otherwise Autopilot is the better deal.",
-    },
-    {
-      name: "Autopilot",
-      tagline: "You handle the jobs. We handle everything else.",
-      price: "$399",
-      billing: "/mo",
-      annualPrice: "$3,990",
-      annualSaving: "2 months free",
-      bullets: [
-        "No setup fee — 5–10 page custom site, built and launched",
-        "Analytics + Search Console setup included",
-        "Custom AI receptionist — answers questions, captures leads 24/7",
-        "Unlimited conversations, no per-chat fees",
-        "Instant SMS alert on every new lead",
-        "Monthly report: traffic, chats, leads captured",
-        "60 min/month of site updates",
-      ],
-      highlight: true,
-    },
-    {
-      name: "Momentum",
-      tagline: "A developer on your team, without the payroll.",
-      price: "$999",
-      billing: "/mo",
-      annualPrice: "$9,990",
-      annualSaving: "2 months free",
-      bullets: [
-        "Everything in Autopilot",
-        "Developer on call, same-day prototypes, 2-day turnaround on bigger builds",
-        "Unlimited edits and new pages, no monthly cap",
-        "Custom tools: calculators, estimators, intake forms, and more",
-        "Google Business Profile management",
-        "4 blog posts/month — written, approved, and published for you",
-        "Weekly check-in call (30–60 min)",
-      ],
-    },
-  ];
+const WORK = [
+  { src: "/portfolio/psw-preview.webp", trade: "Masonry & Stone",      name: "Phoenix Stoneworks", live: true },
+  { src: "/designs/clear-air-hvac.png", trade: "HVAC",                 name: "Clear Air HVAC" },
+  { src: "/designs/valley-plumbing.png", trade: "Plumbing",            name: "Valley Plumbing Co." },
+  { src: "/designs/apex-electric.png",  trade: "Electrical Contractor", name: "Apex Electric" },
+];
 
+export default function Home() {
   return (
     <div className="pageMinHeight">
       <Helmet>
@@ -188,38 +144,47 @@ export default function Home() {
         })}</script>
       </Helmet>
 
-      {/* ── Hero ── */}
-      <section className="surface heroSurface">
-        <div className="heroSection">
-          <span className="badge" style={{ textAlign: "center", marginBottom: 20 }}>Web Design + AI Receptionist<br />{siteConfig.serviceArea} & Beyond</span>
-          <h1 className="h1 heroTitle">
-            Stop losing leads<br />
-            <span className="accentText">while you're with a client.</span>
-          </h1>
-          <p className="p" style={{ fontSize: 17, maxWidth: 540, marginBottom: 32 }}>
-            {siteConfig.brand} builds professional websites with a built-in AI receptionist that captures leads 24/7, answers customer questions, and sends you instant alerts — so you never miss a job opportunity.
-          </p>
-          <div className="btnRow">
-            <Link className="btn primary" to="/contact">Get a Free Audit</Link>
-            <a className="btn" href={`tel:${siteConfig.phoneE164}`}>Call {siteConfig.phoneDisplay}</a>
-            <Link className="btn" to="/pricing">See Pricing</Link>
-          </div>
+      {/* ── Hero — split: copy left, live demo right ── */}
+      <section className="surface heroSurface" style={{ maxHeight: 680, overflow: "hidden" }}>
+        <div className="section" style={{ paddingTop: 64, paddingBottom: 64 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 56, flexWrap: "wrap" }}>
 
-          <div className="hr" style={{ marginTop: 52 }} />
+            {/* Left — copy */}
+            <div style={{ flex: "1 1 340px", maxWidth: 520 }}>
+              <span className="badge" style={{ marginBottom: 20 }}>
+                Web Design + AI Receptionist · {siteConfig.serviceArea}
+              </span>
+              <h1 className="h1" style={{ marginBottom: 16 }}>
+                Stop losing leads<br />
+                <span className="accentText">while you're on a job.</span>
+              </h1>
+              <p className="p" style={{ fontSize: 17, marginBottom: 28 }}>
+                RubyxQube builds professional websites with a built-in AI receptionist — so leads get answered at 2am, on weekends, and while you're elbow-deep in a job.
+              </p>
+              <div className="btnRow">
+                <Link className="btn primary" to="/contact">Get a Free Audit</Link>
+                <a className="btn" href={`tel:${siteConfig.phoneE164}`}>Call {siteConfig.phoneDisplay}</a>
+              </div>
+              <div style={{ marginTop: 36, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px 16px" }}>
+                {[
+                  { stat: "24/7",     label: "Lead capture — nights, weekends, holidays" },
+                  { stat: "$0 setup", label: "No hidden costs, ever" },
+                  { stat: "3–7 days", label: "From signed agreement to live site" },
+                ].map(k => (
+                  <div key={k.stat}>
+                    <p style={{ fontWeight: 800, fontSize: 22, margin: "0 0 2px", color: "var(--accent)" }}>{k.stat}</p>
+                    <p style={{ fontSize: 12, color: "var(--muted)", margin: 0, lineHeight: 1.4 }}>{k.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-          <div className="grid cols-3">
-            <div className="kpi">
-              <strong>24/7 Lead Capture</strong>
-              <span>Your AI receptionist works nights, weekends, and holidays — no breaks</span>
+            {/* Right — live demo */}
+            <div style={{ flex: "1 1 300px", display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
+              <span className="badge">Live demo — try it</span>
+              <ChatDemo />
             </div>
-            <div className="kpi">
-              <strong>Instant SMS Alerts</strong>
-              <span>Get a text the moment a lead comes in, with their name and what they need</span>
-            </div>
-            <div className="kpi">
-              <strong>Live in Days</strong>
-              <span>From kickoff call to launched site in as little as 3 days — zero tech headaches</span>
-            </div>
+
           </div>
         </div>
       </section>
@@ -231,95 +196,98 @@ export default function Home() {
             Trusted by Boise businesses
           </p>
           <div style={{ maxWidth: 780, margin: "0 auto" }}>
-            <div className="grid cols-3">
-              <div className="card" style={{ textAlign: "center", padding: "24px 16px" }}>
-                <ShieldCheck size={28} color="var(--accent)" strokeWidth={1.5} style={{ display: "block", margin: "0 auto 12px" }} />
-                <p style={{ fontWeight: 700, fontSize: 15, margin: "0 0 8px" }}>BastionMSP</p>
-                <span className="badge" style={{ fontSize: 11 }}>Cybersecurity</span>
-                <p className="p" style={{ fontSize: 13, marginTop: 10, marginBottom: 0 }}>Brand identity, marketing site, and client portal</p>
+            <div className="grid cols-3" style={{ alignItems: "stretch" }}>
+              <div className="card" style={{ textAlign: "center", padding: "24px 16px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <Star size={18} color="var(--accent)" style={{ marginBottom: 12, flexShrink: 0 }} />
+                <p className="p" style={{ fontSize: 13, marginTop: 0, marginBottom: 0, fontStyle: "italic" }}>"Boyd has been wonderful to work with. His expertise in his field and ability to bring ideas to life has been a game changer for me and my business. He's quick to reply and incredibly easy to work with."</p>
+                <div style={{ marginTop: "auto", paddingTop: 16, width: "100%" }}>
+                  <p style={{ fontWeight: 700, fontSize: 13, margin: "0 0 4px" }}>Manny Araujo</p>
+                  <p style={{ fontSize: 11, color: "var(--muted)", margin: 0, letterSpacing: "0.04em" }}>Owner, Phoenix Stoneworks</p>
+                </div>
               </div>
-              <div className="card" style={{ textAlign: "center", padding: "24px 16px" }}>
-                <Layers size={28} color="var(--accent)" strokeWidth={1.5} style={{ display: "block", margin: "0 auto 12px" }} />
-                <p style={{ fontWeight: 700, fontSize: 15, margin: "0 0 8px" }}>Phoenix Stoneworks</p>
-                <span className="badge" style={{ fontSize: 11 }}>Masonry & Stone</span>
-                <p className="p" style={{ fontSize: 13, marginTop: 10, marginBottom: 0 }}>AI photo estimate, quote calculator, AI receptionist</p>
+              <div className="card" style={{ textAlign: "center", padding: "24px 16px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <Layers size={18} color="var(--accent)" style={{ marginBottom: 12, flexShrink: 0 }} />
+                <p className="p" style={{ fontSize: 13, marginTop: 0, marginBottom: 0, fontStyle: "italic" }}>"AI receptionist answers leads 24/7, blog posts go out every month, and the site looks great on every device. Exactly what we needed."</p>
+                <div style={{ marginTop: "auto", paddingTop: 16, width: "100%" }}>
+                  <p style={{ fontWeight: 700, fontSize: 13, margin: "0 0 4px" }}>Phoenix Stoneworks</p>
+                  <p style={{ fontSize: 11, color: "var(--muted)", margin: 0, letterSpacing: "0.04em" }}>Countertops · Momentum Client</p>
+                </div>
               </div>
-              <div className="card" style={{ textAlign: "center", padding: "24px 16px" }}>
-                <Droplets size={28} color="var(--accent)" strokeWidth={1.5} style={{ display: "block", margin: "0 auto 12px" }} />
-                <p style={{ fontWeight: 700, fontSize: 15, margin: "0 0 8px" }}>Sudz Window & Gutter</p>
-                <span className="badge" style={{ fontSize: 11 }}>Home Services</span>
-                <p className="p" style={{ fontSize: 13, marginTop: 10, marginBottom: 0 }}>Full rebuild from Wix, AI receptionist added</p>
+              <div className="card" style={{ textAlign: "center", padding: "24px 16px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <Droplets size={18} color="var(--accent)" style={{ marginBottom: 12, flexShrink: 0 }} />
+                <p className="p" style={{ fontSize: 13, marginTop: 0, marginBottom: 0, fontStyle: "italic" }}>"I absolutely love the website Boyd built for my home service business. Clean, professional, and polished. His delivery was incredibly fast."</p>
+                <div style={{ marginTop: "auto", paddingTop: 16, width: "100%" }}>
+                  <p style={{ fontWeight: 700, fontSize: 13, margin: "0 0 4px" }}>Chase</p>
+                  <p style={{ fontSize: 11, color: "var(--muted)", margin: 0, letterSpacing: "0.04em" }}>Sudz Boise · Window & Gutter</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Problem + AI Receptionist + Demo (combined) ── */}
+      {/* ── Work gallery ── */}
       <section className="surface">
         <div className="section">
-          <div className="grid cols-2" style={{ gap: 56, alignItems: "flex-start" }}>
-
-            {/* LEFT — problem → before/after → features → CTAs */}
-            <div>
-              <span className="badge">The problem</span>
-              <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>
-                You're losing jobs to businesses that <span className="accentText">respond faster.</span>
-              </h2>
-              <p className="p" style={{ marginBottom: 28 }}>
-                A customer searches for a plumber at 9pm, finds your site, fills out a form — and you don't see it until morning. By then they've already called someone else. The businesses winning aren't better at their trade. They're just faster.
-              </p>
-
-              <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 32 }}>
-                <div className="card" style={{ padding: "12px 16px", display: "flex", alignItems: "flex-start", gap: 12, borderLeft: "3px solid rgba(239,68,68,0.45)" }}>
-                  <XCircle size={16} color="#ef4444" strokeWidth={2} style={{ flexShrink: 0, marginTop: 1 }} />
+          <span className="badge" style={{ marginBottom: 12 }}>Our work</span>
+          <h2 className="h2" style={{ marginBottom: 8 }}>Built for trades. Designed to convert.</h2>
+          <p className="p" style={{ maxWidth: 480, marginBottom: 32 }}>Every site is built from scratch — not a template. No two look the same.</p>
+          <div className="grid cols-2" style={{ gap: 16 }}>
+            {WORK.map(s => (
+              <div key={s.src} className="card" style={{ padding: 0, overflow: "hidden" }}>
+                <img
+                  src={s.src}
+                  alt={`${s.name} — website built by RubyxQube`}
+                  loading="lazy"
+                  style={{ width: "100%", display: "block", aspectRatio: "16/9", objectFit: "cover", objectPosition: "top" }}
+                />
+                <div style={{ padding: "12px 16px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <div>
-                    <p style={{ fontWeight: 600, fontSize: 14, margin: "0 0 2px" }}>Without AI</p>
-                    <p className="p" style={{ margin: 0, fontSize: 13 }}>Customer visits at 10pm. No one responds. They call your competitor. You wake up to nothing.</p>
+                    <p style={{ fontSize: 11, fontWeight: 700, color: "var(--accent)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 2 }}>{s.trade}</p>
+                    <p style={{ fontWeight: 700, fontSize: 14, margin: 0 }}>{s.name}</p>
                   </div>
-                </div>
-                <div className="card" style={{ padding: "12px 16px", display: "flex", alignItems: "flex-start", gap: 12, borderLeft: "3px solid rgba(34,197,94,0.45)" }}>
-                  <CheckCircle2 size={16} color="rgba(34,197,94,0.85)" strokeWidth={2} style={{ flexShrink: 0, marginTop: 1 }} />
-                  <div>
-                    <p style={{ fontWeight: 600, fontSize: 14, margin: "0 0 2px" }}>With AI</p>
-                    <p className="p" style={{ margin: 0, fontSize: 13 }}>AI greets them instantly, captures their info. You get a text: "New lead — Sarah, HVAC repair, Meridian."</p>
-                  </div>
+                  {s.live && <span className="badge" style={{ fontSize: 11 }}>Live Client</span>}
                 </div>
               </div>
-
-              <div style={{ borderTop: "1px solid var(--line)", paddingTop: 28, display: "flex", flexDirection: "column", gap: 20, marginBottom: 32 }}>
-                {[
-                  { icon: <MessageCircle size={17} color="var(--accent)" strokeWidth={1.75} />, title: "Answers questions instantly", body: "Knows your services, pricing, hours, and area. No lifting a finger." },
-                  { icon: <ClipboardCheck size={17} color="var(--accent)" strokeWidth={1.75} />, title: "Qualifies and captures leads", body: "Asks the right questions, saves everything so you're ready before you call back." },
-                  { icon: <Smartphone size={17} color="var(--accent)" strokeWidth={1.75} />, title: "Real-time SMS alert", body: "Name, contact info, and what they need hits your phone within seconds." },
-                  { icon: <Clock size={17} color="var(--accent)" strokeWidth={1.75} />, title: "Never off the clock", body: "Nights, weekends, holidays — no sick days, no missed calls when you're on a job." },
-                ].map(({ icon, title, body }) => (
-                  <div key={title} style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
-                    <div style={{ flexShrink: 0, marginTop: 2 }}>{icon}</div>
-                    <div>
-                      <p style={{ fontWeight: 700, fontSize: 14, margin: "0 0 3px", color: "var(--text)" }}>{title}</p>
-                      <p className="p" style={{ margin: 0, fontSize: 13 }}>{body}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="btnRow">
-                <Link className="btn primary" to="/ai-receptionist">Learn how it works</Link>
-                <Link className="btn" to="/pricing">See pricing</Link>
-              </div>
-            </div>
-
-            {/* RIGHT — chat demo (sticky) */}
-            <div style={{ position: "sticky", top: 80 }}>
-              <span className="badge" style={{ display: "inline-block", marginBottom: 12 }}>AI Receptionist · live demo</span>
-              <p className="p" style={{ fontSize: 14, marginBottom: 20 }}>
-                This is what your customers experience — on a real client site, right now. The bot on this page? That's the exact product.
-              </p>
-              <ChatDemo />
-            </div>
-
+            ))}
           </div>
+          <div style={{ marginTop: 24, textAlign: "center" }}>
+            <Link className="btn" to="/designs" style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
+              Browse design styles <ArrowRight size={15} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Problem + before/after ── */}
+      <section className="surface">
+        <div className="section">
+          <span className="badge">The problem</span>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>
+            You're losing jobs to businesses that <span className="accentText">respond faster.</span>
+          </h2>
+          <p className="p" style={{ maxWidth: 560, marginBottom: 28 }}>
+            A customer searches at 9pm, finds your site, fills out a form — and you don't see it until morning. By then they've already called someone else. The businesses winning aren't better at their trade. They're just faster.
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 10, maxWidth: 640, marginBottom: 32 }}>
+            <div className="card" style={{ padding: "14px 18px", display: "flex", alignItems: "flex-start", gap: 12, borderLeft: "3px solid rgba(239,68,68,0.45)" }}>
+              <XCircle size={16} color="#ef4444" strokeWidth={2} style={{ flexShrink: 0, marginTop: 1 }} />
+              <div>
+                <p style={{ fontWeight: 600, fontSize: 14, margin: "0 0 2px" }}>Without AI</p>
+                <p className="p" style={{ margin: 0, fontSize: 13 }}>Customer visits at 10pm. No one responds. They call your competitor. You wake up to nothing.</p>
+              </div>
+            </div>
+            <div className="card" style={{ padding: "14px 18px", display: "flex", alignItems: "flex-start", gap: 12, borderLeft: "3px solid rgba(34,197,94,0.45)" }}>
+              <CheckCircle2 size={16} color="rgba(34,197,94,0.85)" strokeWidth={2} style={{ flexShrink: 0, marginTop: 1 }} />
+              <div>
+                <p style={{ fontWeight: 600, fontSize: 14, margin: "0 0 2px" }}>With AI</p>
+                <p className="p" style={{ margin: 0, fontSize: 13 }}>AI greets them instantly, captures their info. You get a text: "New lead — Sarah, HVAC repair, Meridian."</p>
+              </div>
+            </div>
+          </div>
+          <Link className="btn" to="/ai-receptionist" style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
+            See how the AI works <ArrowRight size={15} />
+          </Link>
         </div>
       </section>
 
@@ -362,7 +330,7 @@ export default function Home() {
                   "Need a change? Text Boyd. Done same day, already included.",
                   "Site goes down? Uptime monitoring catches it before your customers do.",
                   "Lead comes in at 9pm. AI greets them, captures their info, texts you instantly.",
-                  "Monthly report lands in your inbox. No logins, no dashboards.",
+                  "Monthly report lands in your inbox. Plus your own portal to update services, FAQs, and chatbot greeting whenever you want.",
                 ].map((text) => (
                   <div key={text} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
                     <CheckCircle2 size={16} color="var(--accent)" strokeWidth={2} style={{ flexShrink: 0, marginTop: 2 }} />
@@ -382,7 +350,7 @@ export default function Home() {
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>Live in days. No tech headaches.</h2>
           <p className="p" style={{ maxWidth: 480, marginBottom: 40 }}>Three steps from first call to leads hitting your phone.</p>
 
-          <div className="grid cols-3">
+          <div className="grid cols-3" style={{ alignItems: "stretch" }}>
             {[
               { number: "01", title: "Free 15-min audit", desc: "We look at your online presence and tell you exactly what's costing you leads. No pitch, just honest feedback." },
               { number: "02", title: "We build your site", desc: "After a short intake form, your site is live in 3–7 days. You review it, we refine it. Not happy with the first draft? You don't owe us anything." },
@@ -425,15 +393,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Packages ── */}
+      {/* ── Pricing strip ── */}
       <section className="surface">
         <div className="section">
           <span className="badge">Pricing</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>Simple, honest pricing.</h2>
-          <p className="p" style={{ maxWidth: 480, marginBottom: 36 }}>No contracts, no hidden fees. Every package starts with a professional website build.</p>
-          <div className="grid cols-3">
-            {packages.map((p) => (
-              <PackageCard key={p.name} {...p} />
+          <p className="p" style={{ maxWidth: 480, marginBottom: 36 }}>No hidden fees. No hourly billing. Every plan starts with a custom-built site.</p>
+          <div className="grid cols-3" style={{ gap: 16, alignItems: "stretch" }}>
+            {[
+              { name: "Launch",    price: "$1,200", billing: "one-time", tagline: "A professional site, built and handed off. No monthly commitment." },
+              { name: "Autopilot", price: "$399",   billing: "/mo",      tagline: "Site + AI receptionist + monthly care. No setup fee.", highlight: true },
+              { name: "Momentum",  price: "$999",   billing: "/mo",      tagline: "A developer on your team — unlimited edits, blogs, custom tools." },
+            ].map(p => (
+              <div key={p.name} className={`card${p.highlight ? " cardHighlight" : ""}`} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                {/* Fixed-height badge row so price aligns across all cards */}
+                <div style={{ height: 26, display: "flex", alignItems: "center" }}>
+                  {p.highlight && <span className="badge" style={{ fontSize: 11 }}>Most Popular</span>}
+                </div>
+                <p style={{ fontSize: 11, fontWeight: 700, color: p.highlight ? "#fb7185" : "var(--muted)", letterSpacing: "0.08em", textTransform: "uppercase", margin: 0 }}>{p.name}</p>
+                <div style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
+                  <span style={{ fontSize: 36, fontWeight: 800, lineHeight: 1 }}>{p.price}</span>
+                  <span style={{ fontSize: 14, color: "var(--muted)" }}>{p.billing}</span>
+                </div>
+                <p className="p" style={{ fontSize: 14, margin: 0, flex: 1 }}>{p.tagline}</p>
+                <Link className="btn" to="/pricing" style={{ textAlign: "center", justifyContent: "center", marginTop: 4 }}>
+                  See what's included
+                </Link>
+              </div>
             ))}
           </div>
         </div>
@@ -446,4 +432,3 @@ export default function Home() {
     </div>
   );
 }
-

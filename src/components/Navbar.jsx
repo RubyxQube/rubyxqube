@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import Logo from "./Logo.jsx";
+import { siteConfig } from "../siteConfig.js";
 
 const LINKS = [
   { to: "/services", label: "Services" },
@@ -151,7 +152,7 @@ export default function Navbar({ theme = "dark", onToggle }) {
             <button className="themeToggle" onClick={onToggle} aria-label={toggleLabel}>
               <ToggleIcon />
             </button>
-            <a className="btn navClientLogin" href="https://app.rubyxqube.com/login">Client Login</a>
+            <a className="btn navClientLogin" href={`${siteConfig.appUrl}/login`}>Client Login</a>
             <NavLink className="btn primary navCta" to="/contact">Free Audit</NavLink>
           </nav>
 
@@ -197,7 +198,7 @@ export default function Navbar({ theme = "dark", onToggle }) {
 
           <div style={{ paddingTop: 12, display: "flex", flexDirection: "column", gap: 8 }}>
             <a
-              href="https://app.rubyxqube.com/login"
+              href={`${siteConfig.appUrl}/login`}
               className="btn"
               style={{ display: "flex", justifyContent: "center", width: "100%", padding: "14px" }}
             >

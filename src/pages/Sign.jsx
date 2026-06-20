@@ -5,7 +5,7 @@ import { CheckCircle2, PenLine } from "lucide-react";
 import Logo from "../components/Logo.jsx";
 
 // ─── Contract text ─────────────────────────────────────────────────────────────
-// Interpolated with contract data from Notion.
+// Interpolated with contract data from Supabase.
 
 function ContractBody({ c }) {
   const today = new Date(c.createdDate).toLocaleDateString("en-US", {

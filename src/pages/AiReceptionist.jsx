@@ -20,7 +20,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is my data private?",
-    a: "Yes. Conversations are processed through the Anthropic API (Claude) and are not used to train their models. Lead data is stored in your Notion CRM — not shared with any third parties.",
+    a: "Yes. Conversations are processed through the Anthropic API (Claude) and are not used to train their models. Lead data is stored securely and never shared with third parties. You own your leads — we just make sure they land somewhere useful.",
   },
   {
     q: "What AI powers it?",
@@ -28,7 +28,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Can I customize what it says?",
-    a: "Yes. The system prompt is fully customized per client — your services, pricing, service area, hours, FAQs, and tone. We update it based on real conversation logs every month for Momentum clients.",
+    a: "Yes. You control the greeting and tone directly from your client portal at any time. The core training (services, pricing, hours, service area, FAQs) is set during onboarding. Momentum clients also get monthly tuning from Boyd based on real conversation logs.",
   },
 ];
 
@@ -65,13 +65,13 @@ function renderBold(text) {
 }
 
 const DEMO = [
-  { from: "bot",  text: "Hey! I'm the AI receptionist for Sudz Window & Gutter. What can I help you with?",                                          delay: 600   },
-  { from: "user", text: "Do you do commercial buildings?",                                                                                            delay: 2800  },
-  { from: "bot",  text: "Yes! We handle both residential and commercial — offices, storefronts, multi-unit properties. What type of building is it?", delay: 4000  },
-  { from: "user", text: "Small office, 2 stories, downtown Boise",                                                                                    delay: 7000  },
-  { from: "bot",  text: "That's well within our service area. To get you an accurate quote, can I grab your name and the best number to reach you?",  delay: 8400  },
-  { from: "user", text: "Lisa Ortega, (208) 555-0871",                                                                                                delay: 11200 },
-  { from: "lead", text: "Lead captured — owner notified by SMS",                                                                                     delay: 12600 },
+  { from: "bot",  text: "Hey! I'm the AI receptionist for Phoenix Stoneworks. What can I help you with?",                                                    delay: 600   },
+  { from: "user", text: "We're doing a kitchen remodel — looking for quartz countertops",                                                                     delay: 2800  },
+  { from: "bot",  text: "Great timing! We fabricate and install quartz in-house — most kitchens are done in a single day. Do you have an existing countertop to tear out, or is this a new build?", delay: 4000  },
+  { from: "user", text: "Existing granite, needs to come out",                                                                                                delay: 7000  },
+  { from: "bot",  text: "No problem — tear-out and removal is included. To get you a quote, can I grab your name and a number Manny can reach you at?",       delay: 8400  },
+  { from: "user", text: "Sarah Dillon, (208) 555-0312",                                                                                                       delay: 11200 },
+  { from: "lead", text: "Lead captured — Manny notified by SMS",                                                                                             delay: 12600 },
 ];
 
 function ChatDemo() {
@@ -100,7 +100,7 @@ function ChatDemo() {
           <MessageCircle size={18} color="white" strokeWidth={1.75} />
         </div>
         <div>
-          <p style={{ color: "white", fontWeight: 700, fontSize: 14, margin: 0 }}>Sudz AI Receptionist</p>
+          <p style={{ color: "white", fontWeight: 700, fontSize: 14, margin: 0 }}>Phoenix Stoneworks AI</p>
           <p style={{ color: "rgba(255,255,255,0.80)", fontSize: 12, margin: 0 }}>Powered by RubyxQube · replies instantly</p>
         </div>
       </div>
@@ -219,12 +219,12 @@ export default function AiReceptionist() {
               {
                 icon: <Bell size={24} color="var(--accent)" strokeWidth={1.75} />,
                 title: "Triple-channel lead alerts",
-                body: "When a lead is captured, we fire three simultaneous alerts: an SMS to your cell (via TextBelt), an email to your inbox (via Resend), and a push notification to our internal monitoring. You'll know within seconds.",
+                body: "When a lead is captured, we fire three simultaneous alerts: an SMS to your cell, an email to your inbox, and a push notification to our monitoring system. You'll know within seconds.",
               },
               {
                 icon: <ShieldCheck size={24} color="var(--accent)" strokeWidth={1.75} />,
-                title: "Notion CRM integration",
-                body: "Every lead is auto-saved to a Notion database with their name, contact info, what they need, and any notes from the conversation. Your pipeline, populated automatically.",
+                title: "Lead data, automatically saved",
+                body: "Every lead is saved with their name, contact info, and what they need. Your pipeline stays populated without any manual entry.",
               },
               {
                 icon: <BarChart3 size={24} color="var(--accent)" strokeWidth={1.75} />,
@@ -254,7 +254,7 @@ export default function AiReceptionist() {
                 This is what your customers experience — on a real client site.
               </h2>
               <p className="p">
-                This is a simulated version of the same AI receptionist we deployed for Sudz Window & Gutter in Boise. Real AI, real conversation flow, real lead capture at the end.
+                This is a simulated version of the same AI receptionist running live for Phoenix Stoneworks in Boise. Real AI, real conversation flow, real lead capture at the end. Try the real thing at pswboise.com — Phoenix Stoneworks is a live Momentum client.
               </p>
               <p className="p" style={{ marginBottom: 24 }}>
                 When you sign up, we build one of these for your specific business — trained on your services, priced for your market, tuned to your tone.
@@ -263,7 +263,7 @@ export default function AiReceptionist() {
                 {[
                   "No scripted decision trees — it handles unexpected questions",
                   "Knows when to answer vs. when to pass to you",
-                  "Lead data goes straight to your Notion CRM",
+                  "Lead data is saved automatically — no manual entry",
                   "SMS hits your phone within seconds of capture",
                 ].map((item) => (
                   <div key={item} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
@@ -343,7 +343,7 @@ export default function AiReceptionist() {
                 plan: "Standalone",
                 price: "$500 + $199/mo",
                 detail: "For existing sites",
-                bullets: ["Add AI to any site", "Full custom training", "Same lead alerts", "Same Notion CRM", "Monthly support"],
+                bullets: ["Add AI to any site", "Full custom training", "Same lead alerts", "Lead data saved automatically", "Monthly support"],
                 highlight: false,
                 cta: "/contact",
               },

@@ -46,11 +46,10 @@ const S = {
 
   header: {
     padding: "14px 18px",
-    borderBottom: "1px solid rgba(255,255,255,0.07)",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    background: "rgba(59,130,246,0.07)",
+    background: chatConfig.accentColor,
     flexShrink: 0,
   },
 
@@ -291,24 +290,18 @@ export default function ChatWidget() {
         <div style={S.window} role="dialog" aria-label="Chat with Qube Solutions AI">
           {/* Header */}
           <div style={S.header}>
-            <div>
-              <div style={{ fontWeight: 700, fontSize: 14, color: "rgba(255,255,255,0.92)" }}>
-                {cfg.businessName}
+            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+              <div style={{ width: 36, height: 36, borderRadius: "50%", background: "rgba(255,255,255,0.18)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, overflow: "hidden" }}>
+                <img src={cfg.buttonIcon} alt={cfg.businessName} style={{ width: 24, height: 24, objectFit: "contain" }} />
               </div>
-              <div style={{ display: "flex", alignItems: "center", gap: 5, marginTop: 2 }}>
-                <span
-                  style={{
-                    width: 6,
-                    height: 6,
-                    borderRadius: "50%",
-                    background: "#22c55e",
-                    display: "inline-block",
-                    boxShadow: "0 0 6px #22c55e",
-                  }}
-                />
-                <span style={{ fontSize: 11, color: "rgba(255,255,255,0.45)" }}>
-                  {cfg.tagline}
-                </span>
+              <div>
+                <div style={{ fontWeight: 700, fontSize: 14, color: "white" }}>
+                  {cfg.businessName}
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 5, marginTop: 2 }}>
+                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#22c55e", display: "inline-block", boxShadow: "0 0 6px #22c55e" }} />
+                  <span style={{ fontSize: 11, color: "rgba(255,255,255,0.70)" }}>{cfg.tagline}</span>
+                </div>
               </div>
             </div>
             <button
