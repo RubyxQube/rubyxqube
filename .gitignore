@@ -27,7 +27,6 @@ dist-ssr
 
 # Local client files — never commit
 clients/
-legal/
 
 # Generated brand exports (verbose-named variants from export-logos.mjs)
 public/brand/logo-horizontal*.png
