@@ -416,16 +416,16 @@ label{
   padding: 8px 14px;
   font-size: 13.5px;
   border-radius: 8px;
-  color: rgba(255,255,255,0.52);
-  border-color: transparent;
-  background: transparent;
+  color: rgba(255,255,255,0.80);
+  border-color: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.08);
   box-shadow: none;
 }
 .navLinks .navClientLogin:hover{
-  background: rgba(255,255,255,0.06);
-  border-color: transparent;
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.20);
   box-shadow: none;
-  color: rgba(255,255,255,0.90);
+  color: rgba(255,255,255,0.95);
   transform: none;
 }
 .navLinks .navCta{
@@ -776,17 +776,17 @@ label{
   background: rgba(20,12,15,0.05);
   border-color: rgba(20,12,15,0.16);
 }
-/* Navbar is always dark — keep Client Login white in light mode */
+/* Navbar is always dark — keep Client Login glass style in light mode */
 [data-theme="light"] .navLinks .navClientLogin{
-  color: rgba(255,255,255,0.52);
-  background: transparent;
-  border-color: transparent;
+  color: rgba(255,255,255,0.80);
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.12);
   box-shadow: none;
 }
 [data-theme="light"] .navLinks .navClientLogin:hover{
-  color: rgba(255,255,255,0.90);
-  background: rgba(255,255,255,0.06);
-  border-color: transparent;
+  color: rgba(255,255,255,0.95);
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.20);
   box-shadow: none;
 }
 [data-theme="light"] .btn:not(.primary):hover{
