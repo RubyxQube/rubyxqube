@@ -580,7 +580,7 @@ export default function Designs() {
       {/* Hero */}
       <section className="section heroSection" style={{ textAlign: "center", paddingBottom: 0 }}>
         <span className="badge" style={{ marginBottom: 16 }}>Design Styles</span>
-        <h1 className="h1" style={{ marginBottom: 16 }}>Build your vision</h1>
+        <h1 className="h1" style={{ marginBottom: 16 }}>Build your <span className="accentText">vision</span></h1>
         <p style={{ fontSize: 18, color: "var(--muted)", maxWidth: 560, margin: "0 auto 12px" }}>
           Two steps. Pick a layout style, then pick your colors. Boyd builds the rest.
         </p>

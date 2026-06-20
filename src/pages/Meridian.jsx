@@ -26,6 +26,7 @@ export default function Meridian() {
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/web-design-meridian" />
         <link rel="canonical" href={`${siteConfig.siteUrl}/web-design-meridian`} />
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "LocalBusiness", "name": siteConfig.brand, "url": `${siteConfig.siteUrl}/web-design-meridian`, "telephone": siteConfig.phoneDisplay, "email": siteConfig.email, "address": { "@type": "PostalAddress", "addressLocality": "Boise", "addressRegion": "ID", "addressCountry": "US" }, "areaServed": "Meridian, Idaho", "serviceType": "Web Design" })}</script>
       </Helmet>
 
       <section className="surface heroSurface">

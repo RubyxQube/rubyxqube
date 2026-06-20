@@ -26,6 +26,7 @@ export default function PlumbingWebDesign() {
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/web-design-plumbing" />
         <link rel="canonical" href={`${siteConfig.siteUrl}/web-design-plumbing`} />
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "LocalBusiness", "name": siteConfig.brand, "url": `${siteConfig.siteUrl}/web-design-plumbing`, "telephone": siteConfig.phoneDisplay, "email": siteConfig.email, "address": { "@type": "PostalAddress", "addressLocality": "Boise", "addressRegion": "ID", "addressCountry": "US" }, "areaServed": siteConfig.serviceArea, "serviceType": "Plumbing Web Design" })}</script>
       </Helmet>
 
       <section className="surface heroSurface">

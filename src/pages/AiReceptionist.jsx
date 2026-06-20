@@ -145,6 +145,15 @@ export default function AiReceptionist() {
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/ai-receptionist" />
         <link rel="canonical" href="https://rubyxqube.com/ai-receptionist" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": FAQ_ITEMS.map(item => ({
+            "@type": "Question",
+            "name": item.q,
+            "acceptedAnswer": { "@type": "Answer", "text": item.a }
+          }))
+        })}</script>
       </Helmet>
 
       {/* ── Hero ── */}

@@ -26,6 +26,7 @@ export default function Caldwell() {
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/web-design-caldwell" />
         <link rel="canonical" href={`${siteConfig.siteUrl}/web-design-caldwell`} />
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "LocalBusiness", "name": siteConfig.brand, "url": `${siteConfig.siteUrl}/web-design-caldwell`, "telephone": siteConfig.phoneDisplay, "email": siteConfig.email, "address": { "@type": "PostalAddress", "addressLocality": "Boise", "addressRegion": "ID", "addressCountry": "US" }, "areaServed": "Caldwell, Idaho", "serviceType": "Web Design" })}</script>
       </Helmet>
 
       <section className="surface heroSurface">

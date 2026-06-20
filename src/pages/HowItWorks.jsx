@@ -146,6 +146,15 @@ export default function HowItWorks() {
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/how-it-works" />
         <link rel="canonical" href="https://rubyxqube.com/how-it-works" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": FAQS.map(item => ({
+            "@type": "Question",
+            "name": item.q,
+            "acceptedAnswer": { "@type": "Answer", "text": item.a }
+          }))
+        })}</script>
       </Helmet>
 
       {/* ── Hero ── */}
