@@ -76,6 +76,7 @@ const INCLUDED = [
       "60 minutes of changes per month included",
       "Update prices, swap photos, add a service, fix typos",
       "Turnaround within 1 business day",
+      "1 AI-assisted blog post/month — start building your Google presence",
       "Additional time available at $150/hr",
     ],
   },
@@ -87,7 +88,7 @@ const MOMENTUM_EXTRAS = [
   "Custom tools: calculators, estimators, intake forms, and more",
   "Google Business Profile management",
   "Monthly AI receptionist tuning",
-  "4 AI-assisted blog posts/month — written in your client portal, reviewed and published for you. More posts = more Google visibility.",
+  "4 AI-assisted blog posts/month — 4x the content, 4x the Google indexing. Written in your portal, reviewed and published for you.",
   "Client portal — update your chatbot, services, hours, and FAQs without contacting us",
   "Weekly check-in call (30–60 min)",
 ];
@@ -235,7 +236,7 @@ export default function HowItWorks() {
               Momentum is for business owners who have ideas they never have time to act on. Same-day turnaround, custom tools, and a direct line to Boyd every week.
             </p>
             <p className="p" style={{ marginBottom: 20 }}>
-              The four blog posts a month aren't filler — they're how you get found. Every post is a new page Google can index, a new search term you can rank for. Local businesses that publish consistently show up when customers are actively searching, before they ever see a competitor's ad. Over 12 months, that's 48 indexed pages compounding in your favor while you're out on jobs.
+              Every blog post is a new page Google can index, a new search term you can rank for. Autopilot includes 1 post a month to get started. Momentum gives you 4 — that's 48 indexed pages a year compounding in your favor while you're out on jobs, before a competitor's ad ever shows up.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
               {MOMENTUM_EXTRAS.map((item) => (

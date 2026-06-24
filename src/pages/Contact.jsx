@@ -18,14 +18,14 @@ const PACKAGES = [
     needValue: "Autopilot",
     priceLine: "$399/mo",
     highlight: "No setup fee.",
-    includes: "Custom site + AI receptionist, analytics setup, 24/7 lead capture, SMS alerts, monthly report, 60 min/mo site updates.",
+    includes: "Custom site + AI receptionist, analytics setup, 24/7 lead capture, SMS alerts, monthly report, 60 min/mo site updates, 1 blog post/mo.",
   },
   {
     id: "momentum",
     label: "Momentum — $999/mo",
     needValue: "Momentum",
     priceLine: "$999/mo",
-    includes: "Everything in Autopilot + developer on call, same-day prototypes, unlimited edits, custom tools, GBP management, monthly AI tuning, weekly check-in call.",
+    includes: "Everything in Autopilot + 4 blog posts/mo, developer on call, same-day prototypes, unlimited edits, custom tools, GBP management, monthly AI tuning, weekly check-in call.",
   },
   {
     id: "unsure",

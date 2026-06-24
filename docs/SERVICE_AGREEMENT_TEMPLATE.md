@@ -111,6 +111,7 @@ The monthly retainer begins on the **launch date** and covers:
 **Autopilot ($399/mo):**
 - AI chatbot hosted and maintained (Claude Haiku API included)
 - Up to 60 minutes/month of content updates
+- 1 AI-assisted blog post/month (drafted, reviewed, and published for you)
 - Monthly performance report (GA4 data + chatbot leads)
 - Weekly check-in text
 - Hosting, uptime monitoring, security updates

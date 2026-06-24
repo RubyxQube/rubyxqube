@@ -30,7 +30,7 @@ const PLANS = [
     name: "Momentum",
     price: "$999",
     billing: "/mo",
-    desc: "A developer on your team: same-day turnaround, custom tools, unlimited edits, and weekly check-ins.",
+    desc: "A developer on your team: 4 blog posts/mo, same-day turnaround, custom tools, unlimited edits, and weekly check-ins.",
   },
 ];
 

@@ -33,8 +33,8 @@ A traditional receptionist costs $2,500–4,000/month. A part-time answering ser
 ### 1. Monthly Retainers (Recurring — no setup fees)
 | Plan | Monthly | What's Included |
 |------|---------|-----------------|
-| Autopilot | $399/mo | Custom site, AI chatbot, 24/7 lead capture, monthly report, 60 min/mo updates |
-| Momentum | $999/mo | Everything in Autopilot + developer on call, unlimited edits, custom tools, GBP management, monthly AI tuning, weekly check-in call |
+| Autopilot | $399/mo | Custom site, AI chatbot, 24/7 lead capture, monthly report, 60 min/mo updates, 1 blog post/mo |
+| Momentum | $999/mo | Everything in Autopilot + 4 blog posts/mo, developer on call, unlimited edits, custom tools, GBP management, monthly AI tuning, weekly check-in call |
 
 > Setup fees ($3,000) were removed June 2026 — absorbed into monthly. No setup fees on any plan.
 

@@ -366,10 +366,13 @@ Do this for every Autopilot and Momentum client on the 1st of each month.
 - [ ] Apply any content update requests (up to 60 min/month)
 - [ ] Check site speed (PageSpeed Insights) — flag if score drops below 80
 
+### Autopilot ($399/mo — add after standard tasks)
+- [ ] **Blog post:** draft 1 post for the month (use Claude, topic brief per client's industry), send to client for approval — if no response within 48 hours, default-approve and publish.
+
 ### Momentum ($999/mo, everything above plus)
 - [ ] Check Google Business Profile: new reviews? Questions? Update hours/info if needed. If fewer than 10 reviews, include a gentle review ask in the report email — use template in `docs/templates/REVIEW-OUTREACH.md`
 - [ ] AI receptionist tuning: pull chatbot conversation logs from Vercel, look for fumbled questions, pricing confusion, or drop-offs, update system prompt with improvements
-- [ ] **Blog post:** draft 4 posts for the month (use Claude, topic brief per client's industry), send to client for approval — if no response within 48 hours, default-approve and post on schedule. One approval round per batch, then schedule all 4.
+- [ ] **Blog posts:** draft 4 posts for the month (use Claude, topic brief per client's industry), send to client for approval — if no response within 48 hours, default-approve and post on schedule. One approval round per batch, then schedule all 4.
 - [ ] Note any custom tool requests or site ideas from the client — add to their backlog in Notion
 - [ ] Weekly check-in calls (30–60 min, as needed) — these happen throughout the month, not just on the 1st
 

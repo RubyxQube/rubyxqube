@@ -145,9 +145,9 @@ export default function Home() {
       </Helmet>
 
       {/* ── Hero — split: copy left, live demo right ── */}
-      <section className="surface heroSurface" style={{ maxHeight: 680, overflow: "hidden" }}>
+      <section className="surface heroSurface" style={{ minHeight: 740, overflow: "hidden" }}>
         <div className="section" style={{ paddingTop: 64, paddingBottom: 64 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 56, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", alignItems: "flex-start", gap: 56, flexWrap: "wrap" }}>
 
             {/* Left — copy */}
             <div style={{ flex: "1 1 340px", maxWidth: 520 }}>
@@ -402,8 +402,8 @@ export default function Home() {
           <div className="grid cols-3" style={{ gap: 16, alignItems: "stretch" }}>
             {[
               { name: "Launch",    price: "$1,200", billing: "one-time", tagline: "A professional site, built and handed off. No monthly commitment." },
-              { name: "Autopilot", price: "$399",   billing: "/mo",      tagline: "Site + AI receptionist + monthly care. No setup fee.", highlight: true },
-              { name: "Momentum",  price: "$999",   billing: "/mo",      tagline: "A developer on your team — unlimited edits, blogs, custom tools." },
+              { name: "Autopilot", price: "$399",   billing: "/mo",      tagline: "Site + AI receptionist + 1 blog post/mo + monthly care. No setup fee.", highlight: true },
+              { name: "Momentum",  price: "$999",   billing: "/mo",      tagline: "A developer on your team — 4 blog posts/mo, unlimited edits, custom tools." },
             ].map(p => (
               <div key={p.name} className={`card${p.highlight ? " cardHighlight" : ""}`} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                 {/* Fixed-height badge row so price aligns across all cards */}
