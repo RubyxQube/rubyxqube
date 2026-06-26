@@ -8,6 +8,7 @@ import Pricing from "./pages/Pricing.jsx";
 import Portfolio from "./pages/Portfolio.jsx";
 import Contact from "./pages/Contact.jsx";
 import Privacy from "./pages/Privacy.jsx";
+import Terms from "./pages/Terms.jsx";
 import About from "./pages/About.jsx";
 import Audit from "./pages/Audit.jsx";
 import Report from "./pages/Report.jsx";
@@ -58,6 +59,7 @@ export default function App() {
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/report" element={<Report />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
         <Route path="/payment-success" element={<PaymentSuccess />} />
 
         {/* Feature pages */}

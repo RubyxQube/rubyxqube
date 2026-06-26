@@ -106,6 +106,7 @@ export default function Footer() {
             <Link to="/contact">Get a Quote</Link>
             <Link to="/report">Sample Report</Link>
             <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/terms">Terms of Service</Link>
             <a href={siteConfig.googleReviewUrl} target="_blank" rel="noreferrer">Leave a Review</a>
           </nav>
         </div>
