@@ -93,6 +93,8 @@ export const posts = [
     dateDisplay: "June 22, 2026",
     readTime: "4 min read",
     category: "Web Design",
+    coverImage: "/blog/boise-plumbing-mobile.webp",
+    coverAlt: "Plumber's wrench and tools for sink repair representing Boise plumbing services",
     Component: BoisePlumbingWebsiteMobile,
   },
   {
@@ -103,6 +105,8 @@ export const posts = [
     dateDisplay: "June 29, 2026",
     readTime: "5 min read",
     category: "Lead Generation",
+    coverImage: "/blog/google-business-profile.webp",
+    coverAlt: "Google Maps location pin on paper representing a local business profile",
     Component: GoogleBusinessProfileTreasureValley,
   },
   {
@@ -113,6 +117,8 @@ export const posts = [
     dateDisplay: "July 6, 2026",
     readTime: "5 min read",
     category: "Web Design",
+    coverImage: "/blog/local-seo-boise.webp",
+    coverAlt: "SEO audit blocks representing local search optimization for Boise service businesses",
     Component: LocalSeoBoise,
   },
   {
@@ -123,6 +129,8 @@ export const posts = [
     dateDisplay: "July 13, 2026",
     readTime: "4 min read",
     category: "Lead Generation",
+    coverImage: "/blog/landscaping-nampa.webp",
+    coverAlt: "Lawn care worker cutting grass representing landscaping services in Nampa Idaho",
     Component: LandscapingNampaGoogle,
   },
   {
@@ -133,6 +141,8 @@ export const posts = [
     dateDisplay: "July 20, 2026",
     readTime: "4 min read",
     category: "Web Design",
+    coverImage: "/blog/boise-roofing.webp",
+    coverAlt: "Professional roofer installing shingles on a house in Boise Idaho",
     Component: BoiseRoofingWebsiteMistakes,
   },
   {
@@ -143,6 +153,8 @@ export const posts = [
     dateDisplay: "July 27, 2026",
     readTime: "4 min read",
     category: "Lead Generation",
+    coverImage: "/blog/after-hours-leads.webp",
+    coverAlt: "People using smartphones in the dark representing after-hours customer inquiries",
     Component: AfterHoursLeadCapture,
   },
   {
@@ -153,6 +165,8 @@ export const posts = [
     dateDisplay: "August 3, 2026",
     readTime: "4 min read",
     category: "Lead Generation",
+    coverImage: "/blog/google-reviews.webp",
+    coverAlt: "Five yellow stars representing Google review ratings for Treasure Valley businesses",
     Component: GoogleReviewsTreasureValley,
   },
   {
@@ -163,6 +177,8 @@ export const posts = [
     dateDisplay: "August 10, 2026",
     readTime: "4 min read",
     category: "Web Design",
+    coverImage: "/blog/service-area-pages.webp",
+    coverAlt: "Aerial view of suburban neighborhood representing Treasure Valley service areas",
     Component: ServiceAreaPagesSeo,
   },
   {
@@ -173,6 +189,8 @@ export const posts = [
     dateDisplay: "August 17, 2026",
     readTime: "4 min read",
     category: "Web Design",
+    coverImage: "/blog/pressure-washing-boise.webp",
+    coverAlt: "Person pressure washing house siding representing cleaning services in Boise",
     Component: PressureWashingWebsiteBoise,
   },
   {
@@ -183,6 +201,8 @@ export const posts = [
     dateDisplay: "August 24, 2026",
     readTime: "4 min read",
     category: "Lead Generation",
+    coverImage: "/blog/pest-control.webp",
+    coverAlt: "Pest control technician performing professional fumigation treatment",
     Component: PestControlLeadCapture,
   },
   {
@@ -193,6 +213,8 @@ export const posts = [
     dateDisplay: "August 31, 2026",
     readTime: "5 min read",
     category: "Web Design",
+    coverImage: "/blog/google-analytics.webp",
+    coverAlt: "Analytics graphs on laptop screen showing website performance data",
     Component: GoogleAnalyticsSearchConsole,
   },
   {
@@ -203,6 +225,8 @@ export const posts = [
     dateDisplay: "September 7, 2026",
     readTime: "4 min read",
     category: "Web Design",
+    coverImage: "/blog/tree-service.webp",
+    coverAlt: "Arborist in safety gear working on a tree representing tree services in Treasure Valley",
     Component: TreeServiceWebsite,
   },
   {
@@ -213,6 +237,8 @@ export const posts = [
     dateDisplay: "September 14, 2026",
     readTime: "4 min read",
     category: "Web Design",
+    coverImage: "/blog/mobile-first-nampa.webp",
+    coverAlt: "Laptops and tablet on a desk representing mobile-first web design for Nampa businesses",
     Component: MobileFirstWebsiteNampa,
   },
   {
@@ -223,6 +249,8 @@ export const posts = [
     dateDisplay: "September 21, 2026",
     readTime: "4 min read",
     category: "Lead Generation",
+    coverImage: "/blog/eagle-idaho.webp",
+    coverAlt: "Green field with mountain peak backdrop representing Eagle Idaho landscape",
     Component: EagleIdahoLocalSearch,
   },
   {
@@ -233,6 +261,8 @@ export const posts = [
     dateDisplay: "September 28, 2026",
     readTime: "4 min read",
     category: "Web Design",
+    coverImage: "/blog/electricians-boise.webp",
+    coverAlt: "Electrician testing an open electrical panel with a multimeter in Boise",
     Component: ElectriciansBoisWebsite,
   },
   {
@@ -243,6 +273,8 @@ export const posts = [
     dateDisplay: "October 5, 2026",
     readTime: "4 min read",
     category: "Lead Generation",
+    coverImage: "/blog/garage-door-boise.webp",
+    coverAlt: "Modern suburban house with driveway representing garage door services in Boise",
     Component: GarageDoorBoiseLeads,
   },
   {
@@ -253,6 +285,8 @@ export const posts = [
     dateDisplay: "October 12, 2026",
     readTime: "4 min read",
     category: "Web Design",
+    coverImage: "/blog/website-hosting.webp",
+    coverAlt: "Server racks in a data center representing website hosting infrastructure",
     Component: WebsiteHostingBoise,
   },
   {
@@ -263,6 +297,8 @@ export const posts = [
     dateDisplay: "October 19, 2026",
     readTime: "4 min read",
     category: "Lead Generation",
+    coverImage: "/blog/respond-reviews.webp",
+    coverAlt: "Business owner at desk with laptop representing responding to Google reviews",
     Component: RespondToNegativeReviews,
   },
   {
@@ -273,6 +309,8 @@ export const posts = [
     dateDisplay: "October 26, 2026",
     readTime: "4 min read",
     category: "Web Design",
+    coverImage: "/blog/stone-masonry-boise.webp",
+    coverAlt: "Rustic stone wall with garden pots representing masonry work in Boise",
     Component: StoneMasonryWebsiteBoise,
   },
   {
@@ -283,6 +321,8 @@ export const posts = [
     dateDisplay: "November 2, 2026",
     readTime: "4 min read",
     category: "Lead Generation",
+    coverImage: "/blog/carpet-cleaning-meridian.webp",
+    coverAlt: "Professional using a vacuum cleaner for carpet cleaning in a Meridian home",
     Component: CarpetCleaningMeridianLeads,
   },
   {
@@ -293,6 +333,8 @@ export const posts = [
     dateDisplay: "November 9, 2026",
     readTime: "4 min read",
     category: "Lead Generation",
+    coverImage: "/blog/caldwell-idaho.webp",
+    coverAlt: "Aerial view of residential neighborhood representing Caldwell Idaho",
     Component: CaldwellIdahoLocalSeo,
   },
   {
@@ -303,6 +345,8 @@ export const posts = [
     dateDisplay: "November 16, 2026",
     readTime: "5 min read",
     category: "Web Design",
+    coverImage: "/blog/google-ads-vs-seo.webp",
+    coverAlt: "Marketing team collaborating representing Google Ads and SEO strategy for Boise contractors",
     Component: GoogleAdsVsSeoBoise,
   },
   {
@@ -313,6 +357,8 @@ export const posts = [
     dateDisplay: "November 23, 2026",
     readTime: "4 min read",
     category: "Lead Generation",
+    coverImage: "/blog/window-cleaning-boise.webp",
+    coverAlt: "Hand on glass window representing professional window cleaning services in Boise",
     Component: WindowCleaningBoiseGoogle,
   },
   {
@@ -323,6 +369,8 @@ export const posts = [
     dateDisplay: "November 30, 2026",
     readTime: "4 min read",
     category: "Web Design",
+    coverImage: "/blog/homepage-conversion.webp",
+    coverAlt: "Businessman at desk with laptop representing website conversion optimization",
     Component: HomepageConvertsVisitors,
   },
   {
@@ -333,6 +381,8 @@ export const posts = [
     dateDisplay: "December 7, 2026",
     readTime: "4 min read",
     category: "Web Design",
+    coverImage: "/blog/website-leads.webp",
+    coverAlt: "Marketing professional with phone and laptop reviewing website lead analytics",
     Component: IsYourWebsiteBringingLeads,
   },
   {
@@ -343,6 +393,8 @@ export const posts = [
     dateDisplay: "December 14, 2026",
     readTime: "4 min read",
     category: "Web Design",
+    coverImage: "/blog/handyman-treasure-valley.webp",
+    coverAlt: "Worker with tool belt and safety helmet representing handyman services in Treasure Valley",
     Component: HandymanWebsiteTreasureValley,
   },
   {
@@ -353,6 +405,8 @@ export const posts = [
     dateDisplay: "December 21, 2026",
     readTime: "4 min read",
     category: "Web Design",
+    coverImage: "/blog/service-pages-seo.webp",
+    coverAlt: "Laptop displaying graphs representing SEO-optimized service pages for Boise businesses",
     Component: ServicePagesSeo,
   },
   {
@@ -363,6 +417,8 @@ export const posts = [
     dateDisplay: "December 28, 2026",
     readTime: "4 min read",
     category: "Web Design",
+    coverImage: "/blog/painting-contractors-boise.webp",
+    coverAlt: "Painting contractor using a roller to paint a wall in a Boise home",
     Component: PaintingContractorsBoise,
   },
   {
@@ -373,6 +429,8 @@ export const posts = [
     dateDisplay: "January 5, 2027",
     readTime: "5 min read",
     category: "AI Tools",
+    coverImage: "/blog/ai-receptionist.webp",
+    coverAlt: "AI neural network illustration representing AI receptionist technology for service businesses",
     Component: AiReceptionistVsContactForm,
   },
   {
@@ -383,6 +441,8 @@ export const posts = [
     dateDisplay: "January 12, 2027",
     readTime: "4 min read",
     category: "Web Design",
+    coverImage: "/blog/website-gets-calls.webp",
+    coverAlt: "Professional working on laptop representing a Boise website that generates phone calls",
     Component: WebsiteThatGetsCalls,
   },
 ];
