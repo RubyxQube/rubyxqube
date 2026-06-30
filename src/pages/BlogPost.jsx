@@ -16,10 +16,12 @@ const CATEGORY_GRADIENT = {
 
 export default function BlogPost() {
   const { slug } = useParams();
+  const today = new Date();
   const idx  = posts.findIndex((p) => p.slug === slug);
   const post = posts[idx];
+  const isPublished = post && new Date(post.date + "T09:00:00") <= today;
 
-  if (!post) {
+  if (!post || !isPublished) {
     return (
       <div className="pageMinHeight">
         <section className="surface heroSurface">
@@ -34,8 +36,8 @@ export default function BlogPost() {
   }
 
   const { Component, title, description, dateDisplay, readTime, category, coverImage, coverAlt } = post;
-  const prev = posts[idx + 1];
-  const next = posts[idx - 1];
+  const prev = posts.slice(idx + 1).find(p => new Date(p.date + "T09:00:00") <= today);
+  const next = posts.slice(0, idx).findLast(p => new Date(p.date + "T09:00:00") <= today);
 
   return (
     <div className="pageMinHeight">
