@@ -12,8 +12,6 @@ export default function Pricing() {
       tagline: "You handle the jobs. We handle everything else.",
       price: "$499",
       billing: "/mo",
-      annualPrice: "$4,990",
-      annualSaving: "2 months free",
       bullets: [
         "No setup fee. As many pages as your business needs, built and launched",
         "Custom AI receptionist: unlimited conversations, instant SMS alert on every lead",
@@ -31,8 +29,6 @@ export default function Pricing() {
       tagline: "A developer on your team, without the payroll.",
       price: "$999",
       billing: "/mo",
-      annualPrice: "$9,990",
-      annualSaving: "2 months free",
       bullets: [
         "Everything in Autopilot",
         "Developer on call: same-day prototypes, 2-day turnaround on bigger builds",
