@@ -47,7 +47,7 @@ export default function BoiseWebsiteCost() {
       <ul>
         <li><strong>Surge Web Design:</strong> $875–$5,875 one-time + $99–$575/month ongoing</li>
         <li><strong>Salt Creative, Key Design, Instabuild:</strong> "Call for a quote" — no public pricing</li>
-        <li><strong>RubyxQube:</strong> $1,200 one-time (Launch) or $399/month with no setup fee (Autopilot, includes AI receptionist)</li>
+        <li><strong>RubyxQube:</strong> $499/month with no setup fee (Autopilot, includes the build, an AI receptionist, and 4 blog posts a month)</li>
       </ul>
       <p>The "call for a quote" model isn't inherently bad — but it makes comparison shopping hard. Transparent pricing means you can evaluate the tradeoff before picking up the phone.</p>
 

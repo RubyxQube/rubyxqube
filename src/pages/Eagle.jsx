@@ -20,7 +20,7 @@ export default function Eagle() {
     <div className="pageMinHeight">
       <Helmet>
         <title>Web Design for Eagle, Idaho Businesses | RubyxQube</title>
-        <meta name="description" content="Custom websites and AI receptionists for Eagle, Idaho businesses. Premium web design for the Treasure Valley's most affluent suburb. Starting at $399/mo, no setup fee." />
+        <meta name="description" content="Custom websites and AI receptionists for Eagle, Idaho businesses. Premium web design for the Treasure Valley's most affluent suburb. Starting at $499/mo, no setup fee." />
         <meta property="og:title" content="Web Design for Eagle, Idaho Businesses — RubyxQube" />
         <meta property="og:description" content="Custom websites with AI lead capture for Eagle, ID businesses. Premium design, no setup fee, month-to-month." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
@@ -106,7 +106,7 @@ export default function Eagle() {
         <div className="section" style={{ paddingTop: 40, paddingBottom: 40 }}>
           <div className="card cardHighlight" style={{ display: "flex", flexWrap: "wrap", gap: 28, alignItems: "center", justifyContent: "space-between" }}>
             <div style={{ flex: "1 1 280px" }}>
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot — $399/mo, no setup fee</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot — $499/mo, no setup fee</p>
               <h3 className="h3" style={{ marginBottom: 10 }}>Custom site + AI receptionist + monthly reports. No contract.</h3>
               <p className="p" style={{ marginBottom: 0 }}>Start without a large upfront commitment. Cancel anytime with 30 days notice.</p>
             </div>

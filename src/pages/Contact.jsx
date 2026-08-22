@@ -6,19 +6,12 @@ import reviewQR from "../assets/qr/RubyxQubeReviewQR.png";
 
 const PACKAGES = [
   {
-    id: "launch",
-    label: "Launch — $1,200 (one-time)",
-    needValue: "Launch",
-    priceLine: "$1,200 (one-time)",
-    includes: "5–6 page website, mobile responsive, contact form + click-to-call, basic SEO, Google Maps embed, 2 revision rounds. No ongoing support.",
-  },
-  {
     id: "autopilot",
-    label: "Autopilot — $399/mo",
+    label: "Autopilot — $499/mo",
     needValue: "Autopilot",
-    priceLine: "$399/mo",
+    priceLine: "$499/mo",
     highlight: "No setup fee.",
-    includes: "Custom site + AI receptionist, analytics setup, 24/7 lead capture, SMS alerts, monthly report, 60 min/mo site updates, 1 blog post/mo.",
+    includes: "Unlimited pages, AI receptionist, analytics setup, 24/7 lead capture, SMS alerts, monthly report, unlimited edit requests, 4 blog posts/mo, Google Business Profile management.",
   },
   {
     id: "momentum",
@@ -51,8 +44,8 @@ export default function Contact() {
     business: "",
     city: "",
     website: "",
-    serviceSelectionId: "launch",
-    need: "Launch",
+    serviceSelectionId: "autopilot",
+    need: "Autopilot",
     timeline: "This month",
     contactMethod: "Call",
     contactValue: "",

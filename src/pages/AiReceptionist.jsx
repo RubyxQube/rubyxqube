@@ -139,7 +139,7 @@ export default function AiReceptionist() {
     <div className="pageMinHeight">
       <Helmet>
         <title>AI Receptionist for Small Businesses — RubyxQube | Boise, ID</title>
-        <meta name="description" content="24/7 AI receptionist for Treasure Valley businesses. Captures leads, answers questions, and sends instant alerts. Powered by Claude. Included in Autopilot from $399/mo." />
+        <meta name="description" content="24/7 AI receptionist for Treasure Valley businesses. Captures leads, answers questions, and sends instant alerts. Powered by Claude. Included in Autopilot from $499/mo." />
         <meta property="og:title" content="AI Receptionist for Small Businesses — RubyxQube" />
         <meta property="og:description" content="24/7 AI receptionist that captures leads, answers questions, and sends instant SMS alerts. Included in every Autopilot & Momentum plan." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
@@ -167,7 +167,7 @@ export default function AiReceptionist() {
             A custom-trained AI receptionist built into your site from day one. It answers questions, qualifies leads, and texts you the moment someone's ready to book — 24/7, with no monthly fees beyond your plan.
           </p>
           <div className="btnRow">
-            <Link className="btn primary" to="/contact">Get Started — $399/mo</Link>
+            <Link className="btn primary" to="/contact">Get Started — $499/mo</Link>
             <Link className="btn" to="/pricing">See All Pricing</Link>
           </div>
 
@@ -328,15 +328,15 @@ export default function AiReceptionist() {
           <span className="badge">Pricing</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>Included — not an add-on.</h2>
           <p className="p" style={{ maxWidth: 500, marginBottom: 36 }}>
-            The AI receptionist is built into every Autopilot and Momentum plan. You don't pay extra for it — it comes with the site.
+            The AI receptionist is built into both the Autopilot and Momentum plans. You don't pay extra for it. It comes with the site.
           </p>
           <div className="grid cols-3">
             {[
               {
                 plan: "Autopilot",
-                price: "$399/mo",
+                price: "$499/mo",
                 detail: "No setup fee",
-                bullets: ["AI receptionist included", "5–10 page custom site", "GA4 + Search Console", "Monthly report", "60 min/mo updates", "1 blog post/mo"],
+                bullets: ["AI receptionist included", "Unlimited pages", "GA4 + Search Console", "Monthly report", "Unlimited edit requests", "4 blog posts/mo"],
                 highlight: true,
                 cta: "/contact",
               },

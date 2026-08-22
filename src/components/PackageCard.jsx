@@ -49,12 +49,13 @@ export default function PackageCard({ name, tagline, bestFor, price, billing, ti
       <ul className="list" style={{ flex: 1 }}>
         {bullets.map((b) => {
           if (b.startsWith("No setup fee")) {
-            const sepIdx = b.indexOf(" — ");
-            const rest = sepIdx >= 0 ? b.slice(sepIdx + 3) : "";
+            // Keep whatever follows verbatim, whatever the punctuation. Splitting on a
+            // specific separator here used to drop the rest of the bullet silently.
+            const rest = b.slice("No setup fee".length);
             return (
               <li key={b}>
                 <strong style={{ color: "var(--accent)" }}>No setup fee</strong>
-                {rest ? ` — ${rest}` : ""}
+                {rest}
               </li>
             );
           }

@@ -20,7 +20,7 @@ export default function PlumbingWebDesign() {
     <div className="pageMinHeight">
       <Helmet>
         <title>Plumbing Web Design — Boise, Idaho | RubyxQube</title>
-        <meta name="description" content="Custom websites for plumbing companies in Boise and the Treasure Valley. Emergency lead capture, 24/7 AI receptionist, local SEO. Starting at $399/mo, no setup fee." />
+        <meta name="description" content="Custom websites for plumbing companies in Boise and the Treasure Valley. Emergency lead capture, 24/7 AI receptionist, local SEO. Starting at $499/mo, no setup fee." />
         <meta property="og:title" content="Plumbing Web Design Boise Idaho — RubyxQube" />
         <meta property="og:description" content="Custom websites with 24/7 AI lead capture for Treasure Valley plumbing companies. No setup fee, no contract." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
@@ -110,7 +110,7 @@ export default function PlumbingWebDesign() {
         <div className="section" style={{ paddingTop: 40, paddingBottom: 40 }}>
           <div className="card cardHighlight" style={{ display: "flex", flexWrap: "wrap", gap: 28, alignItems: "center", justifyContent: "space-between" }}>
             <div style={{ flex: "1 1 280px" }}>
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot — $399/mo, no setup fee</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot — $499/mo, no setup fee</p>
               <h3 className="h3" style={{ marginBottom: 10 }}>Custom plumbing site + AI receptionist + monthly reports. No contract.</h3>
               <p className="p" style={{ marginBottom: 0 }}>Built for your business, ready for emergencies, managed month-to-month.</p>
             </div>

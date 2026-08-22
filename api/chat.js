@@ -44,11 +44,10 @@ Email: boyd@rubyxqube.com
 Service area: Treasure Valley — Boise, Meridian, Nampa, Caldwell, Eagle, Kuna (and remote)
 
 Services & pricing:
-- Launch: $1,200 one-time — 5–6 page professional website, mobile-first, SEO basics, contact form, 2 revisions. No ongoing commitment.
-- Autopilot: $399/mo, no setup fee — custom site built and launched + AI receptionist (24/7 lead capture) + GA4 + Search Console + monthly report + 60 min/mo site updates. No contract.
-- Momentum: $999/mo, no setup fee — everything in Autopilot + developer on call (same-day prototypes, 2-day turnaround on bigger builds) + unlimited edits + Google Business Profile management + monthly AI receptionist tuning + weekly check-in call
+- Autopilot: $499/mo, no setup fee — custom site with no page limit, built and launched + AI receptionist (24/7 lead capture) + GA4 + Search Console + monthly report + unlimited edit requests (one at a time) + 4 blog posts/mo + Google Business Profile management. 6-month minimum, then month-to-month.
+- Momentum: $999/mo, no setup fee — everything in Autopilot + developer on call (same-day prototypes, 2-day turnaround on bigger builds) + custom software (quote calculators, estimators, booking tools, interactive 3D) + a direct line to Boyd + weekly strategy call over Google Meet
 - AI Chatbot Only (for existing sites): $500 setup + $199/mo
-- Add-ons: Domain setup ($75), business email ($100), extra page ($250), copywriting ($500), logo & brand kit ($350), booking integration ($150), site migration ($500)
+- Add-ons: Domain setup ($75), business email ($100), copywriting ($500), logo & brand kit ($350), booking integration ($150), site migration ($500)
 
 Common questions:
 Q: How long does it take? → Most sites go live within 1–2 weeks of the kickoff call. Simpler builds can launch in as little as 3 days.

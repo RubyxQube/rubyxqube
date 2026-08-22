@@ -7,7 +7,7 @@ import { siteConfig } from "../siteConfig.js";
 
 const FAQ = [
   { q: "Do you work with businesses in Nampa?", a: "Yes — Nampa and Canyon County are part of our primary service area. We understand the Nampa market and the types of businesses that do well there." },
-  { q: "What does a website typically cost for a Nampa contractor?", a: "Our Autopilot plan is $399/month with no setup fee — that includes a custom site, AI receptionist, analytics, and monthly updates. The Launch package is $1,200 one-time for a basic site without ongoing support." },
+  { q: "What does a website typically cost for a Nampa contractor?", a: "Our Autopilot plan is $499/month with no setup fee. That covers a custom site with no page limit, an AI receptionist, analytics, four blog posts a month, and ongoing updates. Momentum is $999/month and adds custom software built for your business." },
   { q: "Do you know the Canyon County / Nampa market?", a: "We do. Home services, construction, agricultural supply, automotive, and cleaning services are the types of businesses we see most in Canyon County — and they're what we build for." },
   { q: "Can the AI receptionist handle Spanish-speaking customers?", a: "Claude (the AI we use) can respond in multiple languages including Spanish. We can configure the system prompt to handle bilingual conversations if that's relevant to your customer base." },
   { q: "How does the site get found in Nampa searches?", a: "We optimize for 'Nampa ID' + your service in meta tags, page content, and local schema. Google Business Profile management (Momentum plan) adds significant local ranking weight on top of the site." },
@@ -20,7 +20,7 @@ export default function Nampa() {
     <div className="pageMinHeight">
       <Helmet>
         <title>Web Design for Nampa, Idaho Businesses | RubyxQube</title>
-        <meta name="description" content="Custom websites and AI receptionists for Nampa, Idaho small businesses. Canyon County's growing market needs sites that capture leads 24/7. Starting at $399/mo, no setup fee." />
+        <meta name="description" content="Custom websites and AI receptionists for Nampa, Idaho small businesses. Canyon County's growing market needs sites that capture leads 24/7. Starting at $499/mo, no setup fee." />
         <meta property="og:title" content="Web Design for Nampa, Idaho Businesses — RubyxQube" />
         <meta property="og:description" content="Custom websites with AI lead capture for Nampa, ID service businesses. No setup fee, month-to-month." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
@@ -106,7 +106,7 @@ export default function Nampa() {
         <div className="section" style={{ paddingTop: 40, paddingBottom: 40 }}>
           <div className="card cardHighlight" style={{ display: "flex", flexWrap: "wrap", gap: 28, alignItems: "center", justifyContent: "space-between" }}>
             <div style={{ flex: "1 1 280px" }}>
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot — $399/mo, no setup fee</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot — $499/mo, no setup fee</p>
               <h3 className="h3" style={{ marginBottom: 10 }}>Custom site + AI receptionist + monthly reports. No contract.</h3>
               <p className="p" style={{ marginBottom: 0 }}>Get a professional web presence in Nampa without a large upfront investment. Month-to-month, cancel anytime.</p>
             </div>

@@ -7,30 +7,24 @@ import { siteConfig } from "../siteConfig.js";
 
 const MONTHLY = [
   "Plain-English monthly report — traffic, leads, chatbot activity",
-  "60 minutes of site updates included every month",
+  "Unlimited edit requests, one active at a time",
   "Google Analytics + Search Console monitored",
   "AI receptionist stays trained as your business changes",
 ];
 
 const PLANS = [
   {
-    name: "Launch",
-    price: "$1,200",
-    billing: "one-time",
-    desc: "A professional website, built and handed off. No ongoing commitment.",
-  },
-  {
     name: "Autopilot",
-    price: "$399",
+    price: "$499",
     billing: "/mo",
-    desc: "Site + AI receptionist + monthly care. No setup fee.",
+    desc: "Unlimited pages, AI receptionist, 4 blog posts a month, and monthly care. No setup fee.",
     highlight: true,
   },
   {
     name: "Momentum",
     price: "$999",
     billing: "/mo",
-    desc: "A developer on your team: 4 blog posts/mo, same-day turnaround, custom tools, unlimited edits, and weekly check-ins.",
+    desc: "A developer on your team: custom tools, same-day prototypes, and a weekly strategy call.",
   },
 ];
 
@@ -81,7 +75,7 @@ export default function Services() {
               <h3 className="h3" style={{ marginBottom: 12 }}>Built from scratch. Fast, mobile-first, built to convert.</h3>
               <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px", display: "flex", flexDirection: "column", gap: 10 }}>
                 {[
-                  "5–10 pages built from scratch — not a template",
+                  "As many pages as your business needs, built from scratch, not a template",
                   "Mobile-first design that loads fast on any device",
                   "Contact form, click-to-call, Google Maps embed",
                   "Basic on-page SEO, Analytics, and Search Console included",
@@ -218,7 +212,7 @@ export default function Services() {
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>Simple, honest pricing.</h2>
           <p className="p" style={{ maxWidth: 480, marginBottom: 36 }}>No hidden fees. No hourly billing. Pick the level of support that fits where you are.</p>
 
-          <div className="grid cols-3">
+          <div className="grid cols-2" style={{ maxWidth: 720, margin: "0 auto" }}>
             {PLANS.map(plan => (
               <div key={plan.name} className={`card${plan.highlight ? " cardHighlight" : ""}`} style={{ display: "flex", flexDirection: "column" }}>
                 <div style={{ minHeight: 32, marginBottom: 8 }}>

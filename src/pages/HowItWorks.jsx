@@ -29,7 +29,7 @@ const STEPS = [
   {
     number: "05",
     title: "Monthly report + ongoing updates",
-    desc: "On the 1st of each month you get a plain-English report: how many people visited, where they came from, how many leads came in. We also make up to 60 minutes of site updates per month.",
+    desc: "On the 1st of each month you get a plain-English report: how many people visited, where they came from, how many leads came in. We also handle your edit requests, as many as you need, one at a time.",
   },
 ];
 
@@ -38,7 +38,7 @@ const INCLUDED = [
     icon: Zap,
     title: "Custom website",
     items: [
-      "5–10 pages, built from scratch — not a template",
+      "As many pages as your business needs, built from scratch, not a template",
       "Mobile-first design, loads fast on any device",
       "Contact form + click-to-call button",
       "Google Maps embed",
@@ -73,11 +73,11 @@ const INCLUDED = [
     icon: RefreshCw,
     title: "Ongoing site updates",
     items: [
-      "60 minutes of changes per month included",
+      "Unlimited edit requests, one active at a time",
       "Update prices, swap photos, add a service, fix typos",
       "Turnaround within 1 business day",
-      "1 AI-assisted blog post/month — start building your Google presence",
-      "Additional time available at $150/hr",
+      "4 AI-assisted blog posts a month, building your presence on Google",
+      "Bigger builds are quoted as a project, or included on Momentum",
     ],
   },
 ];
@@ -86,11 +86,10 @@ const MOMENTUM_EXTRAS = [
   "Developer on call, same-day prototypes, 2-day turnaround on bigger builds",
   "Unlimited edits and new pages, no monthly cap",
   "Custom tools: calculators, estimators, intake forms, and more",
-  "Google Business Profile management",
   "Monthly AI receptionist tuning",
-  "4 AI-assisted blog posts/month — 4x the content, 4x the Google indexing. Written in your portal, reviewed and published for you.",
-  "Client portal — update your chatbot, services, hours, and FAQs without contacting us",
-  "Weekly check-in call (30–60 min)",
+  "A direct line to Boyd. Text or call, not a ticket queue",
+  "Your work goes to the front of the queue, ahead of everything else",
+  "Weekly strategy call over Google Meet",
 ];
 
 const FAQS = [
@@ -100,11 +99,11 @@ const FAQS = [
   },
   {
     q: "Do I own my website?",
-    a: "Yes. On Autopilot and Momentum, the source files are yours after the 6-month minimum — or immediately for $800 if you need to leave early. Launch plan customers own the files from day one. Your domain is always yours regardless.",
+    a: "Yes. On Autopilot and Momentum, the source files are yours after the 6-month minimum, or immediately for $800 if you need to leave early. Your domain is always yours regardless.",
   },
   {
-    q: "What does '60 minutes of updates' actually mean?",
-    a: "Each month you have 60 minutes banked for changes — update a price, swap a photo, add a new service, fix a typo. Just text or email the request and we handle it within 1 business day. Anything beyond 60 minutes is quoted as a project.",
+    q: "What counts as an edit request?",
+    a: "Anything that changes what visitors see: update a price, swap a photo, add a service, add a whole page, fix a typo. Text or email the request and we handle it within 1 business day. There is no monthly cap. We work one request at a time, so if you send three, they get done in order. Bigger builds that take weeks are quoted as a project, or included on Momentum.",
   },
   {
     q: "What if I already have a website?",
@@ -116,11 +115,11 @@ const FAQS = [
   },
   {
     q: "What happens to my site if I cancel?",
-    a: "On Autopilot and Momentum: after the 6-month minimum, give 30 days written notice, pay any outstanding balance, done. You can take the site files for $800 or let it go offline. Your domain is always released back to you within 5 business days. Launch plan has no ongoing contract.",
+    a: "On Autopilot and Momentum: after the 6-month minimum, give 30 days written notice, pay any outstanding balance, done. You can take the site files for $800 or let it go offline. Your domain is always released back to you within 5 business days.",
   },
   {
     q: "Is there a long-term contract?",
-    a: "There's a 6-month minimum on Autopilot and Momentum (because the site build is included at no setup fee). After that it's month-to-month with 30-day notice. Launch is a one-time project with no ongoing commitment.",
+    a: "There's a 6-month minimum on Autopilot and Momentum (because the site build is included at no setup fee). After that it's month-to-month with 30-day notice.",
   },
   {
     q: "How do I request a site change?",
@@ -204,7 +203,7 @@ export default function HowItWorks() {
           <span className="badge">Autopilot &amp; Momentum</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>What's included in every plan.</h2>
           <p className="p" style={{ maxWidth: 480, marginBottom: 40 }}>
-            Autopilot ($399/mo) and Momentum ($999/mo) both include everything below. No nickel-and-diming.
+            Autopilot ($499/mo) and Momentum ($999/mo) both include everything below. No nickel-and-diming.
           </p>
 
           <div className="grid cols-2">

@@ -34,7 +34,7 @@ export default function HvacLeadCapture() {
       <p>More importantly: it knows when something is beyond its scope. "That sounds like it might need an in-person diagnostic — I'm going to flag this for the owner and have them call you first thing." Handling the handoff gracefully is something we specifically tune for.</p>
 
       <h2>Getting started</h2>
-      <p>An AI receptionist is included in the Autopilot plan at $399/month — which also covers your website, Google Analytics, Search Console, and a monthly performance report. If you already have a site, a standalone chatbot add-on is $500 setup + $199/month.</p>
+      <p>An AI receptionist is included in the Autopilot plan at $499/month — which also covers your website, Google Analytics, Search Console, and a monthly performance report. If you already have a site, a standalone chatbot add-on is $500 setup + $199/month.</p>
       <p>Not sure if it's worth it? A free website audit will show you exactly what your current site is capturing (and not capturing) after hours, and what it would take to close that gap.</p>
     </>
   );

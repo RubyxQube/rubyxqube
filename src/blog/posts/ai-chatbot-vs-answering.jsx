@@ -13,7 +13,7 @@ export default function AiChatbotVsAnswering() {
 
       <h2>What an AI chatbot gives you</h2>
       <p>An AI chatbot (the kind we build — powered by Claude from Anthropic) handles web visitors, not phone calls. It appears on your site, greets visitors, answers questions about your services and pricing, and captures the lead's name and contact info when they're ready to move forward.</p>
-      <p>The cost: $30–$200/month for most configurations. Ours is included in the Autopilot plan at $399/month (which also includes your site, analytics, monthly reports, and updates).</p>
+      <p>The cost: $30–$200/month for most configurations. Ours is included in the Autopilot plan at $499/month (which also includes your site, analytics, monthly reports, and updates).</p>
       <p>The limitation: it's text-based. If someone calls your phone number directly, the chatbot doesn't help. It also doesn't handle scheduling or dispatch — it captures the lead and you follow up.</p>
 
       <h2>Head-to-head comparison</h2>

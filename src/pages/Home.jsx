@@ -19,7 +19,7 @@ function renderBold(text) {
 const DEMO = [
   { from: "bot",  text: "Hey! I'm the AI receptionist for RubyxQube. How can I help you today?",                                                            delay: 600  },
   { from: "user", text: "Do you guys have pricing info?",                                                                                                    delay: 2800 },
-  { from: "bot",  text: "Yes! **Autopilot** starts at $399/mo — no setup fee. Includes your custom site, AI receptionist, monthly reports, and updates.",   delay: 4100 },
+  { from: "bot",  text: "Yes! **Autopilot** starts at $499/mo — no setup fee. Includes your custom site, AI receptionist, monthly reports, and updates.",   delay: 4100 },
   { from: "user", text: "Nice. I run an HVAC company in Meridian.",                                                                                          delay: 6900 },
   { from: "bot",  text: "Perfect fit — we build a lot of HVAC sites. Can I grab your name and a good number? I'll have Boyd reach out today.",               delay: 8400 },
   { from: "user", text: "Mike Tanner, (208) 555-0194",                                                                                                       delay: 11000 },
@@ -125,9 +125,9 @@ export default function Home() {
     <div className="pageMinHeight">
       <Helmet>
         <title>RubyxQube — Web Design & AI Receptionists for Treasure Valley Businesses</title>
-        <meta name="description" content="Professional websites + AI chatbot receptionists for local service businesses in Boise, Nampa, Meridian, and the Treasure Valley. Starting at $399/mo." />
+        <meta name="description" content="Professional websites + AI chatbot receptionists for local service businesses in Boise, Nampa, Meridian, and the Treasure Valley. Starting at $499/mo." />
         <meta property="og:title" content="RubyxQube — Web Design & AI Receptionists for Treasure Valley Businesses" />
-        <meta property="og:description" content="Professional websites + AI chatbot receptionists for local service businesses in Boise, Nampa, Meridian, and the Treasure Valley. Starting at $399/mo." />
+        <meta property="og:description" content="Professional websites + AI chatbot receptionists for local service businesses in Boise, Nampa, Meridian, and the Treasure Valley. Starting at $499/mo." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/" />
         <link rel="canonical" href="https://rubyxqube.com/" />
@@ -298,7 +298,7 @@ export default function Home() {
         <div className="section">
           <span className="badge">After day one</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>
-            Launch gets you live.<br />
+            Most web guys hand off and vanish.<br />
             <span className="accentText">Autopilot keeps you growing.</span>
           </h2>
           <p className="p" style={{ maxWidth: 520, marginBottom: 40 }}>
@@ -306,10 +306,10 @@ export default function Home() {
           </p>
           <div className="grid cols-2" style={{ gap: 24 }}>
             <div className="card">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "var(--muted)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 }}>After Launch</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "var(--muted)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 }}>A one-time build</p>
               <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
                 {[
-                  "Site goes live. Boyd's job is done.",
+                  "Site goes live. Their job is done.",
                   "Need to update a service or price? New invoice from someone who doesn't know your setup.",
                   "Site goes down at midnight? You find out when a customer tells you.",
                   "Lead comes in at 9pm. No one answers. They call your competitor.",
@@ -398,12 +398,11 @@ export default function Home() {
         <div className="section">
           <span className="badge">Pricing</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>Simple, honest pricing.</h2>
-          <p className="p" style={{ maxWidth: 480, marginBottom: 36 }}>No hidden fees. No hourly billing. Every plan starts with a custom-built site.</p>
-          <div className="grid cols-3" style={{ gap: 16, alignItems: "stretch" }}>
+          <p className="p" style={{ maxWidth: 480, marginBottom: 36 }}>No hidden fees. No hourly billing. Both plans start with a custom-built site and an AI receptionist.</p>
+          <div className="grid cols-2" style={{ gap: 16, alignItems: "stretch", maxWidth: 720 }}>
             {[
-              { name: "Launch",    price: "$1,200", billing: "one-time", tagline: "A professional site, built and handed off. No monthly commitment." },
-              { name: "Autopilot", price: "$399",   billing: "/mo",      tagline: "Site + AI receptionist + 1 blog post/mo + monthly care. No setup fee.", highlight: true },
-              { name: "Momentum",  price: "$999",   billing: "/mo",      tagline: "A developer on your team — 4 blog posts/mo, unlimited edits, custom tools." },
+              { name: "Autopilot", price: "$499",   billing: "/mo",      tagline: "Unlimited pages, AI receptionist, 4 blog posts/mo, and monthly care. No setup fee.", highlight: true },
+              { name: "Momentum",  price: "$999",   billing: "/mo",      tagline: "A developer on your team: custom tools, same-day prototypes, weekly strategy call." },
             ].map(p => (
               <div key={p.name} className={`card${p.highlight ? " cardHighlight" : ""}`} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                 {/* Fixed-height badge row so price aligns across all cards */}

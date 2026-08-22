@@ -38,7 +38,7 @@ export default function WixRebuildSudz() {
 
       <h2>What this means for other Boise service businesses</h2>
       <p>Sudz's situation isn't unique. A lot of Treasure Valley service businesses started on Wix or Squarespace, did well enough to grow, and are now at a point where the DIY site is a ceiling rather than a floor.</p>
-      <p>The cost of staying on Wix is often invisible — slower search rankings, missed after-hours leads, no data to work from. The switch doesn't have to be expensive or complicated. Autopilot starts at $399/month with no setup fee and includes the site build, analytics, and AI receptionist.</p>
+      <p>The cost of staying on Wix is often invisible — slower search rankings, missed after-hours leads, no data to work from. The switch doesn't have to be expensive or complicated. Autopilot starts at $499/month with no setup fee and includes the site build, analytics, and AI receptionist.</p>
       <p>If you're on Wix and wondering whether it's time to move on, a free audit is the clearest way to find out. No obligation — just an honest look at what your current site is doing (and not doing) for your business.</p>
     </>
   );

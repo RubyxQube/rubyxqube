@@ -20,7 +20,7 @@ export default function DentalWebDesign() {
     <div className="pageMinHeight">
       <Helmet>
         <title>Dental Web Design — Boise, Idaho | RubyxQube</title>
-        <meta name="description" content="Custom websites for dental practices in Boise and the Treasure Valley. New patient conversion, AI receptionist, insurance FAQ, appointment booking. Starting at $399/mo." />
+        <meta name="description" content="Custom websites for dental practices in Boise and the Treasure Valley. New patient conversion, AI receptionist, insurance FAQ, appointment booking. Starting at $499/mo." />
         <meta property="og:title" content="Dental Web Design Boise Idaho — RubyxQube" />
         <meta property="og:description" content="Custom dental websites with AI lead capture, insurance FAQ, and new patient conversion. Treasure Valley dental practices." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
@@ -110,7 +110,7 @@ export default function DentalWebDesign() {
         <div className="section" style={{ paddingTop: 40, paddingBottom: 40 }}>
           <div className="card cardHighlight" style={{ display: "flex", flexWrap: "wrap", gap: 28, alignItems: "center", justifyContent: "space-between" }}>
             <div style={{ flex: "1 1 280px" }}>
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot — $399/mo, no setup fee</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot — $499/mo, no setup fee</p>
               <h3 className="h3" style={{ marginBottom: 10 }}>Custom dental site + AI receptionist + monthly reports. No contract.</h3>
               <p className="p" style={{ marginBottom: 0 }}>Built to convert new patient searches. Managed month-to-month — no annual commitment required.</p>
             </div>

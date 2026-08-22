@@ -8,39 +8,22 @@ import ComparisonSection from "../components/ComparisonSection.jsx";
 export default function Pricing() {
   const packages = [
     {
-      name: "Launch",
-      tagline: "Get your business online professionally.",
-      price: "$1,200",
-      billing: "one-time",
-      bullets: [
-        "5–6 page website (Home, About, Services, Gallery, Quote, Privacy)",
-        "Mobile responsive — looks great on every device",
-        "Contact form + click-to-call buttons",
-        "Basic SEO (titles, descriptions, local structure)",
-        "Google Maps embed",
-        "2 revision rounds included",
-        "Client portal access — update your content yourself, no monthly fee required",
-      ],
-      note: "Site is yours to keep. No monthly commitment, no ongoing support. A great fit if you already have someone to manage it — otherwise Autopilot is the better deal.",
-    },
-    {
       name: "Autopilot",
       tagline: "You handle the jobs. We handle everything else.",
-      price: "$399",
+      price: "$499",
       billing: "/mo",
-      annualPrice: "$3,990",
+      annualPrice: "$4,990",
       annualSaving: "2 months free",
       bullets: [
-        "No setup fee — 5–10 page custom site, built and launched",
-        "Analytics + Search Console setup included",
-        "Custom AI receptionist — answers questions, captures leads 24/7",
-        "Unlimited conversations, no per-chat fees",
-        "Instant SMS alert on every new lead",
-        "Monthly report: traffic, chats, leads captured",
-        "60 min/month of site updates",
-        "1 AI-assisted blog post/month — start building your organic presence on Google",
-        "Client portal — update your services, FAQs, and chatbot greeting yourself",
+        "No setup fee. As many pages as your business needs, built and launched",
+        "Custom AI receptionist: unlimited conversations, instant SMS alert on every lead",
+        "Unlimited edit requests, one active at a time",
+        "4 blog posts a month, written and published for you",
+        "Google Business Profile posts and review responses",
+        "Monthly report on traffic, chats, and leads, plus analytics and Search Console",
+        "Client portal to update your services, FAQs, and chatbot yourself",
       ],
+      note: "Send us your photos and video. We handle the rest: copy, layout, SEO, and launch. No waiting months on content.",
       highlight: true,
     },
     {
@@ -52,14 +35,13 @@ export default function Pricing() {
       annualSaving: "2 months free",
       bullets: [
         "Everything in Autopilot",
-        "Developer on call, same-day prototypes, 2-day turnaround on bigger builds",
-        "Unlimited edits and new pages, no monthly cap",
-        "Custom tools: calculators, estimators, intake forms, and more",
-        "Google Business Profile management",
-        "4 AI-assisted blog posts/month — 4x the content velocity, 4x the Google indexing",
-        "Client portal — tune your chatbot, update content, and see what visitors are asking",
-        "Weekly check-in call (30–60 min)",
+        "Developer on call: same-day prototypes, 2-day turnaround on bigger builds",
+        "Custom software for your business: quote calculators, estimators, booking tools, interactive 3D",
+        "Weekly strategy call over Google Meet",
+        "A direct line to me. Text or call, not a ticket queue",
+        "Your work goes to the front of the queue, ahead of everything else",
       ],
+      note: "This is the tier for businesses that want something built, not just maintained.",
     },
   ];
 
@@ -78,11 +60,6 @@ export default function Pricing() {
       title: "Business Email",
       price: "$100 setup",
       desc: "Google Workspace setup so you get you@yourbusiness.com instead of a Gmail address. Looks far more professional.",
-    },
-    {
-      title: "Extra Page",
-      price: "$250",
-      desc: "Need a page beyond the standard build? Priced per page.",
     },
     {
       title: "Copywriting",
@@ -110,9 +87,9 @@ export default function Pricing() {
     <div className="pageMinHeight">
       <Helmet>
         <title>Pricing — RubyxQube | Treasure Valley Web Design</title>
-        <meta name="description" content="Transparent pricing for Treasure Valley small businesses. Launch from $1,200 one-time. Autopilot from $399/mo includes a custom site, AI receptionist, and monthly reports." />
+        <meta name="description" content="Transparent pricing for Treasure Valley small businesses. Autopilot is $499/mo with no setup fee: unlimited pages, an AI receptionist, 4 blog posts a month, and monthly reports." />
         <meta property="og:title" content="Pricing — RubyxQube | Treasure Valley Web Design" />
-        <meta property="og:description" content="Transparent pricing for Treasure Valley small businesses. Launch from $1,200 one-time. Autopilot from $399/mo includes a custom site, AI receptionist, and monthly reports." />
+        <meta property="og:description" content="Transparent pricing for Treasure Valley small businesses. Autopilot is $499/mo with no setup fee: unlimited pages, an AI receptionist, 4 blog posts a month, and monthly reports." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/pricing" />
         <link rel="canonical" href="https://rubyxqube.com/pricing" />
@@ -126,7 +103,7 @@ export default function Pricing() {
             Simple pricing.<span className="mobileBreak" /> <span className="accentText">No surprises.</span>
           </h1>
           <p className="p" style={{ maxWidth: 540, fontSize: 17 }}>
-            No contracts, no hidden fees, no upsells. Every package starts with a professional website. Add AI and growth services if you want them.
+            Two plans, no hidden fees, no upsells. Both start with a professional website and an AI receptionist. The difference is how much gets built for you after that.
           </p>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 18 }}>
             <ShieldCheck size={16} color="rgba(34,197,94,0.85)" />
@@ -138,7 +115,7 @@ export default function Pricing() {
       {/* ── Packages ── */}
       <section className="surface">
         <div className="section">
-          <div className="grid cols-3">
+          <div className="grid cols-2" style={{ maxWidth: 820, margin: "0 auto" }}>
             {packages.map((p) => (
               <PackageCard
                 key={p.name}
@@ -161,18 +138,20 @@ export default function Pricing() {
         <div className="section">
           <span className="badge">The math</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>
-            What $399/mo actually buys you
+            What $499/mo actually buys you
           </h2>
           <p className="p" style={{ maxWidth: 540, marginBottom: 40 }}>
             Try piecing together what Autopilot includes on your own. You'll spend more and still not have someone who knows your site.
           </p>
           <div className="grid cols-2" style={{ gap: 24 }}>
             <div className="card cardHighlight">
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 }}>Autopilot — all of it, included</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 }}>Autopilot: all of it, included</p>
               <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 20 }}>
                 {[
-                  "Site updates — text Boyd, done same day",
+                  "Unlimited site updates, one request at a time",
                   "Custom AI receptionist trained on your business",
+                  "4 blog posts a month, written and published",
+                  "Google Business Profile posts and review replies",
                   "Uptime monitoring built in",
                   "Monthly GA4-powered report to your inbox",
                   "One person who knows your entire setup",
@@ -185,7 +164,7 @@ export default function Pricing() {
               </div>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ fontSize: 14, fontWeight: 700 }}>Total</span>
-                <span style={{ fontSize: 20, fontWeight: 800, color: "var(--accent)" }}>$399/mo</span>
+                <span style={{ fontSize: 20, fontWeight: 800, color: "var(--accent)" }}>$499/mo</span>
               </div>
             </div>
             <div className="card">
@@ -194,6 +173,8 @@ export default function Pricing() {
                 {[
                   ["Freelancer for site updates (avg 2x/mo)", "$300-600/mo"],
                   ["AI chatbot tool (separate service)", "$199/mo"],
+                  ["Content writer, 4 posts/mo", "$400-800/mo"],
+                  ["Google Business Profile management", "$150-300/mo"],
                   ["Uptime monitoring service", "$20/mo"],
                   ["Monthly analytics reporting", "$50-100/mo"],
                   ["Someone who already knows your setup", "Not possible"],
@@ -209,7 +190,7 @@ export default function Pricing() {
               </div>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ fontSize: 14, fontWeight: 700 }}>Total</span>
-                <span style={{ fontSize: 20, fontWeight: 800, color: "var(--text)" }}>$569-919/mo</span>
+                <span style={{ fontSize: 20, fontWeight: 800, color: "var(--text)" }}>$1,119-2,019/mo</span>
               </div>
             </div>
           </div>

@@ -20,7 +20,7 @@ export default function Meridian() {
     <div className="pageMinHeight">
       <Helmet>
         <title>Web Design for Meridian, Idaho Businesses | RubyxQube</title>
-        <meta name="description" content="Custom websites and AI receptionists for Meridian, Idaho small businesses. Idaho's fastest-growing city deserves a site that captures leads 24/7. Starting at $399/mo, no setup fee." />
+        <meta name="description" content="Custom websites and AI receptionists for Meridian, Idaho small businesses. Idaho's fastest-growing city deserves a site that captures leads 24/7. Starting at $499/mo, no setup fee." />
         <meta property="og:title" content="Web Design for Meridian, Idaho Businesses — RubyxQube" />
         <meta property="og:description" content="Custom websites with AI lead capture for Meridian, ID service businesses. No setup fee, month-to-month." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
@@ -106,7 +106,7 @@ export default function Meridian() {
         <div className="section" style={{ paddingTop: 40, paddingBottom: 40 }}>
           <div className="card cardHighlight" style={{ display: "flex", flexWrap: "wrap", gap: 28, alignItems: "center", justifyContent: "space-between" }}>
             <div style={{ flex: "1 1 280px" }}>
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot — $399/mo, no setup fee</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot — $499/mo, no setup fee</p>
               <h3 className="h3" style={{ marginBottom: 10 }}>Custom site + AI receptionist + monthly reports. No contract.</h3>
               <p className="p" style={{ marginBottom: 0 }}>Everything a Meridian service business needs to compete online — built and managed by a real person who knows the market.</p>
             </div>

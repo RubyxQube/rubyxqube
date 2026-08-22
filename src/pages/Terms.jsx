@@ -39,11 +39,10 @@ export default function Terms() {
 
           <div className="card" style={{ marginBottom: 24 }}>
             <h2 className="h2" style={{ marginBottom: 16 }}>1. Services</h2>
-            <p className="p">We offer three service tiers for small businesses in the Treasure Valley and surrounding areas:</p>
+            <p className="p">We offer two service tiers for small businesses in the Treasure Valley and surrounding areas:</p>
             <ul className="list">
-              <li><strong style={{ color: "var(--text)" }}>Launch ($1,200 one-time)</strong> — Custom website design and development, delivered within 7 business days of signed agreement and deposit receipt.</li>
-              <li><strong style={{ color: "var(--text)" }}>Autopilot ($399/mo)</strong> — Website hosting and maintenance, AI-powered chat receptionist, lead capture and SMS alert notifications, and ongoing site updates.</li>
-              <li><strong style={{ color: "var(--text)" }}>Momentum ($999/mo)</strong> — Everything in Autopilot, plus four SEO blog posts per month drafted with AI and approved by you, Google Business Profile management, and developer-on-call priority support.</li>
+              <li><strong style={{ color: "var(--text)" }}>Autopilot ($499/mo)</strong> — Website design, hosting and maintenance with no page limit, AI-powered chat receptionist, lead capture and SMS alert notifications, four AI-assisted blog posts per month, Google Business Profile management, and ongoing site updates.</li>
+              <li><strong style={{ color: "var(--text)" }}>Momentum ($999/mo)</strong> — Everything in Autopilot, plus custom software development, developer-on-call priority support, and a weekly strategy call.</li>
             </ul>
             <p className="p" style={{ marginBottom: 0 }}>
               Specific deliverables, timelines, and any custom scope are documented in your individual service agreement.
@@ -55,7 +54,6 @@ export default function Terms() {
             <h2 className="h2" style={{ marginBottom: 16 }}>2. Payment</h2>
             <ul className="list" style={{ marginBottom: 0 }}>
               <li>Monthly retainer plans (Autopilot, Momentum) are billed on the 25th of each month via Stripe. The first payment is due before work begins.</li>
-              <li>One-time Launch projects require a 50% deposit before work begins, with the remainder due on delivery.</li>
               <li>Invoices unpaid after 30 days may result in service suspension. Accounts suspended for non-payment after 60 days may be offboarded.</li>
               <li>We do not offer refunds on completed work or months already in progress.</li>
               <li>Prices may change with 30 days written notice. Existing clients are grandfathered at their current rate for 6 months following any price increase.</li>
