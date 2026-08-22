@@ -107,6 +107,7 @@ export default function Footer() {
             <Link to="/report">Sample Report</Link>
             <Link to="/privacy">Privacy Policy</Link>
             <Link to="/terms">Terms of Service</Link>
+            <a href={siteConfig.gamesUrl} target="_blank" rel="noreferrer">RubyxQube Games</a>
             <a href={siteConfig.googleReviewUrl} target="_blank" rel="noreferrer">Leave a Review</a>
           </nav>
         </div>
@@ -115,7 +116,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="footerBottom">
-        <span>© {year} RubyxQube LLC. All rights reserved. RubyxQube™ is a trademark of RubyxQube LLC.</span>
+        <span>© {year} RubyxQube LLC. All rights reserved. RubyxQube™ is a trademark of RubyxQube LLC. RubyxQube Games is a d/b/a of RubyxQube LLC.</span>
         <span>Boise, Idaho · Serving the {siteConfig.serviceArea} & beyond</span>
       </div>
     </footer>

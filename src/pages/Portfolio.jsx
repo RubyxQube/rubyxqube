@@ -32,6 +32,23 @@ const coFounded = [
   },
 ];
 
+const shipped = [
+  {
+    id: "huff-and-puff",
+    preview: "/portfolio/huff-and-puff-preview.webp",
+    category: "Shipped Product · Steam",
+    name: "Huff & Puff",
+    hook: "A 3v1 online multiplayer game, built and self-published to Steam. Real-time netcode, physics, and bot opponents: the same engine work that powers the interactive tools we build for clients.",
+    tags: ["Real-Time Multiplayer", "Physics Simulation", "Bot Opponents", "Steam Integration", "Self-Published"],
+    tech: "Godot · GDScript · GodotSteam · Steamworks",
+    role: "Sole developer and publisher, under RubyxQube Games",
+    links: [
+      { label: "View on Steam", href: "https://store.steampowered.com/app/4966590/Huff__Puff/" },
+      { label: "Press Kit", href: "https://games.rubyxqube.com/press/huff-and-puff" },
+    ],
+  },
+];
+
 const clientWork = [
   {
     id: "phoenix-stoneworks",
@@ -182,6 +199,54 @@ export default function Portfolio() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* ── Shipped Products ── */}
+      <section className="surface">
+        <div className="section">
+          <span className="badge">Products we ship</span>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>We don't only build sites. We ship software.</h2>
+          <p className="p" style={{ maxWidth: 560, marginBottom: 36 }}>
+            The interactive tools we build for clients run on game-engine technology. This is where that came from, and it's public, paid for, and reviewed by strangers.
+          </p>
+
+          {shipped.map((project) => (
+            <div key={project.id} className="card" style={{ display: "flex", flexWrap: "wrap", gap: 32, padding: 24, alignItems: "center" }}>
+              <a
+                href={project.links[0].href}
+                target="_blank"
+                rel="noreferrer"
+                style={{ flex: "1.6 1 420px", minWidth: 0, display: "block" }}
+              >
+                <img
+                  src={project.preview}
+                  alt={`${project.name} gameplay screenshot`}
+                  width={1280} height={720} loading="lazy"
+                  style={{ width: "100%", height: "auto", display: "block", aspectRatio: "16/9", borderRadius: 10 }}
+                />
+              </a>
+
+              <div style={{ flex: "1 1 300px", minWidth: 0 }}>
+                <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 8 }}>{project.category}</p>
+                <h3 className="h3" style={{ marginBottom: 8 }}>{project.name}</h3>
+                <p className="p" style={{ fontSize: 14, marginBottom: 16 }}>{project.hook}</p>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 20 }}>
+                  {project.tags.map(t => <Tag key={t} label={t} />)}
+                </div>
+                <p style={{ fontSize: 12, color: "var(--muted)", marginBottom: 16 }}>{project.tech}</p>
+                <p style={{ fontSize: 11, fontWeight: 700, color: "var(--muted)", letterSpacing: "0.10em", textTransform: "uppercase", marginBottom: 6 }}>Role</p>
+                <span className="badge" style={{ marginBottom: 20, display: "inline-block" }}>{project.role}</span>
+                <div className="btnRow">
+                  {project.links.map((link, i) => (
+                    <a key={link.href} className={i === 0 ? "btn primary" : "btn"} href={link.href} target="_blank" rel="noreferrer">
+                      {link.label} <ExternalLink size={13} style={{ marginLeft: 4, verticalAlign: "middle" }} />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

@@ -39,9 +39,9 @@ export default function About() {
     <div className="pageMinHeight">
       <Helmet>
         <title>About Boyd — RubyxQube | Treasure Valley Web Designer</title>
-        <meta name="description" content="Boyd Querubin builds websites and AI receptionists for small businesses in the Treasure Valley. Based in Nampa, Idaho." />
+        <meta name="description" content="Boyd Querubin builds websites, AI receptionists, and interactive 3D tools for small businesses in the Treasure Valley. Based in Nampa, Idaho." />
         <meta property="og:title" content="About Boyd — RubyxQube | Treasure Valley Web Designer" />
-        <meta property="og:description" content="Boyd Querubin builds websites and AI receptionists for small businesses in the Treasure Valley. Based in Nampa, Idaho." />
+        <meta property="og:description" content="Boyd Querubin builds websites, AI receptionists, and interactive 3D tools for small businesses in the Treasure Valley. Based in Nampa, Idaho." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/about" />
         <link rel="canonical" href="https://rubyxqube.com/about" />
@@ -55,7 +55,7 @@ export default function About() {
             Built by someone who <span className="accentText">gets it done.</span>
           </h1>
           <p className="p" style={{ maxWidth: 520, fontSize: 17 }}>
-            I build websites and AI receptionists for {siteConfig.serviceArea} service businesses — without the agency markup or the months of back-and-forth.
+            I build the software a {siteConfig.serviceArea} business actually needs. Sometimes that's a fast website and an AI receptionist. Sometimes it's a 3D tool your competitors can't copy. One person, direct, no agency markup.
           </p>
         </div>
       </section>
@@ -77,8 +77,9 @@ export default function About() {
               <div style={{ display: "flex", flexDirection: "column", gap: 6, width: "100%", maxWidth: 220 }}>
                 {[
                   "8 years in marketing",
-                  "BA Communications — BYU-Idaho",
-                  "Web Dev Certificate — DevMountain",
+                  "BA Communications, BYU-Idaho",
+                  "Web Dev Certificate, DevMountain",
+                  "Published a game on Steam, 2026",
                 ].map(c => (
                   <div key={c} style={{ fontSize: 12, color: "var(--muted)", textAlign: "center", lineHeight: 1.4 }}>{c}</div>
                 ))}
@@ -89,20 +90,34 @@ export default function About() {
               <span className="badge" style={{ marginBottom: 16, display: "inline-block" }}>Background</span>
               <h2 className="h2" style={{ marginBottom: 16 }}>More than a web designer.</h2>
               <p className="p">
-                With 8 years in marketing and a web development background, I built {siteConfig.brand} around one idea: a website should bring in customers, not just exist. Before this, I co-founded BastionMSP — a managed security provider where I handled the full brand, marketing site, and client portal from scratch. Phoenix Stoneworks (pswboise.com) is a live example — a full website, AI receptionist, and blog pipeline, all running under one Momentum plan.
+                With 8 years in marketing and a web development background, I built {siteConfig.brand} around one idea: a website should bring in customers, not just exist. Before this, I co-founded BastionMSP, a managed security provider where I handled the full brand, marketing site, and client portal from scratch. Phoenix Stoneworks (pswboise.com) is a live example: a full website, AI receptionist, and blog pipeline, all running under one Momentum plan.
+              </p>
+              <p className="p">
+                Not every fix looks like a website. Phoenix Stoneworks needed customers to see a countertop in their own kitchen before spending five figures on it, so I built that in 3D, in the browser. The skill behind it came from somewhere. In August 2026 I shipped Huff & Puff to Steam under RubyxQube Games, a 3v1 online multiplayer game I built and published myself. Real-time physics and netcode are a harder problem than any marketing site, and being able to solve them is exactly why I can build tools the shop down the road can't.
               </p>
               <p className="p" style={{ marginBottom: 24 }}>
-                That experience shaped how I think about every site I build — the copy, the layout, the lead capture flow. Not just "does it look good" but "does it actually convert." Now I apply that to local service businesses across the Treasure Valley and beyond.
+                So the real offer is simple. I look at what's costing you customers and build the thing that fixes it. Usually that's a fast site and a receptionist that answers at 2am. Sometimes it's something nobody else in your trade has.
               </p>
-              <a
-                className="btn"
-                href="https://www.bastionmsp.com"
-                target="_blank"
-                rel="noreferrer"
-                style={{ display: "inline-flex", alignItems: "center" }}
-              >
-                View BastionMSP <ExternalLink size={13} style={{ marginLeft: 6, verticalAlign: "middle" }} />
-              </a>
+              <div className="btnRow">
+                <a
+                  className="btn"
+                  href="https://www.bastionmsp.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ display: "inline-flex", alignItems: "center" }}
+                >
+                  View BastionMSP <ExternalLink size={13} style={{ marginLeft: 6, verticalAlign: "middle" }} />
+                </a>
+                <a
+                  className="btn"
+                  href="https://store.steampowered.com/app/4966590/Huff__Puff/"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ display: "inline-flex", alignItems: "center" }}
+                >
+                  Huff &amp; Puff on Steam <ExternalLink size={13} style={{ marginLeft: 6, verticalAlign: "middle" }} />
+                </a>
+              </div>
             </div>
 
           </div>

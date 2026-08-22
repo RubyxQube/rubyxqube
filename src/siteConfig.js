@@ -8,6 +8,7 @@ export const siteConfig = {
   phoneDisplay: "(208) 970-8624",
   phoneE164: "+12089708624",
   appUrl: "https://app.rubyxqube.com",
+  gamesUrl: "https://games.rubyxqube.com",
   bookingUrl: "https://cal.com/boyd-querubin-rubyxqube/free-website-audit",
   googleReviewUrl: "https://g.page/r/CUHmU0rIL7VhEBM/review",
   social: {
