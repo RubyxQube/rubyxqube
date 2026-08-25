@@ -60,7 +60,7 @@ Very lean. Essentially just the Twilio A2P campaign fee keeping the SMS infrastr
 
 ## Per-Client Costs (When You Onboard)
 
-For each **Autopilot ($399/mo)** or **Momentum ($999/mo)** client:
+For each **Autopilot ($499/mo)** or **Momentum ($999/mo)** client:
 
 | Item | Monthly Cost | Notes |
 |------|-------------|-------|
@@ -72,14 +72,13 @@ For each **Autopilot ($399/mo)** or **Momentum ($999/mo)** client:
 | GitHub (private repo) | $0 | Free for private repos |
 | UptimeRobot (monitor) | $0 | Free tier covers 50 monitors |
 | **COGS per Autopilot client** | **~$3–7/mo** | |
-| **Gross margin on $399/mo** | **~98%** | Exceptional for a service business |
+| **Gross margin on $499/mo** | **~99%** | On infrastructure alone. See BUSINESS_MODEL.md for the number that matters, which is margin after build time |
 
 ### Margin by package
 
 | Package | Revenue | COGS | Gross Profit | Margin |
 |---------|---------|------|-------------|--------|
-| Launch (one-time) | $2,500 | ~$0–10 (build time tools) | ~$2,490 | ~99% |
-| Autopilot | $399/mo | ~$3–7/mo | ~$392–396/mo | ~98% |
+| Autopilot | $499/mo | ~$3–7/mo | ~$492–496/mo | ~99% |
 | Momentum | $999/mo | ~$3–7/mo | ~$692–696/mo | ~99% |
 
 > These margins assume your time has no cost yet (solo). Factor in your hourly rate for a truer picture.
@@ -109,7 +108,7 @@ Trigger each upgrade only when the revenue justifies it.
 ### Scenario A: 1 Autopilot client
 | | Amount |
 |-|--------|
-| Revenue | $399/mo |
+| Revenue | $499/mo |
 | COGS (API, SMS) | ~$5/mo |
 | Fixed costs (current) | ~$21/mo |
 | **Net before your time** | **~$373/mo** |

@@ -178,10 +178,10 @@ and which nobody feels sold to by.
 1. **Project brief** into the onboarding flow. Costs nothing, fixes the
    biggest delivery risk, and qualifies. Done, see below.
 2. **Photo Rescue** as a 12-month signing incentive rather than a product.
-3. **Fix the stale docs.** `AI_INFRASTRUCTURE.md`, `ROADMAP.md` and `COSTS.md`
-   still quote $399, $3,000 setup fees and the Launch tier throughout. The
-   discovery call guide and this file's numbers are corrected; those three are
-   not, and `ROADMAP.md` still drives targets off the old figures.
+3. ~~Fix the stale docs.~~ Done 2026-08-25. Nine documents still quoted $399,
+   $3,000 setup fees or the Launch tier, including SERVICE_AGREEMENT_TEMPLATE.md,
+   which is the contract clients sign, and which also never stated the 6-month
+   minimum at all.
 4. **PSW case study with real numbers.** Blocked on Manny's analytics, not on
    his SOSBiz registration; GA4 and Search Console are site-level.
 5. **Shoot Day**, subcontracted, only once 1 to 4 are running.

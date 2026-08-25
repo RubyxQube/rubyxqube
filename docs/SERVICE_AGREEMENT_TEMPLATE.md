@@ -51,9 +51,14 @@ RubyxQube agrees to design, develop, and deliver the following ("Project"):
 
 | Milestone | Amount | Due |
 |-----------|--------|-----|
-| Deposit (non-refundable after work begins) | [50% OF SETUP FEE] | Upon signing |
-| Final payment | [50% OF SETUP FEE] | On launch day, before DNS cutover |
-| Monthly retainer (if applicable) | [$399 / $999 / mo] | 1st of each month, auto-invoiced |
+| Setup fee | None | There is no upfront build charge |
+| First month | [$499 / $999] | Upon signing. Work begins on receipt |
+| Monthly retainer | [$499 / $999 / mo] | 1st of each month, auto-invoiced |
+
+**Minimum term: 6 months on Autopilot.** This is what pays for the build, and
+it is the reason there is no setup fee. After six months it continues month to
+month and either side can end it with 30 days' notice. Momentum is month to
+month from the start.
 
 **Accepted payment methods:** Bank transfer, Zelle, credit/debit card (via Wave — 2.9% + 30¢ fee applies to card payments)
 
@@ -108,20 +113,22 @@ Delays caused by Client will not result in a refund or extension of the agreed m
 
 The monthly retainer begins on the **launch date** and covers:
 
-**Autopilot ($399/mo):**
-- AI chatbot hosted and maintained (Claude Haiku API included)
-- Up to 60 minutes/month of content updates
-- 1 AI-assisted blog post/month (drafted, reviewed, and published for you)
-- Monthly performance report (GA4 data + chatbot leads)
-- Weekly check-in text
+**Autopilot ($499/mo):**
+- Website with no page limit, built and launched at no upfront cost
+- Digital receptionist hosted and maintained, AI trained on the client's business
+- Unlimited edit requests, one active at a time
+- 4 blog posts a month, drafted, reviewed and published
+- Google Business Profile posts and review responses
+- Monthly performance report (GA4 + Search Console + captured leads)
+- Client portal to update services, FAQs and the receptionist directly
 - Hosting, uptime monitoring, security updates
 
-**Momentum ($999/mo — everything above, plus):**
+**Momentum ($999/mo, everything above, plus):**
 - Developer on call: same-day prototypes, 2-day turnaround on bigger builds
 - Unlimited site edits and updates, no monthly cap
 - Custom tools (calculators, estimators, intake forms, and more)
 - Google Business Profile management
-- Monthly AI receptionist tuning from real conversation logs
+- Monthly receptionist tuning from real conversation logs
 - Weekly check-in call (30–60 min, as needed)
 
 **Change requests beyond included hours:** $75/hour, approved by Client before work begins.

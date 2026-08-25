@@ -253,7 +253,7 @@ lead comes in. This one conversation prevents 100% of "why am I getting spam tex
 | Claude Haiku 4.5 | ~$0.05–0.15 | ~$0.25–0.75 |
 | Claude Sonnet 4.6 | ~$0.75–2.00 | ~$3.75–10.00 |
 
-Charge clients $399/mo (Autopilot). Your infrastructure cost per client: under $5/mo.
+Charge clients $499/mo (Autopilot). Your infrastructure cost per client: under $5/mo.
 Infrastructure margin: 98%+. The cost is your time, not the AI.
 
 ---

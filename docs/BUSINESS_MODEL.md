@@ -24,7 +24,7 @@ Most local service businesses (plumbers, HVAC, landscapers, contractors) have on
 We solve all three with a single product: a professional website + AI receptionist that works 24/7.
 
 **Why AI changes the economics:**  
-A traditional receptionist costs $2,500–4,000/month. A part-time answering service costs $200–500/month. Our AI receptionist: included in a $399/mo retainer. The math sells itself.
+A traditional receptionist costs $2,500-4,000/month. A part-time answering service costs $200-500/month. Our digital receptionist is included in the $499/mo retainer. The math sells itself.
 
 ---
 
@@ -33,7 +33,7 @@ A traditional receptionist costs $2,500–4,000/month. A part-time answering ser
 ### 1. Monthly Retainers (Recurring — no setup fees)
 | Plan | Monthly | What's Included |
 |------|---------|-----------------|
-| Autopilot | $499/mo | Custom site, no page limit, virtual assistant, 24/7 lead capture, unlimited edit requests (one at a time), 4 blog posts/mo, Google Business Profile, monthly report, client portal |
+| Autopilot | $499/mo | Custom site, no page limit, digital receptionist, 24/7 lead capture, unlimited edit requests (one at a time), 4 blog posts/mo, Google Business Profile, monthly report, client portal |
 | Momentum | $999/mo | Everything in Autopilot + developer on call, custom software (calculators, estimators, booking, interactive 3D), weekly strategy call, direct line, front of queue |
 
 > Setup fees ($3,000) were removed June 2026, absorbed into monthly. No setup fees on any plan.
@@ -136,7 +136,7 @@ At 30 Autopilot clients + 5 Momentum: **$14,470/mo MRR** — this is the solo ce
 | Phase | Timeline | MRR Target | Client Count |
 |-------|----------|------------|--------------|
 | Phase 0 | Now | $0 | 0 |
-| Phase 1 | Month 1–3 | $400–1,500 | 1–4 |
+| Phase 1 | Month 1–3 | $500–2,000 | 1–4 |
 | Phase 2 | Month 3–6 | $3,000–5,000 | 8–12 |
 | Phase 3 | Month 6–12 | $8,000–12,000 | 20–30 |
 | Scale | Year 2 | $15,000+ | 30+ (hire help) |

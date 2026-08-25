@@ -373,18 +373,18 @@ Run this before going live with every site.
 
 Do this for every Autopilot and Momentum client on the 1st of each month.
 
-### Autopilot ($399/mo)
+### Autopilot ($499/mo)
 - [ ] Pull GA4 data: sessions, top pages, contact form submissions
 - [ ] Pull GSC data: top search queries, impressions, clicks, avg position
 - [ ] Check GSC Coverage report for any new indexing errors
 - [ ] Pull chatbot data: conversations, leads captured
 - [ ] Fill out monthly report template (GA4 + GSC + chatbot + site updates) → send to client
 - [ ] Send weekly check-in text (every Monday — just "Hey [Name], site running well this week — [one highlight]")
-- [ ] Apply any content update requests (up to 60 min/month)
+- [ ] Work the edit request queue (unlimited requests, one active at a time)
 - [ ] Check site speed (PageSpeed Insights) — flag if score drops below 80
 
-### Autopilot ($399/mo — add after standard tasks)
-- [ ] **Blog post:** draft 1 post for the month (use Claude, topic brief per client's industry), send to client for approval — if no response within 48 hours, default-approve and publish.
+### Autopilot blog (add after standard tasks)
+- [ ] **Blog posts:** draft 4 posts for the month (use Claude, topic brief per client's industry), send to client for approval. If no response within 48 hours, default-approve and publish on schedule. One approval round per batch.
 
 ### Momentum ($999/mo, everything above plus)
 - [ ] Check Google Business Profile: new reviews? Questions? Update hours/info if needed. If fewer than 10 reviews, include a gentle review ask in the report email — use template in `docs/templates/REVIEW-OUTREACH.md`

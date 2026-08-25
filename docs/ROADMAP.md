@@ -42,18 +42,18 @@
 ## Phase 1 — First 3 Clients *(Month 1–3)*
 
 **Target:** 3 paying clients. At least 1 on Autopilot or Momentum.  
-**Unlock:** $399–$1,497 MRR. Proof of concept. First case studies.
+**Unlock:** $499–$1,997 MRR. Proof of concept. First case studies.
 
 ### Revenue Target
 | Mix | MRR |
 |-----|-----|
-| 1× Autopilot | $399/mo |
-| 2× Autopilot | $798/mo |
-| 2× Autopilot + 1× Momentum | $1,497/mo ← aim here |
+| 1× Autopilot | $499/mo |
+| 2× Autopilot | $998/mo |
+| 2× Autopilot + 1× Momentum | $1,997/mo ← aim here |
 
 ### How to Get First Clients
 1. **Warm network** — friends, family, Bastion MSP contacts. Ask for referrals first.
-2. **Founding client offer** — 50% off setup fee for first 3 clients in exchange for testimonial + case study + Google review
+2. **Founding client offer** — there is no setup fee to discount any more, so trade something that costs nothing instead: bundle Photo Rescue free, or a longer term at the same price, in exchange for a testimonial, a case study and a Google review. See MARKETING-PACKAGES.md
 3. **Cold outreach** — Google Maps → local service businesses with bad/no websites → personalized Loom audit video (see LEAD_GEN.md)
 4. **Facebook groups** — Treasure Valley small business groups. Post value, not ads.
 5. **Free audit CTA** — Cal.com link in every email, on the site, in outreach
@@ -73,7 +73,7 @@
 - [ ] First Autopilot retainer (recurring revenue starts)
 - [ ] First 5-star Google review
 - [ ] 1 published case study on rubyxqube.com
-- [ ] $399+ MRR
+- [ ] $499+ MRR
 
 ---
 
@@ -134,7 +134,7 @@
 - [ ] First contractor agreement signed (see LEGAL.md)
 
 ### Business
-- [ ] Raise Autopilot to $499/mo (validate demand first)
+- [x] Raise Autopilot to $499/mo — done 2026-08-22, alongside retiring Launch
 - [ ] Explore RubyxQube + Bastion MSP bundle (web + cybersecurity)
 - [ ] "Website in a Week" productized offer — $1,500 fixed scope, 5-day turnaround
 
@@ -151,8 +151,8 @@
 
 | Revenue Type | Source | Notes |
 |---|---|---|
-| Setup fees | Launch ($2,500) / Autopilot ($3,000) / Momentum ($3,000) | One-time per client |
-| Monthly retainer | Autopilot ($399/mo) / Momentum ($999/mo) | Recurring — goal = 15+ clients |
+| Monthly retainer | Autopilot ($499/mo) / Momentum ($999/mo) | Recurring, goal = 15+ clients |
+| ~~Setup fees~~ | Removed June 2026 | The 6-month Autopilot minimum pays for the build instead |
 | Add-ons | Chatbot, branding, booking, SEO | Upsell at launch or anytime |
 | Standalone chatbot | $500 + $199/mo | For businesses with existing sites |
 
@@ -163,7 +163,7 @@
 | Metric | Phase 1 Target | Phase 3 Target |
 |--------|---------------|----------------|
 | Active retainer clients | 1–3 | 15+ |
-| MRR | $399–$1,497 | $8,000+ |
+| MRR | $499–$1,997 | $8,000+ |
 | New site builds/mo | 1 | 2–3 |
 | Avg project turnaround | 3 weeks | 2 weeks |
 | Cold outreach sent/mo | 20 | Mostly inbound |
@@ -179,6 +179,6 @@
 |-------|-------------|------------|
 | Now (no clients) | ~$11–12/mo | Personal |
 | + Google Workspace + 1Password | ~$20–21/mo | Personal |
-| Phase 1 (1 client) | ~$25–30/mo | 1 Autopilot client ($399) covers everything |
+| Phase 1 (1 client) | ~$25–30/mo | 1 Autopilot client ($499) covers everything |
 | Phase 2 (5 clients) | ~$60–80/mo | 1 client's retainer covers all tools |
 | Phase 3 (15 clients) | ~$150–200/mo | Tiny % of $8k+ MRR |

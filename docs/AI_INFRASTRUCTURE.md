@@ -40,13 +40,13 @@ This is the right model for our market. A plumber or landscaper doesn't know wha
 | GPT-4o-mini (alternative) | $0.15/1M | $0.60/1M | **~$0.05–0.15** |
 | GPT-4o (alternative) | $5.00/1M | $15.00/1M | **~$0.75–2.00** |
 
-**We use Claude Haiku (Anthropic API) for client chatbots. At $399/mo retainer, the AI cost is effectively zero.**
+**We use Claude Haiku (Anthropic API) for client chatbots. At the $499/mo retainer, the AI cost is effectively zero.**
 
 Add Twilio SMS alerts:
 - ~100 SMS/month × $0.0079/SMS = **$0.79/month**
 
 **Total AI infrastructure cost per Autopilot client: ~$1–3/month.**  
-**Retainer: $399/month.**  
+**Retainer: $499/month.**  
 **Infrastructure margin: 99%.**
 
 ---
@@ -199,8 +199,8 @@ agency based in Boise, Idaho serving the Treasure Valley area.
 
 Owner: Boyd Querubin
 Services:
-- Launch: $1,200 one-time — professional 5–6 page website, no ongoing support
-- Autopilot: $399/mo, no setup fee — website + Claude AI receptionist + monthly care
+- ~~Launch: $1,200 one-time~~ — retired 2026-08-22. Do not quote it.
+- Autopilot: $499/mo, no setup fee, 6-month minimum — website + digital receptionist + monthly care
 - Momentum: $999/mo, no setup fee — Autopilot + developer on call + custom tools + unlimited edits + weekly check-ins
 
 Common questions:
@@ -235,10 +235,10 @@ Keep responses short and conversational. Don't be salesy.
 
 ## Pricing Rationale for AI Services
 
-### Why $399/mo for Autopilot?
+### Why $499/mo for Autopilot?
 - A part-time receptionist (20 hrs/week): $2,000–4,000/month
 - An answering service: $200–500/month
-- Our AI: $399/month, works 24/7, never sick, trained specifically on their business
+- Ours: $499/month, works 24/7, never sick, trained specifically on their business
 - We're priced below answering services but deliver more value
 - **Room to raise:** Once we have case studies showing ROI, $499–549/mo is defensible
 
@@ -249,7 +249,10 @@ Keep responses short and conversational. Don't be salesy.
 - Great upsell path to Autopilot if they later want a new site
 
 ### Future pricing evolution
-- Current: Autopilot $399/mo, Momentum $999/mo (dropped from $449 June 2026 to widen gap)
-- Phase 2: Raise Autopilot to $449/mo once 5+ clients validated and results proven
+- **Current: Autopilot $499/mo, Momentum $999/mo** (2026-08-22)
+- History: $449 -> $399 June 2026 to widen the gap, then $399 -> $499 on 2026-08-22 when
+  Autopilot absorbed most of what it used to share with Momentum and Launch was retired
+- Next: no further raise planned. The open question is a project fee in front of large
+  custom builds, which Boyd has declined so far
 - Phase 3: Add a $249/mo "Essentials" tier (AI only, no updates)
 - Premium: Custom AI with advanced features (appointment booking, CRM integration) at $799–999/mo
