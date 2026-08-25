@@ -48,7 +48,11 @@ export default function Footer() {
         <div className="footerBrand">
           <Logo height={36} />
           <p>
-            AI-powered websites for local service businesses in the Treasure Valley, and beyond.
+            {/* Was "AI-powered websites", which the softening pass missed
+                because it was not the phrase "AI receptionist". It was also
+                simply inaccurate: the website is not AI, the receptionist on
+                it is. Says what we actually sell instead. */}
+            Websites and digital receptionists for local service businesses in the Treasure Valley, and beyond.
           </p>
           <a
             href={`tel:${siteConfig.phoneE164}`}
@@ -84,35 +88,44 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Services col */}
+        {/* Three link columns, grouped by what the visitor is trying to do
+            rather than by where the page happens to live. Company had grown to
+            ten links against Services' five, which is what made it read as
+            crowded: the imbalance more than the count. Legal moved to the
+            bottom bar, which is where a visitor looks for it anyway. */}
+
+        {/* What we sell */}
         <div className="footerCol">
           <h4>Services</h4>
           <nav className="footerLinks">
             <Link to="/services">What We Build</Link>
             <Link to="/ai-receptionist">Digital Receptionist</Link>
             <Link to="/pricing">Packages & Pricing</Link>
-            <Link to="/audit">Free Website Audit</Link>
             <Link to="/portfolio">Portfolio</Link>
           </nav>
         </div>
 
-        {/* Company col */}
+        {/* Who we are */}
         <div className="footerCol">
           <h4>Company</h4>
           <nav className="footerLinks">
             <Link to="/about">About Boyd</Link>
             <Link to="/how-it-works">How It Works</Link>
             <Link to="/blog">Blog</Link>
+            <a href={siteConfig.gamesUrl} target="_blank" rel="noreferrer">RubyxQube Games</a>
+          </nav>
+        </div>
+
+        {/* Things a visitor can act on right now. The Project Brief lives here
+            rather than under Company: it is a next step, not a page about us.
+            Still noindex; linked means findable, not indexed. */}
+        <div className="footerCol">
+          <h4>Get Started</h4>
+          <nav className="footerLinks">
             <Link to="/contact">Get a Quote</Link>
-            {/* Hidden in plain sight, per Boyd. Not in the nav, still noindex,
-                but findable from any page when he needs to point someone at it
-                without digging out the link. It reads as a natural next step
-                for a visitor who already knows they want to work with us. */}
+            <Link to="/audit">Free Website Audit</Link>
             <Link to="/project-brief">Start a Project Brief</Link>
             <Link to="/report">Sample Report</Link>
-            <Link to="/privacy">Privacy Policy</Link>
-            <Link to="/terms">Terms of Service</Link>
-            <a href={siteConfig.gamesUrl} target="_blank" rel="noreferrer">RubyxQube Games</a>
             <a href={siteConfig.googleReviewUrl} target="_blank" rel="noreferrer">Leave a Review</a>
           </nav>
         </div>
@@ -122,6 +135,10 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="footerBottom">
         <span>© {year} RubyxQube LLC. All rights reserved. RubyxQube™ is a trademark of RubyxQube LLC. RubyxQube Games is a d/b/a of RubyxQube LLC.</span>
+        <nav className="footerLegal">
+          <Link to="/privacy">Privacy Policy</Link>
+          <Link to="/terms">Terms of Service</Link>
+        </nav>
         <span>Boise, Idaho · Serving the {siteConfig.serviceArea} & beyond</span>
       </div>
     </footer>

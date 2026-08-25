@@ -528,7 +528,8 @@ label{
   max-width: var(--max); margin: 0 auto;
   padding: 52px 48px 40px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  /* Brand column is wider because it holds a paragraph, not a link list. */
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
   gap: 40px;
 }
 .footerBrand{
@@ -553,6 +554,13 @@ label{
   border: none; background: none;
 }
 .footerLinks a:hover{ color: rgba(255,255,255,0.90); text-decoration: none; }
+.footerLegal{ display: flex; gap: 18px; }
+.footerLegal a{
+  color: rgba(255,255,255,0.38);
+  transition: color .1s;
+}
+.footerLegal a:hover{ color: rgba(255,255,255,0.75); text-decoration: none; }
+
 .footerBottom{
   max-width: var(--max); margin: 0 auto;
   padding: 16px 48px 28px;
@@ -582,10 +590,20 @@ label{
   .navHamburger{ display: flex; align-items: center; justify-content: center; }
   .navBar{ padding: 10px 20px; }
 
-  /* Footer stacks to single column */
-  .footerInner{ grid-template-columns: 1fr; gap: 28px; padding: 36px 22px 28px; }
+  /* Footer: two-up on tablet, single column on a phone. Four stacked link
+     lists is a long scroll past content nobody came for. */
+  .footerInner{ grid-template-columns: 1fr 1fr; gap: 28px 20px; padding: 36px 22px 28px; }
+  .footerBrand{ grid-column: 1 / -1; }
   .footerBottom{ padding: 14px 22px 24px; flex-direction: column; align-items: flex-start; gap: 8px; }
   .footerBrand p{ max-width: 100%; }
+}
+
+/* Phone: one column. Two link lists side by side at 390px leaves each about
+   150px wide, which wraps "Digital Receptionist" and "Start a Project Brief"
+   onto two lines apiece and makes the whole footer look broken. */
+@media (max-width: 560px){
+  .footerInner{ grid-template-columns: 1fr; }
+  .footerLegal{ order: 3; }
 }
 
 /* Mobile-only line break — hidden on desktop, shown on mobile */
