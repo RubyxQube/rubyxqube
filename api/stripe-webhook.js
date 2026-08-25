@@ -17,6 +17,7 @@
  */
 
 import Stripe from "stripe";
+import { sendSMSAlerts } from "./_lib/alerts.js";
 
 export const config = { api: { bodyParser: false } };
 
@@ -51,7 +52,7 @@ function getRawBody(req) {
 // ─── Alert helpers ────────────────────────────────────────────────────────────
 
 async function notify({ title, body, priority = "default", tags = "bell" }) {
-  const { NTFY_TOPIC, TEXTBELT_KEY, ALERT_PHONE_NUMBER, RESEND_API_KEY, ALERT_EMAIL } = process.env;
+  const { NTFY_TOPIC, RESEND_API_KEY, ALERT_EMAIL } = process.env;
 
   await Promise.allSettled([
     NTFY_TOPIC && fetch(`https://ntfy.sh/${NTFY_TOPIC}`, {
@@ -59,11 +60,12 @@ async function notify({ title, body, priority = "default", tags = "bell" }) {
       headers: { Title: title, Priority: priority, Tags: tags, "Content-Type": "text/plain" },
       body,
     }),
-    TEXTBELT_KEY && ALERT_PHONE_NUMBER && fetch("https://textbelt.com/text", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({ phone: ALERT_PHONE_NUMBER, message: `${title}\n${body}`, key: TEXTBELT_KEY }).toString(),
-    }),
+    // Was TextBelt, gated on a TEXTBELT_KEY that has never been set on this
+    // project, so this leg had never fired. Of everything that bug touched,
+    // this is the one that stings: the urgent "PAYMENT FAILED, follow up now"
+    // alert is the single message most worth having arrive as a text, and it
+    // never did. See api/_lib/alerts.js.
+    sendSMSAlerts(`${title}\n${body}`),
     RESEND_API_KEY && ALERT_EMAIL && fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },

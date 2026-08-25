@@ -1,14 +1,15 @@
 /**
  * api/project-brief.js
  *
- * Receives the Project Brief from /brief.
+ * Receives the Project Brief from /project-brief.
  *
- * Does four things, in this order, and none of them blocks the visitor's
+ * Does five things, in this order, and none of them blocks the visitor's
  * confirmation if a downstream service is having a bad day:
  *   1. saves the submission to Supabase `leads` (source: "project_brief")
  *   2. emails Boyd, with reply-to set to the sender
  *   3. emails the sender a copy of everything they wrote
  *   4. pushes an ntfy alert
+ *   5. texts Boyd via SignalWire
  *
  * ── Spam handling ────────────────────────────────────────────────────────────
  * Three cheap layers, no CAPTCHA. The audience is a contractor on a phone,
@@ -21,8 +22,11 @@
  * ── Env ──────────────────────────────────────────────────────────────────────
  *   RESEND_API_KEY, ALERT_EMAIL, FROM_EMAIL
  *   SUPABASE_URL, SUPABASE_SERVICE_KEY
+ *   SIGNALWIRE_* and ALERT_PHONE_NUMBER   see api/_lib/alerts.js
  *   NTFY_TOPIC (optional)
  */
+
+import { sendSMSAlerts } from "./_lib/alerts.js";
 
 // Field key -> the question as the visitor read it. Kept server-side so the
 // email reads like the form rather than like a database row, and so a client
@@ -261,6 +265,14 @@ export default async function handler(req, res) {
       body: `${biz}\nContact: ${contact || "not given"}`,
     }).catch((err) => console.error("ntfy error:", err.message));
   }
+
+  // ── SMS ────────────────────────────────────────────────────────────────────
+  // Short on purpose. A returned brief is worth knowing about immediately, but
+  // the detail is already in the email and in the Leads tab; a text that
+  // repeats twenty answers is a text nobody finishes reading.
+  await sendSMSAlerts(
+    `Project brief returned\n${biz}\n${contact || "no contact given"}\nFull answers in your email.`
+  );
 
   return res.status(200).json({ ok: true, confirmationSent });
 }

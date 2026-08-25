@@ -16,6 +16,8 @@
  *   CAL_WEBHOOK_SECRET            optional — verify requests are from Cal.com
  */
 
+import { sendSMSAlerts } from "./_lib/alerts.js";
+
 import crypto from "crypto";
 
 async function saveCalBookingLead({ name, email, eventName, when }) {
@@ -120,15 +122,13 @@ export default async function handler(req, res) {
     }).catch(err => console.error("ntfy error:", err.message));
   }
 
-  // ── TextBelt SMS ──────────────────────────────────────────────────────────
-  const { TEXTBELT_KEY, ALERT_PHONE_NUMBER } = process.env;
-  if (TEXTBELT_KEY && ALERT_PHONE_NUMBER) {
-    await fetch("https://textbelt.com/text", {
-      method:  "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body:    new URLSearchParams({ phone: ALERT_PHONE_NUMBER, message: alertText, key: TEXTBELT_KEY }).toString(),
-    }).catch(err => console.error("TextBelt error:", err.message));
-  }
+  // -- SignalWire SMS --------------------------------------------------------
+  //
+  // Was TextBelt, behind `if (TEXTBELT_KEY && ALERT_PHONE_NUMBER)`. TEXTBELT_KEY
+  // has never been set on this project; the account is provisioned for
+  // SignalWire. So this alert had never fired once, and a missing key looked
+  // exactly like a working one. See api/_lib/alerts.js.
+  await sendSMSAlerts(alertText);
 
   // ── Resend email ──────────────────────────────────────────────────────────
   const { RESEND_API_KEY, ALERT_EMAIL, FROM_EMAIL } = process.env;

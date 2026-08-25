@@ -104,6 +104,11 @@ export default function Footer() {
             <Link to="/how-it-works">How It Works</Link>
             <Link to="/blog">Blog</Link>
             <Link to="/contact">Get a Quote</Link>
+            {/* Hidden in plain sight, per Boyd. Not in the nav, still noindex,
+                but findable from any page when he needs to point someone at it
+                without digging out the link. It reads as a natural next step
+                for a visitor who already knows they want to work with us. */}
+            <Link to="/project-brief">Start a Project Brief</Link>
             <Link to="/report">Sample Report</Link>
             <Link to="/privacy">Privacy Policy</Link>
             <Link to="/terms">Terms of Service</Link>
