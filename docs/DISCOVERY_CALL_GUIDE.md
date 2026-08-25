@@ -56,22 +56,23 @@ Work through these naturally, not as a checklist. You don't need all of them.
 
 ## Matching the Package
 
-Based on what you heard, steer toward the right fit. Don't offer all three options at once - it creates confusion. Lead with one.
+There are two, as of 2026-08-22. Launch is retired: do not offer it, do not
+quote $1,200 or $2,500, and do not describe anything as a one-time build.
 
-**Lead with Launch if:**
-- They just need a site, no existing one or very outdated
-- Budget is tight or they mentioned "I just want something basic"
-- They didn't mention lead volume as a big concern
-
-**Lead with Autopilot if:**
+**Lead with Autopilot ($499/mo) if:**
 - They mentioned missing calls or leads going cold
-- They work jobs during the day and can't answer the phone
-- They seemed impressed by the chatbot on the demo
+- They work jobs during the day and cannot answer the phone
+- They need a site and want it handled, not managed by them
+- This is most people. It is the default.
 
-**Lead with Momentum if:**
-- They mentioned competitors outranking them on Google
-- They have reviews but aren't showing up locally
-- They want ongoing growth, not just a one-time site
+**Lead with Momentum ($999/mo) if:**
+- They want something *built*, not just maintained: a quote calculator, an
+  estimator, a booking tool, something interactive
+- They want you reachable directly rather than through a queue
+- They are already successful enough that a tool would compound
+
+Do not present both at once. Pick the one that fits what they told you and
+lead with it. If they ask what else there is, then mention the other.
 
 ---
 
@@ -81,18 +82,26 @@ Don't read them a feature list. Connect it to what they told you.
 
 ```
 "Based on what you said about missing calls while you're on a job - 
-I think Autopilot is the right fit for you. It's a full site plus 
-an AI receptionist that answers questions and captures leads 24/7. 
+I think Autopilot is the right fit. It's the whole site plus an 
+assistant that answers questions and takes their details 24/7. 
 So when someone finds you at 9pm, they get a response instead of 
 bouncing to a competitor."
 ```
 
-Then give the price directly. Don't bury it.
+Then give the price directly. Don't bury it. The structure IS the pitch here,
+so say all three parts:
 
 ```
-"It's $3,000 upfront and $399 a month. The monthly covers the AI, 
-updates, and a monthly report so you can see how it's performing."
+"It's $499 a month. No setup fee, nothing upfront - I build the 
+whole site and you don't pay for the build. The only thing I ask 
+is six months, because that's what pays for it."
 ```
+
+**Why the structure matters.** Every competitor quotes a build fee. You are the
+only one saying "nothing upfront." That is the strongest thing you have and it
+should never be buried under a feature list. The six-month minimum is not a
+catch you apologise for, it is the reason the build is free, and saying so
+plainly is what makes it land.
 
 ---
 
@@ -105,7 +114,10 @@ updates, and a monthly report so you can see how it's performing."
 I'm not pitching you the wrong thing."
 ```
 
-Then actually listen. If they're genuinely a Launch fit, offer that instead.
+Then actually listen. There is no cheaper tier to drop them into any more, so
+if the number is genuinely out of reach they are not a client this month. Say
+so warmly and stay in touch; a trade business that is too tight for $499 today
+is often fine two good quarters from now, and you want to be who they call.
 
 **"I need to think about it."**
 
@@ -132,13 +144,31 @@ paying for a promise."
 
 **"Can you do it cheaper?"**
 
-Don't discount unless you're dropping scope. Offer Launch if Autopilot is too much.
+Don't discount. The concession is already in the price and most people have not
+noticed it, so point at it instead of cutting.
 
 ```
-"I don't discount, but I can adjust what's included. 
-The Launch package is $2,500 one-time, no monthly. 
-That gets you the full site without the AI receptionist."
+"The discount's already in there, honestly - everyone else charges 
+two or three grand to build the thing before you've seen a lead 
+come in. You're not paying that. What you're agreeing to is six 
+months, and if it isn't earning by then I've done a bad job."
 ```
+
+If they push again, adjust *scope*, never price: fewer pages at launch, blog
+posts starting in month two, Google Business Profile added later. A discounted
+retainer sets the number for every renewal and for whoever they refer you to.
+
+**"Six months feels like a long commitment."**
+
+```
+"It's the shortest I can make it and still not charge you for the 
+build. If you'd rather pay for the site upfront and go month to 
+month after, I can price that instead - most people prefer it 
+this way round."
+```
+
+Only offer that if they ask twice. It is a real alternative, not a bluff, but
+the recurring version is the better business and the better deal for them.
 
 ---
 
@@ -149,7 +179,7 @@ Before you hang up, get something concrete. Not "I'll think about it and get bac
 Options:
 - "Want me to send over a simple agreement so you can look it over?"
 - "Should we set a follow-up call for next week once you've had time to think?"
-- "If you're ready to move, I just need a 50% deposit to get started."
+- "If you're ready to move, I can send the agreement and we start this week."
 
 If they're not ready to commit, that's fine. Get a specific follow-up date.
 
@@ -170,7 +200,7 @@ Good talking to you. To recap - [one sentence summary of what they need
 and which package fits].
 
 [If they're close to deciding:]
-I'll send over the agreement today. Just needs a signature and 50% to kick things off.
+I'll send the agreement today. Signature and the first month and I start on the build.
 
 [If they need time:]
 I'll follow up [specific day]. In the meantime, feel free to reach out with any questions.

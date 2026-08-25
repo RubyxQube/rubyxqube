@@ -1,0 +1,559 @@
+<title>Site Build Homework</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+
+<style>
+  /* ── Tokens ───────────────────────────────────────────────────────────
+     Light is the base, matching the RubyxQube house theme (warm cream,
+     ruby accent, Plus Jakarta Sans). Neutrals are warm-biased toward the
+     cream rather than pure grey, so they read as chosen. */
+  :root{
+    --ground:      #F5F0EA;
+    --panel:       #FFFDFA;
+    --ink:         #1A1512;
+    --ink-soft:    rgba(26,21,18,0.66);
+    --ink-faint:   rgba(26,21,18,0.40);
+    --rule:        rgba(26,21,18,0.13);
+    --rule-strong: rgba(26,21,18,0.26);
+    --accent:      #C4123C;
+    --accent-ink:  #FFFFFF;
+    --accent-dim:  rgba(196,18,60,0.09);
+    --field:       #FFFFFF;
+    --field-line:  rgba(26,21,18,0.20);
+    --done:        #2F6F4F;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:      #14110F;
+      --panel:       #1C1815;
+      --ink:         rgba(255,250,245,0.92);
+      --ink-soft:    rgba(255,250,245,0.62);
+      --ink-faint:   rgba(255,250,245,0.38);
+      --rule:        rgba(255,250,245,0.14);
+      --rule-strong: rgba(255,250,245,0.28);
+      --accent:      #FF5C7A;
+      --accent-ink:  #14110F;
+      --accent-dim:  rgba(255,92,122,0.12);
+      --field:       rgba(255,250,245,0.045);
+      --field-line:  rgba(255,250,245,0.22);
+      --done:        #63C08D;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:      #14110F;
+    --panel:       #1C1815;
+    --ink:         rgba(255,250,245,0.92);
+    --ink-soft:    rgba(255,250,245,0.62);
+    --ink-faint:   rgba(255,250,245,0.38);
+    --rule:        rgba(255,250,245,0.14);
+    --rule-strong: rgba(255,250,245,0.28);
+    --accent:      #FF5C7A;
+    --accent-ink:  #14110F;
+    --accent-dim:  rgba(255,92,122,0.12);
+    --field:       rgba(255,250,245,0.045);
+    --field-line:  rgba(255,250,245,0.22);
+    --done:        #63C08D;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 20px 96px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .sheet{ max-width: 720px; margin: 0 auto; }
+
+  /* ── Ticket head ─────────────────────────────────────────────────────
+     Framed as a work order, which is a document a tradesperson already
+     knows how to read. */
+  .ticket{
+    border: 1.5px solid var(--rule-strong);
+    background: var(--panel);
+    margin-top: 40px;
+  }
+  .ticket-bar{
+    display: flex; flex-wrap: wrap; gap: 10px 18px;
+    align-items: baseline; justify-content: space-between;
+    padding: 12px 20px;
+    border-bottom: 1.5px solid var(--rule-strong);
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+  .mark{
+    font-family: "Archivo", ui-sans-serif, sans-serif;
+    font-weight: 800; font-size: 15px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .mark span{ opacity: 0.72; font-weight: 600; }
+  .ticket-meta{
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase;
+    opacity: 0.9;
+  }
+  .ticket-body{ padding: 30px 20px 26px; }
+
+  h1{
+    font-family: "Archivo", ui-sans-serif, sans-serif;
+    font-weight: 800;
+    font-size: clamp(31px, 7.5vw, 46px);
+    line-height: 1.02;
+    letter-spacing: -0.021em;
+    text-wrap: balance;
+    margin: 0 0 16px;
+  }
+  .standfirst{
+    font-size: 17px; line-height: 1.62; color: var(--ink-soft);
+    max-width: 60ch; margin: 0 0 22px;
+  }
+  .standfirst strong{ color: var(--ink); font-weight: 600; }
+
+  .facts{
+    display: grid; gap: 0;
+    border-top: 1px solid var(--rule);
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12.5px;
+  }
+  .fact{
+    display: flex; flex-wrap: wrap; gap: 4px 14px;
+    padding: 9px 0; border-bottom: 1px solid var(--rule);
+  }
+  .fact dt{
+    color: var(--ink-faint); text-transform: uppercase;
+    letter-spacing: 0.08em; min-width: 118px; margin: 0;
+  }
+  .fact dd{ margin: 0; color: var(--ink); }
+
+  /* ── Progress ────────────────────────────────────────────────────── */
+  .progress{
+    position: sticky; top: 0; z-index: 5;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    padding: 11px 16px; margin: 0 -20px 0;
+    background: var(--ground);
+    border-bottom: 1px solid var(--rule);
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .bar{ flex: 1 1 120px; height: 3px; background: var(--rule); position: relative; min-width: 90px; }
+  .bar i{ position: absolute; inset: 0 auto 0 0; width: 0%; background: var(--accent); transition: width .28s ease; }
+  .saved{ color: var(--done); opacity: 0; transition: opacity .3s ease; }
+  .saved.on{ opacity: 1; }
+
+  /* ── Sections ─────────────────────────────────────────────────────
+     Numbered because this genuinely is a sequence: the sheet is worked
+     through in order, and later answers depend on earlier ones. */
+  section{ margin-top: 46px; }
+  .head{ display: flex; gap: 14px; align-items: baseline; margin-bottom: 6px; }
+  .num{
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px; font-weight: 500; color: var(--accent);
+    letter-spacing: 0.06em; padding-top: 5px; flex: 0 0 auto;
+  }
+  h2{
+    font-family: "Archivo", ui-sans-serif, sans-serif;
+    font-weight: 700; font-size: clamp(21px, 4.4vw, 26px);
+    line-height: 1.15; letter-spacing: -0.014em;
+    margin: 0; text-wrap: balance;
+  }
+  .why{
+    color: var(--ink-soft); font-size: 14.5px;
+    margin: 0 0 20px 34px; max-width: 58ch;
+  }
+  @media (max-width: 520px){ .why{ margin-left: 0; } }
+
+  .fields{ display: flex; flex-direction: column; gap: 18px; }
+  @media (min-width: 620px){ .fields{ margin-left: 34px; } }
+
+  label{ display: block; }
+  .q{
+    display: block; font-weight: 600; font-size: 15px;
+    margin-bottom: 5px; color: var(--ink);
+  }
+  .hint{ display: block; font-weight: 400; font-size: 13.5px; color: var(--ink-faint); margin-top: 2px; }
+
+  input[type="text"], textarea{
+    width: 100%;
+    font-family: inherit; font-size: 15.5px; line-height: 1.55;
+    color: var(--ink);
+    background: var(--field);
+    border: 1px solid var(--field-line);
+    border-radius: 2px;
+    padding: 10px 12px;
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  textarea{ resize: vertical; min-height: 84px; }
+  input[type="text"]:focus-visible, textarea:focus-visible{
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-dim);
+  }
+  ::placeholder{ color: var(--ink-faint); opacity: 1; }
+
+  /* ── The photo callout, deliberately the loudest thing on the page ── */
+  .callout{
+    border: 1.5px solid var(--accent);
+    background: var(--accent-dim);
+    padding: 20px 20px 22px;
+    margin: 0 0 22px;
+  }
+  @media (min-width: 620px){ .callout{ margin-left: 34px; } }
+  .callout h3{
+    font-family: "Archivo", ui-sans-serif, sans-serif;
+    font-size: 17px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.008em;
+  }
+  .callout p{ margin: 0 0 10px; font-size: 15px; color: var(--ink-soft); }
+  .callout p:last-child{ margin-bottom: 0; }
+  .callout strong{ color: var(--ink); font-weight: 600; }
+
+  ul.plain{ margin: 10px 0 0; padding-left: 20px; color: var(--ink-soft); font-size: 14.5px; }
+  ul.plain li{ margin-bottom: 5px; }
+
+  /* ── Close ───────────────────────────────────────────────────────── */
+  .close{
+    margin-top: 54px; border-top: 1.5px solid var(--rule-strong); padding-top: 28px;
+  }
+  .actions{ display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 14px; }
+  button{
+    font-family: "Archivo", ui-sans-serif, sans-serif;
+    font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 12px 20px; border-radius: 2px; cursor: pointer;
+    border: 1.5px solid var(--accent);
+    transition: transform .1s ease, background .15s ease;
+  }
+  button.primary{ background: var(--accent); color: var(--accent-ink); }
+  button.ghost{ background: transparent; color: var(--accent); }
+  button:hover{ transform: translateY(-1px); }
+  button:focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  #out{
+    width: 100%; min-height: 200px; margin-top: 12px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12.5px;
+    display: none;
+  }
+  #out.on{ display: block; }
+  .status{ font-size: 14px; color: var(--ink-soft); margin: 0; min-height: 1.4em; }
+
+  .colophon{
+    margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--rule);
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--ink-faint);
+    display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: space-between;
+  }
+  a{ color: var(--accent); }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition: none !important; }
+    button:hover{ transform: none; }
+  }
+
+  @media print{
+    .progress, .actions, #out{ display: none !important; }
+    body{ background: #fff; color: #000; padding: 0; }
+    textarea, input[type="text"]{ border: 1px solid #999; min-height: 70px; }
+    section{ break-inside: avoid; }
+  }
+</style>
+
+<div class="sheet">
+
+  <header class="ticket">
+    <div class="ticket-bar">
+      <div class="mark">RubyxQube <span>/ Treasure Valley</span></div>
+      <div class="ticket-meta">Onboarding &middot; Rev 1</div>
+    </div>
+    <div class="ticket-body">
+      <h1>Site Build Homework</h1>
+      <p class="standfirst">
+        Everything I need to build your site, in one place. <strong>About twenty
+        minutes.</strong> You do not have to finish it in one sitting: it saves
+        as you type, so you can put it down on a job and pick it back up.
+      </p>
+      <dl class="facts">
+        <div class="fact"><dt>Time needed</dt><dd>~20 minutes</dd></div>
+        <div class="fact"><dt>Return by</dt><dd>Within a week, ideally. The build starts when this comes back.</dd></div>
+        <div class="fact"><dt>If you get stuck</dt><dd>Skip it. Partial is genuinely fine.</dd></div>
+        <div class="fact"><dt>Questions</dt><dd>Text (208) 970-8624 any time</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <div class="progress" role="status" aria-live="polite">
+    <span id="pct">0 of 7 sections started</span>
+    <span class="bar"><i id="fill"></i></span>
+    <span class="saved" id="saved">Saved</span>
+  </div>
+
+  <section>
+    <div class="head"><span class="num">01</span><h2>The basics</h2></div>
+    <p class="why">Exactly as you want it printed on the site, not as it appears on your LLC paperwork. If people call you Dave's, we say Dave's.</p>
+    <div class="fields">
+      <label><span class="q">Business name, as customers say it</span>
+        <input type="text" data-k="biz" placeholder="Dave's Heating &amp; Air"></label>
+      <label><span class="q">What you do, in one sentence
+        <span class="hint">How you would say it to someone at a barbecue.</span></span>
+        <input type="text" data-k="what" placeholder="We fix and install furnaces and AC for homes"></label>
+      <label><span class="q">Towns you actually serve
+        <span class="hint">Where you will genuinely drive. This decides which towns you can rank in.</span></span>
+        <input type="text" data-k="where" placeholder="Boise, Meridian, Eagle, Star. Not Mountain Home"></label>
+      <label><span class="q">Phone and email for the site
+        <span class="hint">The one you want ringing. It does not have to be your cell.</span></span>
+        <input type="text" data-k="contact" placeholder="(208) 555-0100 / dave@..."></label>
+      <label><span class="q">Hours
+        <span class="hint">Say "24/7 emergency" if that is true, it matters more than you think.</span></span>
+        <input type="text" data-k="hours" placeholder="Mon to Fri 7 to 5, emergency calls anytime"></label>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><span class="num">02</span><h2>What you want it to do</h2></div>
+    <p class="why">Not what you want it to look like. If we get this right, the look follows.</p>
+    <div class="fields">
+      <label><span class="q">What would make this obviously worth it in six months?
+        <span class="hint">A number is better than a feeling. "Two extra jobs a month" is a great answer.</span></span>
+        <textarea data-k="win" placeholder="Two more install jobs a month instead of just repairs"></textarea></label>
+      <label><span class="q">What is going wrong now?
+        <span class="hint">Missed calls, no shows in search, nobody can find your pricing, the old site is embarrassing.</span></span>
+        <textarea data-k="pain" placeholder=""></textarea></label>
+      <label><span class="q">Which job do you want more of?
+        <span class="hint">Most trades have one job that pays well and one that is a headache. Tell me which is which and I will point the whole site at the good one.</span></span>
+        <textarea data-k="bestjob" placeholder="More full system replacements. Fewer $89 tune-ups"></textarea></label>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><span class="num">03</span><h2>Your work</h2></div>
+    <p class="why">This is the one that decides how fast your site goes live, and it is the one everybody gets stuck on. So read the box first.</p>
+
+    <div class="callout">
+      <h3>Do not go take new photos</h3>
+      <p>
+        You already have what I need. Every trade has hundreds of job photos on
+        their phone, taken for insurance or to show a customer. They are sideways,
+        badly lit and full of duplicates, and you think they are unusable.
+      </p>
+      <p>
+        <strong>Most of them are. Forty of them are not, and forty is a whole website.</strong>
+        I straighten, crop, colour-correct and caption them. That is my job, not yours.
+      </p>
+      <p>
+        Share the album, or text me a batch. Ninety seconds of your time instead
+        of a Saturday you were never going to spend.
+      </p>
+      <ul class="plain">
+        <li>Finished work, wide enough to see the whole thing</li>
+        <li>Before and after pairs, if you have any. These are the most valuable photos you own</li>
+        <li>Your truck, your crew, your shop. People hire people</li>
+        <li>Anything with you in it. Owners photos outperform stock every time</li>
+      </ul>
+    </div>
+
+    <div class="fields">
+      <label><span class="q">How are you sending photos?
+        <span class="hint">Google Photos or iCloud link, Dropbox, texted, or "I genuinely have none".</span></span>
+        <input type="text" data-k="photos" placeholder="I'll share a Google Photos album"></label>
+      <label><span class="q">Any job you are especially proud of?
+        <span class="hint">One or two sentences. This becomes the story on your home page.</span></span>
+        <textarea data-k="proud" placeholder=""></textarea></label>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><span class="num">04</span><h2>What you sell</h2></div>
+    <p class="why">List them the way you would say them out loud. I will handle the wording. If pricing varies too much to publish, say so and we will put ranges or nothing at all.</p>
+    <div class="fields">
+      <label><span class="q">Your services
+        <span class="hint">One per line. Add a price or a range next to any you are happy to publish.</span></span>
+        <textarea data-k="services" style="min-height:130px" placeholder="Furnace repair&#10;AC install, $4,500 to $9,000&#10;Duct cleaning, $399&#10;Maintenance plans"></textarea></label>
+      <label><span class="q">Anything you do NOT want to be called about?
+        <span class="hint">Just as useful. Saves you the calls you keep turning down.</span></span>
+        <input type="text" data-k="no" placeholder="No mobile homes, no commercial rooftop units"></label>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><span class="num">05</span><h2>Questions you answer every day</h2></div>
+    <p class="why">The ones you are sick of repeating on the phone. These become your FAQ page and they train the assistant that answers at 8pm, so the more you write here the fewer calls you take after hours.</p>
+    <div class="fields">
+      <label><span class="q">Five to ten questions, with your real answers
+        <span class="hint">Type them the way you say them. Rough is fine, that is the point.</span></span>
+        <textarea data-k="faq" style="min-height:170px" placeholder="Do you charge for quotes? No, free for replacements, $89 diagnostic on repairs.&#10;&#10;How fast can you come out? Usually same week, next day for no heat.&#10;&#10;Do you finance? Yes, through..."></textarea></label>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><span class="num">06</span><h2>Who else is out there</h2></div>
+    <p class="why">I am going to look anyway. Faster if you tell me, and it is useful to know who you would hate to lose a job to.</p>
+    <div class="fields">
+      <label><span class="q">One or two competitors
+        <span class="hint">A name is enough. Say if there is anything about their site you like or hate.</span></span>
+        <textarea data-k="comp" placeholder=""></textarea></label>
+      <label><span class="q">Why do customers pick you over them?
+        <span class="hint">Even if it feels obvious. Especially if it feels obvious.</span></span>
+        <textarea data-k="why" placeholder="We actually answer the phone. And I do the install myself"></textarea></label>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><span class="num">07</span><h2>Practical bits</h2></div>
+    <p class="why">Loose ends. Say "no" or "not sure" freely, none of these block anything.</p>
+    <div class="fields">
+      <label><span class="q">Do you own a domain?
+        <span class="hint">The web address. If you do not, I will sort it.</span></span>
+        <input type="text" data-k="domain" placeholder="davesheating.com, I think through GoDaddy"></label>
+      <label><span class="q">Do you have a logo?
+        <span class="hint">Any file at all, even one off a truck wrap or a business card.</span></span>
+        <input type="text" data-k="logo" placeholder=""></label>
+      <label><span class="q">Existing website or Facebook page?
+        <span class="hint">Even an old one. There is usually copy worth keeping.</span></span>
+        <input type="text" data-k="existing" placeholder=""></label>
+      <label><span class="q">Who is my main contact, and is anyone else deciding?
+        <span class="hint">Business partner, spouse, office manager. Better to loop them in now than at the end.</span></span>
+        <input type="text" data-k="who" placeholder="Me, but my wife does the books and will want a look"></label>
+      <label><span class="q">Anything else I should know?</span>
+        <textarea data-k="misc" placeholder=""></textarea></label>
+    </div>
+  </section>
+
+  <div class="close">
+    <div class="head"><span class="num">08</span><h2>Send it back</h2></div>
+    <p class="why">Copy your answers and paste them into an email or a text. Nothing here is submitted automatically, so nothing leaves this page until you send it.</p>
+    <div class="actions">
+      <button class="primary" id="copy" type="button">Copy my answers</button>
+      <button class="ghost" id="show" type="button">Show as text</button>
+      <button class="ghost" id="print" type="button">Print</button>
+    </div>
+    <p class="status" id="status"></p>
+    <textarea id="out" readonly aria-label="Your answers as plain text"></textarea>
+    <p class="why" style="margin-left:0;margin-top:18px">
+      Then send to <a href="mailto:boyd@rubyxqube.com">boyd@rubyxqube.com</a>
+      or text <a href="tel:+12089708624">(208) 970-8624</a>. Photos can come
+      separately, whenever they are ready.
+    </p>
+  </div>
+
+  <div class="colophon">
+    <span>RubyxQube LLC &middot; Boise, Idaho</span>
+    <span>Answers stay in this browser</span>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var KEY = "rxq-homework-v1";
+  var fields = Array.prototype.slice.call(document.querySelectorAll("[data-k]"));
+  var sections = Array.prototype.slice.call(document.querySelectorAll("section"));
+  var savedTag = document.getElementById("saved");
+  var timer = null;
+
+  function read(){
+    try { return JSON.parse(localStorage.getItem(KEY) || "{}"); }
+    catch(e){ return {}; }
+  }
+
+  function restore(){
+    var data = read();
+    fields.forEach(function(el){
+      var v = data[el.getAttribute("data-k")];
+      if (typeof v === "string") el.value = v;
+    });
+  }
+
+  function save(){
+    var data = {};
+    fields.forEach(function(el){
+      if (el.value.trim()) data[el.getAttribute("data-k")] = el.value;
+    });
+    try { localStorage.setItem(KEY, JSON.stringify(data)); } catch(e){}
+    savedTag.classList.add("on");
+    clearTimeout(timer);
+    timer = setTimeout(function(){ savedTag.classList.remove("on"); }, 1400);
+  }
+
+  function progress(){
+    var started = sections.filter(function(s){
+      return Array.prototype.slice.call(s.querySelectorAll("[data-k]"))
+        .some(function(el){ return el.value.trim().length > 0; });
+    }).length;
+    document.getElementById("pct").textContent =
+      started + " of " + sections.length + " sections started";
+    document.getElementById("fill").style.width =
+      Math.round((started / sections.length) * 100) + "%";
+  }
+
+  function asText(){
+    var lines = ["SITE BUILD HOMEWORK", ""];
+    sections.forEach(function(s){
+      var inputs = Array.prototype.slice.call(s.querySelectorAll("[data-k]"));
+      if (!inputs.some(function(el){ return el.value.trim(); })) return;
+      var num = s.querySelector(".num").textContent;
+      var title = s.querySelector("h2").textContent;
+      lines.push("== " + num + ". " + title.toUpperCase() + " ==");
+      inputs.forEach(function(el){
+        var v = el.value.trim();
+        if (!v) return;
+        var label = el.closest("label").querySelector(".q");
+        var q = label.childNodes[0].textContent.trim();
+        // Several prompts already end in a question mark; appending a colon
+        // to those gives "...worth it in six months?:" in the pasted email.
+        lines.push(/[?.!:]$/.test(q) ? q : q + ":");
+        lines.push("  " + v.split("\n").join("\n  "));
+        lines.push("");
+      });
+    });
+    if (lines.length <= 2) return "";
+    return lines.join("\n").trim();
+  }
+
+  function status(msg){ document.getElementById("status").textContent = msg; }
+
+  document.getElementById("copy").addEventListener("click", function(){
+    var text = asText();
+    if (!text){ status("Nothing filled in yet."); return; }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){
+        status("Copied. Paste it into an email or a text.");
+      }).catch(function(){ fallback(text); });
+    } else {
+      fallback(text);
+    }
+  });
+
+  function fallback(text){
+    // Some browsers refuse clipboard writes in an embedded frame. Show the
+    // text instead of failing silently, so there is always a way to send it.
+    var out = document.getElementById("out");
+    out.value = text;
+    out.classList.add("on");
+    out.select();
+    status("Your browser blocked the copy. Select the box below and copy it manually.");
+  }
+
+  document.getElementById("show").addEventListener("click", function(){
+    var out = document.getElementById("out");
+    var text = asText();
+    if (!text){ status("Nothing filled in yet."); return; }
+    out.value = text;
+    out.classList.toggle("on");
+    status(out.classList.contains("on") ? "" : "");
+  });
+
+  document.getElementById("print").addEventListener("click", function(){ window.print(); });
+
+  fields.forEach(function(el){
+    el.addEventListener("input", function(){ save(); progress(); });
+  });
+
+  restore();
+  progress();
+})();
+</script>

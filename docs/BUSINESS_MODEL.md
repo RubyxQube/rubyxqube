@@ -33,14 +33,22 @@ A traditional receptionist costs $2,500–4,000/month. A part-time answering ser
 ### 1. Monthly Retainers (Recurring — no setup fees)
 | Plan | Monthly | What's Included |
 |------|---------|-----------------|
-| Autopilot | $399/mo | Custom site, AI chatbot, 24/7 lead capture, monthly report, 60 min/mo updates, 1 blog post/mo |
-| Momentum | $999/mo | Everything in Autopilot + 4 blog posts/mo, developer on call, unlimited edits, custom tools, GBP management, monthly AI tuning, weekly check-in call |
+| Autopilot | $499/mo | Custom site, no page limit, virtual assistant, 24/7 lead capture, unlimited edit requests (one at a time), 4 blog posts/mo, Google Business Profile, monthly report, client portal |
+| Momentum | $999/mo | Everything in Autopilot + developer on call, custom software (calculators, estimators, booking, interactive 3D), weekly strategy call, direct line, front of queue |
 
-> Setup fees ($3,000) were removed June 2026 — absorbed into monthly. No setup fees on any plan.
+> Setup fees ($3,000) were removed June 2026, absorbed into monthly. No setup fees on any plan.
+> **Autopilot carries a 6-month minimum**, and that minimum is what pays for the
+> build. It is the whole reason there is no setup fee, so it is a feature to
+> state plainly rather than a term to bury.
+>
+> **Launch ($1,200 one-time) was retired 2026-08-22.** Autopilot went $399 to
+> $499 and absorbed most of what it used to share with Momentum, which became
+> purely the developer-for-hire tier. Do not quote Launch, and do not describe
+> anything as a one-time build.
 
 ### 2. One-Time Projects
 
-### 3. Launch (One-Time)
+### 3. Add-Ons
 | Add-On | Price |
 |--------|-------|
 | AI Chatbot Only (existing site retrofit) | $500 + $199/mo |
@@ -65,13 +73,13 @@ A traditional receptionist costs $2,500–4,000/month. A part-time answering ser
 
 | Item | Cost | Notes |
 |------|------|-------|
-| **Revenue** | $399/mo | Monthly retainer |
+| **Revenue** | $499/mo | Monthly retainer |
 | AI API costs | ~$0.50–1/mo | Claude Haiku (Anthropic API), ~100 conversations at 1,500 tokens avg |
-| SMS alerts (Twilio) | ~$1–2/mo | ~100 SMS/month at $0.0075 each |
+| SMS alerts (SignalWire) | ~$1–2/mo | ~100 SMS/month at ~$0.008 each |
 | Hosting (Vercel) | ~$0–2/mo | Free tier covers most clients; Pro plan $20/mo shared across all |
 | Time (care + report) | ~1.5 hrs/mo | At your effective rate of $100/hr = $150/mo cost |
-| **Gross margin** | **~$240/mo** | ~60% after time cost |
-| **Gross margin (no time cost)** | **~$392/mo** | ~98% pure infrastructure margin |
+| **Gross margin** | **~$340/mo** | ~68% after time cost |
+| **Gross margin (no time cost)** | **~$492/mo** | ~98% pure infrastructure margin |
 
 > At $100/hr effective rate, the monthly care time is the real cost — not the AI infrastructure.  
 > Goal: automate report generation and reduce care time to under 45 min/client → margin improves to ~75%.
@@ -88,14 +96,33 @@ A traditional receptionist costs $2,500–4,000/month. A part-time answering ser
 > Momentum clients are more time-intensive but the weekly check-in and dev work builds a sticky relationship.
 > Churn rate should be significantly lower — they depend on you for active development work.
 
-### Setup Fee Margin
+### The build, and what actually pays for it
 
-| Item | Cost |
-|------|------|
-| Setup fee (Autopilot) | $3,000 |
-| Time to build site + chatbot | ~20 hrs |
-| At $100/hr effective rate | $2,000 cost |
-| **Gross margin per new client** | **~$1,000 one-time** |
+There is no setup fee, so the build is financed by the 6-month minimum. This is
+the single most important number in the business and it is worth staring at:
+
+| Item | Value |
+|------|-------|
+| Time to build site + assistant | ~18–20 hrs |
+| Cost at $100/hr effective rate | ~$1,800–2,000 |
+| Revenue over the 6-month minimum | $2,994 |
+| Ongoing care over those 6 months | ~9 hrs (~$900) |
+| **Contribution across the minimum term** | **~$100–300** |
+
+**Month 7 is where an Autopilot client becomes profitable.** Before that you are
+roughly breaking even, and if the build overruns you are underwater. Two
+consequences follow, and they should drive delivery decisions more than
+anything else in this document:
+
+1. **Build hours are the whole margin.** Every hour saved on a build is worth
+   more than an hour saved anywhere else. This is the case for templates, for
+   the scaffolder, and for refusing bespoke design on Autopilot.
+2. **Churn at month 7 is the thing that kills the model**, not churn at month 2.
+   Retention past the minimum is where all the profit lives.
+
+A client who stalls the build for three months waiting to send photos does not
+delay the revenue, but they do consume the term. See MARKETING-PACKAGES.md on
+why the photo bottleneck is a margin problem and not just an annoyance.
 
 ---
 
