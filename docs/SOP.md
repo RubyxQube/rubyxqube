@@ -174,7 +174,24 @@ After call: move Notion stage to **Active Build**.
 
 ## 5. Onboarding Questionnaire
 
-Send as Google Form or run through on the kickoff call.
+> **Send them this instead of asking by hand:**
+> ### https://rubyxqube.com/project-brief
+>
+> Unlisted and noindex, so it is not in the nav and will not be found by
+> search. You send the link. It saves as they type so it can be done in two
+> sittings on a phone, and on submit it emails you (reply-to set to them),
+> emails them a copy of their own answers, and writes a row to `leads` with
+> source `project_brief` so it shows up in the portal's Leads tab.
+>
+> Sending it BEFORE the agreement is deliberate. It is a qualification
+> instrument as much as an intake form: someone who returns it inside a week is
+> a good client, and someone who needs three chases will need three chases
+> forever. See `MARKETING-PACKAGES.md`.
+>
+> Page source: `src/pages/ProjectBrief.jsx`, endpoint `api/project-brief.js`.
+
+The questions below are what that page asks, kept here for the kickoff call and
+for anyone who would rather run through it live.
 
 **Business Basics**
 - Business name (exactly as it should appear)

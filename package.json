@@ -13,7 +13,8 @@
     "docs:pdf:todo": "md-to-pdf docs/TODO.md",
     "img:svg-to-png": "node scripts/svg-to-png.mjs",
     "img:optimize-svg": "svgo --folder src/assets",
-    "logo:export": "node scripts/export-logos.mjs"
+    "logo:export": "node scripts/export-logos.mjs",
+    "smoke": "node scripts/smoke.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.98.0",

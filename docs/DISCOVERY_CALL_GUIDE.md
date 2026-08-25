@@ -177,6 +177,8 @@ the recurring version is the better business and the better deal for them.
 Before you hang up, get something concrete. Not "I'll think about it and get back to you."
 
 Options:
+- "I'll send you the project brief. Takes about twenty minutes and it's what I
+  build from." (https://rubyxqube.com/project-brief)
 - "Want me to send over a simple agreement so you can look it over?"
 - "Should we set a follow-up call for next week once you've had time to think?"
 - "If you're ready to move, I can send the agreement and we start this week."
@@ -201,6 +203,10 @@ and which package fits].
 
 [If they're close to deciding:]
 I'll send the agreement today. Signature and the first month and I start on the build.
+
+[Either way, send the brief. It costs nothing and it qualifies them:]
+Here's the project brief: https://rubyxqube.com/project-brief
+About twenty minutes, saves as you go, and it's what I build from.
 
 [If they need time:]
 I'll follow up [specific day]. In the meantime, feel free to reach out with any questions.
