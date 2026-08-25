@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { MeshGradient } from "@paper-design/shaders-react";
 import Navbar from "./Navbar.jsx";
@@ -9,40 +9,23 @@ import { siteConfig } from "../siteConfig.js";
 import ScrollToTop from "./ScrollToTop.jsx";
 import { useTheme } from "../hooks/useTheme.js";
 
-const titles = (brand) => ({
-  "/": brand,
-  "/services": `Services • ${brand}`,
-  "/pricing": `Pricing • ${brand}`,
-  "/portfolio": `Portfolio • ${brand}`,
-  "/about": `About • ${brand}`,
-  "/quote": `Get a Quote • ${brand}`,
-  "/contact": `Get a Quote • ${brand}`,
-  "/audit": `Free Website Audit • ${brand}`,
-  "/designs": `Design Styles • ${brand}`,
-  "/report": `Sample Monthly Report • ${brand}`,
-  "/privacy": `Privacy • ${brand}`,
-  "/terms": `Terms of Service • ${brand}`,
-  "/ai-receptionist": `Digital Receptionist • ${brand}`,
-  "/work/phoenix-stoneworks": `Phoenix Stoneworks Case Study • ${brand}`,
-  "/blog": `Blog • ${brand}`,
-  "/web-design-meridian": `Web Design Meridian, ID • ${brand}`,
-  "/web-design-nampa": `Web Design Nampa, ID • ${brand}`,
-  "/web-design-caldwell": `Web Design Caldwell, ID • ${brand}`,
-  "/web-design-eagle": `Web Design Eagle, ID • ${brand}`,
-  "/web-design-hvac": `HVAC Web Design • ${brand}`,
-  "/web-design-landscaping": `Landscaping Web Design • ${brand}`,
-  "/web-design-plumbing": `Plumbing Web Design • ${brand}`,
-  "/web-design-dental": `Dental Web Design • ${brand}`,
-});
-
 export default function Layout() {
-  const { pathname } = useLocation();
   const { theme, toggle } = useTheme();
 
-  React.useEffect(() => {
-    const map = titles(siteConfig.brand);
-    document.title = map[pathname] || siteConfig.brand;
-  }, [pathname]);
+  // No document.title here on purpose.
+  //
+  // This used to set the title from a hardcoded path map, which fought the
+  // per-page <Helmet><title> and lost or won at random. Whichever ran last
+  // won, so the same page produced different titles on different loads.
+  //
+  // It was also incomplete, and silently so. Five routes were missing from
+  // that map and fell through to the bare brand name, /blog/:slug among them,
+  // which meant every individual blog post could render as just "RubyxQube".
+  // A map keyed by exact pathname can never cover a parameterised route.
+  //
+  // All 28 pages set their own Helmet title, so this was redundant as well as
+  // harmful. Helmet owns the title now. Verified across four consecutive loads
+  // of the same route after removing it.
 
   return (
     <div className="appShell">

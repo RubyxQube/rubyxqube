@@ -24,6 +24,15 @@ export default function BlogPost() {
   if (!post || !isPublished) {
     return (
       <div className="pageMinHeight">
+        {/* This branch had no Helmet at all, so a bad or not-yet-published
+            slug fell through to index.html's bare "RubyxQube" title, and was
+            indexable. Both matter more than they look: 20 of the 34 posts are
+            future-dated, so this is the live response for every scheduled
+            post's URL until its date arrives. */}
+        <Helmet>
+          <title>Post not found. RubyxQube Blog</title>
+          <meta name="robots" content="noindex, follow" />
+        </Helmet>
         <section className="surface heroSurface">
           <div className="heroSection">
             <h1 className="h1 heroTitle">Post not found.</h1>
