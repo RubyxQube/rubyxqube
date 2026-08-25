@@ -21,7 +21,7 @@ export default function PackageCard({ name, tagline, bestFor, price, billing, ti
       if (!data.url) throw new Error("No checkout URL returned");
       window.location.href = data.url;
     } catch {
-      setError("Something went wrong — please try again or contact us directly.");
+      setError("Something went wrong, please try again or contact us directly.");
       setLoading(false);
     }
   }
@@ -43,7 +43,7 @@ export default function PackageCard({ name, tagline, bestFor, price, billing, ti
       {annualPrice && (
         <p style={{ fontSize: 12, color: "var(--muted)", marginBottom: 16, lineHeight: 1.4 }}>
           or <strong style={{ color: "var(--text)" }}>{annualPrice}/yr</strong>
-          {annualSaving && <span style={{ color: "rgba(34,197,94,0.85)", fontWeight: 600, marginLeft: 6 }}>— save {annualSaving}</span>}
+          {annualSaving && <span style={{ color: "rgba(34,197,94,0.85)", fontWeight: 600, marginLeft: 6 }}>, save {annualSaving}</span>}
         </p>
       )}
       <ul className="list" style={{ flex: 1 }}>

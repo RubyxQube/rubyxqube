@@ -14,9 +14,9 @@ export default function BlogList() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Blog — Web Design & AI Insights for Boise Businesses | RubyxQube</title>
-        <meta name="description" content="Web design advice, AI tools, and lead generation insights for Treasure Valley small businesses. Written by RubyxQube — Boise's AI-first web agency." />
-        <meta property="og:title" content="Blog — RubyxQube | Boise Web Design & AI Insights" />
+        <title>Blog. Web Design & AI Insights for Boise Businesses | RubyxQube</title>
+        <meta name="description" content="Web design advice, AI tools, and lead generation insights for Treasure Valley small businesses. Written by RubyxQube. Boise's AI-first web agency." />
+        <meta property="og:title" content="Blog. RubyxQube | Boise Web Design & AI Insights" />
         <meta property="og:description" content="Web design advice, AI tools, and lead generation insights for Treasure Valley small businesses." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/blog" />
@@ -28,7 +28,7 @@ export default function BlogList() {
           <span className="badge" style={{ marginBottom: 20 }}>From the RubyxQube team</span>
           <h1 className="h1 heroTitle"><span className="accentText">Web design</span> and AI insights for {siteConfig.serviceArea} businesses.</h1>
           <p className="p" style={{ fontSize: 17, maxWidth: 520 }}>
-            Honest advice on websites, lead generation, and AI tools — written for local service businesses, not tech companies.
+            Honest advice on websites, lead generation, and AI tools, written for local service businesses, not tech companies.
           </p>
         </div>
       </section>

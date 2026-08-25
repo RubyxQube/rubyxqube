@@ -7,24 +7,24 @@ import { siteConfig } from "../siteConfig.js";
 
 const FAQ_ITEMS = [
   {
-    q: "What if a visitor asks something the AI doesn't know?",
-    a: "It handles it gracefully — says it will have Boyd confirm and captures the visitor's contact info. It never makes up answers for things like pricing specifics or availability. We also tune the system prompt monthly (on Momentum) to fill any gaps we see in real conversations.",
+    q: "What if a visitor asks something it doesn't know?",
+    a: "It handles it gracefully, says it will have Boyd confirm and captures the visitor's contact info. It never makes up answers for things like pricing specifics or availability. We also tune the system prompt monthly (on Momentum) to fill any gaps we see in real conversations.",
   },
   {
     q: "Can it book appointments directly?",
-    a: "Not yet — it captures the lead and you follow up to book. A booking integration (Cal.com) is available as an add-on that lets the bot direct people to a scheduling link.",
+    a: "Not yet, it captures the lead and you follow up to book. A booking integration (Cal.com) is available as an add-on that lets the bot direct people to a scheduling link.",
   },
   {
     q: "What does the alert look like?",
-    a: "An SMS to your cell phone that reads something like: \"New lead — Mike Tanner. Contact: (208) 555-0194. Needs: HVAC repair in Meridian.\" You get everything before you call back.",
+    a: "An SMS to your cell phone that reads something like: \"New lead. Mike Tanner. Contact: (208) 555-0194. Needs: HVAC repair in Meridian.\" You get everything before you call back.",
   },
   {
     q: "Is my data private?",
-    a: "Yes. Conversations are processed through the Anthropic API (Claude) and are not used to train their models. Lead data is stored securely and never shared with third parties. You own your leads — we just make sure they land somewhere useful.",
+    a: "Yes. Conversations are processed through the Anthropic API (Claude) and are not used to train their models. Lead data is stored securely and never shared with third parties. You own your leads, we just make sure they land somewhere useful.",
   },
   {
     q: "What AI powers it?",
-    a: "Claude, made by Anthropic — the same AI behind Claude.ai. Specifically Claude Haiku for speed and affordability. Momentum clients with complex needs can be upgraded to Claude Sonnet.",
+    a: "Claude, made by Anthropic, the same AI behind Claude.ai. Specifically Claude Haiku for speed and affordability. Momentum clients with complex needs can be upgraded to Claude Sonnet.",
   },
   {
     q: "Can I customize what it says?",
@@ -65,13 +65,13 @@ function renderBold(text) {
 }
 
 const DEMO = [
-  { from: "bot",  text: "Hey! I'm the AI receptionist for Phoenix Stoneworks. What can I help you with?",                                                    delay: 600   },
-  { from: "user", text: "We're doing a kitchen remodel — looking for quartz countertops",                                                                     delay: 2800  },
-  { from: "bot",  text: "Great timing! We fabricate and install quartz in-house — most kitchens are done in a single day. Do you have an existing countertop to tear out, or is this a new build?", delay: 4000  },
+  { from: "bot",  text: "Hey! I'm the digital receptionist for Phoenix Stoneworks. What can I help you with?",                                                    delay: 600   },
+  { from: "user", text: "We're doing a kitchen remodel: looking for quartz countertops", delay: 2800 },
+  { from: "bot", text: "Great timing! We fabricate and install quartz in-house, most kitchens are done in a single day. Do you have an existing countertop to tear out, or is this a new build?", delay: 4000 },
   { from: "user", text: "Existing granite, needs to come out",                                                                                                delay: 7000  },
-  { from: "bot",  text: "No problem — tear-out and removal is included. To get you a quote, can I grab your name and a number Manny can reach you at?",       delay: 8400  },
+  { from: "bot", text: "No problem, tear-out and removal is included. To get you a quote, can I grab your name and a number Manny can reach you at?", delay: 8400 },
   { from: "user", text: "Sarah Dillon, (208) 555-0312",                                                                                                       delay: 11200 },
-  { from: "lead", text: "Lead captured — Manny notified by SMS",                                                                                             delay: 12600 },
+  { from: "lead", text: "Lead captured: Manny notified by SMS", delay: 12600 },
 ];
 
 function ChatDemo() {
@@ -138,10 +138,10 @@ export default function AiReceptionist() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>AI Receptionist for Small Businesses — RubyxQube | Boise, ID</title>
-        <meta name="description" content="24/7 AI receptionist for Treasure Valley businesses. Captures leads, answers questions, and sends instant alerts. Powered by Claude. Included in Autopilot from $499/mo." />
-        <meta property="og:title" content="AI Receptionist for Small Businesses — RubyxQube" />
-        <meta property="og:description" content="24/7 AI receptionist that captures leads, answers questions, and sends instant SMS alerts. Included in every Autopilot & Momentum plan." />
+        <title>Digital Receptionist for Small Businesses. RubyxQube | Boise, ID</title>
+        <meta name="description" content="24/7 digital receptionist for Treasure Valley businesses. Captures leads, answers questions, and sends instant alerts. Powered by Claude. Included in Autopilot from $499/mo." />
+        <meta property="og:title" content="Digital Receptionist for Small Businesses. RubyxQube" />
+        <meta property="og:description" content="24/7 digital receptionist that captures leads, answers questions, and sends instant SMS alerts. Included in every Autopilot & Momentum plan." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/ai-receptionist" />
         <link rel="canonical" href="https://rubyxqube.com/ai-receptionist" />
@@ -161,13 +161,13 @@ export default function AiReceptionist() {
         <div className="heroSection">
           <span className="badge" style={{ textAlign: "center", marginBottom: 20 }}>Included in Autopilot & Momentum</span>
           <h1 className="h1 heroTitle">
-            The AI that works your <span className="accentText">front desk while you're in the field.</span>
+            Your front desk, <span className="accentText">working while you're in the field.</span>
           </h1>
           <p className="p" style={{ fontSize: 17, maxWidth: 560, marginBottom: 32 }}>
-            A custom-trained AI receptionist built into your site from day one. It answers questions, qualifies leads, and texts you the moment someone's ready to book — 24/7, with no monthly fees beyond your plan.
+            A digital receptionist built into your site from day one. It answers questions, qualifies leads, and texts you the moment someone is ready to book. Around the clock, with no monthly fees beyond your plan. It is AI, trained on your services, hours and pricing, so it answers like someone who works there.
           </p>
           <div className="btnRow">
-            <Link className="btn primary" to="/contact">Get Started — $499/mo</Link>
+            <Link className="btn primary" to="/contact">Get Started, $499/mo</Link>
             <Link className="btn" to="/pricing">See All Pricing</Link>
           </div>
 
@@ -176,7 +176,7 @@ export default function AiReceptionist() {
           <div className="grid cols-3">
             <div className="kpi">
               <strong>Responds in &lt;2 seconds</strong>
-              <span>Instant reply every time — no hold music, no voicemail</span>
+              <span>Instant reply every time, no hold music, no voicemail</span>
             </div>
             <div className="kpi">
               <strong>Triple-alert system</strong>
@@ -184,7 +184,7 @@ export default function AiReceptionist() {
             </div>
             <div className="kpi">
               <strong>Trained on your business</strong>
-              <span>Your services, prices, hours, and FAQs — not generic answers</span>
+              <span>Your services, prices, hours, and FAQs, not generic answers</span>
             </div>
           </div>
         </div>
@@ -194,12 +194,12 @@ export default function AiReceptionist() {
       <section className="surface">
         <div className="section">
           <span className="badge">How it works</span>
-          <h2 className="h2" style={{ marginTop: 16, marginBottom: 40 }}>From visitor to lead in minutes — without you doing a thing.</h2>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 40 }}>From visitor to lead in minutes, without you doing a thing.</h2>
           <div className="grid cols-3">
             {[
-              { num: "01", title: "Visitor lands on your site", body: "At any hour, on any device. The chat widget appears automatically after a few seconds — or when they click the button." },
-              { num: "02", title: "AI greets and qualifies them", body: "It introduces itself, answers their questions using your business info, and naturally guides the conversation toward a quote or booking." },
-              { num: "03", title: "Lead captured, you're notified", body: "Once it has their name, contact info, and what they need — it saves the lead and fires an SMS to your phone with everything you need before you call back." },
+              { num: "01", title: "Visitor lands on your site", body: "At any hour, on any device. The chat widget appears automatically after a few seconds, or when they click the button." },
+              { num: "02", title: "It greets and qualifies them", body: "It introduces itself, answers their questions using your business info, and naturally guides the conversation toward a quote or booking." },
+              { num: "03", title: "Lead captured, you're notified", body: "Once it has their name, contact info, and what they need, it saves the lead and fires an SMS to your phone with everything you need before you call back." },
             ].map(({ num, title, body }) => (
               <div key={num} className="card" style={{ display: "flex", flexDirection: "column", gap: 14 }}>
                 <div style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 14, color: "var(--accent)" }}>
@@ -217,13 +217,13 @@ export default function AiReceptionist() {
       <section className="surface">
         <div className="section">
           <span className="badge">What's included</span>
-          <h2 className="h2" style={{ marginTop: 16, marginBottom: 40 }}>Everything your front desk should do — none of what it shouldn't.</h2>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 40 }}>Everything your front desk should do, none of what it shouldn't.</h2>
           <div className="grid cols-2" style={{ gap: 24 }}>
             {[
               {
                 icon: <Wrench size={24} color="var(--accent)" strokeWidth={1.75} />,
                 title: "Trained on your specific business",
-                body: "We write a custom system prompt covering your services, pricing tiers, service area, hours, and top FAQs — sourced from your onboarding questionnaire. The AI knows your business, not just web design generalities.",
+                body: "We write a custom system prompt covering your services, pricing tiers, service area, hours, and top FAQs, sourced from your onboarding questionnaire. The AI knows your business, not just web design generalities.",
               },
               {
                 icon: <Bell size={24} color="var(--accent)" strokeWidth={1.75} />,
@@ -238,7 +238,7 @@ export default function AiReceptionist() {
               {
                 icon: <BarChart3 size={24} color="var(--accent)" strokeWidth={1.75} />,
                 title: "Monthly conversation tuning",
-                body: "Momentum clients get monthly AI tuning — we review real conversations, identify missed leads or awkward responses, and update the system prompt to fix them. The bot gets smarter over time.",
+                body: "Momentum clients get monthly assistant tuning: we review real conversations, identify missed leads or awkward responses, and update the system prompt to fix them. The bot gets smarter over time.",
               },
             ].map(({ icon, title, body }) => (
               <div key={title} className="card" style={{ display: "flex", gap: 18, alignItems: "flex-start" }}>
@@ -260,19 +260,19 @@ export default function AiReceptionist() {
             <div>
               <span className="badge">Live demo</span>
               <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>
-                This is what your customers experience — on a real client site.
+                This is what your customers experience, on a real client site.
               </h2>
               <p className="p">
-                This is a simulated version of the same AI receptionist running live for Phoenix Stoneworks in Boise. Real AI, real conversation flow, real lead capture at the end. Try the real thing at pswboise.com — Phoenix Stoneworks is a live Momentum client.
+                This is a simulated version of the same digital receptionist running live for Phoenix Stoneworks in Boise. Real AI, real conversation flow, real lead capture at the end. Try the real thing at pswboise.com. Phoenix Stoneworks is a live Momentum client.
               </p>
               <p className="p" style={{ marginBottom: 24 }}>
-                When you sign up, we build one of these for your specific business — trained on your services, priced for your market, tuned to your tone.
+                When you sign up, we build one of these for your specific business: trained on your services, priced for your market, tuned to your tone.
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 {[
-                  "No scripted decision trees — it handles unexpected questions",
+                  "No scripted decision trees, it handles unexpected questions",
                   "Knows when to answer vs. when to pass to you",
-                  "Lead data is saved automatically — no manual entry",
+                  "Lead data is saved automatically, no manual entry",
                   "SMS hits your phone within seconds of capture",
                 ].map((item) => (
                   <div key={item} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
@@ -294,20 +294,20 @@ export default function AiReceptionist() {
             <div>
               <span className="badge">Powered by Claude</span>
               <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>
-                Real AI — not a chatbot script with buttons.
+                Real AI, not a chatbot script with buttons.
               </h2>
               <p className="p">
-                Your receptionist runs on Claude, made by Anthropic — the same AI powering Claude.ai and used by millions of professionals. It reasons, adapts, and handles unexpected inputs naturally.
+                Your receptionist runs on Claude, made by Anthropic, the same AI powering Claude.ai and used by millions of professionals. It reasons, adapts, and handles unexpected inputs naturally.
               </p>
               <p className="p" style={{ marginBottom: 0 }}>
-                Most chatbots are decision trees dressed up with a text box. Ours actually understands context — so when a customer asks something off-script, it doesn't dead-end them. It figures it out.
+                Most chatbots are decision trees dressed up with a text box. Ours actually understands context, so when a customer asks something off-script, it doesn't dead-end them. It figures it out.
               </p>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               {[
-                { icon: <Zap size={18} color="var(--accent)" />, label: "Claude Haiku", detail: "Fast, affordable, capable — handles 99% of small business conversations effortlessly" },
-                { icon: <ShieldCheck size={18} color="var(--accent)" />, label: "Privacy-first", detail: "API calls go server-side — your visitors' data never touches the browser directly" },
-                { icon: <Wrench size={18} color="var(--accent)" />, label: "Fully customizable", detail: "System prompt is written per client — not a shared generic bot" },
+                { icon: <Zap size={18} color="var(--accent)" />, label: "Claude Haiku", detail: "Fast, affordable, capable, handles 99% of small business conversations effortlessly" },
+                { icon: <ShieldCheck size={18} color="var(--accent)" />, label: "Privacy-first", detail: "API calls go server-side, your visitors' data never touches the browser directly" },
+                { icon: <Wrench size={18} color="var(--accent)" />, label: "Fully customizable", detail: "System prompt is written per client, not a shared generic bot" },
               ].map(({ icon, label, detail }) => (
                 <div key={label} className="card" style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
                   <div style={{ flexShrink: 0, marginTop: 2 }}>{icon}</div>
@@ -326,9 +326,9 @@ export default function AiReceptionist() {
       <section className="surface">
         <div className="section">
           <span className="badge">Pricing</span>
-          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>Included — not an add-on.</h2>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>Included, not an add-on.</h2>
           <p className="p" style={{ maxWidth: 500, marginBottom: 36 }}>
-            The AI receptionist is built into both the Autopilot and Momentum plans. You don't pay extra for it. It comes with the site.
+            The digital receptionist is built into both the Autopilot and Momentum plans. You don't pay extra for it. It comes with the site.
           </p>
           <div className="grid cols-3">
             {[
@@ -336,7 +336,7 @@ export default function AiReceptionist() {
                 plan: "Autopilot",
                 price: "$499/mo",
                 detail: "No setup fee",
-                bullets: ["AI receptionist included", "Unlimited pages", "GA4 + Search Console", "Monthly report", "Unlimited edit requests", "4 blog posts/mo"],
+                bullets: ["digital receptionist included", "Unlimited pages", "GA4 + Search Console", "Monthly report", "Unlimited edit requests", "4 blog posts/mo"],
                 highlight: true,
                 cta: "/contact",
               },
@@ -377,14 +377,14 @@ export default function AiReceptionist() {
       <section className="surface">
         <div className="section">
           <span className="badge">FAQ</span>
-          <h2 className="h2" style={{ marginTop: 16, marginBottom: 32 }}>Common questions about the AI receptionist.</h2>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 32 }}>Common questions about the digital receptionist.</h2>
           <FAQAccordion />
         </div>
       </section>
 
       <CTA
         title="Ready to stop missing leads after hours?"
-        subtitle="Start with a free audit. Boyd will tell you exactly what you're missing and how the AI receptionist would fit your business."
+        subtitle="Start with a free audit. Boyd will tell you exactly what you're missing and how the digital receptionist would fit your business."
       />
     </div>
   );

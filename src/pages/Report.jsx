@@ -35,9 +35,9 @@ const TOP_PAGES = [
 const LEADS = [
   { date: "Apr 3", name: "Mark T.", contact: "markT@email.com", need: "Patio installation, Meridian" },
   { date: "Apr 7", name: "Sandra L.", contact: "(208) 555-0192", need: "Fireplace surround quote" },
-  { date: "Apr 11", name: "Dave R.", contact: "d.r@gmail.com", need: "Retaining wall, backyard — Eagle" },
+  { date: "Apr 11", name: "Dave R.", contact: "d.r@gmail.com", need: "Retaining wall, backyard. Eagle" },
   { date: "Apr 14", name: "Kim W.", contact: "(208) 555-0344", need: "Outdoor kitchen countertops" },
-  { date: "Apr 19", name: "James P.", contact: "jpeters@work.com", need: "Commercial project — lobby floors" },
+  { date: "Apr 19", name: "James P.", contact: "jpeters@work.com", need: "Commercial project, lobby floors" },
   { date: "Apr 22", name: "Tina C.", contact: "(208) 555-0871", need: "Front walkway + steps, Nampa" },
   { date: "Apr 25", name: "Ryan B.", contact: "rb@outlook.com", need: "Pool coping + deck remodel" },
 ];
@@ -108,10 +108,10 @@ export default function Report() {
   return (
     <div className="pageMinHeight" style={{ background: "var(--bg)" }}>
       <Helmet>
-        <title>Monthly Performance Report — RubyxQube | Client Dashboard Sample</title>
-        <meta name="description" content="See what a monthly performance report looks like for RubyxQube clients — traffic, leads, search rankings, and site updates all in one place." />
-        <meta property="og:title" content="Monthly Performance Report — RubyxQube" />
-        <meta property="og:description" content="See what a monthly performance report looks like for RubyxQube clients — traffic, leads, search rankings, and site updates all in one place." />
+        <title>Monthly Performance Report. RubyxQube | Client Dashboard Sample</title>
+        <meta name="description" content="See what a monthly performance report looks like for RubyxQube clients: traffic, leads, search rankings, and site updates all in one place." />
+        <meta property="og:title" content="Monthly Performance Report. RubyxQube" />
+        <meta property="og:description" content="See what a monthly performance report looks like for RubyxQube clients: traffic, leads, search rankings, and site updates all in one place." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/report" />
         <link rel="canonical" href="https://rubyxqube.com/report" />
@@ -127,7 +127,7 @@ export default function Report() {
         color: "var(--text)",
       }}>
         <BarChart2 size={14} style={{ display: "inline", verticalAlign: "middle", marginRight: 6 }} />
-        This is a <strong>sample monthly report</strong> — Autopilot and Momentum clients receive one of these every month. &nbsp;
+        This is a <strong>sample monthly report</strong>. Autopilot and Momentum clients receive one of these every month. &nbsp;
         <Link to="/pricing" style={{ color: "var(--accent)", textDecoration: "underline" }}>See plans →</Link>
       </div>
 
@@ -261,7 +261,7 @@ export default function Report() {
 
         {/* ── Chatbot breakdown ── */}
         <div style={{ marginBottom: 48 }}>
-          <SectionHead label="AI Receptionist" title="Chatbot conversation topics" />
+          <SectionHead label="Digital Receptionist" title="Chatbot conversation topics" />
           <div className="card" style={{ padding: "24px 28px", display: "flex", flexDirection: "column", gap: 18 }}>
             {CHATBOT_TOPICS.map((t) => (
               <div key={t.topic} style={{ display: "grid", gridTemplateColumns: "1fr 48px 120px", gap: 16, alignItems: "center" }}>

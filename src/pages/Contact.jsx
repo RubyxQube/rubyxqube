@@ -7,22 +7,22 @@ import reviewQR from "../assets/qr/RubyxQubeReviewQR.png";
 const PACKAGES = [
   {
     id: "autopilot",
-    label: "Autopilot — $499/mo",
+    label: "Autopilot, $499/mo",
     needValue: "Autopilot",
     priceLine: "$499/mo",
     highlight: "No setup fee.",
-    includes: "Unlimited pages, AI receptionist, analytics setup, 24/7 lead capture, SMS alerts, monthly report, unlimited edit requests, 4 blog posts/mo, Google Business Profile management.",
+    includes: "Unlimited pages, digital receptionist, analytics setup, 24/7 lead capture, SMS alerts, monthly report, unlimited edit requests, 4 blog posts/mo, Google Business Profile management.",
   },
   {
     id: "momentum",
-    label: "Momentum — $999/mo",
+    label: "Momentum, $999/mo",
     needValue: "Momentum",
     priceLine: "$999/mo",
-    includes: "Everything in Autopilot + 4 blog posts/mo, developer on call, same-day prototypes, unlimited edits, custom tools, GBP management, monthly AI tuning, weekly check-in call.",
+    includes: "Everything in Autopilot + 4 blog posts/mo, developer on call, same-day prototypes, unlimited edits, custom tools, GBP management, monthly assistant tuning, weekly check-in call.",
   },
   {
     id: "unsure",
-    label: "Not sure — recommend a package",
+    label: "Not sure, recommend a package",
     needValue: "Not sure",
     priceLine: "Not sure",
     includes: "Tell me a bit about your business and I’ll recommend the best option.",
@@ -122,9 +122,9 @@ export default function Contact() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Get a Free Quote — RubyxQube | Treasure Valley Web Design</title>
+        <title>Get a Free Quote. RubyxQube | Treasure Valley Web Design</title>
         <meta name="description" content="Ready to get started? Tell us about your Treasure Valley business and we'll put together a free proposal for your new website." />
-        <meta property="og:title" content="Get a Free Quote — RubyxQube | Treasure Valley Web Design" />
+        <meta property="og:title" content="Get a Free Quote. RubyxQube | Treasure Valley Web Design" />
         <meta property="og:description" content="Ready to get started? Tell us about your Treasure Valley business and we'll put together a free proposal for your new website." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/contact" />
@@ -343,7 +343,7 @@ export default function Contact() {
 
                 {status === "error" && (
                   <p className="small" style={{ marginTop: 8, color: "#fb7185" }}>
-                    Something went wrong — please call or email directly.
+                    Something went wrong, please call or email directly.
                   </p>
                 )}
               </>
@@ -366,7 +366,7 @@ export default function Contact() {
               },
               {
                 q: "Do I need to provide my own content?",
-                a: "I'll guide you through it with a simple questionnaire. If you want professionally written copy, add copywriting for $500 — I handle everything.",
+                a: "I'll guide you through it with a simple questionnaire. If you want professionally written copy, add copywriting for $500. I handle everything.",
               },
               {
                 q: "I already have a domain. Can you use it?",
@@ -374,7 +374,7 @@ export default function Contact() {
               },
               {
                 q: "Do you offer payment plans?",
-                a: "Yes. I typically split it 50% upfront and 50% at launch. If you need a different arrangement, just ask — I'm flexible for the right fit.",
+                a: "Yes. I typically split it 50% upfront and 50% at launch. If you need a different arrangement, just ask. I'm flexible for the right fit.",
               },
               {
                 q: "What if I'm not happy with the design?",
@@ -382,7 +382,7 @@ export default function Contact() {
               },
               {
                 q: "What happens if I cancel my monthly plan?",
-                a: "Your site stays live — you own it. You just won't have the monthly updates, AI receptionist, or ongoing support anymore.",
+                a: "Your site stays live, you own it. You just won't have the monthly updates, digital receptionist, or ongoing support anymore.",
               },
             ].map(({ q, a }) => (
               <div className="card" key={q}>

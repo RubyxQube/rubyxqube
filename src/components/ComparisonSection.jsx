@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const WIX_BULLETS = [
-  "$29–36/mo forever — that's $1,000+ over 3 years for a template",
-  "Lighthouse performance scores of 50–70 — slow pages that hurt Google rankings",
-  "No analytics setup, no Search Console — you're invisible to Google",
+  "$29–36/mo forever: that's $1,000+ over 3 years for a template",
+  "Lighthouse performance scores of 50–70, slow pages that hurt Google rankings",
+  "No analytics setup, no Search Console, you're invisible to Google",
   "No AI, no lead capture, no SMS alerts",
   "Support is a help article, not a person",
 ];
@@ -12,7 +12,7 @@ const WIX_BULLETS = [
 const RXQ_BULLETS = [
   "$499/mo with no setup fee, and the whole build is included",
   "Custom React build: 95+ Lighthouse score, loads fast on mobile and ranks higher",
-  "Analytics, Search Console, and a 24/7 AI receptionist, all included",
+  "Analytics, Search Console, and a 24/7 digital receptionist, all included",
   "4 blog posts a month, written and published for you",
   "Direct line to Boyd. Text, call, or email, not a help article",
 ];
@@ -52,7 +52,7 @@ function CondensedComparison() {
           RubyxQube Autopilot
         </p>
         <p className="p" style={{ marginBottom: 12 }}>
-          <strong style={{ color: "var(--text)" }}>$499/mo, everything included.</strong> Custom design built around your business, an AI receptionist answering at 2am, 4 blog posts a month, and a direct line to Boyd. For most trades, one job you'd otherwise have missed pays for months of it.
+          <strong style={{ color: "var(--text)" }}>$499/mo, everything included.</strong> Custom design built around your business, a digital receptionist answering at 2am, 4 blog posts a month, and a direct line to Boyd. For most trades, one job you'd otherwise have missed pays for months of it.
         </p>
         <Link to="/pricing" style={{ color: "var(--accent)", fontWeight: 700, fontSize: 14 }}>
           See the full comparison

@@ -48,7 +48,7 @@ export default function Footer() {
         <div className="footerBrand">
           <Logo height={36} />
           <p>
-            AI-powered websites for local service businesses in the Treasure Valley — and beyond.
+            AI-powered websites for local service businesses in the Treasure Valley, and beyond.
           </p>
           <a
             href={`tel:${siteConfig.phoneE164}`}
@@ -89,7 +89,7 @@ export default function Footer() {
           <h4>Services</h4>
           <nav className="footerLinks">
             <Link to="/services">What We Build</Link>
-            <Link to="/ai-receptionist">AI Receptionist</Link>
+            <Link to="/ai-receptionist">Digital Receptionist</Link>
             <Link to="/pricing">Packages & Pricing</Link>
             <Link to="/audit">Free Website Audit</Link>
             <Link to="/portfolio">Portfolio</Link>

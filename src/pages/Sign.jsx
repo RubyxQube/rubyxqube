@@ -180,7 +180,7 @@ function SuccessState({ signedName, signedAt }) {
       </p>
       <p style={{ color: "#6b7280", fontSize: 13, marginBottom: 32 }}>{dateStr}</p>
       <p style={{ color: "#6b7280", fontSize: 14, maxWidth: 400, margin: "0 auto" }}>
-        Boyd will be in touch shortly to kick things off. Keep this page for your records — a confirmation email has been sent to your inbox.
+        Boyd will be in touch shortly to kick things off. Keep this page for your records, a confirmation email has been sent to your inbox.
       </p>
     </div>
   );
@@ -244,7 +244,7 @@ export default function Sign() {
       color: "#111827",
     }}>
       <Helmet>
-        <title>Sign Agreement — RubyxQube</title>
+        <title>Sign Agreement. RubyxQube</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       {/* Header */}

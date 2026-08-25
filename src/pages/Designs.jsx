@@ -16,19 +16,19 @@ const LIVE_EXAMPLES = [
     img: "/designs/valley-plumbing.png",
     trade: "Plumbing Company",
     style: "Bold Authority",
-    desc: "Master plumber credibility up front — trust established before they scroll.",
+    desc: "Master plumber credibility up front, trust established before they scroll.",
   },
   {
     img: "/designs/summit-electric.png",
     trade: "Electrical Contractor",
     style: "Premium Dark",
-    desc: "Gold accents on deep navy — positions the business as the premium option in the market.",
+    desc: "Gold accents on deep navy, positions the business as the premium option in the market.",
   },
   {
     img: "/designs/clear-air-hvac.png",
     trade: "HVAC Company",
     style: "Industrial Bold",
-    desc: "5-star reviews front and center, gritty and direct — built for owner-operators.",
+    desc: "5-star reviews front and center, gritty and direct, built for owner-operators.",
   },
 ];
 
@@ -70,7 +70,7 @@ const DESIGNS = [
     id: "bold",
     name: "The Bold",
     tagline: "High-energy, action-oriented, call-driving",
-    desc: "Strong blue and orange contrast, action-focused CTAs, no wasted space. Built for businesses where every visitor is a potential job — and speed matters.",
+    desc: "Strong blue and orange contrast, action-focused CTAs, no wasted space. Built for businesses where every visitor is a potential job, and speed matters.",
     industries: ["Auto Repair", "Towing", "Moving", "Pest Control", "Security", "Gym"],
     palette: { bg: "#ffffff", nav: "#1e40af", hero: "#1e40af", accent: "#f97316", text: "#1e293b", muted: "#94a3b8", card: "#f1f5f9" },
   },
@@ -110,7 +110,7 @@ const DESIGNS = [
     id: "clinical",
     name: "The Clinical",
     tagline: "Clean, precise, patient-ready",
-    desc: "Clinical whites, sky blue accents, and structured layout that immediately signals professionalism and care. Patients decide within seconds whether they trust you — this design earns it.",
+    desc: "Clinical whites, sky blue accents, and structured layout that immediately signals professionalism and care. Patients decide within seconds whether they trust you, this design earns it.",
     industries: ["Dental", "Medical", "Optometry", "Dermatology", "Urgent Care", "Veterinary"],
     palette: { bg: "#f8fafc", nav: "#0369a1", hero: "#ffffff", accent: "#0284c7", text: "#0c1a2e", muted: "#94a3b8", card: "#e0f2fe" },
   },
@@ -126,7 +126,7 @@ const DESIGNS = [
     id: "storefront",
     name: "The Storefront",
     tagline: "Product-first, scroll-stopping, shop-ready",
-    desc: "Bold product photography, clean shop layout, built to convert browsers into buyers. For product-based businesses — online or brick-and-mortar — where the product does the selling.",
+    desc: "Bold product photography, clean shop layout, built to convert browsers into buyers. For product-based businesses, online or brick-and-mortar, where the product does the selling.",
     industries: ["Online Shop", "Boutique", "Handmade Goods", "Specialty Food", "Gift Shop", "Craft Brewery"],
     palette: { bg: "#ffffff", nav: "#18181b", hero: "#f4f4f5", accent: "#7c3aed", text: "#18181b", muted: "#71717a", card: "#fafafa" },
   },
@@ -215,7 +215,7 @@ function PalettePicker({ selectedPalette, onSelect }) {
               You picked: <span style={{ color: "var(--accent)" }}>{picked.name}</span>
             </p>
             <p style={{ fontSize: 13, color: "var(--muted)" }}>
-              Mention "{picked.name}" on your audit call — Boyd will build your site around this palette.
+              Mention "{picked.name}" on your audit call. Boyd will build your site around this palette.
             </p>
           </div>
           <a
@@ -241,7 +241,7 @@ function PalettePicker({ selectedPalette, onSelect }) {
         >
           Open Coolors palette generator ↗
         </a>
-        <span style={{ fontSize: 12, color: "var(--muted)", opacity: 0.6 }}>— screenshot your favorite and share it on the call</span>
+        <span style={{ fontSize: 12, color: "var(--muted)", opacity: 0.6 }}>, screenshot your favorite and share it on the call</span>
       </div>
     </div>
   );
@@ -433,7 +433,7 @@ function LeadModal({ pickedStyle, pickedPalette, onClose }) {
             <div style={{ fontSize: 40, marginBottom: 16 }}>✓</div>
             <h3 className="h3" style={{ marginBottom: 8 }}>You're on the list</h3>
             <p style={{ color: "rgba(255,255,255,0.55)", fontSize: 14, lineHeight: 1.6 }}>
-              Boyd will reach out within 1 business day to schedule your audit call — already knowing you picked <strong style={{ color: "rgba(255,255,255,0.90)" }}>{pickedStyle?.name}</strong> + <strong style={{ color: "rgba(255,255,255,0.90)" }}>{pickedPalette?.name}</strong>.
+              Boyd will reach out within 1 business day to schedule your audit call: already knowing you picked <strong style={{ color: "rgba(255,255,255,0.90)" }}>{pickedStyle?.name}</strong> + <strong style={{ color: "rgba(255,255,255,0.90)" }}>{pickedPalette?.name}</strong>.
             </p>
             <button
               onClick={onClose}
@@ -512,7 +512,7 @@ function LeadModal({ pickedStyle, pickedPalette, onClose }) {
                 }}
               />
               {status === "error" && (
-                <p style={{ fontSize: 13, color: "#f87171" }}>Something went wrong — try again or <a href={siteConfig.bookingUrl} target="_blank" rel="noreferrer" style={{ color: "#f87171", textDecoration: "underline" }}>book directly on Cal.com</a>.</p>
+                <p style={{ fontSize: 13, color: "#f87171" }}>Something went wrong, try again or <a href={siteConfig.bookingUrl} target="_blank" rel="noreferrer" style={{ color: "#f87171", textDecoration: "underline" }}>book directly on Cal.com</a>.</p>
               )}
               <button
                 type="submit"
@@ -569,9 +569,9 @@ export default function Designs() {
   return (
     <>
       <Helmet>
-        <title>Pick Your Style — RubyxQube | Web Design Styles for Local Businesses</title>
+        <title>Pick Your Style. RubyxQube | Web Design Styles for Local Businesses</title>
         <meta name="description" content="Browse web design styles and find the look that fits your business. RubyxQube builds custom sites for Treasure Valley service businesses." />
-        <meta property="og:title" content="Pick Your Style — RubyxQube | Web Design Styles for Local Businesses" />
+        <meta property="og:title" content="Pick Your Style. RubyxQube | Web Design Styles for Local Businesses" />
         <meta property="og:description" content="Browse web design styles and find the look that fits your business. RubyxQube builds custom sites for Treasure Valley service businesses." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/designs" />
@@ -595,7 +595,7 @@ export default function Designs() {
           <span className="badge" style={{ marginBottom: 12 }}>Live Examples</span>
           <h2 className="h2" style={{ marginBottom: 8 }}>Real sites, built for real trades.</h2>
           <p style={{ color: "var(--muted)", maxWidth: 520 }}>
-            Every site is built from scratch — not a template. These are real demos built for Treasure Valley trade businesses.
+            Every site is built from scratch, not a template. These are real demos built for Treasure Valley trade businesses.
           </p>
         </div>
         <div className="grid cols-2" style={{ gap: 20 }}>
@@ -653,7 +653,7 @@ export default function Designs() {
           }}>
             <span style={{ color: "var(--accent)", fontWeight: 700 }}>✓ {pickedStyle.name}</span>
             <span style={{ color: "var(--muted)", fontSize: 14 }}>
-              {bothPicked ? "— and your colors are set. Ready to book below." : "— nice. Now pick your colors below."}
+              {bothPicked ? ", and your colors are set. Ready to book below." : ", nice. Now pick your colors below."}
             </span>
           </div>
         )}
@@ -689,7 +689,7 @@ export default function Designs() {
               {pickedStyle.name} · {pickedPalette.name}
             </h2>
             <p style={{ color: "var(--muted)", marginBottom: 24, maxWidth: 520, lineHeight: 1.6 }}>
-              Boyd will know your picks before the call — he'll show you exactly how your business would look with this combination.
+              Boyd will know your picks before the call, he'll show you exactly how your business would look with this combination.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <button
@@ -734,7 +734,7 @@ export default function Designs() {
 
       <CTA
         title="Ready to get started?"
-        subtitle="Free 15-minute audit call. No commitment — just honest feedback on what your business needs online."
+        subtitle="Free 15-minute audit call. No commitment, just honest feedback on what your business needs online."
       />
 
       {/* Lead capture modal */}

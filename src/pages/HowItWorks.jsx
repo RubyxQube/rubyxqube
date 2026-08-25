@@ -9,7 +9,7 @@ const STEPS = [
   {
     number: "01",
     title: "Free 15-minute audit call",
-    desc: "We look at your current online presence — website, Google Business Profile, local search rankings — and tell you exactly what's costing you leads. No pitch. Honest feedback only.",
+    desc: "We look at your current online presence: website, Google Business Profile, local search rankings, and tell you exactly what's costing you leads. No pitch. Honest feedback only.",
   },
   {
     number: "02",
@@ -18,8 +18,8 @@ const STEPS = [
   },
   {
     number: "03",
-    title: "Your AI receptionist goes live",
-    desc: "A chatbot trained on your services, pricing, hours, and FAQs is installed on your site. It answers questions and captures leads 24/7 — even when you're on a job.",
+    title: "Your digital receptionist goes live",
+    desc: "A chatbot trained on your services, pricing, hours, and FAQs is installed on your site. It answers questions and captures leads 24/7, even when you're on a job.",
   },
   {
     number: "04",
@@ -48,21 +48,21 @@ const INCLUDED = [
   },
   {
     icon: MessageSquare,
-    title: "AI receptionist",
+    title: "digital receptionist",
     items: [
       "Trained on your services, pricing, hours, and FAQs",
       "Answers questions and captures leads 24/7",
       "Collects name, phone/email, and what they need",
       "Instant SMS alert to your phone on every new lead",
       "Instant email alert as backup",
-      "Unlimited conversations — no per-chat fees",
+      "Unlimited conversations, no per-chat fees",
     ],
   },
   {
     icon: BarChart2,
     title: "Monthly reporting",
     items: [
-      "Plain-English summary — no dashboards to learn",
+      "Plain-English summary, no dashboards to learn",
       "Total site visits, traffic sources, top pages",
       "Leads captured by the chatbot",
       "Google Search impressions and clicks",
@@ -86,7 +86,7 @@ const MOMENTUM_EXTRAS = [
   "Developer on call, same-day prototypes, 2-day turnaround on bigger builds",
   "Unlimited edits and new pages, no monthly cap",
   "Custom tools: calculators, estimators, intake forms, and more",
-  "Monthly AI receptionist tuning",
+  "Monthly digital receptionist tuning",
   "A direct line to Boyd. Text or call, not a ticket queue",
   "Your work goes to the front of the queue, ahead of everything else",
   "Weekly strategy call over Google Meet",
@@ -107,11 +107,11 @@ const FAQS = [
   },
   {
     q: "What if I already have a website?",
-    a: "We can rebuild it from scratch on one of our plans, or add just the AI receptionist to your existing site ($500 setup + $199/mo).",
+    a: "We can rebuild it from scratch on one of our plans, or add just the digital receptionist to your existing site ($500 setup + $199/mo).",
   },
   {
-    q: "How does the AI receptionist know about my business?",
-    a: "We train it on your specific services, pricing, hours, service area, and common FAQs during onboarding. It's not a generic chatbot — it knows your business. We update it any time your info changes.",
+    q: "How does the digital receptionist know about my business?",
+    a: "We train it on your specific services, pricing, hours, service area, and common FAQs during onboarding. It's not a generic chatbot, it knows your business. We update it any time your info changes.",
   },
   {
     q: "What happens to my site if I cancel?",
@@ -126,8 +126,8 @@ const FAQS = [
     a: `Email or text ${siteConfig.phoneDisplay} with what you need. We'll confirm receipt within 4 business hours and have it done within 1 business day.`,
   },
   {
-    q: "What is the AI receptionist built on?",
-    a: "It's powered by Claude, made by Anthropic — one of the leading AI companies. It's the same technology used by major enterprises, running on your site as a private, business-specific assistant.",
+    q: "What is the digital receptionist built on?",
+    a: "It's powered by Claude, made by Anthropic, one of the leading AI companies. It's the same technology used by major enterprises, running on your site as a private, business-specific assistant.",
   },
   {
     q: "Can I upgrade from Autopilot to Momentum?",
@@ -139,9 +139,9 @@ export default function HowItWorks() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>How It Works — RubyxQube | Simple Web Design Process</title>
+        <title>How It Works. RubyxQube | Simple Web Design Process</title>
         <meta name="description" content="See exactly how RubyxQube builds and manages your website - from first call to launch and beyond. Transparent process, no surprises." />
-        <meta property="og:title" content="How It Works — RubyxQube | Simple Web Design Process" />
+        <meta property="og:title" content="How It Works. RubyxQube | Simple Web Design Process" />
         <meta property="og:description" content="See exactly how RubyxQube builds and manages your website - from first call to launch and beyond. Transparent process, no surprises." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/how-it-works" />
@@ -229,13 +229,13 @@ export default function HowItWorks() {
       <section className="surface">
         <div className="section">
           <div className="card cardHighlight" style={{ maxWidth: 720, margin: "0 auto" }}>
-            <span className="badge" style={{ marginBottom: 12, display: "inline-block" }}>Momentum only — $999/mo</span>
+            <span className="badge" style={{ marginBottom: 12, display: "inline-block" }}>Momentum only, $999/mo</span>
             <h2 className="h2" style={{ marginBottom: 8 }}>Everything in Autopilot, plus a developer on your team.</h2>
             <p className="p" style={{ marginBottom: 16 }}>
               Momentum is for business owners who have ideas they never have time to act on. Same-day turnaround, custom tools, and a direct line to Boyd every week.
             </p>
             <p className="p" style={{ marginBottom: 20 }}>
-              Every blog post is a new page Google can index, a new search term you can rank for. Autopilot includes 1 post a month to get started. Momentum gives you 4 — that's 48 indexed pages a year compounding in your favor while you're out on jobs, before a competitor's ad ever shows up.
+              Every blog post is a new page Google can index, a new search term you can rank for. Autopilot includes 1 post a month to get started. Momentum gives you 4, that's 48 indexed pages a year compounding in your favor while you're out on jobs, before a competitor's ad ever shows up.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
               {MOMENTUM_EXTRAS.map((item) => (
@@ -277,7 +277,7 @@ export default function HowItWorks() {
 
       <CTA
         title="Ready to see it in action?"
-        subtitle="Book a free 15-minute audit. We'll look at your current online presence and tell you exactly what to fix — whether you hire us or not."
+        subtitle="Book a free 15-minute audit. We'll look at your current online presence and tell you exactly what to fix, whether you hire us or not."
       />
     </div>
   );

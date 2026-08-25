@@ -24,8 +24,8 @@ const coFounded = [
     preview: "/portfolio/bastionmsp-preview.webp",
     category: "Co-Founded · Cybersecurity · MSSP",
     name: "BastionMSP",
-    role: "Co-Founded — Built marketing site, client portal & product",
-    hook: "Built a managed security service provider from scratch — brand identity, marketing site, and client security portal.",
+    role: "Co-Founded: Built marketing site, client portal & product",
+    hook: "Built a managed security service provider from scratch: brand identity, marketing site, and client security portal.",
     tags: ["Brand Identity", "Marketing Site", "Client Portal", "Enterprise Security"],
     tech: "Next.js · TypeScript · Tailwind CSS",
     links: [{ label: "Visit Site", href: "https://www.bastionmsp.com" }],
@@ -55,8 +55,8 @@ const clientWork = [
     preview: "/portfolio/psw-preview.webp",
     category: "Stone Fabrication · Treasure Valley",
     name: "Phoenix Stoneworks",
-    hook: "AI photo estimate, quote calculator, and wholesale portal — built for a custom fabrication shop.",
-    tags: ["AI Photo Estimate", "Quote Calculator", "Wholesale Portal", "Account System", "AI Receptionist"],
+    hook: "AI photo estimate, quote calculator, and wholesale portal, built for a custom fabrication shop.",
+    tags: ["AI Photo Estimate", "Quote Calculator", "Wholesale Portal", "Account System", "Digital Receptionist"],
     tech: "React · Vite · Claude AI · Supabase · Vercel",
     links: [{ label: "Visit Site", href: "https://pswboise.com/" }],
   },
@@ -91,10 +91,10 @@ export default function Portfolio() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Portfolio — RubyxQube | Web Design for Trade Businesses</title>
-        <meta name="description" content="Web design and AI receptionists built for Treasure Valley trade businesses — HVAC, cleaning, stone fabrication, and more. Real sites, built from scratch." />
-        <meta property="og:title" content="Portfolio — RubyxQube | Web Design for Trade Businesses" />
-        <meta property="og:description" content="Web design and AI receptionists built for Treasure Valley trade businesses — HVAC, cleaning, stone fabrication, and more. Real sites, built from scratch." />
+        <title>Portfolio. RubyxQube | Web Design for Trade Businesses</title>
+        <meta name="description" content="Web design and digital receptionists built for Treasure Valley trade businesses: HVAC, cleaning, stone fabrication, and more. Real sites, built from scratch." />
+        <meta property="og:title" content="Portfolio. RubyxQube | Web Design for Trade Businesses" />
+        <meta property="og:description" content="Web design and digital receptionists built for Treasure Valley trade businesses: HVAC, cleaning, stone fabrication, and more. Real sites, built from scratch." />
         <meta property="og:image" content="https://rubyxqube.com/portfolio/psw-preview.webp" />
         <meta property="og:url" content="https://rubyxqube.com/portfolio" />
         <link rel="canonical" href="https://rubyxqube.com/portfolio" />
@@ -119,7 +119,7 @@ export default function Portfolio() {
           <span className="badge">Industries we serve</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>We build for the trades.</h2>
           <p className="p" style={{ maxWidth: 480, marginBottom: 28 }}>
-            Local service businesses are our specialty — we know how you get leads, how customers find you, and what your site actually needs to do.
+            Local service businesses are our specialty: we know how you get leads, how customers find you, and what your site actually needs to do.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
             {INDUSTRIES.map(({ name, built }) => (
@@ -190,7 +190,7 @@ export default function Portfolio() {
               </p>
               <h2 className="h2" style={{ marginBottom: 8 }}>Want a site like this?</h2>
               <p className="p" style={{ marginBottom: 0 }}>
-                I'll build you a clean, fast site that actually brings in leads — and an AI receptionist that never goes offline.
+                I'll build you a clean, fast site that actually brings in leads, and a digital receptionist that never goes offline.
               </p>
             </div>
             <div className="btnRow" style={{ flexShrink: 0 }}>

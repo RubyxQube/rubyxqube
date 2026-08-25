@@ -1,5 +1,5 @@
 /**
- * chatConfig.js — RubyxQube AI Receptionist Configuration
+ * chatConfig.js — RubyxQube Digital Receptionist Configuration
  *
  * This is the single file to customize per client deployment.
  * For a new client, copy this file, update every field, and point
@@ -9,11 +9,11 @@
 export const chatConfig = {
   // ── Displayed in the chat widget header ───────────────────────────────────
   businessName: "RubyxQube",
-  tagline: "AI receptionist · online",
+  tagline: "Digital receptionist · online",
 
   // ── Opening message ────────────────────────────────────────────────────────
   greeting:
-    "Hey! I'm the RubyxQube AI assistant — built on Claude. I can answer questions about our services and pricing, or help you figure out what your business actually needs. What's up?",
+    "Hey! I'm the RubyxQube AI assistant, built on Claude. I can answer questions about our services and pricing, or help you figure out what your business actually needs. What's up?",
 
   // ── Model ─────────────────────────────────────────────────────────────────
   // "claude-haiku-4-5-20251001"  — fast, cheap, great for FAQ + lead capture

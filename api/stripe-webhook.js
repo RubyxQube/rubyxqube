@@ -208,6 +208,21 @@ export default async function handler(req, res) {
       const amount = (data.amount_paid / 100).toLocaleString("en-US", { style: "currency", currency: "USD" });
       const customerEmail = data.customer_email || "unknown";
       const period = data.lines?.data?.[0]?.description || "";
+
+      // A paid invoice puts the client back to active, and this was missing.
+      //
+      // invoice.payment_failed set "paused" but nothing ever set it back, so a
+      // single failed charge marked a client paused permanently, even after
+      // they paid. Phoenix Stoneworks has shown PAUSED in the admin table
+      // since 2026-08-11 while paying $999/mo throughout, which is what
+      // surfaced this. A transient card decline or a voided duplicate
+      // subscription was enough to trigger it.
+      //
+      // Worth knowing this is the only event that recovers the status: Stripe
+      // does not resend a subscription.created for an existing subscription,
+      // so without this line there was no path back to active at all.
+      syncClientStatus(data.customer, "active").catch(() => {});
+
       await notify({
         title: `Payment Received — ${amount}`,
         body: `Customer: ${customerEmail}\nAmount: ${amount}\nPeriod: ${period}\nInvoice: ${data.number || data.id}`,

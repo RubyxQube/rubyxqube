@@ -6,11 +6,11 @@ import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
 
 const FAQ = [
-  { q: "Can the AI receptionist handle emergency after-hours calls?", a: "It handles web visitors — not phone calls. But it can greet website visitors at any hour, capture their info and urgency, and text you immediately. For true phone emergency dispatch, you'd pair it with an answering service for calls." },
-  { q: "Does the AI know HVAC terminology?", a: "We train it specifically on your services — heat pump vs. furnace vs. AC, your service area, your pricing structure, and your seasonal offers. It knows what you do before the first customer visits." },
+  { q: "Can the digital receptionist handle emergency after-hours calls?", a: "It handles web visitors, not phone calls. But it can greet website visitors at any hour, capture their info and urgency, and text you immediately. For true phone emergency dispatch, you'd pair it with an answering service for calls." },
+  { q: "Does the receptionist know HVAC terminology?", a: "We train it specifically on your services, heat pump vs. furnace vs. AC, your service area, your pricing structure, and your seasonal offers. It knows what you do before the first customer visits." },
   { q: "What HVAC-specific features can you build?", a: "Seasonal promotion banners that change automatically, service request forms with equipment fields, maintenance plan landing pages, and emergency contact CTAs. We can also build financing calculator pages if you offer payment plans." },
-  { q: "How fast can you get an HVAC site live?", a: "Most Autopilot sites go live within 1–2 weeks of the kickoff call. If your peak season is approaching, say so — we'll prioritize the build." },
-  { q: "Do you handle Google Business Profile for HVAC?", a: "Yes — that's included in the Momentum plan. GBP is one of the most impactful channels for 'HVAC near me' searches and emergency service queries. We manage it monthly." },
+  { q: "How fast can you get an HVAC site live?", a: "Most Autopilot sites go live within 1–2 weeks of the kickoff call. If your peak season is approaching, say so, we'll prioritize the build." },
+  { q: "Do you handle Google Business Profile for HVAC?", a: "Yes, that's included in the Momentum plan. GBP is one of the most impactful channels for 'HVAC near me' searches and emergency service queries. We manage it monthly." },
 ];
 
 export default function HvacWebDesign() {
@@ -19,10 +19,10 @@ export default function HvacWebDesign() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>HVAC Web Design — Boise, Idaho | RubyxQube</title>
-        <meta name="description" content="Custom websites for HVAC companies in Boise and the Treasure Valley. AI lead capture, 24/7 after-hours coverage, local SEO. Starting at $499/mo, no setup fee." />
-        <meta property="og:title" content="HVAC Web Design Boise Idaho — RubyxQube" />
-        <meta property="og:description" content="Custom websites with AI lead capture for HVAC companies in the Treasure Valley. No setup fee, no contract." />
+        <title>HVAC Web Design. Boise, Idaho | RubyxQube</title>
+        <meta name="description" content="Custom websites for HVAC companies in Boise and the Treasure Valley. smart lead capture, 24/7 after-hours coverage, local SEO. Starting at $499/mo, no setup fee." />
+        <meta property="og:title" content="HVAC Web Design Boise Idaho. RubyxQube" />
+        <meta property="og:description" content="Custom websites with smart lead capture for HVAC companies in the Treasure Valley. No setup fee, no contract." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/web-design-hvac" />
         <link rel="canonical" href={`${siteConfig.siteUrl}/web-design-hvac`} />
@@ -31,13 +31,13 @@ export default function HvacWebDesign() {
 
       <section className="surface heroSurface">
         <div className="heroSection">
-          <span className="badge" style={{ marginBottom: 20 }}>HVAC Web Design — Treasure Valley</span>
+          <span className="badge" style={{ marginBottom: 20 }}>HVAC Web Design. Treasure Valley</span>
           <h1 className="h1 heroTitle">
             HVAC websites that capture leads<br />
             <span className="accentText">when your office is closed.</span>
           </h1>
           <p className="p" style={{ fontSize: 17, maxWidth: 560, marginBottom: 32 }}>
-            Heat waves and furnace failures don't happen at 10am. Most HVAC leads in Boise search after hours — and most HVAC companies have no way to capture them. We fix that with a custom site and 24/7 AI receptionist.
+            Heat waves and furnace failures don't happen at 10am. Most HVAC leads in Boise search after hours, and most HVAC companies have no way to capture them. We fix that with a custom site and 24/7 digital receptionist.
           </p>
           <div className="btnRow">
             <Link className="btn primary" to="/contact">Get a Free Audit</Link>
@@ -47,7 +47,7 @@ export default function HvacWebDesign() {
           <div className="grid cols-4">
             <div className="kpi"><strong>1–2 week launch</strong><span>From kickoff call to live site</span></div>
             <div className="kpi"><strong>No setup fee</strong><span>Month-to-month, cancel anytime</span></div>
-            <div className="kpi"><strong>24/7 AI coverage</strong><span>Leads captured nights and weekends</span></div>
+            <div className="kpi"><strong>24/7 coverage</strong><span>Leads captured nights and weekends</span></div>
             <div className="kpi"><strong>Emergency-ready</strong><span>After-hours lead capture built in</span></div>
           </div>
         </div>
@@ -59,13 +59,13 @@ export default function HvacWebDesign() {
             <div>
               <span className="badge">The HVAC lead problem</span>
               <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>The busiest search moments for HVAC happen exactly when you can't answer.</h2>
-              <p className="p">Boise summers hit 105+. Winters drop below 15. When a home's AC or furnace fails, the owner searches immediately — not the next morning. They open the first few Google results, and they call or message whoever responds first.</p>
-              <p className="p" style={{ marginBottom: 0 }}>If your site doesn't have 24/7 lead capture, those searches are silently going to competitors. An AI receptionist changes that — it greets every visitor, captures their info, and texts you the moment they're ready to book.</p>
+              <p className="p">Boise summers hit 105+. Winters drop below 15. When a home's AC or furnace fails, the owner searches immediately, not the next morning. They open the first few Google results, and they call or message whoever responds first.</p>
+              <p className="p" style={{ marginBottom: 0 }}>If your site doesn't have 24/7 lead capture, those searches are silently going to competitors. A digital receptionist changes that: it greets every visitor, captures their info, and texts you the moment they're ready to book.</p>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               {[
                 "Most HVAC searches happen evenings and weekends during peak demand",
-                "Customers rarely wait — they call the first company that responds",
+                "Customers rarely wait, they call the first company that responds",
                 "After-hours lead capture converts at higher rates than morning callbacks",
                 "Emergency service calls are your highest-margin jobs",
                 "Local SEO for 'HVAC near me' is winnable with the right setup",
@@ -86,9 +86,9 @@ export default function HvacWebDesign() {
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 40 }}>Everything your site needs to capture and convert Boise HVAC leads.</h2>
           <div className="grid cols-2" style={{ gap: 24 }}>
             {[
-              { num: "01", icon: <Clock size={22} color="var(--accent)" strokeWidth={1.75} />, title: "After-hours AI receptionist", body: "Trained on your services, service area, and pricing. Captures leads 24/7, fires an SMS to you the moment someone's ready to book. Handles emergency triage naturally — 'We can't get to you tonight, but you're first on the list for tomorrow morning.'" },
+              { num: "01", icon: <Clock size={22} color="var(--accent)" strokeWidth={1.75} />, title: "After-hours digital receptionist", body: "Trained on your services, service area, and pricing. Captures leads 24/7, fires an SMS to you the moment someone's ready to book. Handles emergency triage naturally: 'We can't get to you tonight, but you're first on the list for tomorrow morning.'" },
               { num: "02", icon: <MessageCircle size={22} color="var(--accent)" strokeWidth={1.75} />, title: "HVAC-specific FAQ training", body: "Your AI knows the difference between a heat pump and a furnace, your seasonal service specials, financing options, and which zip codes you service. No generic answers." },
-              { num: "03", icon: <Smartphone size={22} color="var(--accent)" strokeWidth={1.75} />, title: "Mobile-first design", body: "Most HVAC emergency searches happen on a phone at an uncomfortable temperature. Your site loads fast and the contact CTA is visible within seconds — not buried under three scrolls." },
+              { num: "03", icon: <Smartphone size={22} color="var(--accent)" strokeWidth={1.75} />, title: "Mobile-first design", body: "Most HVAC emergency searches happen on a phone at an uncomfortable temperature. Your site loads fast and the contact CTA is visible within seconds, not buried under three scrolls." },
               { num: "04", icon: <CheckCircle2 size={22} color="var(--accent)" strokeWidth={1.75} />, title: "Local SEO for Treasure Valley", body: "Optimized for 'HVAC Boise', 'air conditioning repair Meridian', 'furnace replacement Nampa' and similar high-intent searches. Search Console setup included from day one." },
             ].map(({ num, icon, title, body }) => (
               <div key={title} className="card" style={{ display: "flex", gap: 18, alignItems: "flex-start" }}>
@@ -110,9 +110,9 @@ export default function HvacWebDesign() {
         <div className="section" style={{ paddingTop: 40, paddingBottom: 40 }}>
           <div className="card cardHighlight" style={{ display: "flex", flexWrap: "wrap", gap: 28, alignItems: "center", justifyContent: "space-between" }}>
             <div style={{ flex: "1 1 280px" }}>
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot — $499/mo, no setup fee</p>
-              <h3 className="h3" style={{ marginBottom: 10 }}>Custom HVAC site + AI receptionist + monthly reports. No contract.</h3>
-              <p className="p" style={{ marginBottom: 0 }}>Everything your HVAC company needs to compete online — built and maintained for you, month-to-month.</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot, $499/mo, no setup fee</p>
+              <h3 className="h3" style={{ marginBottom: 10 }}>Custom HVAC site + digital receptionist + monthly reports. No contract.</h3>
+              <p className="p" style={{ marginBottom: 0 }}>Everything your HVAC company needs to compete online, built and maintained for you, month-to-month.</p>
             </div>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", flexShrink: 0 }}>
               <Link className="btn primary" to="/contact">Get Started</Link>
@@ -140,7 +140,7 @@ export default function HvacWebDesign() {
         </div>
       </section>
 
-      <CTA title="Stop losing HVAC leads after hours." subtitle="Start with a free audit — we'll show you exactly what your site is missing and how much it might be costing you." />
+      <CTA title="Stop losing HVAC leads after hours." subtitle="Start with a free audit, we'll show you exactly what your site is missing and how much it might be costing you." />
     </div>
   );
 }

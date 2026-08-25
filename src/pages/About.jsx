@@ -15,7 +15,7 @@ const VALUES = [
   {
     icon: MessageSquare,
     title: "Direct communication",
-    desc: "You work with me directly — not an account manager.",
+    desc: "You work with me directly, not an account manager.",
   },
   {
     icon: DollarSign,
@@ -38,10 +38,10 @@ export default function About() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>About Boyd — RubyxQube | Treasure Valley Web Designer</title>
-        <meta name="description" content="Boyd Querubin builds websites, AI receptionists, and interactive 3D tools for small businesses in the Treasure Valley. Based in Nampa, Idaho." />
-        <meta property="og:title" content="About Boyd — RubyxQube | Treasure Valley Web Designer" />
-        <meta property="og:description" content="Boyd Querubin builds websites, AI receptionists, and interactive 3D tools for small businesses in the Treasure Valley. Based in Nampa, Idaho." />
+        <title>About Boyd. RubyxQube | Treasure Valley Web Designer</title>
+        <meta name="description" content="Boyd Querubin builds websites, AI-powered digital receptionists, and interactive 3D tools for small businesses in the Treasure Valley. Based in Nampa, Idaho." />
+        <meta property="og:title" content="About Boyd. RubyxQube | Treasure Valley Web Designer" />
+        <meta property="og:description" content="Boyd Querubin builds websites, AI-powered digital receptionists, and interactive 3D tools for small businesses in the Treasure Valley. Based in Nampa, Idaho." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/about" />
         <link rel="canonical" href="https://rubyxqube.com/about" />
@@ -55,7 +55,7 @@ export default function About() {
             Built by someone who <span className="accentText">gets it done.</span>
           </h1>
           <p className="p" style={{ maxWidth: 520, fontSize: 17 }}>
-            I build the software a {siteConfig.serviceArea} business actually needs. Sometimes that's a fast website and an AI receptionist. Sometimes it's a 3D tool your competitors can't copy. One person, direct, no agency markup.
+            I build the software a {siteConfig.serviceArea} business actually needs. Sometimes that's a fast website and a digital receptionist. Sometimes it's a 3D tool your competitors can't copy. One person, direct, no agency markup.
           </p>
         </div>
       </section>
@@ -68,7 +68,7 @@ export default function About() {
             <div className="photoWrap">
               <img
                 src={boydPhoto}
-                alt="Boyd Querubin — founder of RubyxQube"
+                alt="Boyd Querubin, founder of RubyxQube"
                 width={280}
                 height={280}
                 loading="lazy"
@@ -90,7 +90,7 @@ export default function About() {
               <span className="badge" style={{ marginBottom: 16, display: "inline-block" }}>Background</span>
               <h2 className="h2" style={{ marginBottom: 16 }}>More than a web designer.</h2>
               <p className="p">
-                With 8 years in marketing and a web development background, I built {siteConfig.brand} around one idea: a website should bring in customers, not just exist. Before this, I co-founded BastionMSP, a managed security provider where I handled the full brand, marketing site, and client portal from scratch. Phoenix Stoneworks (pswboise.com) is a live example: a full website, AI receptionist, and blog pipeline, all running under one Momentum plan.
+                With 8 years in marketing and a web development background, I built {siteConfig.brand} around one idea: a website should bring in customers, not just exist. Before this, I co-founded BastionMSP, a managed security provider where I handled the full brand, marketing site, and client portal from scratch. Phoenix Stoneworks (pswboise.com) is a live example: a full website, digital receptionist, and blog pipeline, all running under one Momentum plan.
               </p>
               <p className="p">
                 Not every fix looks like a website. Phoenix Stoneworks needed customers to see a countertop in their own kitchen before spending five figures on it, so I built that in 3D, in the browser. The skill behind it came from somewhere. In August 2026 I shipped Huff & Puff to Steam under RubyxQube Games, a 3v1 online multiplayer game I built and published myself. Real-time physics and netcode are a harder problem than any marketing site, and being able to solve them is exactly why I can build tools the shop down the road can't.
@@ -148,7 +148,7 @@ export default function About() {
 
             <div style={{ flex: "1 1 300px" }}>
               <span className="badge" style={{ marginBottom: 16, display: "inline-block" }}>Who I work with</span>
-              <h2 className="h2" style={{ marginBottom: 16 }}>Local service businesses that need leads — not just a website.</h2>
+              <h2 className="h2" style={{ marginBottom: 16 }}>Local service businesses that need leads, not just a website.</h2>
               <p className="p" style={{ marginBottom: 24 }}>
                 My clients are contractors, tradespeople, and service providers who are great at what they do but don't have time to manage a website. One person, direct communication, fast turnaround.
               </p>

@@ -42,10 +42,10 @@ export default function BlogPost() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>{title} — RubyxQube Blog</title>
+        <title>{title}. RubyxQube Blog</title>
         <meta name="description" content={description} />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={`${title} — RubyxQube`} />
+        <meta property="og:title" content={`${title}. RubyxQube`} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={coverImage ? `${siteConfig.siteUrl}${coverImage}` : `${siteConfig.siteUrl}/og-default.png`} />
         <meta property="og:url" content={`${siteConfig.siteUrl}/blog/${slug}`} />
@@ -154,7 +154,7 @@ export default function BlogPost() {
 
       <CTA
         title="Want this for your Boise business?"
-        subtitle="Start with a free audit. No commitment — just an honest look at what your site is doing (and not doing) for you."
+        subtitle="Start with a free audit. No commitment, just an honest look at what your site is doing (and not doing) for you."
       />
     </div>
   );

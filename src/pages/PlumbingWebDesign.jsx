@@ -6,11 +6,11 @@ import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
 
 const FAQ = [
-  { q: "Can the AI receptionist handle emergency plumbing inquiries?", a: "Yes. We configure it to handle emergency triage gracefully — 'We're capturing your info now and the owner will call you back as soon as possible.' It gets their name, contact, and situation, and fires you an SMS immediately." },
-  { q: "Does plumbing SEO work differently than other trades?", a: "Emergency plumbing searches ('plumber near me', 'burst pipe Boise') have high intent and high urgency — which means response speed is even more critical than in other categories. We build for fast ranking and even faster lead response." },
-  { q: "Can you build service-specific pages for drain cleaning, water heaters, etc.?", a: "Yes — dedicated pages for each major service (drain cleaning, water heater replacement, pipe repair, etc.) rank much better than a single 'services' page. We build them as part of the Autopilot plan." },
-  { q: "What about a 24/7 emergency line callout on the site?", a: "We build that in — a prominently placed emergency contact section with click-to-call on mobile, visible above the fold on the homepage." },
-  { q: "Do you handle Google Business Profile for plumbing companies?", a: "Yes — GBP management is included in Momentum. For emergency service trades, GBP is one of the highest-impact channels because 'plumber near me' searches pull heavily from the local map pack." },
+  { q: "Can the digital receptionist handle emergency plumbing inquiries?", a: "Yes. We configure it to handle emergency triage gracefully: 'We're capturing your info now and the owner will call you back as soon as possible.' It gets their name, contact, and situation, and fires you an SMS immediately." },
+  { q: "Does plumbing SEO work differently than other trades?", a: "Emergency plumbing searches ('plumber near me', 'burst pipe Boise') have high intent and high urgency, which means response speed is even more critical than in other categories. We build for fast ranking and even faster lead response." },
+  { q: "Can you build service-specific pages for drain cleaning, water heaters, etc.?", a: "Yes: dedicated pages for each major service (drain cleaning, water heater replacement, pipe repair, etc.) rank much better than a single 'services' page. We build them as part of the Autopilot plan." },
+  { q: "What about a 24/7 emergency line callout on the site?", a: "We build that in: a prominently placed emergency contact section with click-to-call on mobile, visible above the fold on the homepage." },
+  { q: "Do you handle Google Business Profile for plumbing companies?", a: "Yes. GBP management is included in Momentum. For emergency service trades, GBP is one of the highest-impact channels because 'plumber near me' searches pull heavily from the local map pack." },
 ];
 
 export default function PlumbingWebDesign() {
@@ -19,10 +19,10 @@ export default function PlumbingWebDesign() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Plumbing Web Design — Boise, Idaho | RubyxQube</title>
-        <meta name="description" content="Custom websites for plumbing companies in Boise and the Treasure Valley. Emergency lead capture, 24/7 AI receptionist, local SEO. Starting at $499/mo, no setup fee." />
-        <meta property="og:title" content="Plumbing Web Design Boise Idaho — RubyxQube" />
-        <meta property="og:description" content="Custom websites with 24/7 AI lead capture for Treasure Valley plumbing companies. No setup fee, no contract." />
+        <title>Plumbing Web Design. Boise, Idaho | RubyxQube</title>
+        <meta name="description" content="Custom websites for plumbing companies in Boise and the Treasure Valley. Emergency lead capture, 24/7 digital receptionist, local SEO. Starting at $499/mo, no setup fee." />
+        <meta property="og:title" content="Plumbing Web Design Boise Idaho. RubyxQube" />
+        <meta property="og:description" content="Custom websites with 24/7 smart lead capture for Treasure Valley plumbing companies. No setup fee, no contract." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/web-design-plumbing" />
         <link rel="canonical" href={`${siteConfig.siteUrl}/web-design-plumbing`} />
@@ -31,13 +31,13 @@ export default function PlumbingWebDesign() {
 
       <section className="surface heroSurface">
         <div className="heroSection">
-          <span className="badge" style={{ marginBottom: 20 }}>Plumbing Web Design — Treasure Valley</span>
+          <span className="badge" style={{ marginBottom: 20 }}>Plumbing Web Design. Treasure Valley</span>
           <h1 className="h1 heroTitle">
             Plumbing websites built for<br />
             <span className="accentText">emergencies that don't wait.</span>
           </h1>
           <p className="p" style={{ fontSize: 17, maxWidth: 560, marginBottom: 32 }}>
-            A burst pipe at midnight is your highest-margin job — if you capture it. We build custom plumbing websites with 24/7 AI lead capture that grabs emergency searches before your competitors do.
+            A burst pipe at midnight is your highest-margin job, if you capture it. We build custom plumbing websites with 24/7 smart lead capture that grabs emergency searches before your competitors do.
           </p>
           <div className="btnRow">
             <Link className="btn primary" to="/contact">Get a Free Audit</Link>
@@ -47,7 +47,7 @@ export default function PlumbingWebDesign() {
           <div className="grid cols-4">
             <div className="kpi"><strong>1–2 week launch</strong><span>From kickoff call to live site</span></div>
             <div className="kpi"><strong>No setup fee</strong><span>Month-to-month, cancel anytime</span></div>
-            <div className="kpi"><strong>24/7 AI coverage</strong><span>Leads captured nights and weekends</span></div>
+            <div className="kpi"><strong>24/7 coverage</strong><span>Leads captured nights and weekends</span></div>
             <div className="kpi"><strong>Emergency-ready</strong><span>Click-to-call CTA above the fold</span></div>
           </div>
         </div>
@@ -58,14 +58,14 @@ export default function PlumbingWebDesign() {
           <div className="grid cols-2" style={{ gap: 48, alignItems: "center" }}>
             <div>
               <span className="badge">The plumbing lead problem</span>
-              <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>Emergency plumbing searches happen at the worst possible times — for you.</h2>
-              <p className="p">A homeowner with a burst pipe or a backed-up drain isn't waiting until Monday. They search immediately, open the first few Google results, and contact whoever seems responsive. If your site loads slowly, doesn't have a clear emergency CTA, or can't capture them after hours — they're calling someone else.</p>
-              <p className="p" style={{ marginBottom: 0 }}>Emergency service calls are your highest-margin work. They're also the most time-sensitive leads. An AI receptionist that captures the visitor, gets their details, and texts you within seconds is the difference between landing the job and losing it.</p>
+              <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>Emergency plumbing searches happen at the worst possible times, for you.</h2>
+              <p className="p">A homeowner with a burst pipe or a backed-up drain isn't waiting until Monday. They search immediately, open the first few Google results, and contact whoever seems responsive. If your site loads slowly, doesn't have a clear emergency CTA, or can't capture them after hours, they're calling someone else.</p>
+              <p className="p" style={{ marginBottom: 0 }}>Emergency service calls are your highest-margin work. They're also the most time-sensitive leads. A digital receptionist that captures the visitor, gets their details, and texts you within seconds is the difference between landing the job and losing it.</p>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               {[
                 "Emergency plumbing is highest-urgency, highest-margin category",
-                "Customers search and contact within minutes — response speed matters most",
+                "Customers search and contact within minutes, response speed matters most",
                 "After-hours and weekend searches represent a large share of emergency leads",
                 "Local map pack dominates 'plumber near me' searches",
                 "Service-specific pages (drain cleaning, water heaters) rank better than generic pages",
@@ -86,7 +86,7 @@ export default function PlumbingWebDesign() {
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 40 }}>Fast sites, prominent CTAs, and 24/7 coverage for every lead.</h2>
           <div className="grid cols-2" style={{ gap: 24 }}>
             {[
-              { num: "01", icon: <Clock size={22} color="var(--accent)" strokeWidth={1.75} />, title: "24/7 emergency lead capture", body: "AI receptionist captures leads at any hour. Gets their name, contact, and the nature of the emergency — then texts you immediately. No lead falls through the cracks because you were asleep." },
+              { num: "01", icon: <Clock size={22} color="var(--accent)" strokeWidth={1.75} />, title: "24/7 emergency lead capture", body: "digital receptionist captures leads at any hour. Gets their name, contact, and the nature of the emergency, then texts you immediately. No lead falls through the cracks because you were asleep." },
               { num: "02", icon: <Zap size={22} color="var(--accent)" strokeWidth={1.75} />, title: "Emergency CTA above the fold", body: "Click-to-call phone number prominently placed on every page, especially on mobile. Emergency service contact is the first thing a panicking homeowner sees." },
               { num: "03", icon: <MessageCircle size={22} color="var(--accent)" strokeWidth={1.75} />, title: "Service-specific pages", body: "Dedicated pages for drain cleaning, water heater replacement, pipe repair, leak detection, and more. Each page targets specific search terms and converts better than a catch-all services page." },
               { num: "04", icon: <CheckCircle2 size={22} color="var(--accent)" strokeWidth={1.75} />, title: "Local search optimization", body: "Optimized for 'plumber Boise', 'emergency plumber Meridian', 'drain cleaning Nampa' and similar high-intent Treasure Valley searches. Search Console setup from day one." },
@@ -110,8 +110,8 @@ export default function PlumbingWebDesign() {
         <div className="section" style={{ paddingTop: 40, paddingBottom: 40 }}>
           <div className="card cardHighlight" style={{ display: "flex", flexWrap: "wrap", gap: 28, alignItems: "center", justifyContent: "space-between" }}>
             <div style={{ flex: "1 1 280px" }}>
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot — $499/mo, no setup fee</p>
-              <h3 className="h3" style={{ marginBottom: 10 }}>Custom plumbing site + AI receptionist + monthly reports. No contract.</h3>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot, $499/mo, no setup fee</p>
+              <h3 className="h3" style={{ marginBottom: 10 }}>Custom plumbing site + digital receptionist + monthly reports. No contract.</h3>
               <p className="p" style={{ marginBottom: 0 }}>Built for your business, ready for emergencies, managed month-to-month.</p>
             </div>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", flexShrink: 0 }}>
@@ -140,7 +140,7 @@ export default function PlumbingWebDesign() {
         </div>
       </section>
 
-      <CTA title="Stop missing emergency plumbing leads after hours." subtitle="Start with a free audit — we'll show you exactly what your current site is failing to capture." />
+      <CTA title="Stop missing emergency plumbing leads after hours." subtitle="Start with a free audit, we'll show you exactly what your current site is failing to capture." />
     </div>
   );
 }

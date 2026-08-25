@@ -179,7 +179,7 @@ function LeadBanner() {
         textAlign: "center",
       }}
     >
-      <Check size={13} strokeWidth={2.5} style={{ display: "inline", verticalAlign: "middle", marginRight: 5 }} />Info sent — someone from our team will be in touch soon
+      <Check size={13} strokeWidth={2.5} style={{ display: "inline", verticalAlign: "middle", marginRight: 5 }} />Info sent, someone from our team will be in touch soon
     </div>
   );
 }
@@ -258,7 +258,7 @@ export default function ChatWidget() {
         {
           role: "assistant",
           content:
-            `I'm having connection trouble. Please reach out directly — ${cfg.contactEmail} or call ${cfg.contactPhone}.`,
+            `I'm having connection trouble. Please reach out directly, ${cfg.contactEmail} or call ${cfg.contactPhone}.`,
           id: Date.now() + 1,
           error: true,
         },

@@ -17,13 +17,13 @@ function renderBold(text) {
 
 /* ── Animated chatbot demo ── */
 const DEMO = [
-  { from: "bot",  text: "Hey! I'm the AI receptionist for RubyxQube. How can I help you today?",                                                            delay: 600  },
+  { from: "bot",  text: "Hey! I'm the digital receptionist for RubyxQube. How can I help you today?",                                                            delay: 600  },
   { from: "user", text: "Do you guys have pricing info?",                                                                                                    delay: 2800 },
-  { from: "bot",  text: "Yes! **Autopilot** starts at $499/mo — no setup fee. Includes your custom site, AI receptionist, monthly reports, and updates.",   delay: 4100 },
+  { from: "bot", text: "Yes! **Autopilot** starts at $499/mo, no setup fee. Includes your custom site, digital receptionist, monthly reports, and updates.", delay: 4100 },
   { from: "user", text: "Nice. I run an HVAC company in Meridian.",                                                                                          delay: 6900 },
-  { from: "bot",  text: "Perfect fit — we build a lot of HVAC sites. Can I grab your name and a good number? I'll have Boyd reach out today.",               delay: 8400 },
+  { from: "bot", text: "Perfect fit, we build a lot of HVAC sites. Can I grab your name and a good number? I'll have Boyd reach out today.", delay: 8400 },
   { from: "user", text: "Mike Tanner, (208) 555-0194",                                                                                                       delay: 11000 },
-  { from: "lead", text: "Lead captured — Boyd notified by SMS",                                                                                              delay: 12500 },
+  { from: "lead", text: "Lead captured: Boyd notified by SMS", delay: 12500 },
 ];
 
 function ChatDemo() {
@@ -70,7 +70,7 @@ function ChatDemo() {
           <p style={{ color: "white", fontWeight: 700, fontSize: 14, margin: 0 }}>RubyxQube</p>
           <div style={{ display: "flex", alignItems: "center", gap: 5, marginTop: 2 }}>
             <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#22c55e", display: "inline-block", boxShadow: "0 0 6px #22c55e" }} />
-            <span style={{ fontSize: 11, color: "rgba(255,255,255,0.70)" }}>AI receptionist · online</span>
+            <span style={{ fontSize: 11, color: "rgba(255,255,255,0.70)" }}>Digital receptionist · online</span>
           </div>
         </div>
       </div>
@@ -124,10 +124,10 @@ export default function Home() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>RubyxQube — Web Design & AI Receptionists for Treasure Valley Businesses</title>
-        <meta name="description" content="Professional websites + AI chatbot receptionists for local service businesses in Boise, Nampa, Meridian, and the Treasure Valley. Starting at $499/mo." />
-        <meta property="og:title" content="RubyxQube — Web Design & AI Receptionists for Treasure Valley Businesses" />
-        <meta property="og:description" content="Professional websites + AI chatbot receptionists for local service businesses in Boise, Nampa, Meridian, and the Treasure Valley. Starting at $499/mo." />
+        <title>RubyxQube. Web Design & Digital Receptionists for Treasure Valley Businesses</title>
+        <meta name="description" content="Professional websites with AI-powered digital receptionists for local service businesses in Boise, Nampa, Meridian, and the Treasure Valley. Starting at $499/mo." />
+        <meta property="og:title" content="RubyxQube. Web Design & Digital Receptionists for Treasure Valley Businesses" />
+        <meta property="og:description" content="Professional websites with AI-powered digital receptionists for local service businesses in Boise, Nampa, Meridian, and the Treasure Valley. Starting at $499/mo." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/" />
         <link rel="canonical" href="https://rubyxqube.com/" />
@@ -152,14 +152,14 @@ export default function Home() {
             {/* Left — copy */}
             <div style={{ flex: "1 1 340px", maxWidth: 520 }}>
               <span className="badge" style={{ marginBottom: 20 }}>
-                Web Design + AI Receptionist · {siteConfig.serviceArea}
+                Web Design + Digital Receptionist · {siteConfig.serviceArea}
               </span>
               <h1 className="h1" style={{ marginBottom: 16 }}>
                 Stop losing leads<br />
                 <span className="accentText">while you're on a job.</span>
               </h1>
               <p className="p" style={{ fontSize: 17, marginBottom: 28 }}>
-                RubyxQube builds professional websites with a built-in AI receptionist — so leads get answered at 2am, on weekends, and while you're elbow-deep in a job.
+                RubyxQube builds professional websites with a built-in digital receptionist, so leads get answered at 2am, on weekends, and while you're elbow-deep in a job.
               </p>
               <div className="btnRow">
                 <Link className="btn primary" to="/contact">Get a Free Audit</Link>
@@ -167,7 +167,7 @@ export default function Home() {
               </div>
               <div style={{ marginTop: 36, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px 16px" }}>
                 {[
-                  { stat: "24/7",     label: "Lead capture — nights, weekends, holidays" },
+                  { stat: "24/7", label: "Lead capture: nights, weekends, holidays" },
                   { stat: "$0 setup", label: "No hidden costs, ever" },
                   { stat: "3–7 days", label: "From signed agreement to live site" },
                 ].map(k => (
@@ -181,7 +181,7 @@ export default function Home() {
 
             {/* Right — live demo */}
             <div style={{ flex: "1 1 300px", display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
-              <span className="badge">Live demo — try it</span>
+              <span className="badge">Live demo, try it</span>
               <ChatDemo />
             </div>
 
@@ -207,7 +207,7 @@ export default function Home() {
               </div>
               <div className="card" style={{ textAlign: "center", padding: "24px 16px", display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <Layers size={18} color="var(--accent)" style={{ marginBottom: 12, flexShrink: 0 }} />
-                <p className="p" style={{ fontSize: 13, marginTop: 0, marginBottom: 0, fontStyle: "italic" }}>"AI receptionist answers leads 24/7, blog posts go out every month, and the site looks great on every device. Exactly what we needed."</p>
+                <p className="p" style={{ fontSize: 13, marginTop: 0, marginBottom: 0, fontStyle: "italic" }}>"digital receptionist answers leads 24/7, blog posts go out every month, and the site looks great on every device. Exactly what we needed."</p>
                 <div style={{ marginTop: "auto", paddingTop: 16, width: "100%" }}>
                   <p style={{ fontWeight: 700, fontSize: 13, margin: "0 0 4px" }}>Phoenix Stoneworks</p>
                   <p style={{ fontSize: 11, color: "var(--muted)", margin: 0, letterSpacing: "0.04em" }}>Countertops · Momentum Client</p>
@@ -231,13 +231,13 @@ export default function Home() {
         <div className="section">
           <span className="badge" style={{ marginBottom: 12 }}>Our work</span>
           <h2 className="h2" style={{ marginBottom: 8 }}>Built for trades. Designed to convert.</h2>
-          <p className="p" style={{ maxWidth: 480, marginBottom: 32 }}>Every site is built from scratch — not a template. No two look the same.</p>
+          <p className="p" style={{ maxWidth: 480, marginBottom: 32 }}>Every site is built from scratch, not a template. No two look the same.</p>
           <div className="grid cols-2" style={{ gap: 16 }}>
             {WORK.map(s => (
               <div key={s.src} className="card" style={{ padding: 0, overflow: "hidden" }}>
                 <img
                   src={s.src}
-                  alt={`${s.name} — website built by RubyxQube`}
+                  alt={`${s.name}, website built by RubyxQube`}
                   loading="lazy"
                   style={{ width: "100%", display: "block", aspectRatio: "16/9", objectFit: "cover", objectPosition: "top" }}
                 />
@@ -267,7 +267,7 @@ export default function Home() {
             You're losing jobs to businesses that <span className="accentText">respond faster.</span>
           </h2>
           <p className="p" style={{ maxWidth: 560, marginBottom: 28 }}>
-            A customer searches at 9pm, finds your site, fills out a form — and you don't see it until morning. By then they've already called someone else. The businesses winning aren't better at their trade. They're just faster.
+            A customer searches at 9pm, finds your site, fills out a form, and you don't see it until morning. By then they've already called someone else. The businesses winning aren't better at their trade. They're just faster.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 10, maxWidth: 640, marginBottom: 32 }}>
             <div className="card" style={{ padding: "14px 18px", display: "flex", alignItems: "flex-start", gap: 12, borderLeft: "3px solid rgba(239,68,68,0.45)" }}>
@@ -281,7 +281,7 @@ export default function Home() {
               <CheckCircle2 size={16} color="rgba(34,197,94,0.85)" strokeWidth={2} style={{ flexShrink: 0, marginTop: 1 }} />
               <div>
                 <p style={{ fontWeight: 600, fontSize: 14, margin: "0 0 2px" }}>With AI</p>
-                <p className="p" style={{ margin: 0, fontSize: 13 }}>AI greets them instantly, captures their info. You get a text: "New lead — Sarah, HVAC repair, Meridian."</p>
+                <p className="p" style={{ margin: 0, fontSize: 13 }}>It greets them instantly and captures their info. You get a text: "New lead: Sarah, HVAC repair, Meridian."</p>
               </div>
             </div>
           </div>
@@ -329,7 +329,7 @@ export default function Home() {
                   "Site goes live. Boyd is still on your team.",
                   "Need a change? Text Boyd. Done same day, already included.",
                   "Site goes down? Uptime monitoring catches it before your customers do.",
-                  "Lead comes in at 9pm. AI greets them, captures their info, texts you instantly.",
+                  "Lead comes in at 9pm. It greets them, captures their info, texts you instantly.",
                   "Monthly report lands in your inbox. Plus your own portal to update services, FAQs, and chatbot greeting whenever you want.",
                 ].map((text) => (
                   <div key={text} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
@@ -354,7 +354,7 @@ export default function Home() {
             {[
               { number: "01", title: "Free 15-min audit", desc: "We look at your online presence and tell you exactly what's costing you leads. No pitch, just honest feedback." },
               { number: "02", title: "We build your site", desc: "After a short intake form, your site is live in 3–7 days. You review it, we refine it. Not happy with the first draft? You don't owe us anything." },
-              { number: "03", title: "Leads start coming in", desc: "Your AI receptionist goes live — answering questions, capturing leads, and texting you instantly. 24/7." },
+              { number: "03", title: "Leads start coming in", desc: "Your digital receptionist goes live: answering questions, capturing leads, and texting you instantly. 24/7." },
             ].map((step) => (
               <div key={step.number} className="card" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 <div style={{ width: 44, height: 44, borderRadius: "50%", background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 800, color: "var(--accent)", flexShrink: 0 }}>
@@ -382,8 +382,8 @@ export default function Home() {
           <div className="card cardHighlight" style={{ display: "flex", flexWrap: "wrap", gap: 28, alignItems: "center", justifyContent: "space-between" }}>
             <div style={{ flex: "1 1 240px" }}>
               <span className="badge" style={{ marginBottom: 14 }}>Not sure what you want?</span>
-              <h3 className="h3" style={{ marginBottom: 10 }}>Pick your style — see it before you commit.</h3>
-              <p className="p" style={{ marginBottom: 0 }}>Browse 12 design directions and 12 color palettes. Lock in your aesthetic and we'll send you a free preview mockup — no obligation.</p>
+              <h3 className="h3" style={{ marginBottom: 10 }}>Pick your style, see it before you commit.</h3>
+              <p className="p" style={{ marginBottom: 0 }}>Browse 12 design directions and 12 color palettes. Lock in your aesthetic and we'll send you a free preview mockup, no obligation.</p>
             </div>
             <Link className="btn primary" to="/designs" style={{ flexShrink: 0, display: "flex", alignItems: "center", gap: 8 }}>
               <Palette size={16} />
@@ -398,10 +398,10 @@ export default function Home() {
         <div className="section">
           <span className="badge">Pricing</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>Simple, honest pricing.</h2>
-          <p className="p" style={{ maxWidth: 480, marginBottom: 36 }}>No hidden fees. No hourly billing. Both plans start with a custom-built site and an AI receptionist.</p>
+          <p className="p" style={{ maxWidth: 480, marginBottom: 36 }}>No hidden fees. No hourly billing. Both plans start with a custom-built site and a digital receptionist.</p>
           <div className="grid cols-2" style={{ gap: 16, alignItems: "stretch", maxWidth: 720 }}>
             {[
-              { name: "Autopilot", price: "$499",   billing: "/mo",      tagline: "Unlimited pages, AI receptionist, 4 blog posts/mo, and monthly care. No setup fee.", highlight: true },
+              { name: "Autopilot", price: "$499",   billing: "/mo",      tagline: "Unlimited pages, digital receptionist, 4 blog posts/mo, and monthly care. No setup fee.", highlight: true },
               { name: "Momentum",  price: "$999",   billing: "/mo",      tagline: "A developer on your team: custom tools, same-day prototypes, weekly strategy call." },
             ].map(p => (
               <div key={p.name} className={`card${p.highlight ? " cardHighlight" : ""}`} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -425,7 +425,7 @@ export default function Home() {
       </section>
 
       <CTA
-        title="Start with a free audit — no commitment."
+        title="Start with a free audit, no commitment."
         subtitle="Send me your current site (or tell me you don't have one) and I'll tell you exactly what's costing you leads and how to fix it."
       />
     </div>

@@ -6,11 +6,11 @@ import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
 
 const FAQ = [
-  { q: "Do you work with businesses in Eagle?", a: "Yes — Eagle is a strong market for the type of sites we build. Higher household income means clients invest more in their service providers, and a well-designed site with AI lead capture makes a bigger impression." },
-  { q: "Do you build dental or medical websites in Eagle?", a: "Yes. Professional service businesses — dental practices, medical offices, financial advisors, law firms — often need appointment booking integrations, FAQ content, and a polished design that builds trust. We've built for that category." },
+  { q: "Do you work with businesses in Eagle?", a: "Yes. Eagle is a strong market for the type of sites we build. Higher household income means clients invest more in their service providers, and a well-designed site with smart lead capture makes a bigger impression." },
+  { q: "Do you build dental or medical websites in Eagle?", a: "Yes. Professional service businesses: dental practices, medical offices, financial advisors, law firms: often need appointment booking integrations, FAQ content, and a polished design that builds trust. We've built for that category." },
   { q: "What industries do you serve in Eagle?", a: "High-end home services (landscaping, fencing, custom construction), dental and medical practices, professional services, real estate-adjacent businesses, and premium home goods and services." },
   { q: "Does Eagle have good SEO opportunity?", a: "Yes. Eagle-specific searches like 'landscaping Eagle Idaho' or 'dentist in Eagle ID' have real search volume with manageable competition. A properly built and maintained site can rank well relatively quickly." },
-  { q: "Do premium clients in Eagle expect a higher-quality design?", a: "They do. We don't use templates — every site is custom-built. For Eagle clients especially, we default to a cleaner, more refined aesthetic that matches the premium positioning of their business." },
+  { q: "Do premium clients in Eagle expect a higher-quality design?", a: "They do. We don't use templates, every site is custom-built. For Eagle clients especially, we default to a cleaner, more refined aesthetic that matches the premium positioning of their business." },
 ];
 
 export default function Eagle() {
@@ -20,9 +20,9 @@ export default function Eagle() {
     <div className="pageMinHeight">
       <Helmet>
         <title>Web Design for Eagle, Idaho Businesses | RubyxQube</title>
-        <meta name="description" content="Custom websites and AI receptionists for Eagle, Idaho businesses. Premium web design for the Treasure Valley's most affluent suburb. Starting at $499/mo, no setup fee." />
-        <meta property="og:title" content="Web Design for Eagle, Idaho Businesses — RubyxQube" />
-        <meta property="og:description" content="Custom websites with AI lead capture for Eagle, ID businesses. Premium design, no setup fee, month-to-month." />
+        <meta name="description" content="Custom websites and digital receptionists for Eagle, Idaho businesses. Premium web design for the Treasure Valley's most affluent suburb. Starting at $499/mo, no setup fee." />
+        <meta property="og:title" content="Web Design for Eagle, Idaho Businesses. RubyxQube" />
+        <meta property="og:description" content="Custom websites with smart lead capture for Eagle, ID businesses. Premium design, no setup fee, month-to-month." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/web-design-eagle" />
         <link rel="canonical" href={`${siteConfig.siteUrl}/web-design-eagle`} />
@@ -37,7 +37,7 @@ export default function Eagle() {
             <span className="accentText">Eagle Small Businesses.</span>
           </h1>
           <p className="p" style={{ fontSize: 17, maxWidth: 540, marginBottom: 32 }}>
-            Eagle's clients expect more — and your website should deliver it. We build custom, high-quality sites for Eagle service businesses and professional practices that want to convert high-intent searches into booked jobs.
+            Eagle's clients expect more, and your website should deliver it. We build custom, high-quality sites for Eagle service businesses and professional practices that want to convert high-intent searches into booked jobs.
           </p>
           <div className="btnRow">
             <Link className="btn primary" to="/contact">Get a Free Audit</Link>
@@ -47,8 +47,8 @@ export default function Eagle() {
           <div className="grid cols-4">
             <div className="kpi"><strong>1–2 week launch</strong><span>From kickoff call to live site</span></div>
             <div className="kpi"><strong>No setup fee</strong><span>Month-to-month, cancel anytime</span></div>
-            <div className="kpi"><strong>24/7 AI coverage</strong><span>Leads captured nights and weekends</span></div>
-            <div className="kpi"><strong>Premium design</strong><span>Custom-built — never templated</span></div>
+            <div className="kpi"><strong>24/7 coverage</strong><span>Leads captured nights and weekends</span></div>
+            <div className="kpi"><strong>Premium design</strong><span>Custom-built, never templated</span></div>
           </div>
         </div>
       </section>
@@ -59,15 +59,15 @@ export default function Eagle() {
             <div>
               <span className="badge">The Eagle market</span>
               <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>A higher-income market where design quality and trust signals matter more.</h2>
-              <p className="p">Eagle consistently ranks as one of Idaho's most affluent communities. Homeowners there are investing in premium landscaping, custom construction, dental care, and professional services — and they're doing their research before choosing a provider.</p>
-              <p className="p" style={{ marginBottom: 0 }}>A poorly designed website — slow, templated, or outdated — doesn't just lose to competitors in Eagle. It actively signals that you're not the caliber of provider they're looking for. A polished, fast, AI-equipped site says the opposite.</p>
+              <p className="p">Eagle consistently ranks as one of Idaho's most affluent communities. Homeowners there are investing in premium landscaping, custom construction, dental care, and professional services, and they're doing their research before choosing a provider.</p>
+              <p className="p" style={{ marginBottom: 0 }}>A poorly designed website: slow, templated, or outdated, doesn't just lose to competitors in Eagle. It actively signals that you're not the caliber of provider they're looking for. A polished, fast, AI-equipped site says the opposite.</p>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               {[
                 "One of Idaho's highest household income communities",
                 "Strong demand for premium home services, dental, and professional services",
                 "Clients research providers online before making contact",
-                "Custom design signals credibility — templates don't",
+                "Custom design signals credibility, templates don't",
                 "Manageable local SEO competition for Eagle-specific searches",
               ].map((item) => (
                 <div key={item} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
@@ -86,8 +86,8 @@ export default function Eagle() {
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 40 }}>Sites that convert Eagle's high-intent searchers into booked clients.</h2>
           <div className="grid cols-3">
             {[
-              { num: "01", title: "Premium custom design", body: "No templates. Every site is designed specifically for your business and positioned for the Eagle market — clean, fast, and credible." },
-              { num: "02", title: "AI receptionist, 24/7", body: "Captures leads at any hour. Eagle clients search and research at all hours — the AI handles questions, qualifies intent, and texts you instantly on every lead." },
+              { num: "01", title: "Premium custom design", body: "No templates. Every site is designed specifically for your business and positioned for the Eagle market: clean, fast, and credible." },
+              { num: "02", title: "digital receptionist, 24/7", body: "Captures leads at any hour. Eagle clients search and research at all hours: it handles questions, qualifies intent, and texts you instantly on every lead." },
               { num: "03", title: "Local SEO + reporting", body: "Optimized for Eagle and Ada County searches. Monthly performance report tells you exactly what's working without requiring you to log into anything." },
             ].map(({ num, title, body }) => (
               <div key={title} className="card" style={{ display: "flex", flexDirection: "column", gap: 14 }}>
@@ -106,8 +106,8 @@ export default function Eagle() {
         <div className="section" style={{ paddingTop: 40, paddingBottom: 40 }}>
           <div className="card cardHighlight" style={{ display: "flex", flexWrap: "wrap", gap: 28, alignItems: "center", justifyContent: "space-between" }}>
             <div style={{ flex: "1 1 280px" }}>
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot — $499/mo, no setup fee</p>
-              <h3 className="h3" style={{ marginBottom: 10 }}>Custom site + AI receptionist + monthly reports. No contract.</h3>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot, $499/mo, no setup fee</p>
+              <h3 className="h3" style={{ marginBottom: 10 }}>Custom site + digital receptionist + monthly reports. No contract.</h3>
               <p className="p" style={{ marginBottom: 0 }}>Start without a large upfront commitment. Cancel anytime with 30 days notice.</p>
             </div>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", flexShrink: 0 }}>
@@ -136,7 +136,7 @@ export default function Eagle() {
         </div>
       </section>
 
-      <CTA title="Ready to impress Eagle's clients online?" subtitle="Start with a free audit. We'll tell you what your current site is doing — and what it should be doing." />
+      <CTA title="Ready to impress Eagle's clients online?" subtitle="Start with a free audit. We'll tell you what your current site is doing, and what it should be doing." />
     </div>
   );
 }

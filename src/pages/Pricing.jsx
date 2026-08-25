@@ -14,7 +14,7 @@ export default function Pricing() {
       billing: "/mo",
       bullets: [
         "No setup fee. As many pages as your business needs, built and launched",
-        "Custom AI receptionist: unlimited conversations, instant SMS alert on every lead",
+        "Digital receptionist, AI trained on your business: unlimited conversations, instant SMS alert on every lead",
         "Unlimited edit requests, one active at a time",
         "4 blog posts a month, written and published for you",
         "Google Business Profile posts and review responses",
@@ -43,14 +43,14 @@ export default function Pricing() {
 
   const addons = [
     {
-      title: "AI Chatbot Only",
+      title: "Digital Receptionist Only",
       price: "$500 + $199/mo",
-      desc: "Already have a site? We retrofit your existing site with a custom-trained AI receptionist.",
+      desc: "Already have a site? We retrofit your existing site with a custom-trained digital receptionist.",
     },
     {
       title: "Domain Setup",
       price: "$75",
-      desc: "We register your domain, configure DNS, and connect everything — no tech headaches.",
+      desc: "We register your domain, configure DNS, and connect everything, no tech headaches.",
     },
     {
       title: "Business Email",
@@ -82,10 +82,10 @@ export default function Pricing() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Pricing — RubyxQube | Treasure Valley Web Design</title>
-        <meta name="description" content="Transparent pricing for Treasure Valley small businesses. Autopilot is $499/mo with no setup fee: unlimited pages, an AI receptionist, 4 blog posts a month, and monthly reports." />
-        <meta property="og:title" content="Pricing — RubyxQube | Treasure Valley Web Design" />
-        <meta property="og:description" content="Transparent pricing for Treasure Valley small businesses. Autopilot is $499/mo with no setup fee: unlimited pages, an AI receptionist, 4 blog posts a month, and monthly reports." />
+        <title>Pricing. RubyxQube | Treasure Valley Web Design</title>
+        <meta name="description" content="Transparent pricing for Treasure Valley small businesses. Autopilot is $499/mo with no setup fee: unlimited pages, a digital receptionist, 4 blog posts a month, and monthly reports." />
+        <meta property="og:title" content="Pricing. RubyxQube | Treasure Valley Web Design" />
+        <meta property="og:description" content="Transparent pricing for Treasure Valley small businesses. Autopilot is $499/mo with no setup fee: unlimited pages, a digital receptionist, 4 blog posts a month, and monthly reports." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/pricing" />
         <link rel="canonical" href="https://rubyxqube.com/pricing" />
@@ -99,7 +99,7 @@ export default function Pricing() {
             Simple pricing.<span className="mobileBreak" /> <span className="accentText">No surprises.</span>
           </h1>
           <p className="p" style={{ maxWidth: 540, fontSize: 17 }}>
-            Two plans, no hidden fees, no upsells. Both start with a professional website and an AI receptionist. The difference is how much gets built for you after that.
+            Two plans, no hidden fees, no upsells. Both start with a professional website and a digital receptionist. The difference is how much gets built for you after that.
           </p>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 18 }}>
             <ShieldCheck size={16} color="rgba(34,197,94,0.85)" />
@@ -145,7 +145,7 @@ export default function Pricing() {
               <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 20 }}>
                 {[
                   "Unlimited site updates, one request at a time",
-                  "Custom AI receptionist trained on your business",
+                  "Custom digital receptionist trained on your business",
                   "4 blog posts a month, written and published",
                   "Google Business Profile posts and review replies",
                   "Uptime monitoring built in",
@@ -215,7 +215,7 @@ export default function Pricing() {
 
       <CTA
         title="Not sure which package is right for you?"
-        subtitle="Send me your current site (or tell me you don't have one) and I'll recommend the right fit — no obligation."
+        subtitle="Send me your current site (or tell me you don't have one) and I'll recommend the right fit, no obligation."
       />
     </div>
   );

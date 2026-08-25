@@ -8,7 +8,7 @@ export default function PaymentSuccess() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Payment Confirmed — RubyxQube</title>
+        <title>Payment Confirmed. RubyxQube</title>
         <meta name="robots" content="noindex" />
       </Helmet>
 
@@ -41,7 +41,7 @@ export default function PaymentSuccess() {
             <h2 className="h2" style={{ marginTop: 0, marginBottom: 32 }}>To get started fast, have these ready.</h2>
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
               {[
-                { num: "01", title: "Logo files", body: "PNG or SVG in any size. If you only have a JPG that's fine too — we'll work with it." },
+                { num: "01", title: "Logo files", body: "PNG or SVG in any size. If you only have a JPG that's fine too, we'll work with it." },
                 { num: "02", title: "5–10 photos", body: "Photos of your work, your team, or your location. Phone photos are fine." },
                 { num: "03", title: "Services and pricing", body: "A list of what you offer and rough pricing. 'Contact for quote' is fine if rates vary." },
                 { num: "04", title: "Service area", body: "The cities or zip codes you serve. Be as specific as you want." },

@@ -22,7 +22,7 @@ const titles = (brand) => ({
   "/report": `Sample Monthly Report • ${brand}`,
   "/privacy": `Privacy • ${brand}`,
   "/terms": `Terms of Service • ${brand}`,
-  "/ai-receptionist": `AI Receptionist • ${brand}`,
+  "/ai-receptionist": `Digital Receptionist • ${brand}`,
   "/work/phoenix-stoneworks": `Phoenix Stoneworks Case Study • ${brand}`,
   "/blog": `Blog • ${brand}`,
   "/web-design-meridian": `Web Design Meridian, ID • ${brand}`,

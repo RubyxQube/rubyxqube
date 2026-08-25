@@ -7,8 +7,8 @@ import TestimonialCard from "../components/TestimonialCard.jsx";
 import { siteConfig } from "../siteConfig.js";
 
 const TECH_STACK = [
-  { label: "React + Vite", detail: "Frontend — fast, custom, no WordPress bloat" },
-  { label: "Claude API (Anthropic)", detail: "AI photo estimate + AI receptionist" },
+  { label: "React + Vite", detail: "Frontend: fast, custom, no WordPress bloat" },
+  { label: "Claude API (Anthropic)", detail: "AI photo estimate + digital receptionist" },
   { label: "Supabase", detail: "Database, authentication, wholesale portal" },
   { label: "Vercel", detail: "Hosting + serverless functions" },
 ];
@@ -17,31 +17,31 @@ const FEATURES = [
   {
     icon: <Camera size={26} color="var(--accent)" strokeWidth={1.75} />,
     title: "AI Photo Estimate Tool",
-    body: "Customers upload a photo of their space — a patio, fireplace, kitchen counters — and the AI analyzes it and generates a ballpark estimate in seconds. This was the first AI-powered stone estimate tool deployed for a Boise contractor. Customers get an answer at 11pm without waiting for a callback.",
+    body: "Customers upload a photo of their space: a patio, fireplace, kitchen counters, and the AI analyzes it and generates a ballpark estimate in seconds. This was the first AI-powered stone estimate tool deployed for a Boise contractor. Customers get an answer at 11pm without waiting for a callback.",
     tag: "First-of-kind in Boise",
   },
   {
     icon: <Calculator size={26} color="var(--accent)" strokeWidth={1.75} />,
     title: "Interactive Quote Calculator",
-    body: "A custom calculator that walks customers through their project type (patio, retaining wall, countertop, etc.), dimensions, and material preferences — then returns a real-time material + labor estimate with a CTA to request a formal quote. Dramatically reduces back-and-forth on discovery calls.",
+    body: "A custom calculator that walks customers through their project type (patio, retaining wall, countertop, etc.), dimensions, and material preferences, then returns a real-time material + labor estimate with a CTA to request a formal quote. Dramatically reduces back-and-forth on discovery calls.",
     tag: "Self-serve estimation",
   },
   {
     icon: <Users size={26} color="var(--accent)" strokeWidth={1.75} />,
     title: "Wholesale Contractor Portal",
-    body: "A password-protected portal for Phoenix Stoneworks' wholesale and contractor clients. Custom pricing tiers, project history, invoice access, and material ordering — a separate digital experience for their B2B customers without building a separate site.",
+    body: "A password-protected portal for Phoenix Stoneworks' wholesale and contractor clients. Custom pricing tiers, project history, invoice access, and material ordering, a separate digital experience for their B2B customers without building a separate site.",
     tag: "B2B + B2C in one platform",
   },
   {
     icon: <User size={26} color="var(--accent)" strokeWidth={1.75} />,
     title: "Client Account System",
-    body: "End customers can create accounts to track project progress, view estimates and invoices, and communicate with the team. Powered by Supabase auth — no third-party login required, no subscription fees.",
+    body: "End customers can create accounts to track project progress, view estimates and invoices, and communicate with the team. Powered by Supabase auth: no third-party login required, no subscription fees.",
     tag: "Supabase Auth",
   },
   {
     icon: <MessageCircle size={26} color="var(--accent)" strokeWidth={1.75} />,
-    title: "AI Receptionist",
-    body: "A Claude-powered chatbot trained on Phoenix Stoneworks' full service menu — stone types, project categories, service area, pricing ranges, and FAQs. Captures leads 24/7 and fires an instant SMS to the owner. By the time a customer calls, they've already been qualified.",
+    title: "Digital Receptionist",
+    body: "A Claude-powered chatbot trained on Phoenix Stoneworks' full service menu: stone types, project categories, service area, pricing ranges, and FAQs. Captures leads 24/7 and fires an instant SMS to the owner. By the time a customer calls, they've already been qualified.",
     tag: "24/7 lead capture",
   },
 ];
@@ -50,10 +50,10 @@ export default function PhoenixStoneworks() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Phoenix Stoneworks Case Study — RubyxQube | AI Web Platform for Boise Masonry</title>
-        <meta name="description" content="How RubyxQube built an AI-powered web platform for Phoenix Stoneworks — AI photo estimates, quote calculator, wholesale portal, and 24/7 AI receptionist." />
-        <meta property="og:title" content="Phoenix Stoneworks Case Study — RubyxQube" />
-        <meta property="og:description" content="Full AI-powered web platform for a Boise masonry company — AI photo estimate, quote calculator, wholesale portal, AI receptionist." />
+        <title>Phoenix Stoneworks Case Study. RubyxQube | AI Web Platform for Boise Masonry</title>
+        <meta name="description" content="How RubyxQube built an AI-powered web platform for Phoenix Stoneworks: AI photo estimates, quote calculator, wholesale portal, and 24/7 digital receptionist." />
+        <meta property="og:title" content="Phoenix Stoneworks Case Study. RubyxQube" />
+        <meta property="og:description" content="Full AI-powered web platform for a Boise masonry company: AI photo estimate, quote calculator, wholesale portal, digital receptionist." />
         <meta property="og:image" content="https://rubyxqube.com/portfolio/psw-preview.webp" />
         <meta property="og:url" content="https://rubyxqube.com/work/phoenix-stoneworks" />
         <link rel="canonical" href="https://rubyxqube.com/work/phoenix-stoneworks" />
@@ -82,7 +82,7 @@ export default function PhoenixStoneworks() {
           </div>
           <h1 className="h1 heroTitle">Phoenix Stoneworks</h1>
           <p className="p" style={{ fontSize: 18, maxWidth: 600, marginBottom: 32 }}>
-            A full AI-powered web platform for a Boise masonry and stone company — including the first AI photo estimate tool deployed for a Treasure Valley contractor.
+            A full AI-powered web platform for a Boise masonry and stone company, including the first AI photo estimate tool deployed for a Treasure Valley contractor.
           </p>
           <div className="btnRow">
             <a className="btn primary" href="https://pswboise.com" target="_blank" rel="noreferrer" style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -119,13 +119,13 @@ export default function PhoenixStoneworks() {
             <div>
               <span className="badge">The challenge</span>
               <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>
-                A growing company with no digital presence — and customers who needed answers before calling.
+                A growing company with no digital presence, and customers who needed answers before calling.
               </h2>
               <p className="p">
                 Phoenix Stoneworks was operating entirely through word-of-mouth and referrals. No website, no way for new customers to understand their services, no way to get an estimate without picking up the phone.
               </p>
               <p className="p" style={{ marginBottom: 0 }}>
-                What made this project unique: stone and masonry customers almost always want to visualize and estimate before committing. The goal wasn't just a web presence — it was a platform that let customers self-serve through discovery and get into the sales pipeline without waiting for a callback.
+                What made this project unique: stone and masonry customers almost always want to visualize and estimate before committing. The goal wasn't just a web presence, it was a platform that let customers self-serve through discovery and get into the sales pipeline without waiting for a callback.
               </p>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -151,7 +151,7 @@ export default function PhoenixStoneworks() {
         <div className="section">
           <span className="badge">What we built</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>
-            Five interconnected tools — one unified platform.
+            Five interconnected tools, one unified platform.
           </h2>
           <p className="p" style={{ maxWidth: 560, marginBottom: 40 }}>
             This wasn't a brochure site with a contact form. It was a complete digital platform designed to handle every customer interaction from discovery to estimate to account management.
@@ -179,7 +179,7 @@ export default function PhoenixStoneworks() {
       <section className="surface">
         <div className="section">
           <span className="badge">Tech stack</span>
-          <h2 className="h2" style={{ marginTop: 16, marginBottom: 32 }}>Built for speed and flexibility — no WordPress, no plugins.</h2>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 32 }}>Built for speed and flexibility, no WordPress, no plugins.</h2>
           <div className="grid cols-2" style={{ gap: 16 }}>
             {TECH_STACK.map(({ label, detail }) => (
               <div key={label} className="card" style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
@@ -203,8 +203,8 @@ export default function PhoenixStoneworks() {
           </h2>
           <div className="grid cols-3">
             {[
-              { title: "Self-serve estimation", body: "Customers can get a ballpark estimate at any hour — including nights and weekends when the owner is unavailable." },
-              { title: "Qualified leads on autopilot", body: "The AI receptionist captures name, contact, and project details before any human interaction. Every lead comes pre-qualified." },
+              { title: "Self-serve estimation", body: "Customers can get a ballpark estimate at any hour, including nights and weekends when the owner is unavailable." },
+              { title: "Qualified leads on autopilot", body: "The digital receptionist captures name, contact, and project details before any human interaction. Every lead comes pre-qualified." },
               { title: "B2B + B2C under one roof", body: "Wholesale contractors have their own portal with custom pricing. Retail customers have the public-facing site. One codebase, two experiences." },
             ].map(({ title, body }) => (
               <div key={title} className="card">
@@ -234,7 +234,7 @@ export default function PhoenixStoneworks() {
 
       <CTA
         title="Want something like this for your business?"
-        subtitle="Whether you need a simple AI receptionist or a full custom platform — start with a free audit and we'll tell you exactly what's possible."
+        subtitle="Whether you need a simple digital receptionist or a full custom platform, start with a free audit and we'll tell you exactly what's possible."
       />
     </div>
   );

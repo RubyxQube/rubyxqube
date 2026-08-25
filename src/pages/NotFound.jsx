@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <section className="surface section">
       <Helmet>
-        <title>Page Not Found — RubyxQube</title>
+        <title>Page Not Found. RubyxQube</title>
         <meta name="robots" content="noindex" />
       </Helmet>
       <h1 className="h1">Page not found</h1>

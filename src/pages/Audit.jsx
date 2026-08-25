@@ -20,7 +20,7 @@ const WHAT_YOU_GET = [
   {
     icon: ClipboardList,
     title: "Google Business Profile",
-    desc: "Missing info, no reviews, wrong hours — these cost you jobs. We'll flag everything.",
+    desc: "Missing info, no reviews, wrong hours, these cost you jobs. We'll flag everything.",
   },
   {
     icon: Bot,
@@ -30,7 +30,7 @@ const WHAT_YOU_GET = [
 ];
 
 const WHO_ITS_FOR = [
-  "You don't have a website yet — or yours looks outdated",
+  "You don't have a website yet, or yours looks outdated",
   "You're getting traffic but not enough calls or form fills",
   "You're not showing up on Google for your services",
   "You want an honest outside opinion before investing in marketing",
@@ -40,10 +40,10 @@ export default function Audit() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Free Website Audit — RubyxQube | Treasure Valley</title>
-        <meta name="description" content="Get a free website audit for your Treasure Valley business. We'll show you exactly what's holding your site back and how to fix it — no strings attached." />
-        <meta property="og:title" content="Free Website Audit — RubyxQube | Treasure Valley" />
-        <meta property="og:description" content="Get a free website audit for your Treasure Valley business. We'll show you exactly what's holding your site back and how to fix it — no strings attached." />
+        <title>Free Website Audit. RubyxQube | Treasure Valley</title>
+        <meta name="description" content="Get a free website audit for your Treasure Valley business. We'll show you exactly what's holding your site back and how to fix it, no strings attached." />
+        <meta property="og:title" content="Free Website Audit. RubyxQube | Treasure Valley" />
+        <meta property="og:description" content="Get a free website audit for your Treasure Valley business. We'll show you exactly what's holding your site back and how to fix it, no strings attached." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/audit" />
         <link rel="canonical" href="https://rubyxqube.com/audit" />
@@ -70,7 +70,7 @@ export default function Audit() {
           <div className="grid cols-3">
             <div className="kpi">
               <strong>15 Minutes</strong>
-              <span>Focused review — no fluff, no sales pitch</span>
+              <span>Focused review, no fluff, no sales pitch</span>
             </div>
             <div className="kpi">
               <strong>100% Free</strong>
@@ -90,7 +90,7 @@ export default function Audit() {
           <span className="badge">What's included</span>
           <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>What Boyd reviews in your audit</h2>
           <p className="p" style={{ maxWidth: 480, marginBottom: 40 }}>
-            Four areas that most local businesses get wrong — and fixing them is usually the difference between getting calls and getting skipped.
+            Four areas that most local businesses get wrong, and fixing them is usually the difference between getting calls and getting skipped.
           </p>
           <div className="grid cols-2" style={{ gap: 20 }}>
             {WHAT_YOU_GET.map((item) => (
@@ -126,7 +126,7 @@ export default function Audit() {
               <p style={{ fontSize: 12, fontWeight: 700, color: "var(--accent)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>
                 What happens after
               </p>
-              <h3 className="h3" style={{ marginBottom: 12 }}>You get a clear picture — then you decide.</h3>
+              <h3 className="h3" style={{ marginBottom: 12 }}>You get a clear picture, then you decide.</h3>
               <p className="p">
                 After the audit, Boyd will tell you what he found and what he'd recommend. If it makes sense to work together, great. If not, you still walk away with a real roadmap you can act on yourself.
               </p>

@@ -6,9 +6,9 @@ export default function Terms() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Terms of Service — RubyxQube | Web Design & AI Services</title>
+        <title>Terms of Service. RubyxQube | Web Design & AI Services</title>
         <meta name="description" content="RubyxQube's terms of service. Covers service agreements, payment terms, SMS notifications, and client responsibilities for web design and AI receptionist services." />
-        <meta property="og:title" content="Terms of Service — RubyxQube" />
+        <meta property="og:title" content="Terms of Service. RubyxQube" />
         <meta property="og:description" content="RubyxQube's terms of service for web design and AI receptionist services in the Treasure Valley." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/terms" />
@@ -33,7 +33,7 @@ export default function Terms() {
             <p className="p" style={{ marginBottom: 0 }}>
               These Terms of Service govern the relationship between {siteConfig.brand} LLC ("we", "us", "our") and
               businesses that engage us for web design, AI receptionist, and related digital services ("you", "client").
-              By signing a service agreement or making payment, you agree to these terms. We keep them plain — no legal jargon.
+              By signing a service agreement or making payment, you agree to these terms. We keep them plain, no legal jargon.
             </p>
           </div>
 
@@ -41,12 +41,12 @@ export default function Terms() {
             <h2 className="h2" style={{ marginBottom: 16 }}>1. Services</h2>
             <p className="p">We offer two service tiers for small businesses in the Treasure Valley and surrounding areas:</p>
             <ul className="list">
-              <li><strong style={{ color: "var(--text)" }}>Autopilot ($499/mo)</strong> — Website design, hosting and maintenance with no page limit, AI-powered chat receptionist, lead capture and SMS alert notifications, four AI-assisted blog posts per month, Google Business Profile management, and ongoing site updates.</li>
-              <li><strong style={{ color: "var(--text)" }}>Momentum ($999/mo)</strong> — Everything in Autopilot, plus custom software development, developer-on-call priority support, and a weekly strategy call.</li>
+              <li><strong style={{ color: "var(--text)" }}>Autopilot ($499/mo)</strong>: Website design, hosting and maintenance with no page limit, AI-powered chat receptionist, lead capture and SMS alert notifications, four AI-assisted blog posts per month, Google Business Profile management, and ongoing site updates.</li>
+              <li><strong style={{ color: "var(--text)" }}>Momentum ($999/mo)</strong>: Everything in Autopilot, plus custom software development, developer-on-call priority support, and a weekly strategy call.</li>
             </ul>
             <p className="p" style={{ marginBottom: 0 }}>
               Specific deliverables, timelines, and any custom scope are documented in your individual service agreement.
-              These Terms apply alongside that agreement — in the event of a conflict, the signed agreement controls.
+              These Terms apply alongside that agreement, in the event of a conflict, the signed agreement controls.
             </p>
           </div>
 
@@ -65,7 +65,7 @@ export default function Terms() {
 
             <h3 className="h3" style={{ marginBottom: 8 }}>Lead alert notifications (to you, the client)</h3>
             <p className="p">
-              Autopilot and Momentum clients receive SMS notifications when their AI chatbot captures a new lead — specifically
+              Autopilot and Momentum clients receive SMS notifications when their AI chatbot captures a new lead, specifically
               when a website visitor provides their name, phone number or email, and what they need. By signing up for
               Autopilot or Momentum and providing your phone number during onboarding, you consent to receive these
               lead alert SMS messages from {siteConfig.brand} via our SMS provider (SignalWire). You may opt out at any
@@ -81,7 +81,7 @@ export default function Terms() {
             <p className="p" style={{ marginBottom: 0 }}>
               Momentum clients may use our review request tool to send a one-time SMS to a customer asking them to leave
               a Google review. This message is sent only when you manually initiate it from your dashboard for a specific
-              customer. The customer's phone number must have been provided voluntarily by the customer — typically during
+              customer. The customer's phone number must have been provided voluntarily by the customer, typically during
               a chatbot conversation on your website where they asked about your services. The SMS message identifies your
               business by name and contains only your Google review link. {siteConfig.brand} sends this message on your
               behalf using our shared SMS number. You are responsible for ensuring you have a legitimate business
@@ -93,7 +93,7 @@ export default function Terms() {
             <h2 className="h2" style={{ marginBottom: 16 }}>4. Your Responsibilities</h2>
             <ul className="list" style={{ marginBottom: 0 }}>
               <li>Provide accurate business information during onboarding (hours, services, contact info, pricing).</li>
-              <li>Review and approve content — blog posts, GBP updates — before publication on Momentum.</li>
+              <li>Review and approve content, blog posts, GBP updates, before publication on Momentum.</li>
               <li>Keep your login credentials to the client portal secure. Do not share your password.</li>
               <li>Only use the review request tool to contact customers with whom you have a legitimate business relationship.</li>
               <li>Notify us promptly of any changes to your business that affect your website or chatbot (new services, changed hours, new phone number).</li>
@@ -103,14 +103,14 @@ export default function Terms() {
           <div className="card" style={{ marginBottom: 24 }}>
             <h2 className="h2" style={{ marginBottom: 16 }}>5. Intellectual Property</h2>
             <p className="p">
-              Upon receipt of final payment, you own the content and copy on your website — your business name, photos,
+              Upon receipt of final payment, you own the content and copy on your website: your business name, photos,
               service descriptions, and any copy you provided or approved.
             </p>
             <p className="p" style={{ marginBottom: 0 }}>
               {siteConfig.brand} retains ownership of the underlying code, templates, tooling, and platform
               infrastructure used to build and run your site. If you cancel services, we will provide a static export
               of your website files within 14 business days. The AI chatbot, CMS portal access, and hosting are
-              services — they do not transfer on cancellation.
+              services, they do not transfer on cancellation.
             </p>
           </div>
 
@@ -118,7 +118,7 @@ export default function Terms() {
             <h2 className="h2" style={{ marginBottom: 16 }}>6. AI Chatbot</h2>
             <p className="p">
               The AI receptionist is powered by third-party AI providers (Anthropic) and is trained on information you
-              provide during setup. It is designed to answer questions about your business and capture leads — it is
+              provide during setup. It is designed to answer questions about your business and capture leads, it is
               not a human and cannot make binding commitments on your behalf.
             </p>
             <p className="p" style={{ marginBottom: 0 }}>

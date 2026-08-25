@@ -694,8 +694,8 @@ label{
 ───────────────────────────────────────── */
 [data-theme="light"]{
   --bg: #F5F0EA;
-  --text: rgba(20,12,15,0.90);   /* ~13:1 on cream — clear */
-  --muted: rgba(20,12,15,0.65);  /* ~5.2:1 on cream — WCAG AA */
+  --text: rgba(20,12,15,0.90); /* ~13:1 on cream, clear */
+  --muted: rgba(20,12,15,0.65); /* ~5.2:1 on cream. WCAG AA */
   --line: rgba(20,12,15,0.10);
   --accent-dim: rgba(225,29,72,0.08);
   --accent-border: rgba(225,29,72,0.28);

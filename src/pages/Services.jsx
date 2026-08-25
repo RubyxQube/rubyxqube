@@ -6,10 +6,10 @@ import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
 
 const MONTHLY = [
-  "Plain-English monthly report — traffic, leads, chatbot activity",
+  "Plain-English monthly report: traffic, leads, chatbot activity",
   "Unlimited edit requests, one active at a time",
   "Google Analytics + Search Console monitored",
-  "AI receptionist stays trained as your business changes",
+  "digital receptionist stays trained as your business changes",
 ];
 
 const PLANS = [
@@ -17,7 +17,7 @@ const PLANS = [
     name: "Autopilot",
     price: "$499",
     billing: "/mo",
-    desc: "Unlimited pages, AI receptionist, 4 blog posts a month, and monthly care. No setup fee.",
+    desc: "Unlimited pages, digital receptionist, 4 blog posts a month, and monthly care. No setup fee.",
     highlight: true,
   },
   {
@@ -32,10 +32,10 @@ export default function Services() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Web Design Services — RubyxQube | Treasure Valley</title>
-        <meta name="description" content="Custom websites, AI receptionist chatbots, Google Business Profile management, and local SEO for Treasure Valley small businesses." />
-        <meta property="og:title" content="Web Design Services — RubyxQube | Treasure Valley" />
-        <meta property="og:description" content="Custom websites, AI receptionist chatbots, Google Business Profile management, and local SEO for Treasure Valley small businesses." />
+        <title>Web Design Services. RubyxQube | Treasure Valley</title>
+        <meta name="description" content="Custom websites, digital receptionist chatbots, Google Business Profile management, and local SEO for Treasure Valley small businesses." />
+        <meta property="og:title" content="Web Design Services. RubyxQube | Treasure Valley" />
+        <meta property="og:description" content="Custom websites, digital receptionist chatbots, Google Business Profile management, and local SEO for Treasure Valley small businesses." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/services" />
         <link rel="canonical" href="https://rubyxqube.com/services" />
@@ -47,10 +47,10 @@ export default function Services() {
           <span className="badge">What we do</span>
           <h1 className="h1" style={{ marginTop: 16, maxWidth: "20ch" }}>
             A website that works.<br />
-            <span className="accentText">An AI that never stops.</span>
+            <span className="accentText">A receptionist that never sleeps.</span>
           </h1>
           <p className="p" style={{ maxWidth: 520, fontSize: 17, marginBottom: 8 }}>
-            Custom websites and AI receptionists for {siteConfig.serviceArea} service businesses. Built to get you calls — not just look good.
+            Custom websites and digital receptionists for {siteConfig.serviceArea} service businesses. Built to get you calls, not just look good.
           </p>
           <p className="small" style={{ marginTop: 12 }}>
             The chat button in the bottom-right corner is the exact product. Try it.
@@ -94,7 +94,7 @@ export default function Services() {
               <a href="https://pswboise.com" target="_blank" rel="noreferrer">
                 <img
                   src="/portfolio/psw-preview.webp"
-                  alt="Phoenix Stoneworks website — built by RubyxQube"
+                  alt="Phoenix Stoneworks website, built by RubyxQube"
                   width={1280}
                   height={720}
                   loading="lazy"
@@ -104,17 +104,17 @@ export default function Services() {
             </div>
           </div>
 
-          {/* AI Receptionist */}
+          {/* Digital Receptionist */}
           <div className="card featureRow featureRowReverse" style={{ flexDirection: "row-reverse" }}>
             <div style={{ flex: "1 1 300px" }}>
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>AI Receptionist</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Digital Receptionist</p>
               <h3 className="h3" style={{ marginBottom: 12 }}>Trained on your business. Answering leads while you sleep.</h3>
               <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px", display: "flex", flexDirection: "column", gap: 10 }}>
                 {[
                   "Trained on your services, pricing, hours, and FAQs",
-                  "Captures name, phone, and what they need — 24/7",
+                  "Captures name, phone, and what they need, 24/7",
                   "Instant SMS + email alert the moment a lead comes in",
-                  "Unlimited conversations — no per-chat fees",
+                  "Unlimited conversations, no per-chat fees",
                 ].map(item => (
                   <li key={item} style={{ display: "flex", gap: 9, alignItems: "flex-start" }}>
                     <CheckCircle2 size={14} color="rgba(34,197,94,0.85)" style={{ flexShrink: 0, marginTop: 3 }} />
@@ -123,13 +123,13 @@ export default function Services() {
                 ))}
               </ul>
               <Link to="/how-it-works" style={{ fontSize: 14, color: "var(--accent)", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: 5 }}>
-                How the AI works <ArrowRight size={13} />
+                How it works <ArrowRight size={13} />
               </Link>
             </div>
             <div style={{ flex: "1 1 260px", display: "flex", justifyContent: "center" }}>
               <img
                 src="/portfolio/chatbot-preview.webp"
-                alt="RubyxQube AI receptionist chatbot widget"
+                alt="RubyxQube digital receptionist chatbot widget"
                 width={380}
                 height={800}
                 loading="lazy"
@@ -160,7 +160,7 @@ export default function Services() {
             <div style={{ flex: "1 1 260px", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <img
                 src="/portfolio/dashboard-preview.png"
-                alt="RubyxQube client portal — business info dashboard"
+                alt="RubyxQube client portal, business info dashboard"
                 style={{ width: "100%", maxWidth: 420, height: "auto", borderRadius: 10, boxShadow: "0 4px 24px rgba(0,0,0,0.12)", display: "block" }}
               />
             </div>
@@ -177,7 +177,7 @@ export default function Services() {
               <span className="badge">Every month</span>
               <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>Not a build-and-disappear agency.</h2>
               <p className="p" style={{ marginBottom: 24 }}>
-                On Autopilot and Momentum plans, we're in your corner every month — watching the numbers, making updates, and keeping the AI sharp.
+                On Autopilot and Momentum plans, we're in your corner every month: watching the numbers, making updates, and keeping the AI sharp.
               </p>
               <ul style={{ listStyle: "none", padding: 0, margin: "0 0 24px", display: "flex", flexDirection: "column", gap: 12 }}>
                 {MONTHLY.map(item => (

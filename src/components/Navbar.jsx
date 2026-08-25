@@ -11,7 +11,7 @@ const LINKS = [
     label: "Work",
     children: [
       { to: "/portfolio",       label: "Portfolio"         },
-      { to: "/ai-receptionist", label: "AI Receptionist"   },
+      { to: "/ai-receptionist", label: "Digital Receptionist"   },
       { to: "/designs",         label: "Pick Your Style"   },
       { to: "/blog",            label: "Blog"              },
     ],

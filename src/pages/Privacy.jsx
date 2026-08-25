@@ -6,9 +6,9 @@ export default function Privacy() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Privacy Policy — RubyxQube | Web Design & AI Services</title>
+        <title>Privacy Policy. RubyxQube | Web Design & AI Services</title>
         <meta name="description" content="RubyxQube's privacy policy. Learn how we collect, use, and protect your information when you use our web design and AI receptionist services." />
-        <meta property="og:title" content="Privacy Policy — RubyxQube" />
+        <meta property="og:title" content="Privacy Policy. RubyxQube" />
         <meta property="og:description" content="RubyxQube's privacy policy. Learn how we collect, use, and protect your information when you use our web design and AI receptionist services." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/privacy" />
@@ -32,7 +32,7 @@ export default function Privacy() {
             <p className="p" style={{ marginBottom: 0 }}>
               {siteConfig.brand} ("we", "us", "our") operates this website and provides web design and AI receptionist
               services to small businesses. This policy explains what information we collect, how we use it, and your rights.
-              We keep it plain — no legal jargon.
+              We keep it plain, no legal jargon.
             </p>
           </div>
 
@@ -49,13 +49,13 @@ export default function Privacy() {
             service or help you're looking for. This information is used to respond to your inquiry and qualify
             your request.</p>
             <p className="p">AI chat conversations are processed by third-party AI providers to generate responses.
-            These providers process your message content to produce a reply — they do not store or train on your
+            These providers process your message content to produce a reply, they do not store or train on your
             conversations for their own purposes under standard API terms.</p>
 
             <h3 className="h3" style={{ marginBottom: 8 }}>Analytics</h3>
             <p className="p" style={{ marginBottom: 0 }}>We use Google Analytics 4 to understand how visitors use
             this site (pages visited, time on site, general location, device type). This data is anonymous and
-            aggregated — we cannot identify you personally from it. You can opt out via Google's opt-out browser
+            aggregated, we cannot identify you personally from it. You can opt out via Google's opt-out browser
             add-on or by using a content blocker.</p>
           </div>
 
@@ -71,7 +71,7 @@ export default function Privacy() {
           </div>
 
           <div className="card" style={{ marginBottom: 24 }}>
-            <h2 className="h2" style={{ marginBottom: 16 }}>3. The AI Assistant — What You Should Know</h2>
+            <h2 className="h2" style={{ marginBottom: 16 }}>3. The AI Assistant. What You Should Know</h2>
             <p className="p">
               The chat assistant on this site is powered by AI and trained specifically on {siteConfig.brand}'s services,
               pricing, and service area. It is not a human. It is designed to answer common questions, help you figure
@@ -114,9 +114,9 @@ export default function Privacy() {
           <div className="card" style={{ marginBottom: 24 }}>
             <h2 className="h2" style={{ marginBottom: 16 }}>6. Third-Party Services</h2>
             <ul className="list" style={{ margin: 0 }}>
-              <li><strong style={{ color: "var(--text)" }}>Google Analytics 4</strong> — anonymous site usage data</li>
-              <li><strong style={{ color: "var(--text)" }}>AI providers</strong> — chat message processing to generate responses (no persistent storage of your data)</li>
-              <li><strong style={{ color: "var(--text)" }}>Vercel</strong> — website hosting (US-based)</li>
+              <li><strong style={{ color: "var(--text)" }}>Google Analytics 4</strong>, anonymous site usage data</li>
+              <li><strong style={{ color: "var(--text)" }}>AI providers</strong>, chat message processing to generate responses (no persistent storage of your data)</li>
+              <li><strong style={{ color: "var(--text)" }}>Vercel</strong>, website hosting (US-based)</li>
             </ul>
           </div>
 

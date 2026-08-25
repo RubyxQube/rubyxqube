@@ -6,11 +6,11 @@ import CTA from "../components/CTA.jsx";
 import { siteConfig } from "../siteConfig.js";
 
 const FAQ = [
-  { q: "Do you work with businesses in Meridian?", a: "Yes — Meridian is one of our most active service areas. Ada County makes up the majority of our client base and we're familiar with the local market." },
-  { q: "What Meridian businesses do you typically work with?", a: "HVAC, landscaping, dental offices, home cleaning, window cleaning, fencing, masonry, and other home service businesses. These are the types of companies that get the most value from 24/7 AI lead capture." },
-  { q: "How do you rank a site for Meridian-specific searches?", a: "We set every page up with city-specific meta tags, local business schema, and content targeting 'Meridian ID' + your service. For Momentum clients, we also manage your Google Business Profile — which is often the strongest local ranking signal." },
+  { q: "Do you work with businesses in Meridian?", a: "Yes. Meridian is one of our most active service areas. Ada County makes up the majority of our client base and we're familiar with the local market." },
+  { q: "What Meridian businesses do you typically work with?", a: "HVAC, landscaping, dental offices, home cleaning, window cleaning, fencing, masonry, and other home service businesses. These are the types of companies that get the most value from 24/7 smart lead capture." },
+  { q: "How do you rank a site for Meridian-specific searches?", a: "We set every page up with city-specific meta tags, local business schema, and content targeting 'Meridian ID' + your service. For Momentum clients, we also manage your Google Business Profile, which is often the strongest local ranking signal." },
   { q: "How long until my site shows up in Meridian search results?", a: "Google typically indexes new sites within 1–2 weeks. Ranking competitively for high-intent terms usually takes 2–4 months of consistent SEO performance." },
-  { q: "Do you work in-person or remote?", a: "Entirely remote. All projects are managed via video call, text, and email. There's no need to meet in person — and no limitation based on which Treasure Valley city you're in." },
+  { q: "Do you work in-person or remote?", a: "Entirely remote. All projects are managed via video call, text, and email. There's no need to meet in person, and no limitation based on which Treasure Valley city you're in." },
 ];
 
 export default function Meridian() {
@@ -20,9 +20,9 @@ export default function Meridian() {
     <div className="pageMinHeight">
       <Helmet>
         <title>Web Design for Meridian, Idaho Businesses | RubyxQube</title>
-        <meta name="description" content="Custom websites and AI receptionists for Meridian, Idaho small businesses. Idaho's fastest-growing city deserves a site that captures leads 24/7. Starting at $499/mo, no setup fee." />
-        <meta property="og:title" content="Web Design for Meridian, Idaho Businesses — RubyxQube" />
-        <meta property="og:description" content="Custom websites with AI lead capture for Meridian, ID service businesses. No setup fee, month-to-month." />
+        <meta name="description" content="Custom websites and digital receptionists for Meridian, Idaho small businesses. Idaho's fastest-growing city deserves a site that captures leads 24/7. Starting at $499/mo, no setup fee." />
+        <meta property="og:title" content="Web Design for Meridian, Idaho Businesses. RubyxQube" />
+        <meta property="og:description" content="Custom websites with smart lead capture for Meridian, ID service businesses. No setup fee, month-to-month." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/web-design-meridian" />
         <link rel="canonical" href={`${siteConfig.siteUrl}/web-design-meridian`} />
@@ -37,7 +37,7 @@ export default function Meridian() {
             <span className="accentText">Meridian Small Businesses.</span>
           </h1>
           <p className="p" style={{ fontSize: 17, maxWidth: 540, marginBottom: 32 }}>
-            Idaho's fastest-growing city is one of the most competitive markets for local service businesses. RubyxQube builds custom websites with built-in AI receptionists that capture leads 24/7 — so you stay ahead in a market that never stops growing.
+            Idaho's fastest-growing city is one of the most competitive markets for local service businesses. RubyxQube builds custom websites with built-in digital receptionists that capture leads 24/7, so you stay ahead in a market that never stops growing.
           </p>
           <div className="btnRow">
             <Link className="btn primary" to="/contact">Get a Free Audit</Link>
@@ -47,7 +47,7 @@ export default function Meridian() {
           <div className="grid cols-4">
             <div className="kpi"><strong>1–2 week launch</strong><span>From kickoff call to live site</span></div>
             <div className="kpi"><strong>No setup fee</strong><span>Month-to-month, cancel anytime</span></div>
-            <div className="kpi"><strong>24/7 AI coverage</strong><span>Leads captured nights and weekends</span></div>
+            <div className="kpi"><strong>24/7 coverage</strong><span>Leads captured nights and weekends</span></div>
             <div className="kpi"><strong>Local SEO built in</strong><span>Schema and Search Console from day one</span></div>
           </div>
         </div>
@@ -59,13 +59,13 @@ export default function Meridian() {
             <div>
               <span className="badge">The Meridian market</span>
               <h2 className="h2" style={{ marginTop: 16, marginBottom: 16 }}>More businesses. More competition. Higher stakes.</h2>
-              <p className="p">Meridian has grown from a small suburb to one of Idaho's largest cities in under a decade. New developments bring new residents — and new residents need every service business there is. HVAC contractors, landscapers, plumbers, cleaners, fencers, dentists: the demand is real.</p>
-              <p className="p" style={{ marginBottom: 0 }}>But the competition is real too. Every category is contested. The businesses winning the most jobs aren't necessarily the best — they're the ones with sites that load fast, rank locally, and capture leads the moment someone searches. That's the gap we close.</p>
+              <p className="p">Meridian has grown from a small suburb to one of Idaho's largest cities in under a decade. New developments bring new residents, and new residents need every service business there is. HVAC contractors, landscapers, plumbers, cleaners, fencers, dentists: the demand is real.</p>
+              <p className="p" style={{ marginBottom: 0 }}>But the competition is real too. Every category is contested. The businesses winning the most jobs aren't necessarily the best: they're the ones with sites that load fast, rank locally, and capture leads the moment someone searches. That's the gap we close.</p>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               {[
                 "One of the fastest-growing cities in the entire US",
-                "High homeownership rate — strong demand for home services",
+                "High homeownership rate, strong demand for home services",
                 "Younger demographic that searches on mobile and expects instant responses",
                 "New neighborhoods constantly adding potential customers",
                 "Local Google search is the primary discovery channel",
@@ -83,12 +83,12 @@ export default function Meridian() {
       <section className="surface" style={{ background: "transparent" }}>
         <div className="section">
           <span className="badge">What we build</span>
-          <h2 className="h2" style={{ marginTop: 16, marginBottom: 40 }}>A site that works as hard as you do — in Meridian and everywhere you serve.</h2>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 40 }}>A site that works as hard as you do, in Meridian and everywhere you serve.</h2>
           <div className="grid cols-3">
             {[
               { num: "01", title: "Built for local search", body: "Every page is optimized for Meridian, Ada County, and Treasure Valley searches. Fast load times, local schema, and Search Console setup from day one." },
-              { num: "02", title: "AI receptionist, 24/7", body: "Captures leads nights, weekends, and holidays. Trained on your specific services and service area — answers questions, qualifies leads, and texts you instantly." },
-              { num: "03", title: "Monthly performance reports", body: "Traffic, leads captured, top search terms. You'll know exactly what your site is doing — without logging into Google Analytics yourself." },
+              { num: "02", title: "digital receptionist, 24/7", body: "Captures leads nights, weekends, and holidays. Trained on your specific services and service area: answers questions, qualifies leads, and texts you instantly." },
+              { num: "03", title: "Monthly performance reports", body: "Traffic, leads captured, top search terms. You'll know exactly what your site is doing, without logging into Google Analytics yourself." },
             ].map(({ num, title, body }) => (
               <div key={title} className="card" style={{ display: "flex", flexDirection: "column", gap: 14 }}>
                 <div style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--accent-dim)", border: "1px solid var(--accent-border)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 14, color: "var(--accent)", flexShrink: 0 }}>
@@ -106,9 +106,9 @@ export default function Meridian() {
         <div className="section" style={{ paddingTop: 40, paddingBottom: 40 }}>
           <div className="card cardHighlight" style={{ display: "flex", flexWrap: "wrap", gap: 28, alignItems: "center", justifyContent: "space-between" }}>
             <div style={{ flex: "1 1 280px" }}>
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot — $499/mo, no setup fee</p>
-              <h3 className="h3" style={{ marginBottom: 10 }}>Custom site + AI receptionist + monthly reports. No contract.</h3>
-              <p className="p" style={{ marginBottom: 0 }}>Everything a Meridian service business needs to compete online — built and managed by a real person who knows the market.</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot, $499/mo, no setup fee</p>
+              <h3 className="h3" style={{ marginBottom: 10 }}>Custom site + digital receptionist + monthly reports. No contract.</h3>
+              <p className="p" style={{ marginBottom: 0 }}>Everything a Meridian service business needs to compete online, built and managed by a real person who knows the market.</p>
             </div>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", flexShrink: 0 }}>
               <Link className="btn primary" to="/contact">Get Started</Link>
@@ -136,7 +136,7 @@ export default function Meridian() {
         </div>
       </section>
 
-      <CTA title="Ready to compete in Meridian?" subtitle="Start with a free audit — no commitment. Boyd will tell you exactly what your current site is missing and how to fix it." />
+      <CTA title="Ready to compete in Meridian?" subtitle="Start with a free audit, no commitment. Boyd will tell you exactly what your current site is missing and how to fix it." />
     </div>
   );
 }
