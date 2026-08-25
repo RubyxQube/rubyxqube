@@ -8,7 +8,7 @@ import { siteConfig } from "../siteConfig.js";
 
 const TECH_STACK = [
   { label: "React + Vite", detail: "Frontend: fast, custom, no WordPress bloat" },
-  { label: "Claude API (Anthropic)", detail: "AI photo estimate + digital receptionist" },
+  { label: "Claude API (Anthropic)", detail: "Digital receptionist, trained on their business" },
   { label: "Supabase", detail: "Database, authentication, wholesale portal" },
   { label: "Vercel", detail: "Hosting + serverless functions" },
 ];
@@ -16,32 +16,32 @@ const TECH_STACK = [
 const FEATURES = [
   {
     icon: <Camera size={26} color="var(--accent)" strokeWidth={1.75} />,
-    title: "AI Photo Estimate Tool",
-    body: "Customers upload a photo of their space: a patio, fireplace, kitchen counters, and the AI analyzes it and generates a ballpark estimate in seconds. This was the first AI-powered stone estimate tool deployed for a Boise contractor. Customers get an answer at 11pm without waiting for a callback.",
-    tag: "First-of-kind in Boise",
+    title: "Square Foot Estimator",
+    body: "Most people asking for a countertop quote do not know their square footage, and that one unknown stops the whole conversation. They photograph their counter with a sheet of paper on it for scale, and get a square footage range back in seconds. It feeds straight into the quote calculator.",
+    tag: "Removes the blocker on every quote",
   },
   {
     icon: <Calculator size={26} color="var(--accent)" strokeWidth={1.75} />,
     title: "Interactive Quote Calculator",
-    body: "A custom calculator that walks customers through their project type (patio, retaining wall, countertop, etc.), dimensions, and material preferences, then returns a real-time material + labor estimate with a CTA to request a formal quote. Dramatically reduces back-and-forth on discovery calls.",
+    body: "Room by room, kitchen, bathroom or outdoor kitchen, they pick a stone from the real Cosentino catalogue, enter square footage, and add sinks, faucets and backsplash. It prices tear-out, fabrication, edge profiles and cutouts and shows a running total. They arrive at the call already knowing the number.",
     tag: "Self-serve estimation",
   },
   {
     icon: <Users size={26} color="var(--accent)" strokeWidth={1.75} />,
-    title: "Wholesale Contractor Portal",
-    body: "A password-protected portal for Phoenix Stoneworks' wholesale and contractor clients. Custom pricing tiers, project history, invoice access, and material ordering, a separate digital experience for their B2B customers without building a separate site.",
-    tag: "B2B + B2C in one platform",
+    title: "Wholesale Partner Tools",
+    body: "Approved contractors and builders sign in to the same site and see cost pricing instead of retail, plus a labour calculator for tear-out, fabrication and install. Manny grants and removes that access himself from his own dashboard. B2B and B2C in one site rather than two.",
+    tag: "B2B and B2C in one platform",
   },
   {
     icon: <User size={26} color="var(--accent)" strokeWidth={1.75} />,
     title: "Client Account System",
-    body: "End customers can create accounts to track project progress, view estimates and invoices, and communicate with the team. Powered by Supabase auth: no third-party login required, no subscription fees.",
+    body: "Customers create an account to save quotes and materials, upload sketches and floor plans of their space, and follow their job through template, fabrication and install. Powered by Supabase auth: no third-party login, no per-seat fees.",
     tag: "Supabase Auth",
   },
   {
     icon: <MessageCircle size={26} color="var(--accent)" strokeWidth={1.75} />,
     title: "Digital Receptionist",
-    body: "A Claude-powered chatbot trained on Phoenix Stoneworks' full service menu: stone types, project categories, service area, pricing ranges, and FAQs. Captures leads 24/7 and fires an instant SMS to the owner. By the time a customer calls, they've already been qualified.",
+    body: "Trained on Phoenix Stoneworks' own materials, service area, hours and FAQs, and updated from their dashboard without a redeploy. It answers questions around the clock, and the moment it has a name, a contact and what they need, it texts Manny. By the time he calls back, the lead is already qualified.",
     tag: "24/7 lead capture",
   },
 ];
@@ -50,10 +50,10 @@ export default function PhoenixStoneworks() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Phoenix Stoneworks Case Study. RubyxQube | AI Web Platform for Boise Masonry</title>
-        <meta name="description" content="How RubyxQube built an AI-powered web platform for Phoenix Stoneworks: AI photo estimates, quote calculator, wholesale portal, and 24/7 digital receptionist." />
+        <title>Phoenix Stoneworks Case Study. RubyxQube | Custom Web Platform for a Boise Countertop Fabricator</title>
+        <meta name="description" content="How RubyxQube built a custom web platform for Phoenix Stoneworks, a Boise stone countertop fabricator: instant quote calculator, wholesale partner tools, 3D walkthrough, and a digital receptionist that captures leads around the clock." />
         <meta property="og:title" content="Phoenix Stoneworks Case Study. RubyxQube" />
-        <meta property="og:description" content="Full AI-powered web platform for a Boise masonry company: AI photo estimate, quote calculator, wholesale portal, digital receptionist." />
+        <meta property="og:description" content="Custom web platform for a Boise stone countertop fabricator: quote calculator, wholesale partner tools, 3D walkthrough, digital receptionist." />
         <meta property="og:image" content="https://rubyxqube.com/portfolio/psw-preview.webp" />
         <meta property="og:url" content="https://rubyxqube.com/work/phoenix-stoneworks" />
         <link rel="canonical" href="https://rubyxqube.com/work/phoenix-stoneworks" />
@@ -77,12 +77,12 @@ export default function PhoenixStoneworks() {
         <div className="heroSection">
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center", marginBottom: 20 }}>
             <span className="badge">Case Study</span>
-            <span className="badge">Masonry & Stone</span>
+            <span className="badge">Stone Countertops</span>
             <span className="badge">Boise, Idaho</span>
           </div>
           <h1 className="h1 heroTitle">Phoenix Stoneworks</h1>
           <p className="p" style={{ fontSize: 18, maxWidth: 600, marginBottom: 32 }}>
-            A full AI-powered web platform for a Boise masonry and stone company, including the first AI photo estimate tool deployed for a Treasure Valley contractor.
+            A custom web platform for a Boise stone countertop fabricator: instant quoting, a 3D kitchen walkthrough, wholesale partner tools, and a receptionist that answers at 2am.
           </p>
           <div className="btnRow">
             <a className="btn primary" href="https://pswboise.com" target="_blank" rel="noreferrer" style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -99,7 +99,7 @@ export default function PhoenixStoneworks() {
           <div className="grid cols-4" style={{ gap: 16 }}>
             {[
               { label: "Client", value: "Phoenix Stoneworks" },
-              { label: "Industry", value: "Masonry & Stone" },
+              { label: "Industry", value: "Stone Countertops" },
               { label: "Location", value: "Boise, Idaho" },
               { label: "Plan", value: "Momentum" },
             ].map(({ label, value }) => (
@@ -109,6 +109,46 @@ export default function PhoenixStoneworks() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Measured results ────────────────────────────────────────────────
+          Every number here was measured, not estimated. The load times come
+          from three runs per page against the live site throttled to Slow 4G
+          with a 4x CPU slowdown, which is the Lighthouse mobile profile: an
+          unthrottled headless browser reported 0.25s and that would have been
+          a flattering lie about what a customer in a driveway experiences.
+
+          The lead numbers are NOT here yet on purpose. They live in Supabase
+          and need a secret key to read: run `npm run case-study` and paste the
+          output back. Do not fill this section with plausible-sounding figures
+          in the meantime; an invented metric on a client case study is the one
+          mistake there is no coming back from. */}
+      <section className="surface">
+        <div className="section">
+          <span className="badge">Measured, not estimated</span>
+          <h2 className="h2" style={{ marginTop: 16, marginBottom: 8 }}>How it performs</h2>
+          <p className="p" style={{ maxWidth: 620, marginBottom: 32 }}>
+            Tested on the live site at mobile speeds, throttled to a slow 4G connection
+            on a mid-range phone. Google treats anything under 2.5 seconds as good.
+          </p>
+          <div className="grid cols-3" style={{ gap: 16 }}>
+            {[
+              { v: "0.9s", l: "Quote calculator loads", s: "The page that makes them money" },
+              { v: "1.2s", l: "Home page loads", s: "Under half of Google's 2.5s threshold" },
+              { v: "1.0s", l: "Gallery loads", s: "234 stone options, still fast" },
+            ].map(({ v, l, s }) => (
+              <div key={l} className="card" style={{ padding: "22px 18px" }}>
+                <p style={{ fontSize: 34, fontWeight: 800, margin: "0 0 4px", color: "var(--accent)", letterSpacing: "-0.02em" }}>{v}</p>
+                <p style={{ fontWeight: 700, fontSize: 15, margin: "0 0 4px" }}>{l}</p>
+                <p className="p" style={{ fontSize: 13.5, margin: 0 }}>{s}</p>
+              </div>
+            ))}
+          </div>
+          <p className="p" style={{ fontSize: 13, marginTop: 18, marginBottom: 0 }}>
+            Measured {new Date("2026-08-25").toLocaleDateString("en-US", { month: "long", year: "numeric" })} against pswboise.com,
+            median of three runs per page at 1.6 Mbps with a 4x CPU slowdown.
+          </p>
         </div>
       </section>
 
@@ -125,7 +165,7 @@ export default function PhoenixStoneworks() {
                 Phoenix Stoneworks was operating entirely through word-of-mouth and referrals. No website, no way for new customers to understand their services, no way to get an estimate without picking up the phone.
               </p>
               <p className="p" style={{ marginBottom: 0 }}>
-                What made this project unique: stone and masonry customers almost always want to visualize and estimate before committing. The goal wasn't just a web presence, it was a platform that let customers self-serve through discovery and get into the sales pipeline without waiting for a callback.
+                What made this project unique: countertop customers almost always want to see it and price it before committing. The goal wasn't just a web presence, it was a platform that let customers self-serve through discovery and get into the sales pipeline without waiting for a callback.
               </p>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>

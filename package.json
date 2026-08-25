@@ -14,7 +14,8 @@
     "img:svg-to-png": "node scripts/svg-to-png.mjs",
     "img:optimize-svg": "svgo --folder src/assets",
     "logo:export": "node scripts/export-logos.mjs",
-    "smoke": "node scripts/smoke.mjs"
+    "smoke": "node scripts/smoke.mjs",
+    "case-study": "node scripts/case-study-numbers.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.98.0",
