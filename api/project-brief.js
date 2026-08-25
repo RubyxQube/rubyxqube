@@ -1,11 +1,11 @@
 /**
- * api/homework.js
+ * api/project-brief.js
  *
- * Receives the Site Build Homework from /homework.
+ * Receives the Project Brief from /brief.
  *
  * Does four things, in this order, and none of them blocks the visitor's
  * confirmation if a downstream service is having a bad day:
- *   1. saves the submission to Supabase `leads` (source: "homework")
+ *   1. saves the submission to Supabase `leads` (source: "project_brief")
  *   2. emails Boyd, with reply-to set to the sender
  *   3. emails the sender a copy of everything they wrote
  *   4. pushes an ntfy alert
@@ -149,7 +149,7 @@ export default async function handler(req, res) {
   // Time trap, same reasoning on the response.
   const elapsed = Number(_t) ? (Date.now() - Number(_t)) / 1000 : null;
   if (elapsed !== null && elapsed < MIN_SECONDS) {
-    console.warn(`[homework] rejected: submitted in ${elapsed.toFixed(1)}s`);
+    console.warn(`[project-brief] rejected: submitted in ${elapsed.toFixed(1)}s`);
     return res.status(200).json({ ok: true });
   }
 
@@ -195,8 +195,8 @@ export default async function handler(req, res) {
           // Deliberately: it needs no migration and shows up in the Leads tab
           // today. A dedicated intake table with typed columns would be better
           // once this has proven it gets used.
-          notes: `SITE BUILD HOMEWORK\nSubmitted ${stamp} MT\nContact given: ${contact || "none"}\n\n${text}`,
-          source: "homework",
+          notes: `PROJECT BRIEF\nSubmitted ${stamp} MT\nContact given: ${contact || "none"}\n\n${text}`,
+          source: "project_brief",
         }),
       });
       if (!r.ok) console.error("Supabase lead insert failed:", r.status, await r.text());
@@ -204,7 +204,7 @@ export default async function handler(req, res) {
       console.error("Supabase lead error:", err.message);
     }
   } else {
-    console.error("[homework] SUPABASE not configured, submission saved nowhere but email.");
+    console.error("[project-brief] SUPABASE not configured, submission saved nowhere but email.");
   }
 
   // ── Boyd's copy
@@ -212,11 +212,11 @@ export default async function handler(req, res) {
   await sendMail({
     to: ALERT_EMAIL,
     replyTo: email || undefined,
-    subject: `Homework returned: ${biz}`,
-    text: `${biz} returned the Site Build Homework.\nContact: ${contact || "not given"}\nReceived ${stamp} MT\n\n${text}`,
+    subject: `Brief returned: ${biz}`,
+    text: `${biz} returned the Project Brief.\nContact: ${contact || "not given"}\nReceived ${stamp} MT\n\n${text}`,
     html: `<div style="max-width:640px;margin:0 auto">
              <p style="font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;font-size:15px;color:#1a1512">
-               <strong>${escapeHtml(biz)}</strong> returned the Site Build Homework.<br>
+               <strong>${escapeHtml(biz)}</strong> returned the Project Brief.<br>
                <span style="color:#6b6560;font-size:13px">Contact: ${escapeHtml(contact || "not given")} &middot; ${escapeHtml(stamp)} MT</span>
              </p>
              ${asHtml(answers)}
@@ -257,7 +257,7 @@ export default async function handler(req, res) {
   if (NTFY_TOPIC) {
     await fetch(`https://ntfy.sh/${NTFY_TOPIC}`, {
       method: "POST",
-      headers: { Title: `Homework returned: ${biz}`, Priority: "high", Tags: "memo,white_check_mark", "Content-Type": "text/plain" },
+      headers: { Title: `Brief returned: ${biz}`, Priority: "high", Tags: "memo,white_check_mark", "Content-Type": "text/plain" },
       body: `${biz}\nContact: ${contact || "not given"}`,
     }).catch((err) => console.error("ntfy error:", err.message));
   }

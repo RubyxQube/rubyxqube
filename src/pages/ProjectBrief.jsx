@@ -4,7 +4,7 @@ import { ShieldCheck, Camera, Check } from "lucide-react";
 import { siteConfig } from "../siteConfig.js";
 
 /**
- * /homework — the Site Build Homework.
+ * /brief — the Project Brief.
  *
  * Unlisted on purpose: not in the nav, noindex. Boyd sends the link after a
  * discovery call. It is not a top-of-funnel page, it is what turns a yes into a
@@ -19,7 +19,7 @@ import { siteConfig } from "../siteConfig.js";
  * when they sign, the portal's onboarding is seeded from what they sent here.
  */
 
-const STORAGE_KEY = "rxq-homework-v1";
+const STORAGE_KEY = "rxq-project-brief-v1";
 
 const SECTIONS = [
   {
@@ -95,7 +95,7 @@ const SECTIONS = [
 ];
 
 
-export default function Homework() {
+export default function ProjectBrief() {
   const [answers, setAnswers] = React.useState({});
   const [status, setStatus] = React.useState("idle"); // idle | sending | sent | error
   const [error, setError] = React.useState("");
@@ -133,7 +133,7 @@ export default function Homework() {
     setStatus("sending");
     setError("");
     try {
-      const res = await fetch("/api/homework", {
+      const res = await fetch("/api/project-brief", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...answers, _hp: "", _t: startedAt.current }),
@@ -185,7 +185,7 @@ export default function Homework() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Site Build Homework | RubyxQube</title>
+        <title>Project Brief | RubyxQube</title>
         {/* Unlisted: this is sent to a specific person, not found in search. */}
         <meta name="robots" content="noindex, nofollow" />
         <meta name="description" content="Everything RubyxQube needs to build your site, in one place. About twenty minutes, and it saves as you type." />
@@ -194,7 +194,7 @@ export default function Homework() {
       <section className="surface heroSurface">
         <div className="section" style={{ paddingTop: 80, paddingBottom: 48 }}>
           <span className="badge">About 20 minutes</span>
-          <h1 className="h1" style={{ marginTop: 16 }}>Site Build Homework</h1>
+          <h1 className="h1" style={{ marginTop: 16 }}>Project Brief</h1>
           <p className="p" style={{ maxWidth: 620, fontSize: 17 }}>
             Everything we need to build your site, in one place. You do not have to
             finish it in one sitting: it saves in your browser as you type, so you
@@ -271,7 +271,7 @@ export default function Homework() {
                         question, so these opt out rather than shouting twenty questions
                         at somebody. */}
                     <label
-                      htmlFor={`hw-${f.k}`}
+                      htmlFor={`pb-${f.k}`}
                       style={{ display: "block", fontWeight: 700, fontSize: 15, marginBottom: 4,
                                textTransform: "none", letterSpacing: "normal", color: "var(--text)", margin: "0 0 4px" }}
                     >
@@ -282,7 +282,7 @@ export default function Homework() {
                     )}
                     {f.big ? (
                       <textarea
-                        id={`hw-${f.k}`}
+                        id={`pb-${f.k}`}
                         name={f.k}
                         className="textarea"
                         value={answers[f.k] || ""}
@@ -292,7 +292,7 @@ export default function Homework() {
                       />
                     ) : (
                       <input
-                        id={`hw-${f.k}`}
+                        id={`pb-${f.k}`}
                         name={f.k}
                         type="text"
                         className="input"

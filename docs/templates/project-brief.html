@@ -1,4 +1,4 @@
-<title>Site Build Homework</title>
+<title>Project Brief</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
@@ -271,7 +271,7 @@
       <div class="ticket-meta">Onboarding &middot; Rev 1</div>
     </div>
     <div class="ticket-body">
-      <h1>Site Build Homework</h1>
+      <h1>Project Brief</h1>
       <p class="standfirst">
         Everything I need to build your site, in one place. <strong>About twenty
         minutes.</strong> You do not have to finish it in one sitting: it saves
@@ -449,7 +449,7 @@
 <script>
 (function(){
   "use strict";
-  var KEY = "rxq-homework-v1";
+  var KEY = "rxq-project-brief-v1";
   var fields = Array.prototype.slice.call(document.querySelectorAll("[data-k]"));
   var sections = Array.prototype.slice.call(document.querySelectorAll("section"));
   var savedTag = document.getElementById("saved");
@@ -491,7 +491,7 @@
   }
 
   function asText(){
-    var lines = ["SITE BUILD HOMEWORK", ""];
+    var lines = ["PROJECT BRIEF", ""];
     sections.forEach(function(s){
       var inputs = Array.prototype.slice.call(s.querySelectorAll("[data-k]"));
       if (!inputs.some(function(el){ return el.value.trim(); })) return;

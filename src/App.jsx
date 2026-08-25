@@ -7,7 +7,7 @@ import Services from "./pages/Services.jsx";
 import Pricing from "./pages/Pricing.jsx";
 import Portfolio from "./pages/Portfolio.jsx";
 import Contact from "./pages/Contact.jsx";
-import Homework from "./pages/Homework.jsx";
+import ProjectBrief from "./pages/ProjectBrief.jsx";
 import Privacy from "./pages/Privacy.jsx";
 import Terms from "./pages/Terms.jsx";
 import About from "./pages/About.jsx";
@@ -54,7 +54,7 @@ export default function App() {
         <Route path="/quote" element={<Contact />} />
         <Route path="/contact" element={<Contact />} />
         {/* Unlisted: sent to a prospect after a discovery call, noindex, not in the nav. */}
-        <Route path="/homework" element={<Homework />} />
+        <Route path="/project-brief" element={<ProjectBrief />} />
 
         <Route path="/about" element={<About />} />
         <Route path="/audit" element={<Audit />} />

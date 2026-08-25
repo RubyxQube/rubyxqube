@@ -1,4 +1,7 @@
 {
+  "redirects": [
+    { "source": "/homework", "destination": "/project-brief", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/((?!.*\\.).*)", "destination": "/index.html" }
   ]

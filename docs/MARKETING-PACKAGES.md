@@ -1,12 +1,18 @@
-# Marketing packages, the photo problem, and the homework sheet
+# Marketing packages, the photo problem, and the project brief
 
-From Manny's 2026-08-25 notes:
+From Manny's 2026-08-25 notes, verbatim:
 
 > *"Marketing packages for rubyxqube to offer service, photos marketing, solve
 > problems for tradesmen, how much are they investing, homework sheet"*
 
 Four things in one line. They are more connected than they look, and the
 connection is worth stating before any of them get priced.
+
+> **On the name.** Manny called it a "homework sheet" and that is what it was
+> built as. Renamed to **Project Brief** on 2026-08-25: "homework" reads like
+> setting a client an assignment, and "brief" is already vocabulary a
+> contractor knows from scope documents. Same thing, better name. The quote
+> above stays as he said it.
 
 ---
 
@@ -87,11 +93,11 @@ Sell it to Momentum clients and to anyone whose Photo Rescue came back thin.
 
 Not a package. A change to how onboarding runs.
 
-The homework sheet below **is** this product. It converts an open-ended "send me
+The project brief below **is** this product. It converts an open-ended "send me
 stuff" into a bounded task with a deadline, which is the difference between a
 two-week build and a two-month one.
 
-Give it a name on the call. "I'll send you the homework sheet, it takes about
+Give it a name on the call. "I'll send you the project brief, it takes about
 twenty minutes, and once it's back I start building." A named artifact with a
 stated duration gets done. An email asking for photos does not.
 
@@ -105,10 +111,10 @@ three things worth qualifying on:
 | What to qualify | Why it matters | How to ask |
 |---|---|---|
 | **Money** | Table stakes. $499/mo or not. | Already in the call guide |
-| **Time** | The real predictor. Twenty minutes of homework in week one predicts everything. | "Who's going to be my point of contact, and can they give me twenty minutes this week?" |
+| **Time** | The real predictor. Twenty minutes of brief in week one predicts everything. | "Who's going to be my point of contact, and can they give me twenty minutes this week?" |
 | **Decision** | Trades often have a silent partner or a spouse who decides. | "Is there anyone else who'd want a say before we start?" |
 
-**The homework sheet is the qualification instrument.** Somebody who returns it
+**The project brief is the qualification instrument.** Somebody who returns it
 inside a week is a good client. Somebody who needs three chases will need three
 chases for everything, forever, and their build will eat the margin.
 
@@ -154,16 +160,22 @@ opposite audiences:
   buying, and it is a search term they type. Removing it there is a real
   positioning decision with a real cost.
 
-`src/pages/Pricing.jsx` still says "Custom AI receptionist". **Left alone
-deliberately, pending Boyd's call.** The honest middle is probably to lead with
-the outcome and keep the word as the explanation: *"answers your phone at 8pm.
-It's AI, trained on your business."*
+**Resolved 2026-08-25.** Boyd's call: soften, do not remove. "AI receptionist"
+became "digital receptionist" as the product NAME across the marketing pages,
+with AI kept as the EXPLANATION next to it, so a prospect reads the outcome
+first and the technology second. Pricing now says "Digital receptionist, AI
+trained on your business".
+
+Three things stayed deliberately: the blog, which targets "AI receptionist" as
+a search term and includes a post titled after it; Privacy and Terms, where
+precision beats softness; and the `/ai-receptionist` URL, which earns inbound
+and which nobody feels sold to by.
 
 ---
 
 ## Build order
 
-1. **Homework sheet** into the onboarding flow. Costs nothing, fixes the
+1. **Project brief** into the onboarding flow. Costs nothing, fixes the
    biggest delivery risk, and qualifies. Done, see below.
 2. **Photo Rescue** as a 12-month signing incentive rather than a product.
 3. **Fix the stale docs.** `AI_INFRASTRUCTURE.md`, `ROADMAP.md` and `COSTS.md`
