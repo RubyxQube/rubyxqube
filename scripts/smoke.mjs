@@ -95,6 +95,36 @@ try {
   record("GET /sitemap.xml is generated", false, e.message);
 }
 
+// ── One site, one hostname ─────────────────────────────────────────────────
+//
+// The site was being served in full on three hostnames at once: the apex,
+// www, and the project's .vercel.app domain. Nothing was broken, the
+// canonicals absorbed it, but Google was crawling all three and filed
+// www.rubyxqube.com/project-brief under "Excluded by 'noindex' tag" on
+// 2026-08-26, which is what started this whole thread.
+//
+// The www redirect lives in the Vercel dashboard, not in this repo, so
+// nothing in a diff would ever reveal it being switched off. That is exactly
+// why it is checked here.
+if (BASE.includes("rubyxqube.com")) {
+  try {
+    const res = await fetch("https://www.rubyxqube.com/pricing", { redirect: "manual" });
+    const to = res.headers.get("location") || "";
+    const ok = [301, 308].includes(res.status) && to === "https://rubyxqube.com/pricing";
+    record("www redirects to the apex domain", ok, `${res.status} -> ${to || "none"}`);
+  } catch (e) {
+    record("www redirects to the apex domain", false, e.message);
+  }
+
+  try {
+    const res = await fetch("https://qube-solutions.vercel.app/", { redirect: "manual" });
+    const tag = res.headers.get("x-robots-tag") || "";
+    record("the .vercel.app copy is noindex", tag.includes("noindex"), tag || "no X-Robots-Tag");
+  } catch (e) {
+    record("the .vercel.app copy is noindex", false, e.message);
+  }
+}
+
 // ── The endpoint must exist and must refuse junk ───────────────────────────
 // Deliberately NOT a valid submission: a smoke test that emails somebody and
 // writes a lead row every time it runs will be turned off within a week.

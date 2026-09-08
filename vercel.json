@@ -1,4 +1,11 @@
 {
+  "headers": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "qube-solutions.vercel.app" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+    }
+  ],
   "redirects": [
     { "source": "/homework", "destination": "/project-brief", "permanent": true }
   ],
