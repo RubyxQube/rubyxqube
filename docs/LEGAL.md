@@ -89,6 +89,16 @@ If you want a polished third-party solution with zero build time:
 **Intellectual Property**
 - Client owns all final deliverables **upon receipt of final payment**
 - Before final payment: RubyxQube retains ownership
+
+> **This clause is under review as of 2026-09-22 and should not be reused as
+> written.** It is right for a one-off website and wrong for software meant to
+> be sold to more than one client: it hands the platform to whoever paid last.
+> It also contradicts the termination clause in
+> `SERVICE_AGREEMENT_TEMPLATE.md`, which says RubyxQube removes its proprietary
+> systems on the way out. The position that should replace it already exists in
+> `clients/phoenix-stoneworks/Proposals/PSW-B2B-Agreement-2026-05-28`: the
+> client owns their site, copy, branding and data, RubyxQube owns the platform
+> and licenses it. See `docs/IP-OWNERSHIP.md` before signing anyone new.
 - You retain the right to show the work in your portfolio (unless client objects in writing)
 
 **Hosting Continuity**
