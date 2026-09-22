@@ -31,3 +31,6 @@ clients/
 # Generated brand exports (verbose-named variants from export-logos.mjs)
 public/brand/logo-horizontal*.png
 public/brand/logo-stacked*.png
+
+# Tripo CLI task state, not source
+.tripo/
