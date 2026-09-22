@@ -80,20 +80,39 @@ the customer portal, the status board, the scheduling system, the job
 workflow, the blueprint tools and the 3D walkthrough. A licence scoped to "the
 Platform" as defined in May may not reach any of it.
 
-**And something was signed at onboarding.** `.claude/rules/chatbot-rules.md`
-cites "the signed RubyxQube service agreement at onboarding" as the A2P 10DLC
-consent basis for texting Manny. That document is not in this repo or in
-`vault/legal`. **Finding it is the single highest-value thing on this list**,
-because if it is the template above, clause 6 governs and the answer flips.
+**Nothing was ever signed.** Confirmed by Boyd, 2026-09-22. The template was
+never executed with Manny, and neither was the B2B draft.
+
+That is the best of the three possible answers, and worth saying plainly
+because it sounds like the worst. With no written agreement, US copyright law
+generally leaves ownership with the independent contractor who authored the
+work, and the client gets an implied licence to use what they paid for.
+RubyxQube wrote it, so RubyxQube presumptively owns it. Clause 6 never bound
+anybody.
+
+Two caveats, and they are why this still gets fixed before money moves:
+
+- **Implied-licence scope is the thing that gets litigated.** Nobody disputes
+  Manny may use it. What "use" covers, and whether it survives him leaving,
+  is undefined.
+- **"Work made for hire" does not attach to commissioned software without a
+  signed agreement saying so**, which helps here, but the analysis is
+  fact-specific and this is a read of general principles rather than advice.
+
+One note for the A2P file: `.claude/rules/chatbot-rules.md` cites "the signed
+RubyxQube service agreement at onboarding" as the consent basis for texting
+Manny. There is no such document. The consent is real, he asked for the alerts
+and entered his own number, but the citation names a paper that does not
+exist and should be reworded to what actually happened.
 
 ---
 
 ## What to do, in order
 
-1. **Find what Manny actually signed.** Email, Drive, DocuSeal, a PDF on the
-   laptop. Until that is in hand, everything else is speculation. If it turns
-   out nothing was ever signed beyond an invoice, that is also an answer, and a
-   better one than the template.
+1. ~~Find what Manny actually signed.~~ **Done 2026-09-22: nothing was.**
+   Boyd's read is that it stays grey until there is money in it, which is
+   defensible while there is none. The trigger to revisit is the first dollar
+   from a third party, not a date.
 2. **Do not let Manny quote terms to Nick.** He is meeting him, not Boyd, and
    he will be asked what it costs and what Nick gets. Give him one page: what
    the package is, what it includes, what it costs, and that terms come from
@@ -122,11 +141,11 @@ because if it is the template above, clause 6 governs and the answer flips.
 
 ## The one-liner for Boyd
 
-**The language needed already exists, in a draft Boyd wrote in May, and it says
-RubyxQube owns the platform.** The risk is not that the position is wrong. It
-is that a generic template in this same repo says the opposite, nobody knows
-which one Manny signed, and he is about to describe the deal to a third party
-without either.
+**Nothing is signed, which means the default favours RubyxQube, and the
+language needed for when that stops being enough already exists in a draft
+Boyd wrote in May.** The live risk is not ownership. It is that Manny
+describes terms to a third party before anyone has decided what they are, and
+whatever he says in good faith becomes the starting position.
 
 ---
 
