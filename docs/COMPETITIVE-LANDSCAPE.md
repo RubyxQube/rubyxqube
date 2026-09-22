@@ -138,27 +138,40 @@ at this price"** is, and it is still a good sentence.
 
 ## What this means for price
 
-Manny floated $500 a month for the package. Set against the market:
+**Correction, 2026-09-22.** This section was written as though the price were
+undecided. It is not: rubyxqube.com/pricing publishes two tiers, and what a
+contractor like Nick needs is **Momentum at $999/mo**, the tier that carries
+"custom software for your business: quote calculators, estimators, booking
+tools, interactive 3D". Manny's "$500" in the meeting was Autopilot's price
+($499), which is the site and the chatbot and no custom build. The risk was
+never that he names a number. It is that he names the tier below the one the
+work sits in, and halves it.
+
+That makes the comparison sharper, not softer. Set against the market:
 
 - QuoteIQ Pro, four users, every AI feature: **$149.99**
 - Jobber Grow, ten users: **$399**
 - QuoteIQ Max, unlimited users: **$699**
 
-A contractor under $500k a year comparing feature lists will find QuoteIQ
-cheaper and broader. That is not fatal, because the offer is not the same
+At $999, Momentum is above every tier of both. A contractor under $500k a year
+comparing feature lists will find QuoteIQ cheaper and broader. That is not fatal, because the offer is not the same
 thing: a bespoke site, the visualiser, the quoting tool built for their trade,
 and a person who answers. But it does mean **the pitch cannot be
 features-per-dollar**, and anyone selling it needs to know that before a
 prospect puts the two side by side.
 
-Two shapes worth modelling, and Manny reached for the second himself:
+The answer to "QuoteIQ is $30" is not a discount, it is that they are not the
+same purchase. QuoteIQ is software you rent and configure yourself, built for
+lawn care and pressure washing. Momentum is a website, a tool built for your
+trade, and a person who answers. Whoever sells this needs that sentence ready,
+because it will come up in the first ten minutes.
 
-1. **Flat monthly**, in Autopilot and Momentum's existing shape. Simple,
-   directly comparable, and comparison is the losing ground.
-2. **Build fee plus a management retainer.** The build fee prices the work
-   nobody else does, the retainer prices the hosting and the answering, and the
-   monthly number stops being the headline. Manny: "you pay whatever it is for
-   the development, and then it's a fixed price per month."
+Still worth modelling, and Manny reached for it himself: **a build fee plus a
+management retainer**, where the build fee prices the work nobody else does
+and the monthly number stops being the headline. "You pay whatever it is for
+the development, and then it's a fixed price per month." Momentum's flat $999
+is simpler to sell and is directly comparable, and comparison is the losing
+ground.
 
 ---
 
