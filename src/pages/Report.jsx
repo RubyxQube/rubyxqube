@@ -108,9 +108,9 @@ export default function Report() {
   return (
     <div className="pageMinHeight" style={{ background: "var(--bg)" }}>
       <Helmet>
-        <title>Monthly Performance Report. RubyxQube | Client Dashboard Sample</title>
+        <title>Monthly Performance Report | RubyxQube | Client Dashboard Sample</title>
         <meta name="description" content="See what a monthly performance report looks like for RubyxQube clients: traffic, leads, search rankings, and site updates all in one place." />
-        <meta property="og:title" content="Monthly Performance Report. RubyxQube" />
+        <meta property="og:title" content="Monthly Performance Report | RubyxQube" />
         <meta property="og:description" content="See what a monthly performance report looks like for RubyxQube clients: traffic, leads, search rankings, and site updates all in one place." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/report" />

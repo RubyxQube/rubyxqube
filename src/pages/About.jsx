@@ -38,9 +38,9 @@ export default function About() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>About Boyd. RubyxQube | Treasure Valley Web Designer</title>
+        <title>About Boyd | RubyxQube | Treasure Valley Web Designer</title>
         <meta name="description" content="Boyd Querubin builds websites, AI-powered digital receptionists, and interactive 3D tools for small businesses in the Treasure Valley. Based in Nampa, Idaho." />
-        <meta property="og:title" content="About Boyd. RubyxQube | Treasure Valley Web Designer" />
+        <meta property="og:title" content="About Boyd | RubyxQube | Treasure Valley Web Designer" />
         <meta property="og:description" content="Boyd Querubin builds websites, AI-powered digital receptionists, and interactive 3D tools for small businesses in the Treasure Valley. Based in Nampa, Idaho." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/about" />

@@ -40,9 +40,9 @@ export default function Audit() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Free Website Audit. RubyxQube | Treasure Valley</title>
+        <title>Free Website Audit | RubyxQube | Treasure Valley</title>
         <meta name="description" content="Get a free website audit for your Treasure Valley business. We'll show you exactly what's holding your site back and how to fix it, no strings attached." />
-        <meta property="og:title" content="Free Website Audit. RubyxQube | Treasure Valley" />
+        <meta property="og:title" content="Free Website Audit | RubyxQube | Treasure Valley" />
         <meta property="og:description" content="Get a free website audit for your Treasure Valley business. We'll show you exactly what's holding your site back and how to fix it, no strings attached." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/audit" />

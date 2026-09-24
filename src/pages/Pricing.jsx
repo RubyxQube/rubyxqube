@@ -82,9 +82,9 @@ export default function Pricing() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Pricing. RubyxQube | Treasure Valley Web Design</title>
+        <title>Pricing | RubyxQube | Treasure Valley Web Design</title>
         <meta name="description" content="Transparent pricing for Treasure Valley small businesses. Autopilot is $499/mo with no setup fee: unlimited pages, a digital receptionist, 4 blog posts a month, and monthly reports." />
-        <meta property="og:title" content="Pricing. RubyxQube | Treasure Valley Web Design" />
+        <meta property="og:title" content="Pricing | RubyxQube | Treasure Valley Web Design" />
         <meta property="og:description" content="Transparent pricing for Treasure Valley small businesses. Autopilot is $499/mo with no setup fee: unlimited pages, a digital receptionist, 4 blog posts a month, and monthly reports." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/pricing" />

@@ -122,9 +122,9 @@ export default function Contact() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Get a Free Quote. RubyxQube | Treasure Valley Web Design</title>
+        <title>Get a Free Quote | RubyxQube | Treasure Valley Web Design</title>
         <meta name="description" content="Ready to get started? Tell us about your Treasure Valley business and we'll put together a free proposal for your new website." />
-        <meta property="og:title" content="Get a Free Quote. RubyxQube | Treasure Valley Web Design" />
+        <meta property="og:title" content="Get a Free Quote | RubyxQube | Treasure Valley Web Design" />
         <meta property="og:description" content="Ready to get started? Tell us about your Treasure Valley business and we'll put together a free proposal for your new website." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/contact" />

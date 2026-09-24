@@ -26,29 +26,49 @@ function supabaseHeaders() {
   }
 }
 
+// Both of these THROW when Supabase fails. They used to swallow it: a lookup
+// error came back as null, so an outage told a client their contract "was not
+// found", and a failed write in markSigned was never checked at all -- the
+// client saw "signed", Boyd got a "Contract signed!" alert, and the row still
+// said unsigned. The handler turns a throw into a 503 the client can retry.
+
 async function findContractByToken(token) {
   const res = await fetch(
     `${SUPABASE_URL}/rest/v1/contract_proposals?token=eq.${encodeURIComponent(token)}&select=*&limit=1`,
     { headers: supabaseHeaders() }
   )
+  if (!res.ok) throw new Error(`contract lookup failed: HTTP ${res.status} ${await res.text()}`)
   const data = await res.json()
-  return Array.isArray(data) ? data[0] || null : null
+  if (!Array.isArray(data)) throw new Error('contract lookup returned a non-array')
+  return data[0] || null
 }
 
-async function markSigned(id, signedName) {
-  await fetch(
-    `${SUPABASE_URL}/rest/v1/contract_proposals?id=eq.${id}`,
+/**
+ * Marks the contract signed. Returns the updated row, or null if it was no
+ * longer signable. The status filter makes two simultaneous submissions
+ * resolve to exactly one signature instead of both "succeeding".
+ */
+async function markSigned(id, signedName, signedAt) {
+  const res = await fetch(
+    // "or" with is.null because NOT IN never matches a null status.
+    `${SUPABASE_URL}/rest/v1/contract_proposals?id=eq.${id}&or=(status.is.null,status.not.in.(signed,voided))`,
     {
       method: 'PATCH',
-      headers: { ...supabaseHeaders(), 'Prefer': 'return=minimal' },
+      headers: { ...supabaseHeaders(), 'Prefer': 'return=representation' },
       body: JSON.stringify({
         status: 'signed',
         signed_name: signedName,
-        signed_at: new Date().toISOString()
+        signed_at: signedAt
       })
     }
   )
+  if (!res.ok) throw new Error(`marking signed failed: HTTP ${res.status} ${await res.text()}`)
+  const rows = await res.json()
+  return Array.isArray(rows) && rows[0] ? rows[0] : null
 }
+
+const escapeHtml = (s) => String(s).replace(/[&<>"']/g, (c) =>
+  ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]))
 
 // ─── Alert helpers ────────────────────────────────────────────────────────────
 
@@ -56,7 +76,7 @@ async function sendSigningAlerts(contract, signedName) {
   const alertText =
     `Contract signed!\n` +
     `Client:  ${signedName}\n` +
-    `Package: ${contract.package} — $${contract.amount}\n` +
+    `Package: ${contract.package}, $${contract.amount}\n` +
     `rubyxqube.com`;
 
   // ntfy.sh push
@@ -91,7 +111,7 @@ async function sendSigningAlerts(contract, signedName) {
       body: JSON.stringify({
         from:    FROM_EMAIL || "onboarding@resend.dev",
         to:      [ALERT_EMAIL],
-        subject: `Contract signed — ${signedName} (${contract.package})`,
+        subject: `Contract signed: ${signedName} (${contract.package})`,
         text:    alertText,
       }),
     }).catch(err => console.error("Resend error:", err.message));
@@ -104,7 +124,7 @@ async function sendClientWelcomeEmail(contract, signedName) {
   const { RESEND_API_KEY } = process.env;
   if (!RESEND_API_KEY || !contract.clientEmail) return;
 
-  const firstName = signedName.split(" ")[0];
+  const firstName = escapeHtml(signedName.split(" ")[0]);
 
   const html = `<!DOCTYPE html>
 <html>
@@ -146,17 +166,18 @@ async function sendClientWelcomeEmail(contract, signedName) {
 </body>
 </html>`;
 
-  await fetch("https://api.resend.com/emails", {
+  const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
     body: JSON.stringify({
       from: "Boyd Querubin <boyd@rubyxqube.com>",
       to: [contract.clientEmail],
       reply_to: "boyd@rubyxqube.com",
-      subject: `You're signed — ${contract.package} with RubyxQube`,
+      subject: `You're signed: ${contract.package} with RubyxQube`,
       html,
     }),
   });
+  if (!res.ok) throw new Error(`welcome email failed: HTTP ${res.status} ${await res.text()}`);
 }
 
 // ─── Handler ──────────────────────────────────────────────────────────────────
@@ -177,7 +198,12 @@ export default async function handler(req, res) {
     const { token } = req.query;
     if (!token) return res.status(400).json({ error: "Missing token." });
 
-    const row = await findContractByToken(token);
+    let row
+    try { row = await findContractByToken(token) }
+    catch (err) {
+      console.error(err.message)
+      return res.status(503).json({ error: 'We could not load your contract just now. Please try again in a minute.' })
+    }
     if (!row) return res.status(404).json({ error: 'Contract not found.' })
     if (row.status === 'signed') return res.status(200).json({ ...row, alreadySigned: true })
     if (row.status === 'voided') return res.status(410).json({ error: 'This contract has been voided. Contact boyd@rubyxqube.com.' })
@@ -191,12 +217,20 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Missing token or signature." });
     }
 
-    const row = await findContractByToken(token);
-    if (!row) return res.status(404).json({ error: 'Contract not found.' })
-    if (row.status === 'signed') return res.status(409).json({ error: 'Already signed.', alreadySigned: true })
-    if (row.status === 'voided') return res.status(410).json({ error: 'Contract has been voided.' })
-
-    await markSigned(row.id, signedName.trim())
+    const signedAt = new Date().toISOString()
+    let row, updated
+    try {
+      row = await findContractByToken(token)
+      if (!row) return res.status(404).json({ error: 'Contract not found.' })
+      if (row.status === 'signed') return res.status(409).json({ error: 'Already signed.', alreadySigned: true })
+      if (row.status === 'voided') return res.status(410).json({ error: 'Contract has been voided.' })
+      updated = await markSigned(row.id, signedName.trim(), signedAt)
+    } catch (err) {
+      console.error(err.message)
+      return res.status(503).json({ error: 'Your signature did not save. Nothing was recorded, so please try again in a minute.' })
+    }
+    // Lost the race to a second submission, or voided in between.
+    if (!updated) return res.status(409).json({ error: 'Already signed.', alreadySigned: true })
 
     const contract = {
       package: row.package,
@@ -205,10 +239,16 @@ export default async function handler(req, res) {
       clientPhone: row.client_phone,
     }
 
-    sendSigningAlerts(contract, signedName.trim()).catch(() => {})
-    sendClientWelcomeEmail(contract, signedName.trim()).catch(() => {})
+    // Awaited, not fire-and-forget: Vercel can freeze the function the moment
+    // the response is sent, so un-awaited work after it may simply never run.
+    // allSettled so a failed alert never turns a recorded signature into an error.
+    const results = await Promise.allSettled([
+      sendSigningAlerts(contract, signedName.trim()),
+      sendClientWelcomeEmail(contract, signedName.trim()),
+    ])
+    for (const r of results) if (r.status === 'rejected') console.error(r.reason?.message || r.reason)
 
-    return res.status(200).json({ success: true, signedAt: new Date().toISOString() })
+    return res.status(200).json({ success: true, signedAt })
   }
 
   return res.status(405).json({ error: "Method not allowed." });

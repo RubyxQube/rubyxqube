@@ -21,8 +21,8 @@ export default function Caldwell() {
       <Helmet>
         <title>Web Design for Caldwell, Idaho Businesses | RubyxQube</title>
         <meta name="description" content="Custom websites and digital receptionists for Caldwell, Idaho small businesses. Canyon County web design with 24/7 smart lead capture. Starting at $499/mo, no setup fee." />
-        <meta property="og:title" content="Web Design for Caldwell, Idaho Businesses. RubyxQube" />
-        <meta property="og:description" content="Custom websites with smart lead capture for Caldwell, ID businesses. No setup fee, month-to-month." />
+        <meta property="og:title" content="Web Design for Caldwell, Idaho Businesses | RubyxQube" />
+        <meta property="og:description" content="Custom websites with smart lead capture for Caldwell, ID businesses. No setup fee, month-to-month after 6 months." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/web-design-caldwell" />
         <link rel="canonical" href={`${siteConfig.siteUrl}/web-design-caldwell`} />
@@ -46,7 +46,7 @@ export default function Caldwell() {
           <div className="hr" style={{ marginTop: 44 }} />
           <div className="grid cols-4">
             <div className="kpi"><strong>1–2 week launch</strong><span>From kickoff call to live site</span></div>
-            <div className="kpi"><strong>No setup fee</strong><span>Month-to-month, cancel anytime</span></div>
+            <div className="kpi"><strong>No setup fee</strong><span>6-month minimum, then month-to-month</span></div>
             <div className="kpi"><strong>24/7 coverage</strong><span>Leads captured nights and weekends</span></div>
             <div className="kpi"><strong>Ranks faster here</strong><span>Lower competition than Boise or Meridian</span></div>
           </div>
@@ -107,8 +107,8 @@ export default function Caldwell() {
           <div className="card cardHighlight" style={{ display: "flex", flexWrap: "wrap", gap: 28, alignItems: "center", justifyContent: "space-between" }}>
             <div style={{ flex: "1 1 280px" }}>
               <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot, $499/mo, no setup fee</p>
-              <h3 className="h3" style={{ marginBottom: 10 }}>Custom site + digital receptionist + monthly reports. No contract.</h3>
-              <p className="p" style={{ marginBottom: 0 }}>Same pricing whether you're in Caldwell or Boise. No commitments, month-to-month from day one.</p>
+              <h3 className="h3" style={{ marginBottom: 10 }}>Custom site + digital receptionist + monthly reports. No setup fee.</h3>
+              <p className="p" style={{ marginBottom: 0 }}>Same pricing whether you're in Caldwell or Boise. A 6-month minimum, then month-to-month with 30 days notice.</p>
             </div>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", flexShrink: 0 }}>
               <Link className="btn primary" to="/contact">Get Started</Link>

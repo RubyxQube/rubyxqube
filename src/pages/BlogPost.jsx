@@ -30,7 +30,7 @@ export default function BlogPost() {
             future-dated, so this is the live response for every scheduled
             post's URL until its date arrives. */}
         <Helmet>
-          <title>Post not found. RubyxQube Blog</title>
+          <title>Post not found | RubyxQube Blog</title>
           <meta name="robots" content="noindex, follow" />
         </Helmet>
         <section className="surface heroSurface">
@@ -51,10 +51,10 @@ export default function BlogPost() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>{title}. RubyxQube Blog</title>
+        <title>{title} | RubyxQube Blog</title>
         <meta name="description" content={description} />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={`${title}. RubyxQube`} />
+        <meta property="og:title" content={`${title} | RubyxQube`} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={coverImage ? `${siteConfig.siteUrl}${coverImage}` : `${siteConfig.siteUrl}/og-default.png`} />
         <meta property="og:url" content={`${siteConfig.siteUrl}/blog/${slug}`} />

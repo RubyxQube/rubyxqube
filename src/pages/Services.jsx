@@ -32,9 +32,9 @@ export default function Services() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Web Design Services. RubyxQube | Treasure Valley</title>
+        <title>Web Design Services | RubyxQube | Treasure Valley</title>
         <meta name="description" content="Custom websites, digital receptionist chatbots, Google Business Profile management, and local SEO for Treasure Valley small businesses." />
-        <meta property="og:title" content="Web Design Services. RubyxQube | Treasure Valley" />
+        <meta property="og:title" content="Web Design Services | RubyxQube | Treasure Valley" />
         <meta property="og:description" content="Custom websites, digital receptionist chatbots, Google Business Profile management, and local SEO for Treasure Valley small businesses." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/services" />

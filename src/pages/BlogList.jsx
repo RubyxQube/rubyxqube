@@ -16,7 +16,7 @@ export default function BlogList() {
       <Helmet>
         <title>Blog. Web Design & AI Insights for Boise Businesses | RubyxQube</title>
         <meta name="description" content="Web design advice, AI tools, and lead generation insights for Treasure Valley small businesses. Written by RubyxQube. Boise's AI-first web agency." />
-        <meta property="og:title" content="Blog. RubyxQube | Boise Web Design & AI Insights" />
+        <meta property="og:title" content="Blog | RubyxQube | Boise Web Design & AI Insights" />
         <meta property="og:description" content="Web design advice, AI tools, and lead generation insights for Treasure Valley small businesses." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/blog" />

@@ -139,9 +139,9 @@ export default function HowItWorks() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>How It Works. RubyxQube | Simple Web Design Process</title>
+        <title>How It Works | RubyxQube | Simple Web Design Process</title>
         <meta name="description" content="See exactly how RubyxQube builds and manages your website - from first call to launch and beyond. Transparent process, no surprises." />
-        <meta property="og:title" content="How It Works. RubyxQube | Simple Web Design Process" />
+        <meta property="og:title" content="How It Works | RubyxQube | Simple Web Design Process" />
         <meta property="og:description" content="See exactly how RubyxQube builds and manages your website - from first call to launch and beyond. Transparent process, no surprises." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/how-it-works" />

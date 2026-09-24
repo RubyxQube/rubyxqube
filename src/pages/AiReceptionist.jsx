@@ -138,9 +138,9 @@ export default function AiReceptionist() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Digital Receptionist for Small Businesses. RubyxQube | Boise, ID</title>
+        <title>Digital Receptionist for Small Businesses | RubyxQube | Boise, ID</title>
         <meta name="description" content="24/7 digital receptionist for Treasure Valley businesses. Captures leads, answers questions, and sends instant alerts. Powered by Claude. Included in Autopilot from $499/mo." />
-        <meta property="og:title" content="Digital Receptionist for Small Businesses. RubyxQube" />
+        <meta property="og:title" content="Digital Receptionist for Small Businesses | RubyxQube" />
         <meta property="og:description" content="24/7 digital receptionist that captures leads, answers questions, and sends instant SMS alerts. Included in every Autopilot & Momentum plan." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/ai-receptionist" />

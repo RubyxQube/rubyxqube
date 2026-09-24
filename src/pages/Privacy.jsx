@@ -6,9 +6,9 @@ export default function Privacy() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Privacy Policy. RubyxQube | Web Design & AI Services</title>
+        <title>Privacy Policy | RubyxQube | Web Design & AI Services</title>
         <meta name="description" content="RubyxQube's privacy policy. Learn how we collect, use, and protect your information when you use our web design and AI receptionist services." />
-        <meta property="og:title" content="Privacy Policy. RubyxQube" />
+        <meta property="og:title" content="Privacy Policy | RubyxQube" />
         <meta property="og:description" content="RubyxQube's privacy policy. Learn how we collect, use, and protect your information when you use our web design and AI receptionist services." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/privacy" />

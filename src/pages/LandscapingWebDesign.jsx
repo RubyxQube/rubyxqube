@@ -21,7 +21,7 @@ export default function LandscapingWebDesign() {
       <Helmet>
         <title>Landscaping Web Design. Boise, Idaho | RubyxQube</title>
         <meta name="description" content="Custom websites for landscaping companies in Boise and the Treasure Valley. Portfolio galleries, smart lead capture, seasonal SEO. Starting at $499/mo, no setup fee." />
-        <meta property="og:title" content="Landscaping Web Design Boise Idaho. RubyxQube" />
+        <meta property="og:title" content="Landscaping Web Design Boise Idaho | RubyxQube" />
         <meta property="og:description" content="Custom websites with portfolio galleries and smart lead capture for Treasure Valley landscaping companies." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/web-design-landscaping" />
@@ -46,7 +46,7 @@ export default function LandscapingWebDesign() {
           <div className="hr" style={{ marginTop: 44 }} />
           <div className="grid cols-4">
             <div className="kpi"><strong>1–2 week launch</strong><span>From kickoff call to live site</span></div>
-            <div className="kpi"><strong>No setup fee</strong><span>Month-to-month, cancel anytime</span></div>
+            <div className="kpi"><strong>No setup fee</strong><span>6-month minimum, then month-to-month</span></div>
             <div className="kpi"><strong>24/7 coverage</strong><span>Leads captured nights and weekends</span></div>
             <div className="kpi"><strong>Seasonal SEO</strong><span>Seasonal keywords built into every page</span></div>
           </div>
@@ -111,8 +111,8 @@ export default function LandscapingWebDesign() {
           <div className="card cardHighlight" style={{ display: "flex", flexWrap: "wrap", gap: 28, alignItems: "center", justifyContent: "space-between" }}>
             <div style={{ flex: "1 1 280px" }}>
               <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot, $499/mo, no setup fee</p>
-              <h3 className="h3" style={{ marginBottom: 10 }}>Custom landscaping site + digital receptionist + monthly reports. No contract.</h3>
-              <p className="p" style={{ marginBottom: 0 }}>Built for your business, launched fast, and managed month-to-month. Cancel anytime.</p>
+              <h3 className="h3" style={{ marginBottom: 10 }}>Custom landscaping site + digital receptionist + monthly reports. No setup fee.</h3>
+              <p className="p" style={{ marginBottom: 0 }}>Built for your business, launched fast, and managed month-to-month after a 6-month minimum.</p>
             </div>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", flexShrink: 0 }}>
               <Link className="btn primary" to="/contact">Get Started</Link>

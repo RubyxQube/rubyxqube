@@ -569,9 +569,9 @@ export default function Designs() {
   return (
     <>
       <Helmet>
-        <title>Pick Your Style. RubyxQube | Web Design Styles for Local Businesses</title>
+        <title>Pick Your Style | RubyxQube | Web Design Styles for Local Businesses</title>
         <meta name="description" content="Browse web design styles and find the look that fits your business. RubyxQube builds custom sites for Treasure Valley service businesses." />
-        <meta property="og:title" content="Pick Your Style. RubyxQube | Web Design Styles for Local Businesses" />
+        <meta property="og:title" content="Pick Your Style | RubyxQube | Web Design Styles for Local Businesses" />
         <meta property="og:description" content="Browse web design styles and find the look that fits your business. RubyxQube builds custom sites for Treasure Valley service businesses." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/designs" />

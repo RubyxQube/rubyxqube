@@ -91,9 +91,9 @@ export default function Portfolio() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Portfolio. RubyxQube | Web Design for Trade Businesses</title>
+        <title>Portfolio | RubyxQube | Web Design for Trade Businesses</title>
         <meta name="description" content="Web design and digital receptionists built for Treasure Valley trade businesses: HVAC, cleaning, stone fabrication, and more. Real sites, built from scratch." />
-        <meta property="og:title" content="Portfolio. RubyxQube | Web Design for Trade Businesses" />
+        <meta property="og:title" content="Portfolio | RubyxQube | Web Design for Trade Businesses" />
         <meta property="og:description" content="Web design and digital receptionists built for Treasure Valley trade businesses: HVAC, cleaning, stone fabrication, and more. Real sites, built from scratch." />
         <meta property="og:image" content="https://rubyxqube.com/portfolio/psw-preview.webp" />
         <meta property="og:url" content="https://rubyxqube.com/portfolio" />

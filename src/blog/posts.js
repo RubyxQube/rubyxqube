@@ -1,7 +1,6 @@
 import BoiseWebsiteCost from "./posts/boise-website-cost.jsx";
 import AiChatbotVsAnswering from "./posts/ai-chatbot-vs-answering.jsx";
 import HvacLeadCapture from "./posts/hvac-lead-capture.jsx";
-import WixRebuildSudz from "./posts/wix-rebuild-sudz.jsx";
 import BoisePlumbingWebsiteMobile from "./posts/boise-plumbing-website-mobile.jsx";
 import GoogleBusinessProfileTreasureValley from "./posts/google-business-profile-treasure-valley.jsx";
 import LocalSeoBoise from "./posts/local-seo-boise-service-businesses.jsx";
@@ -44,7 +43,6 @@ const components = {
   "how-much-does-a-website-cost-boise-idaho": BoiseWebsiteCost,
   "ai-chatbot-vs-answering-service-boise-contractors": AiChatbotVsAnswering,
   "boise-hvac-companies-24-7-lead-capture": HvacLeadCapture,
-  "from-wix-to-custom-boise-window-cleaning": WixRebuildSudz,
   "boise-plumbing-website-mobile": BoisePlumbingWebsiteMobile,
   "google-business-profile-treasure-valley-contractors": GoogleBusinessProfileTreasureValley,
   "local-seo-boise-service-businesses": LocalSeoBoise,

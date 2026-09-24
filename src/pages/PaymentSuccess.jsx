@@ -8,7 +8,7 @@ export default function PaymentSuccess() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Payment Confirmed. RubyxQube</title>
+        <title>Payment Confirmed | RubyxQube</title>
         <meta name="robots" content="noindex" />
       </Helmet>
 

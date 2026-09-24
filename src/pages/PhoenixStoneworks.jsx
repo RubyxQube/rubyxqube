@@ -50,9 +50,9 @@ export default function PhoenixStoneworks() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Phoenix Stoneworks Case Study. RubyxQube | Custom Web Platform for a Boise Countertop Fabricator</title>
+        <title>Phoenix Stoneworks Case Study | RubyxQube | Custom Web Platform for a Boise Countertop Fabricator</title>
         <meta name="description" content="How RubyxQube built a custom web platform for Phoenix Stoneworks, a Boise stone countertop fabricator: instant quote calculator, wholesale partner tools, 3D walkthrough, and a digital receptionist that captures leads around the clock." />
-        <meta property="og:title" content="Phoenix Stoneworks Case Study. RubyxQube" />
+        <meta property="og:title" content="Phoenix Stoneworks Case Study | RubyxQube" />
         <meta property="og:description" content="Custom web platform for a Boise stone countertop fabricator: quote calculator, wholesale partner tools, 3D walkthrough, digital receptionist." />
         <meta property="og:image" content="https://rubyxqube.com/portfolio/psw-preview.webp" />
         <meta property="og:url" content="https://rubyxqube.com/work/phoenix-stoneworks" />

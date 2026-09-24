@@ -6,9 +6,9 @@ export default function Terms() {
   return (
     <div className="pageMinHeight">
       <Helmet>
-        <title>Terms of Service. RubyxQube | Web Design & AI Services</title>
+        <title>Terms of Service | RubyxQube | Web Design & AI Services</title>
         <meta name="description" content="RubyxQube's terms of service. Covers service agreements, payment terms, SMS notifications, and client responsibilities for web design and AI receptionist services." />
-        <meta property="og:title" content="Terms of Service. RubyxQube" />
+        <meta property="og:title" content="Terms of Service | RubyxQube" />
         <meta property="og:description" content="RubyxQube's terms of service for web design and AI receptionist services in the Treasure Valley." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/terms" />

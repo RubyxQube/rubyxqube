@@ -21,7 +21,7 @@ export default function DentalWebDesign() {
       <Helmet>
         <title>Dental Web Design. Boise, Idaho | RubyxQube</title>
         <meta name="description" content="Custom websites for dental practices in Boise and the Treasure Valley. New patient conversion, digital receptionist, insurance FAQ, appointment booking. Starting at $499/mo." />
-        <meta property="og:title" content="Dental Web Design Boise Idaho. RubyxQube" />
+        <meta property="og:title" content="Dental Web Design Boise Idaho | RubyxQube" />
         <meta property="og:description" content="Custom dental websites with smart lead capture, insurance FAQ, and new patient conversion. Treasure Valley dental practices." />
         <meta property="og:image" content="https://rubyxqube.com/og-default.png" />
         <meta property="og:url" content="https://rubyxqube.com/web-design-dental" />
@@ -46,7 +46,7 @@ export default function DentalWebDesign() {
           <div className="hr" style={{ marginTop: 44 }} />
           <div className="grid cols-4">
             <div className="kpi"><strong>1–2 week launch</strong><span>From kickoff call to live site</span></div>
-            <div className="kpi"><strong>No setup fee</strong><span>Month-to-month, cancel anytime</span></div>
+            <div className="kpi"><strong>No setup fee</strong><span>6-month minimum, then month-to-month</span></div>
             <div className="kpi"><strong>24/7 coverage</strong><span>Insurance questions answered after hours</span></div>
             <div className="kpi"><strong>HIPAA-aware</strong><span>Designed to stay on the right side</span></div>
           </div>
@@ -111,8 +111,8 @@ export default function DentalWebDesign() {
           <div className="card cardHighlight" style={{ display: "flex", flexWrap: "wrap", gap: 28, alignItems: "center", justifyContent: "space-between" }}>
             <div style={{ flex: "1 1 280px" }}>
               <p style={{ fontSize: 12, fontWeight: 700, color: "#fb7185", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>Autopilot, $499/mo, no setup fee</p>
-              <h3 className="h3" style={{ marginBottom: 10 }}>Custom dental site + digital receptionist + monthly reports. No contract.</h3>
-              <p className="p" style={{ marginBottom: 0 }}>Built to convert new patient searches. Managed month-to-month, no annual commitment required.</p>
+              <h3 className="h3" style={{ marginBottom: 10 }}>Custom dental site + digital receptionist + monthly reports. No setup fee.</h3>
+              <p className="p" style={{ marginBottom: 0 }}>Built to convert new patient searches. No annual commitment: a 6-month minimum, then month-to-month.</p>
             </div>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", flexShrink: 0 }}>
               <Link className="btn primary" to="/contact">Get Started</Link>

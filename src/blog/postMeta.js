@@ -61,19 +61,8 @@ export const postMeta = [
     coverImage: "/blog/hvac-leads.webp",
     coverAlt: "HVAC technician responding to an after-hours call in Boise",
   },
-  {
-    slug: "from-wix-to-custom-boise-window-cleaning",
-    title: "From Wix to Custom: What a Boise Window Cleaning Company Gained by Rebuilding Their Site",
-    description: "When Sudz Window & Gutter outgrew their Wix site, we rebuilt it on a custom React stack with an AI receptionist. Here's what changed, and what it means for other Boise service businesses still on DIY platforms.",
-    date: "2026-06-11",
-    dateDisplay: "June 11, 2026",
-    readTime: "5 min read",
-    category: "Case Study",
-    coverImage: "/blog/wix-to-custom.webp",
-    coverAlt: "Before and after comparison of Sudz Window Cleaning website redesign",
-  },
 
-  // ── Scheduled — one per Monday ──
+  // ── Scheduled, one per Monday ──
   {
     slug: "boise-plumbing-website-mobile",
     title: "Does Your Boise Plumbing Website Work on a Phone? Here's How to Check",

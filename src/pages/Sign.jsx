@@ -244,7 +244,7 @@ export default function Sign() {
       color: "#111827",
     }}>
       <Helmet>
-        <title>Sign Agreement. RubyxQube</title>
+        <title>Sign Agreement | RubyxQube</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       {/* Header */}
